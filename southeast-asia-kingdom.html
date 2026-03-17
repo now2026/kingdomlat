@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Kingdom of Southeast Asia · مملكة جنوب شرق آسيا</title>
+    <style>
+        :root {
+            --deep-navy: #1a2b4a;
+            --pure-black: #111111;
+            --soft-white: #f9f7f5;
+            --light-gray: #e8e6e4;
+            --golden: #b89b5e;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', 'Inter', sans-serif;
+            background-color: var(--soft-white);
+            color: var(--pure-black);
+            line-height: 1.8;
+            padding: 2rem 1rem;
+        }
+        
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px -20px rgba(26, 43, 74, 0.3);
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--deep-navy);
+            text-decoration: none;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            color: var(--deep-navy);
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            border-bottom: 2px dashed var(--deep-navy);
+            padding-bottom: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .intro-box {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: 50px;
+            margin-bottom: 3rem;
+            border-left: 6px solid var(--golden);
+            font-size: 1.2rem;
+        }
+        
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .country-card {
+            border: 1px solid var(--light-gray);
+            border-radius: 30px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .country-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--golden);
+            box-shadow: 0 15px 30px rgba(26, 43, 74, 0.1);
+        }
+        
+        .country-card h3 {
+            font-size: 2rem;
+            color: var(--deep-navy);
+            margin-bottom: 0.5rem;
+        }
+        
+        .country-flag {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .unity-section {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #2c3e6e 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 50px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .unity-section h2 {
+            color: white;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-note {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px dashed var(--deep-navy);
+        }
+        
+        @media (max-width: 600px) {
+            .page { padding: 1.5rem; }
+            h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <a href="index.html" class="back-link">← Back to Kingdoms</a>
+        
+        <h1>🌏 The Kingdom of Southeast Asia</h1>
+        <div class="subtitle">Where rivers meet seas, and ancient souls dance with modernity</div>
+        
+        <!-- Introduction -->
+        <div class="intro-box">
+            <p>✨ <strong>Not one culture, but a symphony of cultures.</strong> Southeast Asia is the crossroads of the world — where Indian temples meet Chinese dragons, where Islamic mosques stand beside Buddhist stupas, where colonial history mingles with indigenous wisdom. Six nations, countless stories, one harmonious kingdom.</p>
+        </div>
+        
+        <!-- The Six Nations -->
+        <h2 style="color: var(--deep-navy); font-size: 2rem;">The Six Jewels</h2>
+        <div class="countries-grid">
+            <!-- Thailand -->
+            <div class="country-card">
+                <div class="country-flag">🇹🇭</div>
+                <h3>Thailand</h3>
+                <p><strong>The Land of Smiles</strong></p>
+                <p>Where Buddhism breathes in golden temples, and floating markets glide on ancient rivers. The only nation in Southeast Asia never colonized — proud, graceful, eternal.</p>
+                <div style="font-style: italic; color: var(--deep-navy); margin-top: 1rem;">"ไทย · Land of the Free"</div>
+            </div>
+            
+            <!-- Indonesia -->
+            <div class="country-card">
+                <div class="country-flag">🇮🇩</div>
+                <h3>Indonesia</h3>
+                <p><strong>The Emerald of the Equator</strong></p>
+                <p>17,000 islands, 700 languages, one soul. From the Buddhist majesty of Borobudur to the Hindu mystique of Bali, from Islamic Aceh to tribal Papua — unity in diversity itself.</p>
+                <div style="font-style: italic; color: var(--deep-navy); margin-top: 1rem;">"Bhinneka Tunggal Ika · Unity in Diversity"</div>
+            </div>
+            
+            <!-- Malaysia -->
+            <div class="country-card">
+                <div class="country-flag">🇲🇾</div>
+                <h3>Malaysia</h3>
+                <p><strong>Truly Asia</strong></p>
+                <p>Where Malay, Chinese and Indian cultures weave a single fabric. Petronas towers touch the sky, while rainforests guard secrets millions of years old. A modern miracle of harmony.</p>
+                <div style="font-style: italic; color: var(--deep-navy); margin-top: 1rem;">"Malaysia Truly Asia"</div>
+            </div>
+            
+            <!-- Singapore -->
+            <div class="country-card">
+                <div class="country-flag">🇸🇬</div>
+                <h3>Singapore</h3>
+                <p><strong>The Lion City</strong></p>
+                <p>A garden in the ocean. Four languages, four cultures, one people. From hawker centers to high finance, it proves that diversity is not weakness — it is the highest strength.</p>
+                <div style="font-style: italic; color: var(--deep-navy); margin-top: 1rem;">"Majulah Singapura · Onward Singapore"</div>
+            </div>
+            
+            <!-- Vietnam -->
+            <div class="country-card">
+                <div class="country-flag">🇻🇳</div>
+                <h3>Vietnam</h3>
+                <p><strong>The Dragon's Legacy</strong></p>
+                <p>A thousand years of resilience. Rice terraces touching clouds, conical hats in morning mist, and a spirit that bent empires but never broke. The soul of endurance.</p>
+                <div style="font-style: italic; color: var(--deep-navy); margin-top: 1rem;">"Việt Nam · Độc lập - Tự do - Hạnh phúc"</div>
+            </div>
+            
+            <!-- Philippines (optional, but beautiful to include) -->
+            <div class="country-card">
+                <div class="country-flag">🇵🇭</div>
+                <h3>Philippines</h3>
+                <p><strong>The Pearl of the Orient</strong></p>
+                <p>7,000 islands of smile. Malay soul wrapped in Spanish name, American influence, and Asian heart. The jeepney, the bayanihan, the laughter — resilience made joyful.</p>
+                <div style="font-style: italic; color: var(--deep-navy); margin-top: 1rem;">"Mabuhay · Long Live"</div>
+            </div>
+        </div>
+        
+        <!-- Unity Section - The Heart of Your Message -->
+        <div class="unity-section">
+            <h2>🕊️ One Kingdom, Many Voices</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">These nations were shaped by the same forces: the monsoon winds that brought traders, the seas that connected rather than divided, the wisdom that absorbed rather than rejected.</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; font-size: 2rem;">
+                <span>🇹🇭</span> <span>🇮🇩</span> <span>🇲🇾</span> <span>🇸🇬</span> <span>🇻🇳</span> <span>🇵🇭</span>
+            </div>
+            <p style="margin-top: 2rem; font-style: italic;">"Southeast Asia does not erase differences — it celebrates them. Like a garden where every flower blooms in its own color."</p>
+        </div>
+        
+        <!-- The Common Threads -->
+        <h2 style="color: var(--deep-navy);">The Golden Threads That Bind</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
+            <div style="background: var(--soft-white); padding: 1.5rem; border-radius: 24px;">
+                <div style="font-size: 2rem;">🌾</div>
+                <h3 style="color: var(--deep-navy);">Rice</h3>
+                <p>The sacred grain. From Thai jasmine rice to Vietnamese pho, from Indonesian nasi goreng to Malaysian nasi lemak — rice is more than food, it is life.</p>
+            </div>
+            <div style="background: var(--soft-white); padding: 1.5rem; border-radius: 24px;">
+                <div style="font-size: 2rem;">🙏</div>
+                <h3 style="color: var(--deep-navy);">Respect</h3>
+                <p>The wai in Thailand, the sembah in Indonesia, the mano po in Philippines — a thousand gestures, one meaning: "I see you, I honor you."</p>
+            </div>
+            <div style="background: var(--soft-white); padding: 1.5rem; border-radius: 24px;">
+                <div style="font-size: 2rem;">🚤</div>
+                <h3 style="color: var(--deep-navy);">Water</h3>
+                <p>Rivers, seas, floating markets, water puppets, songkran festivals. Water is not a barrier here — it is the highway, the healer, the home.</p>
+            </div>
+        </div>
+        
+        <!-- Your Signature Message -->
+        <div class="footer-note">
+            <p style="font-size: 1.5rem; color: var(--deep-navy);">🌏 Interested in the cultures of Southeast Asia</p>
+            <p style="margin: 1rem 0;">Thailand · Indonesia · Malaysia · Singapore · Vietnam · Philippines</p>
+            <p style="font-style: italic;">One kingdom, one family, one hope: that the world learns from our harmony.</p>
+            <p style="margin-top: 2rem; font-size: 0.9rem;">🙏 เอเชียตะวันออกเฉียงใต้ · Asia Tenggara · Đông Nam Á · 东南亚 · தென்கிழக்கு ஆசியா</p>
+        </div>
+    </div>
+</body>
+</html>
