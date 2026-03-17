@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>📖 Tales Kingdom · kingdom.lat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #0a0a0a;
+            color: #e0e0e0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #111;
+            border-radius: 30px;
+            padding: 2.5rem;
+            border: 1px solid #333;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.2rem;
+            color: #ffd966;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: #aaa;
+            border-bottom: 2px solid #333;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .realm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin: 2.5rem 0;
+        }
+        .realm-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .realm-card:hover {
+            border-color: #ffd966;
+            transform: translateY(-4px);
+        }
+        .realm-card a {
+            color: #ffd966;
+            text-decoration: none;
+            font-size: 2rem;
+            display: block;
+        }
+        .realm-card .realm-name {
+            font-size: 1.1rem;
+            margin-top: 0.6rem;
+            color: #ccc;
+        }
+        .footer {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📖 Tales Kingdom</h1>
+        <div class="subtitle">8 realms await your stories</div>
+
+        <div class="realm-grid">
+            <!-- 1. Anime Kingdom -->
+            <div class="realm-card">
+                <a href="anime.html">🎌</a>
+                <div class="realm-name">Anime Kingdom</div>
+            </div>
+            <!-- 2. Myths Kingdom -->
+            <div class="realm-card">
+                <a href="myths.html">📜</a>
+                <div class="realm-name">Myths Kingdom</div>
+            </div>
+            <!-- 3. Stories Kingdom -->
+            <div class="realm-card">
+                <a href="stories.html">📖</a>
+                <div class="realm-name">Stories Kingdom</div>
+            </div>
+            <!-- 4. Narrative Kingdom -->
+            <div class="realm-card">
+                <a href="narrative.html">🎭</a>
+                <div class="realm-name">Narrative Kingdom</div>
+            </div>
+            <!-- 5. Ink Kingdom -->
+            <div class="realm-card">
+                <a href="ink.html">🖋️</a>
+                <div class="realm-name">Ink Kingdom</div>
+                </div>
+            <!-- 6. Garden Kingdom -->
+            <div class="realm-card">
+                <a href="garden.html">🌲🌳</a>
+                <div class="realm-name">Ink Kingdom</div>
+            </div>
+            <!-- 7. Modern Myths Kingdom -->
+            <div class="realm-card">
+                <a href="modern-myths.html">🌟</a>
+                <div class="realm-name">Modern Myths Kingdom</div>
+            </div>
+            <!-- 8. Fantasy Kingdom -->
+            <div class="realm-card">
+                <a href="fantasy.html">✨</a>
+                <div class="realm-name">Fantasy Kingdom</div>
+            </div>
+        </div>
+
+        <div style="background: #1a1a1a; border-radius: 20px; padding: 1.5rem; margin: 2rem 0;">
+            <p style="color: #ffd966; font-size: 1.3rem;">🌙 The Narrative Whisper</p>
+            <p style="color: #ccc;">"Anime is the mythology of our age, ink is the blood of manga, and narrative is the soul of every story."</p>
+        </div>
+
+        <div class="footer">
+            <p>Each realm is a door to a story.. choose your gateway</p>
+            <p>⏱️ Last updated: March 17, 2026 · 10:23 UTC</p>
+            <p style="margin-top:1rem;">© kingdom.lat — realms without borders</p>
+        </div>
+    </div>
+</body>
+</html>
