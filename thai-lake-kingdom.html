@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lake Kingdom of Thailand ·🇹🇭🤍</title>
+    <style>
+        /* Colors: Deep Navy, White, Thai Flag Colors */
+        :root {
+            --deep-navy: #1a2b4a;      /* الكحلي الغامق */
+            --pure-black: #111111;
+            --soft-white: #f9f7f5;
+            --light-gray: #e8e6e4;
+            --thai-red: #a51931;       /* أحمر تايلند الغامق */
+            --thai-blue: #2d2a4a;       /* أزرق تايلند الغامق */
+            --thai-white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Inter', -apple-system, sans-serif;
+            background-color: var(--soft-white);
+            color: var(--pure-black);
+            line-height: 1.8;
+            padding: 2rem 1rem;
+        }
+        
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 20px 40px -20px rgba(26, 43, 74, 0.3);
+            border-radius: 32px;
+            padding: 3rem;
+            position: relative;
+        }
+        
+        /* 🎁 هدية الزاوية - دعوة صادقة بالكحلي */
+        .corner-gift {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--deep-navy);
+            color: var(--thai-white);
+            padding: 12px 18px;
+            border-radius: 50px 50px 50px 0;
+            font-size: 0.95rem;
+            font-style: italic;
+            box-shadow: 0 5px 15px rgba(26, 43, 74, 0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+            max-width: 250px;
+            z-index: 10;
+        }
+        
+        .corner-gift span {
+            font-size: 1.1rem;
+            margin-left: 5px;
+        }
+        
+        /* شريط ألوان العلم التايلندي */
+        .flag-stripes {
+            position: absolute;
+            top: 0;
+            right: 30px;
+            width: 60px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+            z-index: 10;
+        }
+        
+        .stripe-red-1 {
+            height: 40px;
+            background-color: var(--thai-red);
+            width: 100%;
+        }
+        
+        .stripe-white-1 {
+            height: 40px;
+            background-color: var(--thai-white);
+            width: 100%;
+        }
+        
+        .stripe-blue {
+            height: 40px;
+            background-color: var(--thai-blue);
+            width: 100%;
+        }
+        
+        .stripe-white-2 {
+            height: 40px;
+            background-color: var(--thai-white);
+            width: 100%;
+        }
+        
+        .stripe-red-2 {
+            height: 40px;
+            background-color: var(--thai-red);
+            width: 100%;
+        }
+        
+        /* تحسين رابط العودة */
+        .back-links {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .back-link {
+            color: var(--deep-navy);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            padding: 4px 0;
+        }
+        
+        .back-link:hover {
+            border-bottom-color: var(--deep-navy);
+            color: var(--thai-red);
+        }
+        
+        .back-link.lakes {
+            background-color: var(--light-gray);
+            padding: 4px 16px;
+            border-radius: 30px;
+            border-bottom: none;
+        }
+        
+        .back-link.lakes:hover {
+            background-color: var(--deep-navy);
+            color: white;
+        }
+        
+        /* عنوان الصفحة بالكحلي */
+        h1 {
+            font-size: 3rem;
+            color: var(--deep-navy);
+            margin: 0.5rem 0 0.5rem;
+            padding-top: 10px;
+        }
+        
+        /* العبارات الترويسية */
+        .wish-strip {
+            background-color: var(--thai-red);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 60px;
+            margin: 20px 0 30px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 500;
+            box-shadow: 0 5px 0 #7a0f25;
+            border: 1px solid #ffcdb2;
+        }
+        
+        .wish-strip i {
+            font-style: italic;
+            font-weight: 400;
+        }
+        
+        .wish-strip .elephant {
+            font-size: 1.5rem;
+            margin: 0 8px;
+            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+        }
+        
+        /* باقي الأنماط محسنة بالألوان الجديدة */
+        h2, h3, h4 {
+            color: var(--deep-navy);
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            border-left: 6px solid var(--thai-red);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem;
+        }
+        
+        .quote-box {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 30px;
+            margin: 2rem 0;
+            font-size: 1.3rem;
+            font-style: italic;
+            text-align: center;
+            border-left: 6px solid var(--thai-red);
+            color: var(--deep-navy);
+        }
+        
+        .cultural-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .cultural-item {
+            background: var(--soft-white);
+            padding: 1.5rem;
+            border-radius: 24px;
+            border: 1px solid var(--light-gray);
+            border-top: 4px solid var(--deep-navy);
+        }
+        
+        .cultural-item h4 {
+            font-size: 1.4rem;
+            color: var(--thai-red);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .peace-message {
+            background: linear-gradient(135deg, var(--deep-navy) 0%, #2c3e6e 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 50px;
+            margin: 3rem 0;
+            text-align: center;
+            border-right: 8px solid var(--thai-red);
+        }
+        
+        .footer-note {
+            margin-top: 3rem;
+            padding: 2rem;
+            text-align: center;
+            border-top: 2px dashed var(--deep-navy);
+            font-size: 1.1rem;
+            background-color: var(--light-gray);
+            border-radius: 40px 40px 0 0;
+        }
+        
+        @media (max-width: 600px) {
+            .page { padding: 1.5rem; }
+            h1 { font-size: 2.2rem; }
+            .cultural-grid { grid-template-columns: 1fr; }
+            .flag-stripes { width: 40px; height: 160px; right: 15px; }
+            .stripe-red-1, .stripe-red-2, .stripe-white-1, .stripe-white-2, .stripe-blue { height: 32px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 🎁 هدية الزاوية - دعوة صادقة بالكحلي -->
+        <div class="corner-gift">
+            <span>🙏</span> May this kingdom flourish in peace, harmony, and goodness for all years to come
+        </div>
+        
+        <!-- شريط ألوان العلم التايلندي (أحمر-أبيض-أزرق-أبيض-أحمر) -->
+        <div class="flag-stripes">
+            <div class="stripe-red-1" title="Thai Red"></div>
+            <div class="stripe-white-1" title="Thai White"></div>
+            <div class="stripe-blue" title="Thai Blue"></div>
+            <div class="stripe-white-2" title="Thai White"></div>
+            <div class="stripe-red-2" title="Thai Red"></div>
+        </div>
+        
+        <!-- روابط العودة المحسنة -->
+        <div class="back-links">
+            <a href="index.html" class="back-link">← All Kingdoms</a>
+            <a href="lakes.html" class="back-link lakes">🏞️ Kingdom of Lakes</a>
+        </div>
+        
+        <h1>🏝️ The Lake Kingdom of Thailand</h1>
+        <div style="font-size: 1.3rem; color: var(--deep-navy); margin-bottom: 0.5rem;">Where two waters meet, and two cultures embrace</div>
+        
+        <!-- 🐘 عبارة الأمنية بالرخاء - أحمر غامق/أبيض -->
+        <div class="wish-strip">
+            <span class="elephant">🐘</span> 
+            <i>With prosperity, peace, and harmony for the beloved people of Thailand</i> 
+            <span class="elephant">🐘</span>
+        </div>
+        
+        <div style="font-size: 4rem; text-align: center; margin: 1rem 0;">🛶🌊</div>
+        
+        <h2>Songkhla Lake🤍</h2>
+        <div style="color: var(--deep-navy); font-size: 1.2rem; margin-bottom: 2rem;">ทะเลสาบสงขลา · Southern Thailand</div>
+        
+        <!-- المحتوى الأصلي مع تحسينات طفيفة -->
+        <h3>The Only Lake That Embraces the Sea</h3>
+        <p>Songkhla is Thailand's only natural lake that opens directly to the Gulf of Thailand. But its uniqueness is not just geographical — it is cultural and spiritual. The lake is actually a complex lagoon system, covering about 1,040 km², and it creates a rare phenomenon: freshwater from rivers meets saltwater from the sea in a slow, harmonious dance.</p>
+        <p>This meeting of waters becomes a metaphor for something deeper. Along the shores of Songkhla, you find ancient Buddhist temples standing peacefully beside centuries-old mosques. The local population is a living tapestry: Thai Buddhists and Thai Muslims (many of Malay descent) have lived here side by side for generations, sharing the lake's resources, its stories, and its peace.</p>
+        
+        <div class="quote-box">
+            "Where freshwater meets saltwater, and Buddhism meets Islam"
+        </div>
+        
+        <div class="cultural-grid">
+            <div class="cultural-item">
+                <h4>🙏🤍 The Buddhist Soul</h4>
+                <p>Along the lake, temples like Wat Pha Kho and Wat Tham Khao Rup Chang rise on hillsides, their pagodas reflected in the water. Monks row small boats at dawn, collecting alms from lakeside villages. The lake is seen as a mirror of impermanence — calm today, stormy tomorrow — a living lesson in Buddhist philosophy.</p>
+            </div>
+            <div class="cultural-item">
+                <h4>🕌🤍 The Islamic Heart</h4>
+                <p>On the lake's southern shores, in villages like Ban Koh Yai and Koh Yo, ancient Muslim communities have thrived for centuries. Their wooden mosques stand on stilts above the water. Fishermen cast their nets after Friday prayers. The lake provides, and the community shares — values deep in Islamic tradition.</p>
+            </div>
+        </div>
+        
+        <h3>The Floating Villages</h3>
+        <p>Perhaps the most magical aspect of Songkhla is its floating villages. Houses on stilts, connected by wooden walkways, seem to float on the water. Children paddle to school. Women sell fish from their doorways. At sunset, the entire village glows golden, reflected in the still water. It is life lived in complete harmony with the lake — neither dominating it nor being dominated by it, but coexisting.</p>
+        
+        <div class="peace-message">
+            <h2 style="color: white; margin-top: 0;">☮️ A Message of Peace</h2>
+            <p style="font-size: 1.2rem;">In a world that often emphasizes division, Songkhla Lake stands as living proof that different cultures, different faiths, and different ways of life can not only coexist but enrich each other. The lake does not ask the saltwater to become fresh, nor the freshwater to become salty. It simply holds them both, and in that holding, creates a unique and beautiful ecosystem — just as Thailand holds both Buddhism and Islam, and becomes richer for it.</p>
+        </div>
+        
+        <h3>A Bridge to All Kingdoms</h3>
+        <p>Like the <a href="lakes.html#nordic" style="color: var(--thai-red); text-decoration: none; border-bottom: 1px dotted;">lakes of the Nordic countries</a> that reflect the silence of the forests, like the <a href="lakes.html#balkans" style="color: var(--thai-red); text-decoration: none; border-bottom: 1px dotted;">ancient lakes of the Balkans</a> that carry millennia of history, like the <a href="lakes.html#latin-america" style="color: var(--thai-red); text-decoration: none; border-bottom: 1px dotted;">sacred lakes of Latin America</a> where gods were born — Songkhla is a mirror of the Thai soul: open, resilient, and deeply spiritual. It invites you not just to see, but to understand.</p>
+        
+        <!-- ختام مع فيل صغير -->
+        <div class="footer-note">
+            <p style="font-size: 2rem;">🐘🙏🐘</p>
+            <p style="font-size: 1.3rem; color: var(--deep-navy);">With love and respect for the Kingdom of Thailand</p>
+            <p style="margin-top: 1rem;">ขอให้มีความสุขและความเจริญรุ่งเรือง · May there be happiness and prosperity</p>
+        </div>
+    </div>
+</body>
+</html>
