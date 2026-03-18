@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Kingdom of Lakes · 🤍🧊🔹🧊</title>
+    <style>
+        /* Colors: White, Black, Deep Navy with cultural accents */
+        :root {
+            --deep-navy: #1a2b4a;      /* الكحلي الغامق للعناوين */
+            --pure-black: #111111;
+            --soft-white: #f9f7f5;
+            --light-gray: #e8e6e4;
+            --nordic-ice: #d4e6f1;      /* لمسة نورديك خفيفة */
+            --balkan-earth: #e8d9c5;     /* لمسة بلقان دافئة */
+            --andes-gold: #f0e0b0;       /* لمسة أمريكا اللاتينية */
+            --japan-sakura: #f7d9e0;      /* لمسة يابانية خفيفة */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Inter', -apple-system, sans-serif;
+            background-color: var(--soft-white);
+            color: var(--pure-black);
+            line-height: 1.8;
+            padding: 2rem 1rem;
+        }
+        
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 20px 40px -20px rgba(26, 43, 74, 0.3);
+            border-radius: 40px;
+            padding: 3rem;
+            position: relative;
+        }
+        
+        /* رأس الصفحة مع التاريخ */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px dashed var(--deep-navy);
+            flex-wrap: wrap;
+        }
+        
+        .today-date {
+            color: var(--deep-navy);
+            font-size: 1rem;
+            font-style: italic;
+            background: var(--light-gray);
+            padding: 8px 16px;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+            border: 1px solid var(--deep-navy);
+            opacity: 0.8;
+        }
+        
+        .today-date span {
+            font-weight: 600;
+            margin-right: 5px;
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            color: var(--deep-navy);
+            margin: 0;
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            color: var(--pure-black);
+            opacity: 0.8;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        
+        /* المقدمة الشعرية */
+        .introduction {
+            background: linear-gradient(145deg, var(--light-gray) 0%, white 100%);
+            padding: 2.5rem;
+            border-radius: 60px 60px 60px 20px;
+            margin-bottom: 3rem;
+            border-left: 8px solid var(--deep-navy);
+            font-size: 1.2rem;
+            box-shadow: 0 10px 25px -15px var(--deep-navy);
+        }
+        
+        .introduction p {
+            margin-bottom: 1.2rem;
+        }
+        
+        .introduction strong {
+            color: var(--deep-navy);
+        }
+        
+        /* شبكة البحيرات */
+        .lakes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .lake-card {
+            background: white;
+            border: 1px solid var(--light-gray);
+            border-radius: 36px;
+            padding: 2rem 1.8rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(26, 43, 74, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* لمسات ثقافية خفيفة */
+        .lake-card.nordic {
+            border-top: 6px solid var(--nordic-ice);
+        }
+        .lake-card.balkan {
+            border-top: 6px solid var(--balkan-earth);
+        }
+        .lake-card.baltic {
+            border-top: 6px solid #b0c4b0;
+        }
+        .lake-card.latin {
+            border-top: 6px solid var(--andes-gold);
+        }
+        .lake-card.china {
+            border-top: 6px solid #f0c0a0;
+        }
+        .lake-card.japan {
+            border-top: 6px solid var(--japan-sakura);
+        }
+        .lake-card.thai {
+            border-top: 6px solid #a51931;
+        }
+        
+        .lake-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(26, 43, 74, 0.15);
+            border-color: var(--deep-navy);
+        }
+        
+        .lake-card h3 {
+            font-size: 2rem;
+            color: var(--deep-navy);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .lake-card h3 span {
+            font-size: 2.2rem;
+        }
+        
+        .region-tag {
+            display: inline-block;
+            background-color: var(--deep-navy);
+            color: white;
+            padding: 0.3rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            border: 1px solid var(--deep-navy);
+        }
+        
+        .lake-card p {
+            margin-bottom: 1.2rem;
+            color: var(--pure-black);
+        }
+        
+        .lake-quote {
+            font-style: italic;
+            border-left: 4px solid var(--deep-navy);
+            padding-left: 1.2rem;
+            color: #2c2c2c;
+            margin-top: 1.2rem;
+            font-size: 1rem;
+            background: var(--light-gray);
+            padding: 1rem 1.5rem;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+        
+        .lake-quote:hover {
+            background: var(--deep-navy);
+            color: white;
+        }
+        
+        /* ربط بحيرة تايلند بصفحتها */
+        .thai-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .thai-link .lake-card {
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .thai-link:hover .lake-card {
+            border-color: var(--deep-navy);
+            background: #fcf9f7;
+        }
+        
+        .thai-link .lake-card h3 span {
+            transition: transform 0.3s;
+        }
+        
+        .thai-link:hover .lake-card h3 span {
+            transform: scale(1.1);
+        }
+        
+        /* قسم الثقافات */
+        .cultures-section {
+            margin: 4rem 0 2rem;
+            padding: 2.5rem;
+            background: var(--light-gray);
+            border-radius: 80px 80px 30px 30px;
+            text-align: center;
+        }
+        
+        .cultures-title {
+            font-size: 2rem;
+            color: var(--deep-navy);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .cultures-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem 2rem;
+        }
+        
+        .culture-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--deep-navy);
+            border: 1.5px solid var(--deep-navy);
+            transition: all 0.2s;
+            box-shadow: 0 4px 10px rgba(26, 43, 74, 0.1);
+        }
+        
+        .culture-item:hover {
+            background: var(--deep-navy);
+            color: white;
+            transform: scale(1.05);
+            cursor: default;
+        }
+        
+        /* تذييل الصفحة مع الأمنية */
+        .kingdom-footer {
+            margin-top: 4rem;
+            padding: 2rem 2rem 1rem;
+            text-align: center;
+            border-top: 2px dashed var(--deep-navy);
+            position: relative;
+        }
+        
+        .wish-message {
+            font-size: 1rem;
+            color: var(--deep-navy);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            font-style: italic;
+            background: var(--light-gray);
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            border: 1px solid var(--deep-navy);
+            opacity: 0.9;
+            transition: all 0.3s;
+        }
+        
+        .wish-message:hover {
+            opacity: 1;
+            background: var(--deep-navy);
+            color: white;
+            transform: scale(1.02);
+        }
+        
+        .wish-message span {
+            font-size: 1.2rem;
+            margin: 0 5px;
+        }
+        
+        .footer-date {
+            font-size: 0.85rem;
+            color: var(--deep-navy);
+            opacity: 0.6;
+            letter-spacing: 0.5px;
+        }
+        
+        @media (max-width: 600px) {
+            .page { padding: 1.5rem; }
+            h1 { font-size: 2.4rem; }
+            .page-header { flex-direction: column; align-items: start; gap: 10px; }
+            .lake-card h3 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- رأس الصفحة مع التاريخ -->
+        <div class="page-header">
+            <h1>🏰 The Kingdom of Lakes</h1>
+            <div class="today-date">
+                <span>📅</span> March 19, 2026 · ๑๙ มีนาคม ๒๕๖٩
+            </div>
+        </div>
+        
+        <div class="subtitle">LAKES · Where silence dwells and mirrors speak</div>
+        
+        <!-- المقدمة -->
+        <div class="introduction">
+            <p>✨ <strong>Here, the kingdom is not measured by its borders on a map, but by the depth of its waters and the echo of what lies beneath.</strong></p>
+            <p>Lakes are not merely water trapped between shores. They are the Earth's eyes gazing at the sky. In their clarity, we see our own faces. In their depth, we fear what we might find. And in their stillness, we learn the greatest lesson: that true strength needs no noise.</p>
+            <p>In our Kingdom, every lake is a doorway to an entire culture. Every gentle wave tells the story of a people. And every reflection on the water's surface is a bridge between you and the soul of the world.</p>
+        </div>
+        
+        <h2 style="color: var(--deep-navy); font-size: 2.2rem; margin: 2rem 0;">🌍 Lakes.. The Mirrors of Nations</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">In every culture that lives in our heart, there is a great lake — not just water, but a temple, a myth, a memory.</p>
+        
+        <!-- شبكة البحيرات -->
+        <div class="lakes-grid">
+            <!-- Nordic: Siljar -->
+            <div class="lake-card nordic">
+                <h3><span>❄️</span> Siljar</h3>
+                <div class="region-tag">🇮🇸 Nordic · Iceland</div>
+                <p>The lake of snow mountains that never freezes, though surrounded by glaciers. The Nordic say thousands of souls beneath it keep it warm with their ancient tales.</p>
+                <div class="lake-quote">"In the frost of the North, warm water is the Viking's miracle"</div>
+            </div>
+            
+            <!-- Balkans: Ohrid -->
+            <div class="lake-card balkan">
+                <h3><span>⛰️</span> Ohrid</h3>
+                <div class="region-tag">🇲🇰 Balkans · North Macedonia</div>
+                <p>Europe's oldest lake, 4 million years old. It hosts 200 species found nowhere else on Earth. It is a living museum of evolution.</p>
+                <div class="lake-quote">"The ancients do not die; they turn into water"</div>
+            </div>
+            
+            <!-- Baltic: Peipus -->
+            <div class="lake-card baltic">
+                <h3><span>🌲</span> Peipus</h3>
+                <div class="region-tag">🇪🇪 Baltic · Estonia/Russia</div>
+                <p>The border lake. Where Estonian forests meet Russian plains. On its ice, a historic battle shaped the identity of the region.</p>
+                <div class="lake-quote">"The waters that divided nations and united legends"</div>
+            </div>
+            
+            <!-- Latin America: Titicaca -->
+            <div class="lake-card latin">
+                <h3><span>🏞️</span> Titicaca</h3>
+                <div class="region-tag">🇵🇪 Latin America · Peru/Bolivia</div>
+                <p>The highest navigable lake in the world. Legend says the Sun God Inti emerged from its depths to create humanity. Its waters are sacred.</p>
+                <div class="lake-quote">"Where the sun was born, and the waters still whisper the Andes' secrets"</div>
+            </div>
+            
+            <!-- China: West Lake -->
+            <div class="lake-card china">
+                <h3><span>🏯</span> West Lake (Xi Hu)</h3>
+                <div class="region-tag">🇨🇳 China · Hangzhou</div>
+                <p>The most celebrated lake in Chinese literature. Countless poems were written here about beauty and love. UNESCO says it inspired garden design in China for centuries.</p>
+                <div class="lake-quote">"Paradise on Earth, as Marco Polo described it"</div>
+            </div>
+            
+            <!-- Japan: Biwa -->
+            <div class="lake-card japan">
+                <h3><span>🗻</span> Biwa</h3>
+                <div class="region-tag">🇯🇵 Japan · Shiga</div>
+                <p>Japan's largest freshwater lake, 4 million years old. Mentioned in the oldest Japanese chronicles. Near Kyoto, it was a muse for poets and samurai.</p>
+                <div class="lake-quote">"The lake that sees Mount Fuji in its dreams"</div>
+            </div>
+            
+            <!-- Thailand: Songkhla (مع رابط) -->
+            <a href="thai-lake-kingdom.html" class="thai-link">
+                <div class="lake-card thai">
+                    <h3><span>🛶</span> Songkhla</h3>
+                    <div class="region-tag">🇹🇭 Thailand · Southern Thailand</div>
+                    <p>Thailand's only lake that opens to the sea. It has floating villages and ancient mosques — a unique blend of Southeast Asian nature and Islamic culture.</p>
+                    <div class="lake-quote">"Where freshwater meets saltwater, and Buddhism meets Islam"</div>
+                    <div style="margin-top: 1rem; font-size: 0.9rem; color: var(--deep-navy); text-align: left; border-top: 1px dashed var(--light-gray); padding-top: 0.8rem;">
+                        ✨ Click to enter the Lake Kingdom of Thailand ✨
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- قسم الثقافات -->
+        <div class="cultures-section">
+            <div class="cultures-title">🧭 The World's Cultures That Dwell in Our Kingdom</div>
+            <div class="cultures-cloud">
+                <span class="culture-item">🇮🇸 Nordic</span>
+                <span class="culture-item">🇧🇦 Balkans</span>
+                <span class="culture-item">🇱🇻 Baltic</span>
+                <span class="culture-item">🇲🇽 Latin America</span>
+                <span class="culture-item">🇨🇳 China</span>
+                <span class="culture-item">🇯🇵 Japan</span>
+                <span class="culture-item">🇹🇭 Thailand</span>
+            </div>
+            <p style="margin-top: 2rem; font-size: 1.2rem;">This is not just a map. It is a family of souls who understand the language of silence and depth.</p>
+        </div>
+        
+        <!-- تذييل الصفحة مع الأمنية -->
+        <div class="kingdom-footer">
+            <div class="wish-message">
+                <span>🕊️</span> May the peoples of these lakes — Nordic, Balkan, Baltic, Andean, Chinese, Japanese, Thai — flourish in peace, prosperity, and harmony for all generations to come <span>🕊️</span>
+            </div>
+            <div class="footer-date">
+                ✦ Recorded in the Kingdom of Lakes · March 19, 2026 ✦
+            </div>
+            <div style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.5;">
+                🏞️ with respect and love for every soul who dwells by still waters 🏞️
+            </div>
+        </div>
+    </div>
+</body>
+</html>
