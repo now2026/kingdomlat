@@ -1,0 +1,72 @@
+:root {
+  --navy: #0A192F;
+  --snow: #F8F9FA;
+  --font-main: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-color: var(--navy);
+  color: var(--snow);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+a { color: var(--snow); text-decoration: none; border-bottom: 1px solid rgba(248,249,250,0.4); transition: border-color 0.2s; }
+a:hover { border-bottom-color: var(--snow); }
+
+.small { font-size: 0.75rem; opacity: 0.85; }
+.greetings { font-size: 0.6rem; text-align: center; margin: 15px 0; letter-spacing: 1px; opacity: 0.7; }
+
+/* Hero / Service Section */
+.service-hero { text-align: center; margin: 30px 0; padding-bottom: 20px; border-bottom: 1px solid rgba(248,249,250,0.2); }
+.service-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; letter-spacing: 0.5px; }
+.upload-btn {
+  background: transparent; color: var(--snow); border: 2px solid var(--snow);
+  padding: 12px 24px; border-radius: 8px; cursor: pointer; font-size: 1rem; margin: 15px 0;
+  transition: 0.2s ease; font-family: var(--font-main);
+}
+.upload-btn:hover { background: var(--snow); color: var(--navy); }
+.lang-explain { font-size: 0.8rem; margin: 8px 0; opacity: 0.9; }
+.badges { font-size: 0.75rem; margin: 10px 0; letter-spacing: 0.5px; }
+.privacy-note { font-size: 0.65rem; margin-top: 10px; font-style: italic; opacity: 0.85; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+/* Images */
+.top-images { display: flex; gap: 15px; justify-content: center; margin: 30px 0; }
+.top-images img { width: 48%; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(248,249,250,0.3); }
+
+/* Chapters */
+.chapter { background: rgba(248,249,250,0.05); padding: 20px; margin: 20px 0; border-radius: 12px; border: 1px solid rgba(248,249,250,0.2); }
+.chapter h3 { margin-bottom: 10px; }
+.chapter-actions { display: flex; gap: 10px; margin-top: 15px; }
+.btn { background: transparent; color: var(--snow); border: 1px solid var(--snow); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-family: var(--font-main); }
+.btn:hover { background: var(--snow); color: var(--navy); }
+
+.translate-placeholder { display: flex; gap: 8px; margin: 20px 0; opacity: 0.6; justify-content: center; flex-wrap: wrap; }
+.translate-placeholder span { font-size: 0.7rem; border: 1px dashed rgba(248,249,250,0.5); padding: 4px 8px; border-radius: 4px; }
+
+/* Gallery */
+.gallery-section { background: rgba(248,249,250,0.05); padding: 40px; border-radius: 20px; border: 1px solid rgba(248,249,250,0.2); margin: 40px 0; }
+.gallery-section h3 { text-align: center; color: var(--snow); margin-bottom: 30px; font-size: 1.8em; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; }
+.gallery-grid img { width: 100%; height: auto; border-radius: 6px; border: 1px solid rgba(248,249,250,0.2); }
+
+/* Mini Cards */
+.card-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 30px 0; }
+.mini-card { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 12px; background: rgba(248,249,250,0.08); border-radius: 10px; border: 1px solid rgba(248,249,250,0.2); color: var(--snow); }
+.mini-card:hover { background: rgba(248,249,250,0.15); }
+.card-icon { font-size: 1.5rem; margin-bottom: 5px; }
+.card-title { font-weight: 600; font-size: 0.9rem; }
+.card-desc { font-size: 0.7rem; opacity: 0.8; margin-top: 4px; }
+
+/* Footer & JSON */
+footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(248,249,250,0.2); }
+.footer-info { font-size: 0.65rem; line-height: 1.8; opacity: 0.8; margin: 15px 0; }
+#live-clock { font-size: 0.7rem; margin-top: 10px; letter-spacing: 0.5px; }
+.creation-date { font-size: 0.6rem; margin-top: 10px; opacity: 0.7; }
+#json-display { margin-top: 25px; padding: 15px; background: rgba(248,249,250,0.03); border-radius: 10px; border: 1px solid rgba(248,249,250,0.15); font-size: 0.8rem; white-space: pre-wrap; text-align: left; max-height: 180px; overflow-y: auto; }
+.json-label { font-size: 0.75rem; opacity: 0.8; margin-bottom: 8px; display: block; text-align: left; }
