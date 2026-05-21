@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Lakes of Thailand",
+    "description": "Where fresh water meets salt, and Buddhism embraces Islam. Songkhla Lake whispers ancient tales of coexistence.",
+    "image": "up/1.jpg",
+    "link": "https://www.kingdom.lat/lakes.html"
+  },
+  {
+    "title": "Føroyar — Land of Singing Wind",
+    "description": "Ocean islands where time stands still. Where the wind composes symphonies and the sea remembers every sailor's dream.",
+    "image": "up/2.jpg",
+    "link": "https://www.doors.mom/foroyar.html"
+  },
+  {
+    "title": "Kingdom of Gems",
+    "description": "Thailand's hidden treasure: rubies that carry the color of dawn, and wisdom forged through six centuries of patience.",
+    "image": "up/3.jpg",
+    "link": "https://www.kingdom.lat/kingdom-of-gems.html"
+  },
+  {
+    "title": "Southeast Asia Symphony",
+    "description": "Six nations, one harmony. A garden where every flower blooms in its own color, yet together they create a masterpiece.",
+    "image": "up/4.jpg",
+    "link": "https://www.kingdom.lat/southeast-asia-kingdom.html"
+  }
+]
