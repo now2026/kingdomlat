@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Lakes of Thailand",
+    "description": "Where fresh waters embrace the salt, and ancient temples stand beside serene mosques.",
+    "image": "1.jpg",
+    "link": "https://www.kingdom.lat/lakes.html"
+  },
+  {
+    "title": "Føroyar — Land of Singing Wind",
+    "description": "Ocean islands suspended in time, where the wind composes symphonies against the cliffs.",
+    "image": "2.jpg",
+    "link": "https://www.doors.mom/foroyar.html"
+  },
+  {
+    "title": "Kingdom of Gems",
+    "description": "Hidden within the earth lies a crimson heart. Six centuries of patience, fire, and craftsmanship.",
+    "image": "3.jpg",
+    "link": "https://www.kingdom.lat/kingdom-of-gems.html"
+  },
+  {
+    "title": "Southeast Asia Symphony",
+    "description": "Six nations, one harmony. A cultural garden where every flower blooms in its own color.",
+    "image": "4.jpg",
+    "link": "https://www.kingdom.lat/southeast-asia-kingdom.html"
+  }
+]
