@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poem | Kingdom.lat</title>
+  <link rel="stylesheet" href="poem.css">
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js" defer></script>
+  <meta name="description" content="A quiet space for poetry, myth, and privacy-first tools.">
+  <meta name="theme-color" content="#0A192F">
+</head>
+<body>
+
+  <header>
+    <div id="live-date" class="small"></div>
+    <h1>Poem</h1>
+    <p style="font-style: italic; margin-bottom: 15px; opacity: 0.9;">Words preserved without tracking. Culture shared without noise. Rest your eyes. Listen with your heart.</p>
+    <div class="greetings">Välkommen · Laipni lūgti · Dobrodošli · Witamy · Fáilte · Welkom · Willkommen · Üdvözöljük</div>
+  </header>
+
+  <section class="service-hero">
+    <div class="service-title">🤍 NEW FREE SERVICE</div>
+    <button class="upload-btn" id="upload-trigger">📤 UPLOAD IMAGE FOR TEXT EXTRACTION</button>
+    <input type="file" id="file-input" accept="image/jpeg, image/png, image/webp" style="display:none;">
+    
+    <div class="lang-explain">
+      EN: Free text extraction from your images<br>
+      CS/SK: Bezplatná extrakce textu z vašich obrázků<br>
+      NL: Gratis tekstextractie uit uw afbeeldingen
+    </div>
+    
+    <div class="badges">🎀 100% On-Device  |  🍷 No Tracking  |  🍃 Instant</div>
+    <p class="privacy-note">Your images stay on your device. No cloud. I built this with respect for your privacy.</p>
+
+    <div id="upload-preview" style="display:none; text-align:center; margin:25px 0; padding:15px; background:rgba(248,249,250,0.04); border-radius:12px; border:1px solid rgba(248,249,250,0.15);">
+      <img id="preview-img" style="max-width:100%; max-height:260px; border-radius:8px; border:1px solid var(--snow); margin-bottom:12px;">
+      <div id="ocr-status" class="small" style="margin-bottom:10px; opacity:0.8;">Ready to process locally...</div>
+      <div id="ocr-result" style="display:none; text-align:left; padding:12px; background:rgba(248,249,250,0.06); border-radius:8px; border:1px solid rgba(248,249,250,0.2); white-space:pre-wrap; font-family:monospace; max-height:150px; overflow-y:auto; margin-bottom:10px;"></div>
+      <button class="btn" id="copy-text-btn" style="display:none; margin-right:6px;">📋 Copy Text</button>
+      <button class="btn" onclick="clearPreview()">🗑️ Clear</button>
+    </div>
+  </section>
+
+  <div class="top-images">
+    <img src="poem/1.jpg" alt="Poetic landscape 1">
+    <img src="poem/2.jpg" alt="Poetic landscape 2">
+  </div>
+
+  <main>
+    <!-- POEM SECTION -->
+    <section class="poem-block" id="poem-section">
+      <h3>Tithonus</h3>
+      <div class="poem-meta">Poet: Alfred, Lord Tennyson · Date: 1859 · Genre: Dramatic Lyric</div>
+      <div class="poem-text" id="poem-text">
+        The woods decay, the woods decay<br>
+        The vapours weep their burthen down<br>
+        Man comes and tills the field<br>
+        And after many summers dies the swan<br>
+        Me only cruel immortality consumes<br>
+        I wither slowly in your arms<br>
+        Here at the world's quiet limit<br>
+        A white-haired shadow roaming like a dream<br>
+        Through ever-silent spaces of the East<br>
+        Through far-folded mists and gleaming halls
+      </div>
+      <div class="chapter-actions">
+        <button class="btn" onclick="listenTo('poem-text')">🔊 Listen</button>
+        <button class="btn" onclick="saveText('poem-section')">💾 Save</button>
+      </div>
+    </section>
+
+    <!-- MYTH SECTION -->
+    <section class="myth-block" id="myth-section">
+      <h3>The Mythological Story</h3>
+      <div class="poem-text" id="myth-text">
+        Tithonus was a handsome Trojan prince<br>
+        Eos the goddess of dawn loved him<br>
+        She abducted him to the Far East<br>
+        She granted him immortality but not youth<br>
+        He grew old and withered forever<br>
+        His hair turned white his voice weak<br>
+        He became a shadow roaming like a dream<br>
+        Eos returned to him every evening<br>
+        But could not restore his youthful form<br>
+        He begged for death but could not die<br>
+        Some say she turned him into a cicada<br>
+        His eternal chirp sounds at every dawn<br>
+        The poem shows eternal love and endless decay
+      </div>
+      <div class="chapter-actions">
+        <button class="btn" onclick="listenTo('myth-text')">🔊 Listen</button>
+        <button class="btn" onclick="saveText('myth-section')">💾 Save</button>
+      </div>
+    </section>
+
+    <section class="poet-block">
+      <h3>About the Poet & Context</h3>
+      <p style="text-align: center; opacity: 0.9; margin-bottom: 10px;">Alfred, Lord Tennyson (1809–1892) was Poet Laureate of Great Britain. "Tithonus" was written in 1859 as a companion to "Ulysses", exploring the weight of eternal life without eternal youth. The six-word structure in this edition honors rhythmic silence.</p>
+      <div class="chapter-actions">
+        <button class="btn" onclick="listenTo('poet-section')">🔊 Listen</button>
+        <button class="btn" onclick="saveText('poet-section')">💾 Save</button>
+      </div>
+    </section>
+
+    <div class="gallery-section">
+      <h3>Visual Echoes</h3>
+      <div class="gallery-grid">
+        <img src="poem/3.jpg" alt="3"><img src="poem/4.jpg" alt="4">
+        <img src="poem/5.jpg" alt="5"><img src="poem/6.jpg" alt="6">
+        <img src="poem/7.jpg" alt="7"><img src="poem/8.jpg" alt="8">
+        <img src="poem/9.jpg" alt="9"><img src="poem/10.jpg" alt="10">
+      </div>
+    </div>
+
+    <section class="json-gallery-section">
+      <h3>🤍 Poetic Gateways</h3>
+      <div id="json-gallery" class="json-gallery-grid">
+        <p class="small" style="text-align:center; opacity:0.7;">Loading poetic gateways...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="card-row">
+      <a href="https://www.doors.mom/" class="mini-card"><span class="card-icon">🏠</span><span class="card-title">Home</span><span class="card-desc">Return to base</span></a>
+      <a href="https://www.kingdom.lat" class="mini-card"><span class="card-icon">👑</span><span class="card-title">Kingdom</span><span class="card-desc">Lat domain</span></a>
+      <a href="https://www.meow.hair" class="mini-card"><span class="card-icon">🐾</span><span class="card-title">Meow</span><span class="card-desc">Creative space</span></a>
+      <a href="https://nordic.mom" class="mini-card"><span class="card-icon">🌲</span><span class="card-title">Nordic</span><span class="card-desc">Northern winds</span></a>
+      <a href="https://baltic.lol" class="mini-card"><span class="card-icon">🌊</span><span class="card-title">Baltic</span><span class="card-desc">Sea & shore</span></a>
+      <a href="https://Baltic.lat" class="mini-card"><span class="card-icon">⚓</span><span class="card-title">Baltic.lat</span><span class="card-desc">Eastern routes</span></a>
+      <a href="https://2026.lat" class="mini-card"><span class="card-icon">📅</span><span class="card-title">2026</span><span class="card-desc">Timeline</span></a>
+    </div>
+
+    <div class="footer-info">
+      ⚡ Optimized for speed | 🗻🌊🐟 100% Client-Side Processing | 🍻🧊 Zero Tracking & Cookies<br>
+      No external requests. All data stays on your device. Respect, trust, and transparency by design.<br>
+      <a href="https://mastodon.social/@worldday" target="_blank" rel="noopener">@worldday@mastodon.social</a>
+    </div>
+    <div id="live-clock"></div>
+    <p class="creation-date">Page created: May 2026</p>
+  </footer>
+
+  <script src="poem.js"></script>
+</body>
+</html>
