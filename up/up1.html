@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Up | Kingdom.lat — Privacy-First Text Extraction</title>
+  <link rel="stylesheet" href="up.css">
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js" defer></script>
+  <meta name="description" content="A lightweight, privacy-first cultural archive & text extractor. 100% on-device, no tracking.">
+  <meta name="theme-color" content="#0A192F">
+  
+  <!-- تحسينات الوصول الأساسية -->
+  <style>
+    /* دعم التباين العالي */
+    @media (prefers-contrast: high) {
+      body { background: #000 !important; color: #fff !important; }
+      a, button { border: 2px solid currentColor !important; }
+    }
+    /* دعم تقليل الحركة */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+    /* مؤشر التركيز الواضح للوحة المفاتيح */
+    :focus-visible { outline: 3px solid #60a5fa !important; outline-offset: 2px !important; }
+    /* رابط التخطي */
+    .skip-link { position: absolute; top: -40px; left: 0; background: #0A192F; color: #fff; padding: 8px 16px; z-index: 100; transition: top 0.2s; }
+    .skip-link:focus { top: 0; }
+    /* إخفاء العناصر عن الشاشة مع بقائها للقارئات */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- 🔗 رابط التخطي للتنقل السريع -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header role="banner">
+    <div id="live-date" class="small" aria-live="polite" aria-label="Current date"></div>
+    <h1>Up</h1>
+    <p style="font-style: italic; margin-bottom: 15px; opacity: 0.9;">Dedicated with gratitude to the Nordic, Balkan, Baltic, Dutch, Irish, Polish, and Belgian cultures. Your heritage inspires quiet strength and timeless beauty.</p>
+    <div class="greetings" aria-label="Welcome greetings in multiple European languages">
+      Välkommen · Laipni lūgti · Dobrodošli · Witamy · Fáilte · Welkom · Willkommen · Üdvözöljük
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <section class="service-hero" aria-labelledby="service-heading">
+      <h2 id="service-heading" class="sr-only">Free On-Device Text Extraction Service</h2>
+      <div class="service-title" role="status" aria-live="polite">🤍 NEW FREE SERVICE</div>
+      
+      <!-- زر الرفع مع تحسينات الوصول -->
+      <button class="upload-btn" id="upload-trigger" aria-haspopup="dialog" aria-controls="file-input">
+        📤 UPLOAD IMAGE FOR TEXT EXTRACTION
+      </button>
+      <input type="file" id="file-input" accept="image/jpeg, image/png, image/webp" class="sr-only" aria-label="Select image file for text extraction">
+      
+      <div class="lang-explain" lang="en" aria-label="Service description in multiple languages">
+        EN: Free text extraction from your images<br>
+        CS/SK: Bezplatná extrakce textu z vašich obrázků<br>
+        NL: Gratis tekstextractie uit uw afbeeldingen
+      </div>
+      
+      <div class="badges" role="list" aria-label="Service features">
+        <span role="listitem">🎀 100% On-Device</span> | 
+        <span role="listitem">🍷 No Tracking</span> | 
+        <span role="listitem">🍃 Instant</span>
+      </div>
+      <p class="privacy-note">Your images stay on your device. No cloud. I built this with respect for your privacy.</p>
+
+      <!-- منطقة المعاينة والنتائج مع دعم القارئات -->
+      <div id="upload-preview" style="display:none; text-align:center; margin:25px 0; padding:15px; background:rgba(248,249,250,0.04); border-radius:12px; border:1px solid rgba(248,249,250,0.15);" role="region" aria-label="Image preview and extraction results">
+        <img id="preview-img" style="max-width:100%; max-height:260px; border-radius:8px; border:1px solid var(--snow); margin-bottom:12px;" alt="Preview of uploaded image for text extraction">
+        <div id="ocr-status" class="small" style="margin-bottom:10px; opacity:0.8;" role="status" aria-live="polite">Ready to process locally...</div>
+        
+        <!-- نتيجة الاستخراج مع دعم النسخ -->
+        <div id="ocr-result" style="display:none; text-align:left; padding:12px; background:rgba(248,249,250,0.06); border-radius:8px; border:1px solid rgba(248,249,250,0.2); white-space:pre-wrap; font-family:monospace; max-height:150px; overflow-y:auto; margin-bottom:10px;" role="region" aria-label="Extracted text result"></div>
+        
+        <!-- أزرار التحكم مع وصف واضح -->
+        <button class="btn" id="copy-text-btn" style="display:none; margin-right:6px;" aria-label="Copy extracted text to clipboard">📋 Copy Text</button>
+        <button class="btn" onclick="clearPreview()" aria-label="Clear preview and start over">🗑️ Clear</button>
+      </div>
+    </section>
+
+    <!-- صور علوية مع نصوص بديلة محسّنة -->
+    <div class="top-images" role="group" aria-label="Cultural archive preview images">
+      <img src="up/1.jpg" alt="Traditional Nordic wooden house surrounded by pine forest in winter">
+      <img src="up/2.jpg" alt="Baltic coastline at sunset with gentle waves and amber stones">
+    </div>
+
+    <!-- الفصول مع دعم الاستماع والحفظ -->
+    <section class="chapter" id="chapter-1" aria-labelledby="ch1-title">
+      <h3 id="ch1-title">Chapter I: Roots & Memory</h3>
+      <p>Exploring the quiet landscapes and enduring traditions that shape our shared northern and eastern heritage.</p>
+      <div class="chapter-actions" role="group" aria-label="Chapter one actions">
+        <button class="btn" onclick="listenTo('chapter-1')" aria-label="Listen to chapter one: Roots and Memory">🔊 Listen</button>
+        <span class="sr-only" aria-live="polite" id="listen-status-ch1"></span>
+        <button class="btn" onclick="saveText('chapter-1')" aria-label="Save chapter one text to device">💾 Save</button>
+      </div>
+    </section>
+
+    <section class="chapter" id="chapter-2" aria-labelledby="ch2-title">
+      <h3 id="ch2-title">Chapter II: Winds & Waters</h3>
+      <p>Stories carried by the Baltic breeze and the quiet rivers that have witnessed centuries of change.</p>
+      <div class="chapter-actions" role="group" aria-label="Chapter two actions">
+        <button class="btn" onclick="listenTo('chapter-2')" aria-label="Listen to chapter two: Winds and Waters">🔊 Listen</button>
+        <span class="sr-only" aria-live="polite" id="listen-status-ch2"></span>
+        <button class="btn" onclick="saveText('chapter-2')" aria-label="Save chapter two text to device">💾 Save</button>
+      </div>
+    </section>
+
+    <section class="chapter" id="chapter-3" aria-labelledby="ch3-title">
+      <h3 id="ch3-title">Chapter III: Craft & Continuity</h3>
+      <p>The hands that build, weave, and preserve. A tribute to artisans across generations.</p>
+      <div class="chapter-actions" role="group" aria-label="Chapter three actions">
+        <button class="btn" onclick="listenTo('chapter-3')" aria-label="Listen to chapter three: Craft and Continuity">🔊 Listen</button>
+        <span class="sr-only" aria-live="polite" id="listen-status-ch3"></span>
+        <button class="btn" onclick="saveText('chapter-3')" aria-label="Save chapter three text to device">💾 Save</button>
+      </div>
+    </section>
+
+    <!-- روابط اللغات مع وصف -->
+    <div class="translate-placeholder" role="note" aria-label="Upcoming language translations">
+      <span>DE (Coming)</span><span>FR (Coming)</span><span>NL (Coming)</span><span>FO (Coming)</span><span>IS (Coming)</span><span>NO (Coming)</span>
+    </div>
+
+    <div style="text-align: center; margin: 20px 0;">
+      <a href="language-up.html" style="margin: 0 10px;" aria-label="Visit European Languages Hub page">🌐 European Languages Hub</a> | 
+      <a href="world-up.html" style="margin: 0 10px;" aria-label="Visit Words and Lexicon archive">🌍 Words & Lexicon</a>
+    </div>
+
+    <!-- معرض الصور مع وصف دقيق -->
+    <section class="gallery-section" aria-labelledby="gallery-title">
+      <h3 id="gallery-title">Archive</h3>
+      <div class="gallery-grid" role="list" aria-label="Cultural photo archive">
+        <img src="up/3.jpg" alt="3" role="listitem"><img src="up/4.jpg" alt="4" role="listitem">
+        <img src="up/5.jpg" alt="5" role="listitem"><img src="up/6.jpg" alt="6" role="listitem">
+        <img src="up/7.jpg" alt="7" role="listitem"><img src="up/8.jpg" alt="8" role="listitem">
+        <img src="up/9.jpg" alt="9" role="listitem"><img src="up/10.jpg" alt="10" role="listitem">
+      </div>
+    </section>
+
+    <!-- معرض البوابات الثقافية -->
+    <section class="json-gallery-section" aria-labelledby="gateways-title">
+      <h3 id="gateways-title">🤍 Cultural Gateways</h3>
+      <div id="json-gallery" class="json-gallery-grid" role="region" aria-live="polite" aria-label="Loading cultural gateways">
+        <p class="small" style="text-align:center; opacity:0.7;">Loading cultural gateways...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <nav aria-label="Main navigation links">
+      <div class="card-row" role="list">
+        <a href="https://www.doors.mom/" class="mini-card" role="listitem"><span class="card-icon" aria-hidden="true">🏠</span><span class="card-title">Home</span><span class="card-desc">Return to base</span></a>
+        <a href="https://www.kingdom.lat" class="mini-card" role="listitem"><span class="card-icon" aria-hidden="true">👑</span><span class="card-title">Kingdom</span><span class="card-desc">Lat domain</span></a>
+        <a href="https://www.meow.hair" class="mini-card" role="listitem"><span class="card-icon" aria-hidden="true">🐾</span><span class="card-title">Meow</span><span class="card-desc">Creative space</span></a>
+        <a href="https://nordic.mom" class="mini-card" role="listitem"><span class="card-icon" aria-hidden="true">🌲</span><span class="card-title">Nordic</span><span class="card-desc">Northern winds</span></a>
+        <a href="https://baltic.lol" class="mini-card" role="listitem"><span class="card-icon" aria-hidden="true">🌊</span><span class="card-title">Baltic</span><span class="card-desc">Sea & shore</span></a>
+        <a href="https://Baltic.lat" class="mini-card" role="listitem"><span class="card-icon" aria-hidden="true">⚓</span><span class="card-title">Baltic.lat</span><span class="card-desc">Eastern routes</span></a>
+        <a href="https://2026.lat" class="mini-card" role="listitem"><span class="card-icon" aria-hidden="true">📅</span><span class="card-title">2026</span><span class="card-desc">Timeline</span></a>
+      </div>
+
+      <div class="card-row" role="list" aria-label="Cultural language versions">
+        <a href="https://www.doors.mom/index-ja.html" class="mini-card" lang="ja" role="listitem"><span class="card-icon" aria-hidden="true">🇯🇵</span><span class="card-title">日本</span><span class="card-desc">Rice paper, soft light, one word</span></a>
+        <a href="https://www.doors.mom/sv.html" class="mini-card" lang="sv" role="listitem"><span class="card-icon" aria-hidden="true">🇸🇪</span><span class="card-title">Sverige</span><span class="card-desc">Pine forest, lake view, breathing space</span></a>
+        <a href="https://www.doors.mom/polska.html" class="mini-card" lang="pl" role="listitem"><span class="card-icon" aria-hidden="true">🇵🇱</span><span class="card-title">Polska</span><span class="card-desc">Narrow path, salt mine, memory</span></a>
+        <a href="https://www.doors.mom/foroyar.html" class="mini-card" lang="fo" role="listitem"><span class="card-icon" aria-hidden="true">🇫🇴</span><span class="card-title">Føroyar</span><span class="card-desc">Ocean islands, endless wind</span></a>
+      </div>
+    </nav>
+
+    <div class="footer-info" role="contentinfo">
+      ⚡ Optimized for speed | 🗻🌊🐟 100% Client-Side Processing | 🍻🧊 Zero Tracking & Cookies<br>
+      No external requests. All data stays on your device. Respect, trust, and transparency by design.<br>
+      <a href="https://mastodon.social/@worldday" target="_blank" rel="noopener" aria-label="Follow @worldday on Mastodon social network">@worldday@mastodon.social</a>
+    </div>
+    <div id="live-clock" aria-live="polite" aria-label="Current time"></div>
+    <p class="creation-date">Page created: May 2026</p>
+  </footer>
+
+  <script src="up.js"></script>
+  
+  <!-- 🔊 تحسين جافاسكريبت لدعم الوصول -->
+  <script>
+    // تحسين أزرار الاستماع لدعم ضعاف السمع
+    document.querySelectorAll('[onclick*="listenTo"]').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const chapter = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+        const statusEl = document.getElementById(`listen-status-${chapter.split('-')[1]}`);
+        if (statusEl) {
+          statusEl.textContent = 'Audio playback started';
+          setTimeout(() => { statusEl.textContent = ''; }, 3000);
+        }
+        // إضافة مؤشر بصري للمستخدمين الذين لا يسمعون
+        this.style.boxShadow = '0 0 0 3px rgba(96, 165, 250, 0.6)';
+        setTimeout(() => { this.style.boxShadow = ''; }, 1500);
+      });
+    });
+
+    // تحسين نسخ النص مع تأكيد للقارئات
+    document.getElementById('copy-text-btn')?.addEventListener('click', function() {
+      const status = document.createElement('span');
+      status.className = 'sr-only';
+      status.setAttribute('role', 'status');
+      status.setAttribute('aria-live', 'polite');
+      status.textContent = 'Text copied to clipboard';
+      this.parentNode.appendChild(status);
+      setTimeout(() => status.remove(), 2000);
+    });
+
+    // دعم لوحة المفاتيح لزر الرفع
+    document.getElementById('upload-trigger')?.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        document.getElementById('file-input').click();
+      }
+    });
+  </script>
+</body>
+</html>
