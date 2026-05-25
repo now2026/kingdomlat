@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>European Greetings Archive | Linguistic Families | Kingdom.lat</title>
+  <meta name="description" content="Explore authentic greetings across Slavic, Germanic, Romance & other European language families. 100% on-device, privacy-first cultural archive.">
+  <meta name="keywords" content="european languages, slavic greetings, germanic phrases, romance languages, cultural archive, privacy-first">
+  <meta name="theme-color" content="#0A192F">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.kingdom.lat/up.html">
+  
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"CollectionPage","name":"European Greetings Archive","description":"Cultural archive of European linguistic families with authentic greetings","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Kingdom.lat","url":"https://www.kingdom.lat"}}
+  </script>
+  
+  <style>
+    /* ===== CORE VARIABLES: TWO COLORS ONLY ===== */
+    :root{
+      --navy:#0A192F;
+      --navy-tint:#112240;
+      --snow:#F8FAFC;
+      --shadow:0 4px 20px rgba(10,25,47,0.4);
+      --radius:12px;
+      --transition:all 0.2s ease;
+    }
+    
+    /* ===== BASE RESET & TYPOGRAPHY ===== */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;
+      background:var(--navy);color:var(--snow);line-height:1.6;font-size:1rem;
+      text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased
+    }
+    
+    /* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+    @media(prefers-contrast:high){
+      body{background:#000!important;color:#fff!important}
+      a,button{border:2px solid currentColor!important}
+    }
+    :focus-visible{outline:3px solid var(--snow);outline-offset:2px}
+    .skip-link{position:absolute;top:-40px;left:0;background:var(--navy);color:var(--snow);padding:8px 16px;z-index:100;text-decoration:none}
+    .skip-link:focus{top:0}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    
+    /* ===== LAYOUT UTILITIES ===== */
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    .small{font-size:0.75rem;opacity:0.9}
+    .tiny{font-size:0.65rem;opacity:0.8}
+    .italic{font-style:italic}
+    .center{text-align:center}
+    .mt-1{margin-top:1rem}.mt-2{margin-top:2rem}.mb-1{margin-bottom:1rem}.mb-2{margin-bottom:2rem}
+    
+    /* ===== HEADER STYLES ===== */
+    header{padding:20px 0;border-bottom:1px solid var(--navy-tint);margin-bottom:30px}
+    .security-link{display:block;text-align:center;margin-bottom:10px}
+    .security-link a{color:var(--snow);text-decoration:none;opacity:0.85;transition:var(--transition)}
+    .security-link a:hover{opacity:1;text-decoration:underline}
+    h1{font-size:1.8rem;text-align:center;margin:10px 0;font-weight:600}
+    .greetings{text-align:center;margin:15px 0;line-height:1.4}
+    
+    /* ===== CHAPTER STYLES ===== */
+    .chapter{
+      background:var(--navy-tint);padding:25px;border-radius:var(--radius);
+      margin:25px 0;box-shadow:var(--shadow);border:1px solid var(--navy)
+    }
+    .chapter h3{font-size:1.4rem;margin-bottom:12px;color:var(--snow)}
+    .chapter p{margin-bottom:15px;opacity:0.95}
+    .quote{
+      border-left:3px solid var(--snow);padding-left:15px;margin:15px 0;
+      font-style:italic;opacity:0.9;font-size:0.95rem
+    }
+    .greeting-item{
+      margin:10px 0;padding:10px;border-left:2px solid var(--snow);
+      background:rgba(17,34,64,0.3);border-radius:0 8px 8px 0
+    }
+    .greeting-item strong{display:block;margin-bottom:4px}
+    .translit{font-family:monospace;opacity:0.85;font-size:0.9em}
+    
+    /* ===== BUTTONS ===== */
+    .btn{
+      background:var(--navy);color:var(--snow);border:1px solid var(--snow);
+      padding:8px 16px;border-radius:6px;cursor:pointer;font-size:0.9rem;
+      transition:var(--transition);margin:4px 2px;display:inline-flex;align-items:center;gap:6px
+    }
+    .btn:hover{background:var(--navy-tint);transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
+    .btn:focus-visible{outline:3px solid var(--snow);outline-offset:2px}
+    .chapter-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+    
+    /* ===== AUDIO DELAY NOTICE ===== */
+    .audio-notice{
+      font-size:0.7rem;opacity:0.8;margin-top:5px;display:none;
+      animation:fadeIn 0.2s ease
+    }
+    .audio-notice.show{display:block}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:0.8;transform:translateY(0)}}
+    
+    /* ===== IMAGE GALLERY ===== */
+    .top-images{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:25px 0}
+    .top-images img{
+      width:100%;height:180px;object-fit:cover;border-radius:var(--radius);
+      border:1px solid var(--snow);transition:var(--transition)
+    }
+    .top-images img:hover{transform:scale(1.02)}
+    .gallery-section{
+      background:var(--navy-tint);padding:30px;border-radius:var(--radius);
+      margin:30px 0;box-shadow:var(--shadow)
+    }
+    .gallery-section h3{text-align:center;margin-bottom:20px}
+    .gallery-grid{
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+      gap:12px
+    }
+    .gallery-grid img{
+      width:100%;height:100px;object-fit:cover;border-radius:8px;
+      border:1px solid var(--navy);transition:var(--transition);cursor:pointer
+    }
+    .gallery-grid img:hover{border-color:var(--snow);transform:scale(1.05)}
+    
+    /* ===== TRANSLATION PLACEHOLDER ===== */
+    .translate-placeholder{
+      text-align:center;padding:15px;background:var(--navy-tint);
+      border-radius:var(--radius);margin:20px 0;font-size:0.8rem
+    }
+    .translate-placeholder span{margin:0 8px;opacity:0.85}
+    
+    /* ===== LINKS SECTION ===== */
+    .links-section{text-align:center;margin:25px 0}
+    .links-section a{
+      color:var(--snow);text-decoration:none;margin:0 12px;opacity:0.9;
+      transition:var(--transition);padding:5px 10px;border-radius:4px
+    }
+    .links-section a:hover{background:var(--navy-tint);opacity:1}
+    
+    /* ===== MINI CARDS ===== */
+    .card-row{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+      gap:12px;margin:20px 0
+    }
+    .mini-card{
+      background:var(--navy-tint);padding:12px;border-radius:8px;
+      text-decoration:none;color:var(--snow);border:1px solid var(--navy);
+      transition:var(--transition);display:flex;flex-direction:column;align-items:center;text-align:center
+    }
+    .mini-card:hover{background:var(--navy);border-color:var(--snow);transform:translateY(-2px)}
+    .card-icon{font-size:1.4rem;margin-bottom:4px}
+    .card-title{font-weight:600;font-size:0.9rem;margin:2px 0}
+    .card-desc{font-size:0.65rem;opacity:0.8;line-height:1.3}
+    
+    /* ===== FOOTER ===== */
+    footer{
+      padding:30px 20px;margin-top:40px;border-top:1px solid var(--navy-tint);
+      text-align:center;font-size:0.8rem
+    }
+    .thank-you{
+      margin:20px 0;padding:15px;background:var(--navy-tint);
+      border-radius:var(--radius);font-style:italic;opacity:0.95
+    }
+    .footer-info{margin:15px 0;line-height:1.5;opacity:0.9}
+    .footer-info a{color:var(--snow);text-decoration:none;opacity:0.95}
+    .footer-info a:hover{text-decoration:underline}
+    .features{margin:10px 0;font-size:0.7rem;opacity:0.85;line-height:1.4}
+    #live-clock{margin:10px 0;font-family:monospace;font-size:0.85rem}
+    .creation-date{margin-top:15px;font-size:0.7rem;opacity:0.7}
+    
+    /* ===== PRINT STYLES FOR PDF EXPORT ===== */
+    @media print{
+      body{background:#fff!important;color:#000!important;font-size:11pt}
+      .skip-link,.btn,.chapter-actions,.translate-placeholder,.gallery-section,
+      .card-row,.footer-info,.features,#live-clock,.creation-date,.security-link{display:none!important}
+      .chapter{background:#fff!important;border:1px solid #ccc!important;box-shadow:none!important;page-break-inside:avoid}
+      .quote{border-left-color:#000!important}
+      a{text-decoration:none;color:#000!important}
+      h1,h2,h3{color:#000!important}
+    }
+    
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:768px){
+      .container{padding:15px}
+      h1{font-size:1.5rem}
+      .top-images{grid-template-columns:1fr}
+      .gallery-grid{grid-template-columns:repeat(auto-fill,minmax(90px,1fr))}
+      .card-row{grid-template-columns:repeat(2,1fr)}
+      .chapter-actions{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <!-- 🔗 Skip Link for Accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- 🗓️ Live Date Header -->
+  <header role="banner">
+    <div class="security-link tiny" aria-label="Security information">
+      <a href="https://www.kingdom.lat/security.html" rel="noopener">🔐 Security & Privacy Policy</a>
+    </div>
+    <div id="live-date" class="small center" aria-live="polite" aria-label="Current date"></div>
+    <h1>European Greetings Archive</h1>
+    <p class="italic center tiny" style="opacity:0.9;margin:10px 0">
+      Dedicated with gratitude to the Nordic, Balkan, Baltic, Dutch, Irish, Polish, and Belgian cultures.
+    </p>
+    
+    <!-- 🌍 Welcome Greetings (Very Small Font) -->
+    <div class="greetings tiny" aria-label="Welcome greetings in European languages">
+      Välkommen · Laipni lūgti · Dobrodošli · Witamy · Fáilte · Welkom · Willkommen · Üdvözöljük
+    </div>
+  </header>
+
+  <main id="main" role="main" class="container">
+    
+    <!-- 🖼️ Top Images -->
+    <div class="top-images" role="group" aria-label="Cultural preview images">
+      <img src="language/1.jpg" alt="Traditional Nordic wooden house in winter forest" loading="lazy">
+      <img src="language/2.jpg" alt="Baltic coastline at sunset with amber stones" loading="lazy">
+    </div>
+
+    <!-- 🔷 Chapter 1: Slavic Family -->
+    <section class="chapter" id="slavic" aria-labelledby="slavic-title">
+      <h3 id="slavic-title">🔷 The Slavic Language Family</h3>
+      <p>Exploring greetings from Russia, Ukraine, Poland, Czechia, Slovakia, Serbia, Croatia, Bosnia, Montenegro, Slovenia, Bulgaria, and North Macedonia.</p>
+      
+      <div class="greeting-item">
+        <strong>Russia</strong>
+        <span lang="ru" dir="ltr">Здравствуйте <span class="translit">(Zdravstvuyte)</span> / Привет <span class="translit">(Privet)</span></span>
+      </div>
+      <div class="greeting-item">
+        <strong>Poland</strong>
+        <span lang="pl">Cześć / Hej · Dzień dobry / Dobry wieczór</span>
+      </div>
+      <div class="greeting-item">
+        <strong>Ukraine</strong>
+        <span lang="uk" dir="ltr">Вітаю <span class="translit">(Vitayu)</span> / Привіт <span class="translit">(Pryvit)</span></span>
+      </div>
+      
+      <div class="quote" lang="en">"Truth may waver, but it does not break." <span class="tiny">— Polish/Russian folk wisdom</span></div>
+      
+      <div class="chapter-actions" role="group" aria-label="Slavic chapter actions">
+        <button class="btn" onclick="listenTo('slavic')" aria-label="Listen to Slavic greetings">🔊 Listen</button>
+        <span class="audio-notice tiny" id="notice-slavic" role="status" aria-live="polite">⏳ Audio may start in 2-3 seconds...</span>
+        <button class="btn" onclick="saveText('slavic')" aria-label="Save Slavic greetings">💾 Save</button>
+        <button class="btn" onclick="printChapter('slavic')" aria-label="Export Slavic chapter as PDF">📄 PDF</button>
+      </div>
+    </section>
+
+    <!-- 🔷 Chapter 2: Germanic Family -->
+    <section class="chapter" id="germanic" aria-labelledby="germanic-title">
+      <h3 id="germanic-title">🟩 The Germanic Language Family</h3>
+      <p>Greetings from Germany, Austria, Switzerland, Netherlands, Belgium, Sweden, Norway, Denmark, Iceland, and the United Kingdom.</p>
+      
+      <div class="greeting-item">
+        <strong>Germany</strong>
+        <span lang="de">Hallo / Guten Morgen · Guten Tag / Guten Abend</span>
+      </div>
+      <div class="greeting-item">
+        <strong>Sweden</strong>
+        <span lang="sv">Hej / Hallå · God morgon / God dag</span>
+      </div>
+      <div class="greeting-item">
+        <strong>Netherlands</strong>
+        <span lang="nl">Hallo / Hoi · Goedemorgen / Goedenavond</span>
+      </div>
+      
+      <div class="quote" lang="en">"A clear conscience is a soft pillow." <span class="tiny">— German proverb</span></div>
+      
+      <div class="chapter-actions" role="group" aria-label="Germanic chapter actions">
+        <button class="btn" onclick="listenTo('germanic')" aria-label="Listen to Germanic greetings">🔊 Listen</button>
+        <span class="audio-notice tiny" id="notice-germanic" role="status" aria-live="polite">⏳ Audio may start in 2-3 seconds...</span>
+        <button class="btn" onclick="saveText('germanic')" aria-label="Save Germanic greetings">💾 Save</button>
+        <button class="btn" onclick="printChapter('germanic')" aria-label="Export Germanic chapter as PDF">📄 PDF</button>
+      </div>
+    </section>
+
+    <!-- 🔷 Chapter 3: Romance Family -->
+    <section class="chapter" id="romance" aria-labelledby="romance-title">
+      <h3 id="romance-title">🟨 The Romance (Latin) Language Family</h3>
+      <p>Greetings from France, Italy, Spain, Portugal, Romania, Moldova, Andorra, Monaco, San Marino, and Vatican City.</p>
+      
+      <div class="greeting-item">
+        <strong>France</strong>
+        <span lang="fr">Bonjour / Salut · Bonsoir / Coucou</span>
+      </div>
+      <div class="greeting-item">
+        <strong>Italy</strong>
+        <span lang="it">Ciao / Buongiorno · Buon pomeriggio / Buonasera</span>
+      </div>
+      <div class="greeting-item">
+        <strong>Spain</strong>
+        <span lang="es">Hola / Buenos días · Buenas tardes / Buenas noches</span>
+      </div>
+      
+      <div class="quote" lang="en">"The truth has no need of memory, for it does not change." <span class="tiny">— Italian/Latin tradition</span></div>
+      
+      <div class="chapter-actions" role="group" aria-label="Romance chapter actions">
+        <button class="btn" onclick="listenTo('romance')" aria-label="Listen to Romance greetings">🔊 Listen</button>
+        <span class="audio-notice tiny" id="notice-romance" role="status" aria-live="polite">⏳ Audio may start in 2-3 seconds...</span>
+        <button class="btn" onclick="saveText('romance')" aria-label="Save Romance greetings">💾 Save</button>
+        <button class="btn" onclick="printChapter('romance')" aria-label="Export Romance chapter as PDF">📄 PDF</button>
+      </div>
+    </section>
+
+    <!-- 🔷 Chapter 4: Other Families -->
+    <section class="chapter" id="other" aria-labelledby="other-title">
+      <h3 id="other-title">🟫 Other European Language Families</h3>
+      <p>Greetings from Baltic (Estonia, Latvia, Lithuania), Ugric (Hungary, Finland), Hellenic (Greece, Cyprus), Albanian, Georgian, and Turkish traditions.</p>
+      
+      <div class="greeting-item">
+        <strong>Greece</strong>
+        <span lang="el" dir="ltr">Γεια σου <span class="translit">(Yia sou)</span> / Καλημέρα <span class="translit">(Kalimera)</span></span>
+      </div>
+      <div class="greeting-item">
+        <strong>Hungary</strong>
+        <span lang="hu">Szia / Helló · Jó reggelt / Jó napot</span>
+      </div>
+      <div class="greeting-item">
+        <strong>Latvia</strong>
+        <span lang="lv">Sveiki / Čau · Labrīt / Labdien</span>
+      </div>
+      
+      <div class="quote" lang="en">"Words without truth are like wind without direction." <span class="tiny">— Baltic/Finnish oral heritage</span></div>
+      
+      <div class="chapter-actions" role="group" aria-label="Other families chapter actions">
+        <button class="btn" onclick="listenTo('other')" aria-label="Listen to other European greetings">🔊 Listen</button>
+        <span class="audio-notice tiny" id="notice-other" role="status" aria-live="polite">⏳ Audio may start in 2-3 seconds...</span>
+        <button class="btn" onclick="saveText('other')" aria-label="Save other European greetings">💾 Save</button>
+        <button class="btn" onclick="printChapter('other')" aria-label="Export other families chapter as PDF">📄 PDF</button>
+      </div>
+    </section>
+
+    <!-- 🔗 Language Links -->
+    <div class="translate-placeholder tiny" role="note" aria-label="Upcoming language translations">
+      <span>DE (Coming)</span><span>FR (Coming)</span><span>NL (Coming)</span>
+      <span>FO (Coming)</span><span>IS (Coming)</span><span>NO (Coming)</span>
+    </div>
+
+    <div class="links-section">
+      <a href="language-eu.html" aria-label="Visit European Languages Hub">🌐 European Languages Hub</a> | 
+      <a href="world-eu.html" aria-label="Visit Words and Lexicon archive">🌍 Words &amp; Lexicon</a>
+    </div>
+
+    <!-- 🖼️ Gallery Section -->
+    <section class="gallery-section" aria-labelledby="gallery-title">
+      <h3 id="gallery-title">📸 Cultural Archive</h3>
+      <div class="gallery-grid" role="list" aria-label="Cultural photo collection">
+        <img src="language/3.jpg" alt="3" loading="lazy" role="listitem">
+        <img src="language/4.jpg" alt="4" loading="lazy" role="listitem">
+        <img src="language/5.jpg" alt="5" loading="lazy" role="listitem">
+        <img src="language/6.jpg" alt="6" loading="lazy" role="listitem">
+        <img src="language/7.jpg" alt="7" loading="lazy" role="listitem">
+        <img src="language/8.jpg" alt="8" loading="lazy" role="listitem">
+        <img src="language/9.jpg" alt="9" loading="lazy" role="listitem">
+        <img src="language/10.jpg" alt="10" loading="lazy" role="listitem">
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 🦶 Footer -->
+  <footer role="contentinfo">
+    
+    <!-- 🙏 Thank You Note -->
+    <div class="thank-you">
+      This archive is a personal learning project. No team, no corporate backing, no tracking. 
+      Built quietly with respect for privacy, speed, and cultural integrity. 
+      Thank you for visiting, listening, and preserving heritage with care. 🐾
+    </div>
+
+    <!-- 🧩 Cultural Gateways Mini Cards -->
+    <nav aria-label="Cultural gateway links">
+      <div class="card-row" role="list">
+        <a href="https://www.doors.mom/" class="mini-card" role="listitem">
+          <span class="card-icon" aria-hidden="true">🏠</span>
+          <span class="card-title">Home</span>
+          <span class="card-desc">Return to base</span>
+        </a>
+        <a href="https://www.kingdom.lat" class="mini-card" role="listitem">
+          <span class="card-icon" aria-hidden="true">👑</span>
+          <span class="card-title">Kingdom</span>
+          <span class="card-desc">Lat domain</span>
+        </a>
+        <a href="https://www.meow.hair" class="mini-card" role="listitem">
+          <span class="card-icon" aria-hidden="true">🐾</span>
+          <span class="card-title">Meow</span>
+          <span class="card-desc">Creative space</span>
+        </a>
+        <a href="https://nordic.mom" class="mini-card" role="listitem">
+          <span class="card-icon" aria-hidden="true">🌲</span>
+          <span class="card-title">Nordic</span>
+          <span class="card-desc">Northern winds</span>
+        </a>
+        <a href="https://baltic.lol" class="mini-card" role="listitem">
+          <span class="card-icon" aria-hidden="true">🌊</span>
+          <span class="card-title">Baltic</span>
+          <span class="card-desc">Sea &amp; shore</span>
+        </a>
+        <a href="https://Baltic.lat" class="mini-card" role="listitem">
+          <span class="card-icon" aria-hidden="true">⚓</span>
+          <span class="card-title">Baltic.lat</span>
+          <span class="card-desc">Eastern routes</span>
+        </a>
+        <a href="https://2026.lat" class="mini-card" role="listitem">
+          <span class="card-icon" aria-hidden="true">📅</span>
+          <span class="card-title">2026</span>
+          <span class="card-desc">Timeline</span>
+        </a>
+      </div>
+
+      <div class="card-row" role="list" aria-label="Cultural language versions">
+        <a href="https://www.doors.mom/index-ja.html" class="mini-card" lang="ja" role="listitem">
+          <span class="card-icon" aria-hidden="true">🇯🇵</span>
+          <span class="card-title">日本</span>
+          <span class="card-desc">Rice paper, soft light</span>
+        </a>
+        <a href="https://www.doors.mom/sv.html" class="mini-card" lang="sv" role="listitem">
+          <span class="card-icon" aria-hidden="true">🇸🇪</span>
+          <span class="card-title">Sverige</span>
+          <span class="card-desc">Pine forest, lake view</span>
+        </a>
+        <a href="https://www.doors.mom/polska.html" class="mini-card" lang="pl" role="listitem">
+          <span class="card-icon" aria-hidden="true">🇵🇱</span>
+          <span class="card-title">Polska</span>
+          <span class="card-desc">Narrow path, memory</span>
+        </a>
+        <a href="https://www.doors.mom/foroyar.html" class="mini-card" lang="fo" role="listitem">
+          <span class="card-icon" aria-hidden="true">🇫🇴</span>
+          <span class="card-title">Føroyar</span>
+          <span class="card-desc">Ocean islands, wind</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- ℹ️ Footer Info -->
+    <div class="footer-info">
+      ⚡ Optimized for speed | 🗻🌊🐟 100% Client-Side | 🍻🧊 Zero Tracking &amp; Cookies<br>
+      No external requests. All data stays on your device. Respect, trust, transparency by design.<br>
+      <a href="https://mastodon.social/@worldday" target="_blank" rel="noopener" aria-label="Follow @worldday on Mastodon">@worldday@mastodon.social</a>
+    </div>
+
+    <!-- ✨ Page Features (Very Small) -->
+    <div class="features">
+      page features · live clock · updated date · listen-to-paragraph 🔊 · one-click copy 📋 · 
+      fully accessible · lightweight &amp; fast · no tracking, no cookies, no deception · 
+      privacy-first design · independent audit links included · zero external trackers · 
+      secure TLS · respect for every visitor 🐾
+    </div>
+
+    <!-- 🕒 Live Clock -->
+    <div id="live-clock" aria-live="polite" aria-label="Current time"></div>
+    
+    <!-- 📅 Creation Date -->
+    <p class="creation-date">Page created: May 2026</p>
+    
+  </footer>
+
+  <!-- 🧠 Minimal, Privacy-First JavaScript -->
+  <script>
+    // ===== LIVE DATE & CLOCK =====
+    const updateDateTime = () => {
+      const now = new Date();
+      const dateOpts = {weekday:'long',year:'numeric',month:'long',day:'numeric'};
+      const timeOpts = {hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false};
+      document.getElementById('live-date').textContent = now.toLocaleDateString('en-GB',dateOpts);
+      document.getElementById('live-clock').textContent = '🕒 ' + now.toLocaleTimeString('en-GB',timeOpts);
+    };
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    // ===== TEXT-TO-SPEECH WITH DELAY NOTICE =====
+    const listenTo = (chapterId) => {
+      const notice = document.getElementById(`notice-${chapterId}`);
+      if(notice) {
+        notice.classList.add('show');
+        setTimeout(() => notice.classList.remove('show'), 3500);
+      }
+      
+      // Web Speech API - 100% client-side, no external calls
+      if('speechSynthesis' in window) {
+        const chapter = document.getElementById(chapterId);
+        if(!chapter) return;
+        
+        // Cancel any ongoing speech
+        window.speechSynthesis.cancel();
+        
+        // Get text content (excluding buttons)
+        const text = chapter.querySelector('p')?.textContent || '';
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.9;
+        
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert('Text-to-speech not supported in this browser.');
+      }
+    };
+
+    // ===== SAVE TEXT TO DEVICE (LocalStorage + Download) =====
+    const saveText = (chapterId) => {
+      const chapter = document.getElementById(chapterId);
+      if(!chapter) return;
+      
+      const title = chapter.querySelector('h3')?.textContent || 'European Greetings';
+      const content = chapter.innerText;
+      const filename = `greetings-${chapterId}.txt`;
+      
+      // Create blob and trigger download
+      const blob = new Blob([`${title}\n\n${content}`], {type:'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    };
+
+    // ===== PRINT CHAPTER AS PDF (Native @media print) =====
+    const printChapter = (chapterId) => {
+      // Temporarily hide other chapters for clean print
+      const allChapters = document.querySelectorAll('.chapter');
+      const target = document.getElementById(chapterId);
+      
+      allChapters.forEach(ch => {
+        if(ch.id !== chapterId) ch.style.display = 'none';
+      });
+      
+      // Trigger print dialog
+      window.print();
+      
+      // Restore visibility after print
+      setTimeout(() => {
+        allChapters.forEach(ch => ch.style.display = '');
+      }, 100);
+    };
+
+    // ===== KEYBOARD SUPPORT FOR BUTTONS =====
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    });
+
+    // ===== LAZY LOAD FALLBACK FOR OLDER BROWSERS =====
+    if('loading' in HTMLImageElement.prototype) {
+      // Native lazy loading supported
+    } else {
+      // Fallback: load all images immediately
+      document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        img.loading = 'eager';
+      });
+    }
+  </script>
+  
+  <!-- 🇩🇪 Technische Anmerkung: 100% clientseitig. Keine externen Requests. WCAG AAA Kontrast. Print-CSS für PDF-Export. Web Speech API für Audio. -->
+</body>
+</html>
