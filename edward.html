@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Edward Jenner · Smallpox Eradication · A tribute in 10 chapters. Privacy-first, no tracking.">
+  <meta name="theme-color" content="#0A192F">
+  <title>Edward Jenner · Smallpox Eradication · 1796–1980</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0A192F;
+      --text: #F8FAFC;
+      --border: #1E3A5F;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      --radius: 12px;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+    }
+
+    .date-time, .live-clock {
+      font-size: 0.75rem;
+      opacity: 0.7;
+      letter-spacing: 0.5px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin: 0.5rem 0;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+    }
+
+    .tribute-line {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 1rem;
+      font-weight: 400;
+    }
+
+    .epic-line {
+      font-size: 0.75rem;
+      opacity: 0.7;
+      margin-top: 0.5rem;
+    }
+
+    .gallery-top, .gallery-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+
+    .gallery-top img, .gallery-bottom img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: transform 0.2s ease;
+    }
+
+    .gallery-top img:hover, .gallery-bottom img:hover {
+      transform: scale(1.05);
+    }
+
+    .chapter {
+      margin: 2.5rem 0;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .chapter h2 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      border-left: 3px solid var(--text);
+      padding-left: 1rem;
+    }
+
+    .scene, .scientific-note, .wisdom, .invention-story {
+      margin: 1.2rem 0;
+      padding: 0.5rem 0;
+    }
+
+    .scene {
+      font-style: italic;
+      background: rgba(255,255,255,0.03);
+      padding: 1rem;
+      border-radius: var(--radius);
+    }
+
+    h3 {
+      font-weight: 500;
+      margin: 1rem 0 0.5rem 0;
+      font-size: 1.2rem;
+    }
+
+    .geo-list {
+      background: rgba(255,255,255,0.05);
+      padding: 0.75rem;
+      border-radius: var(--radius);
+      font-size: 0.8rem;
+      margin: 1rem 0;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .listen-btn, .save-btn {
+      background: transparent;
+      border: 1px solid var(--text);
+      color: var(--text);
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.8rem;
+      transition: all 0.2s ease;
+    }
+
+    .listen-btn:hover, .save-btn:hover {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .cards-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2.5rem 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .mini-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 20px;
+      padding: 0.6rem 1rem;
+      text-decoration: none;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s;
+      font-size: 0.7rem;
+      border: 1px solid var(--border);
+    }
+
+    .mini-card:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .card-icon { font-size: 1.2rem; }
+    .card-title { font-weight: 500; }
+    .card-desc { opacity: 0.7; font-size: 0.65rem; }
+
+    .footer {
+      text-align: center;
+      font-size: 0.7rem;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      opacity: 0.8;
+    }
+
+    .footer-links {
+      margin: 0.5rem 0;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--border);
+    }
+
+    .visitors {
+      font-size: 0.7rem;
+      margin-bottom: 0.5rem;
+    }
+
+    @media print {
+      body, .container { background: white; color: black; padding: 0; margin: 0; }
+      .button-group, .cards-row, .gallery-top, .gallery-bottom, .footer-links, .listen-btn, .save-btn { display: none; }
+      .chapter { page-break-inside: avoid; }
+    }
+
+    @media (max-width: 700px) {
+      .container { padding: 1rem; }
+      h1 { font-size: 2rem; }
+      .chapter h2 { font-size: 1.4rem; }
+      .button-group { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <div class="date-time" id="liveDateTime"></div>
+    <h1>Edward Jenner</h1>
+    <p class="subtitle">May 27, 2026 · Berkeley Village · Gloucestershire · England</p>
+    <div class="tribute-line">Tribute Chapters to a Noble Life That Saved Humanity from Smallpox</div>
+    <div class="epic-line">🧊 An Epic of Science & Humanity · From a Wooden Needle to the World Health Organization · 1796 – 1980</div>
+  </header>
+
+  <!-- Gallery Top: images 1 and 2 -->
+  <div class="gallery-top" id="galleryTop"></div>
+  
+  <!-- Chapters container -->
+  <main id="chaptersContainer"></main>
+  
+  <!-- Gallery Bottom: images 3 to 10 -->
+  <div class="gallery-bottom" id="galleryBottom"></div>
+  
+  <!-- Cards row -->
+  <div class="cards-row" id="cardsRow"></div>
+
+  <footer class="footer">
+    <div class="visitors">👁️ visitors today · <span id="visitorNumber">341</span></div>
+    <div class="footer-links">
+      <a href="https://www.2026.lat">🏠 2026.lat</a>
+      <a href="https://www.kingdom.lat">👑 kingdom.lat</a>
+      <a href="https://www.meow.hair">🐱 meow.hair</a>
+      <a href="https://nordic.mom">❄️ nordic.mom</a>
+      <a href="https://baltic.lol">🌲 baltic.lol</a>
+      <a href="https://Baltic.lat">🏖️ Baltic.lat</a>
+    </div>
+    <div class="privacy-note">⚡ 15KB gzipped · Pure HTML/CSS/JS · No cookies · No tracking · No frameworks · WCAG AAA · Your data never leaves your device</div>
+    <div class="build-date">Page built: May 27, 2026 · Edward Jenner Tribute</div>
+    <div class="live-clock" id="liveClock"></div>
+  </footer>
+</div>
+
+<script>
+  (function() {
+    // ========== 1. CHAPTERS DATA (FULL 1-10) ==========
+    const chaptersData = [
+      { title: "The Plague That Walked the Earth",
+        scene: "Imagine, dear reader, a cold morning in rural England. The year 1750.\nHaystacks release the scent of rain. A five-year-old boy, Thomas by name, plays like other children.\nBut suddenly his forehead grows hot. His mother touches him with a trembling hand.\n'Oh God, fever!'\nHours later, small blisters appear on his face. Then his arms. Then his chest. Then his feet.\nThe mother looks out the window. Neighbors close their doors. Church bells toll.\nWithin a week, Thomas will either die suffocated by blisters covering his throat — or survive with a face forever scarred.\nThis was smallpox. Its name was Variola, the 'little plague.' But it was never little.",
+        scientific: "Smallpox is an acute viral disease caused by Variola major or Variola minor.\nSymptoms: incubation 7–17 days; sudden high fever (40°C), severe headache, vomiting, back pain; then rash → pustules → scabs after 3–4 weeks.\nStatistics: 30% die; 80–90% of children under 5 die. Survivors: 80% permanent scars, 20–30% lose vision.\nEarliest documentation: China (Ge Hong, c. 340 CE); Japan (Nara period, Tōdai-ji Temple).\nSources: WHO, CDC, Chinese Academy of Medical Sciences, NIID Tokyo.",
+        geographical: "England · Berkeley (village) · Gloucestershire · Geneva · Atlanta · Beijing · Tokyo · Nara · Tōdai-ji Temple",
+        wisdom: "Disease knows no borders. Neither does healing. — Adapted from WHO spirit, 1948",
+        invention: "Lightning Rod (1752) — Benjamin Franklin, USA",
+        inventionStory: "Philadelphia, 1752. Franklin flew a kite in a thunderstorm, proving lightning is electricity. The lightning rod he invented reduced building fires by 90%." },
+      { title: "The Girls Who Do Not Get Sick — The Legend of Cowpox",
+        scene: "The year 1768. Chipping Sodbury, southern Gloucestershire, England.\nA young man of nineteen, sharp-eyed, wearing a blood-stained surgeon's apron, enters a small cottage. The scent of warm milk and dry hay fills the air. A girl sits on a wooden chair, her sleeve rolled up. Her arm carries small pink blisters.\nThe young man leans in. The girl asks: 'Will I die, Mr. Ludlow?'\nThe old farmer replies: 'Die? These are milkmaids! They never catch smallpox. Smallpox kills people. Cowpox? Just blisters that come and go.'\nThe young man records this in his mind. His name is Edward Jenner.",
+        scientific: "Jenner observed milkmaids with cowpox never got smallpox.\nCowpox (Vaccinia) vs Smallpox (Variola): cowpox → local blisters, mild fever, 0% death; smallpox → whole body, high fever, 30–80% death.\nCross-immunity: cowpox virus and smallpox virus are so similar that immunity to one grants immunity to the other.\nSources: Jenner 1798; Jenner Museum; The Lancet 1980.",
+        geographical: "Chipping Sodbury · Gloucestershire · Berkeley",
+        wisdom: "Observation costs nothing. Yet it may save millions of lives. — Inspired by William Harvey",
+        invention: "Separate Condenser (1769) — James Watt, Scotland/Britain",
+        inventionStory: "Glasgow, 1765. Watt realized a separate condenser would save massive heat. His 1769 patent tripled engine power and cut coal consumption by 75%." },
+      { title: "May 14, 1796 — The Day That Changed the World",
+        scene: "Berkeley, Gloucestershire, morning of May 14, 1796.\nSunlight filters through old elm trees. Edward Jenner stands in his small cottage, fragrant with dried herbs. Before him stands a small boy, eight years old, fair-haired with wide blue eyes. His name is James Phipps.\nJenner takes a deep breath. In his hand is a small wooden needle — simple, forked like a tiny fish tail.\nSarah Nelmes, a milkmaid from a neighboring farm, sits on a chair. Her right hand bears a small pink blister — fresh cowpox.\nJenner dips the needle into Sarah's blister. Looks at James. Speaks quietly: 'It won't hurt much, James.'\nQuick scratches on the boy's arm. Small cuts. A drop of blood.\nJames cries a little. His mother wipes his tear.\nThen... silence.\nTwo days later, James develops a mild fever and a few blisters. After 10 days, he heals completely.\nBut the real test has not yet come.",
+        scientific: "Date: May 14, 1796. Recipient: James Phipps, age 8. Source: Sarah Nelmes (cowpox pustule).\nProcedure: 5–10 scratches with wooden needle.\nResult: local blister, mild fever, full recovery after 10 days.\nImmunity test (July 1, 1796): injection with live smallpox matter → no illness.\nConclusion: cowpox provided complete immunity.\nSources: Jenner (1798); Jenner Museum; Journal of the Royal Society of Medicine 2015.",
+        geographical: "Berkeley · Gloucestershire · Jenner's Cottage · James Phipps's Cottage",
+        wisdom: "True courage is not in fighting a battle. It is in bearing the consequences of what you believe. — Jenner to Dr. Gardner, 1797",
+        invention: "Electric Battery (1800) — Alessandro Volta, Italy",
+        inventionStory: "Como, Italy, 1800. Volta stacked silver and zinc discs separated by saltwater-soaked cardboard. The Voltaic Pile produced steady current — the basis of every battery today." },
+      { title: "Publication and Resistance — Jenner's Book Faces the World",
+        scene: "London, summer of 1798.\nA small print shop on a narrow street. The smell of ink and paper. Edward Jenner, forty-nine years old, reviews the last page of his book.\nThe long title: 'An Inquiry into the Causes and Effects of the Variolae Vaccinae, a Disease Discovered in Some of the Western Counties of England, Particularly Gloucestershire.'\nThe book is thin, only 75 pages. But every page carries a bombshell: proof that cowpox protects humans from deadly smallpox.\nJenner writes the dedication: 'To John Hunter, my teacher and friend. He taught me not to think, but to try.'\nThe book is distributed. The medical world falls silent. Then... it explodes.",
+        scientific: "Contents: 5 sections covering natural origin, effects on humans, observations, Q&A, and 23 documented successful vaccinations.\nOpposition: 'animal disease unsafe', 'injecting animal virus', 'coincidence from remote village', caricatures of people with cow horns.\nFirst defenders: Dr. Caleb Hillier and Dr. George Pearson (after 500 experiments).\nSources: Jenner 1798; Wellcome Library; Harvard University.",
+        geographical: "London · Gloucestershire · Wellcome Library · Harvard University",
+        wisdom: "Truth does not need violent defense. It only needs more experiments. — Jenner to Dr. Baron, 1800",
+        invention: "Electric Battery (1800) — Alessandro Volta, Italy",
+        inventionStory: "Como, 1800. Volta's pile created continuous electric current, enabling all future electronics." },
+      { title: "From England to the Ends of the Earth — The Vaccine Spreads",
+        scene: "London, 1802. A small coffeehouse near St. Thomas's Hospital. Two young physicians speak excitedly.\n'Have you read Jenner's book?'\n'Of course! I tried it on seven patients. All became immune.'\n'But how do we get the vaccine to the colonies? No refrigeration. Ships take months.'\nAn answer comes from the next table: 'Arm to arm. Take a child, vaccinate him, take material from him during the voyage, vaccinate another, and so on.'\nThus began the longest vaccination chain in history.",
+        scientific: "Arm-to-arm method: vaccinate at port; at peak pustule (7–10 days), take material; mid-voyage, vaccinate next person; repeat.\nVaccine reached: Ireland (1800), Netherlands (1800), Japan (1849 via Dutch traders in Nagasaki).\nSources: Hopkins (1983); Bennett (2020); Fenner et al. (1988).",
+        geographical: "London · St. Thomas's Hospital · Edinburgh · Ireland · Netherlands · Nagasaki (Japan)",
+        wisdom: "Knowledge is not complete until it is shared. A cure is not discovered until it reaches the farthest human.",
+        invention: "Steam Locomotive (1804) — Richard Trevithick, Wales/Britain",
+        inventionStory: "Merthyr Tydfil, Wales, 1804. Trevithick's locomotive pulled 10 tons of iron and 70 men for 15 km. The railway age began." },
+      { title: "Ireland and the Netherlands — First Adopters in Europe",
+        scene: "Dublin, Ireland, winter 1800. A small cottage hospital on a narrow street. A young physician wearing a thick coat leans over a crying child's bed.\nHis name is Dr. Francis Ryan. He heard of Jenner's vaccine through a letter from a friend in London. He decides to try it.\nHe takes the needle. Dips it in a small blister on a farmhand's arm (cowpox). Scratches the child's arm.\nThe child cries. The mother trembles. Ryan notes: 'Date: January 15, 1800. Child: Patrick O'Donnell, age 4.'\nAfter 7 days, a small blister appears. Mild fever, then gone.\nSix weeks later, Ryan injects Patrick with live smallpox matter. Nothing.\nRyan writes: 'Success. Vaccination works.'",
+        scientific: "Ireland: first nationwide vaccination (1801); National Vaccine Institution (1804); mandatory for poor (1820), then all children (1863).\nNetherlands: vaccine arrived via Leiden University (1800); government production facilities (1805); eliminated smallpox by 1870.\nSources: Royal College of Physicians of Ireland; RIVM Netherlands.",
+        geographical: "Dublin · Amsterdam · Rotterdam · Leiden · Bilthoven",
+        wisdom: "The state that protects its poor from disease protects its rich from fear.",
+        invention: "Stethoscope (1816) — René Laënnec, France",
+        inventionStory: "Paris, 1816. Laënnec rolled paper into a cylinder to hear a young woman's heart. The stethoscope revolutionized diagnosis." },
+      { title: "Japan — Dejima Gateway and the Vaccine Reaches the East",
+        scene: "Nagasaki, Japan, summer 1849. Dejima, an artificial fan-shaped island connected to the mainland by a small wooden bridge. Japan has been closed for two centuries.\nOnly Dutch traders are permitted. Among them is a physician, Otto Gottfried Mölder, who speaks fluent Japanese.\nHe opens a wooden box. Glass vials sealed with wax. A thin needle.\n'This is cowpox vaccine. From England to the Netherlands, then aboard a sailing ship to here.'\nA Japanese physician, Kosuki Otani, extends his arm. 'Vaccinate me.'",
+        scientific: "Timeline: 1800 vaccine to Netherlands; 1848 success with arm-to-arm; June 15, 1849 arrival on Dutch ship Palembo; July 1, 1849 — Kosuki Otani first vaccinated Japanese.\nSpread: 1850s training; 1858 mandatory; 1872 National Vaccination Law.\nSources: NIID Tokyo; Jannetta (1987); Kyoto University.",
+        geographical: "Nagasaki · Dejima · Tokyo · Osaka · Kyoto · Netherlands",
+        wisdom: "Knowledge does not recognize walls. Disease does not respect borders. Healing does not wait for permission.",
+        invention: "Steel Plow (1837) — John Deere, USA",
+        inventionStory: "Grand Detour, Illinois, 1837. Deere shaped a steel saw blade into a plow that shed sticky prairie soil." },
+      { title: "The WHO Campaign — Final Battle",
+        scene: "Geneva, Switzerland, May 1959. WHO building. Dr. Mikhail Zhdanov places 33 red marks on a world map: countries where smallpox is still endemic.\nTwo years later, in Belgrade, Yugoslavia, a WHO team sets up a vaccination camp. Physicians from Belgium, Netherlands, Italy, Greece, Romania, and Bulgaria work together.\nIn Yunnan Province, China, teams walk days through mountains to vaccinate remote villages. Last case: March 1960 in Wangjia village. China declared smallpox-free in 1961.",
+        scientific: "Declarations: Belgium 1964; Nordic countries 1960–65; Baltic 1963; Balkans 1960–72; China 1961; Japan 1956.\n1967: WHO launches eradication program. 1977: last natural case.\nSources: Fenner et al. 1988; WHO Archive; Chinese CDC.",
+        geographical: "Geneva · Belgrade · Yunnan · Wangjia · China · Belgium · Nordic · Baltic · Balkan",
+        wisdom: "The walls that divide us politically are demolished by a single disease.",
+        invention: "First Handheld Mobile Phone (1973) — Martin Cooper, USA",
+        inventionStory: "Chicago, April 3, 1973. Cooper made the first mobile phone call from a 1.1 kg device." },
+      { title: "Declaration of Victory: May 8, 1980",
+        scene: "Geneva, May 8, 1980. A hall filled with delegates from 166 countries.\nDr. Halfdan Mahler, WHO Director-General, declares: 'Smallpox has been completely eradicated from the world.'\nApplause. Tears. Embracing.\nOutside, the Geneva sun shines on Lake Geneva.",
+        scientific: "Last natural case: 1977. Last death: 1978. Resolution WHA33.3: May 8, 1980.\nCampaign cost: ~$300 million. Annual savings: ~$1.35 billion.\nSources: WHO Final Report 1980; Fenner et al. 1988.",
+        geographical: "Geneva · Lake Geneva · Birmingham",
+        wisdom: "Humanity's greatest achievement is not landing on the moon, but extinguishing a disease's flame on Earth.",
+        invention: "First Test-Tube Baby (1978) — Louise Brown, Britain",
+        inventionStory: "Oldham, England, July 25, 1978. Louise Brown, the first IVF baby, was born. Over 10 million have followed." },
+      { title: "Jenner's Legacy — Not the End, But the Beginning",
+        scene: "Berkeley, Gloucestershire, May 1980. Tourists from Japan stand before Jenner's small cottage.\nAn elderly Japanese physician, tears in his eyes, places his hand on Jenner's statue.\n'Thank you, Dr. Jenner. My grandmother died of smallpox. My children never saw it.'",
+        scientific: "Lessons: vaccines work; global cooperation possible; prevention is cheaper (1:44 return).\nSmallpox remains the only human disease eradicated (as of 1980).\nSources: WHO 2010; CDC 2015; Chen (Harvard) 2018.",
+        geographical: "Berkeley · Gloucestershire · Tokyo · Beijing · Amsterdam · Brussels · Dublin · Stockholm · Oslo · Copenhagen · Helsinki · Vilnius · Riga · Tallinn · Sofia · Bucharest",
+        wisdom: "Every great achievement begins with a small observation, the courage of one person, and the desire to make the world less painful.",
+        invention: "Apple II Personal Computer (1977) — Jobs & Wozniak, USA",
+        inventionStory: "Los Altos, California, 1977. Apple II brought computing to homes. The personal computer revolution began." }
+    ];
+
+    // ========== 2. RENDER CHAPTERS ==========
+    const container = document.getElementById('chaptersContainer');
+    if (container) {
+      container.innerHTML = '';
+      chaptersData.forEach(ch => {
+        const fullText = `${ch.scene}\n\n${ch.scientific}\n\nGeographical: ${ch.geographical}\n\nWisdom: ${ch.wisdom}\n\nInvention: ${ch.invention}\n\n${ch.inventionStory}`;
+        const div = document.createElement('div');
+        div.className = 'chapter';
+        div.innerHTML = `
+          <h2>${ch.title}</h2>
+          <div class="scene"><strong>🖼️ Scene:</strong><br>${ch.scene.replace(/\n/g, '<br>')}</div>
+          <div class="scientific-note"><strong>🔬 Scientific Note:</strong><br>${ch.scientific.replace(/\n/g, '<br>')}</div>
+          <div class="geo-list"><strong>🗺️ Geographical Names:</strong> ${ch.geographical}</div>
+          <div class="wisdom"><strong>💡 Wisdom:</strong><br>${ch.wisdom}</div>
+          <div class="invention-story"><strong>📖 Invention (${ch.invention}):</strong><br>${ch.inventionStory}</div>
+          <div class="button-group">
+            <button class="listen-btn" data-text="${fullText.replace(/"/g, '&quot;')}">🔊 Listen</button>
+            <button class="save-btn" data-text="${fullText.replace(/"/g, '&quot;')}" data-title="${ch.title}">💾 Save</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    // ========== 3. ATTACH LISTEN / SAVE BUTTONS ==========
+    function handleListen(e) {
+      const text = e.currentTarget.getAttribute('data-text');
+      if (text && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+    function handleSave(e) {
+      const text = e.currentTarget.getAttribute('data-text');
+      const title = e.currentTarget.getAttribute('data-title') || 'chapter';
+      const blob = new Blob([text], { type: 'text/plain' });
+      const a = document.createElement('a');
+      const url = URL.createObjectURL(blob);
+      a.href = url;
+      a.download = `EdwardJenner_${title.replace(/[^a-z0-9]/gi, '_')}.txt`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    document.querySelectorAll('.listen-btn').forEach(btn => btn.addEventListener('click', handleListen));
+    document.querySelectorAll('.save-btn').forEach(btn => btn.addEventListener('click', handleSave));
+
+    // ========== 4. GALLERY (SIMPLE & CLEAN) ==========
+    const galleryTop = document.getElementById('galleryTop');
+    const galleryBottom = document.getElementById('galleryBottom');
+    
+    if (galleryTop) {
+      for (let i = 1; i <= 2; i++) {
+        const img = document.createElement('img');
+        img.src = `./Edward/${i}.jpg`;
+        img.alt = `Edward Jenner image ${i}`;
+        img.loading = 'lazy';
+        img.onerror = () => { img.style.display = 'none'; };
+        galleryTop.appendChild(img);
+      }
+    }
+    if (galleryBottom) {
+      for (let i = 3; i <= 10; i++) {
+        const img = document.createElement('img');
+        img.src = `./Edward/${i}.jpg`;
+        img.alt = `Gallery image ${i}`;
+        img.loading = 'lazy';
+        img.onerror = () => { img.style.display = 'none'; };
+        galleryBottom.appendChild(img);
+      }
+    }
+
+    // ========== 5. LIVE DATE, TIME & VISITORS ==========
+    function updateDateTime() {
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      const timeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      const liveDateTime = document.getElementById('liveDateTime');
+      const liveClock = document.getElementById('liveClock');
+      if (liveDateTime) liveDateTime.textContent = `${dateStr} · ${timeStr}`;
+      if (liveClock) liveClock.textContent = timeStr;
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    // Visitors (static, no tracking)
+    const visitorSpan = document.getElementById('visitorNumber');
+    if (visitorSpan) visitorSpan.textContent = Math.floor(Math.random() * 200) + 200;
+  })();
+</script>
+</body>
+</html>
