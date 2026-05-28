@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kingdom Assistant — Local AI, zero tracking, privacy-first.">
+  <meta name="robots" content="index, follow">
+  <title>Kingdom Assistant · Privacy-First Local AI</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="kingdom.css">
+  <script src="kingdom.js" defer></script>
+</head>
+<body>
+
+  <!-- 📅 Real-time date at top (small font) -->
+  <header class="page-header">
+    <time id="realtime-date" datetime="" class="tiny-text"></time>
+    <p class="welcome-multilingual tiny-text" aria-label="Welcome in multiple languages">
+      Sveiki · Witaj · Slán · Tervetuloa · Velkommen · Здраво
+    </p>
+  </header>
+
+  <!-- 🏰 Main content -->
+  <main class="container">
+    
+    <section class="hero-section">
+      <h1>🏰 Kingdom Assistant</h1>
+      <p class="subtitle">Local AI · Zero Tracking · Your Data Stays Yours</p>
+    </section>
+
+    <!-- 🔹 How It Works -->
+    <section id="how-it-works" class="content-section" aria-labelledby="how-title">
+      <h2 id="how-title">🔹 How It Works</h2>
+      
+      <div class="explanation" id="main-explanation">
+        <p><strong>Kingdom Assistant</strong> is a local AI helper that runs <em>100% inside your browser</em>.</p>
+        <ul>
+          <li>🔒 No tracking · No cookies · No third parties</li>
+          <li>🧠 All processing happens on your device after initial download</li>
+          <li>🌐 Works offline once loaded · No data leaves your device</li>
+          <li>🎯 Purpose: Honest, concise translation only — nothing more</li>
+        </ul>
+        <p class="step-list"><strong>Simple flow:</strong> Open page → Tap [🤖 Activate Local AI ~500MB] → Model downloads from your domain → Ask questions → Get local answers → Close page → Zero traces externally.</p>
+      </div>
+
+      <!-- 🔊 Listen & 💾 Save buttons -->
+      <div class="action-buttons">
+        <button id="btn-listen" class="btn btn-primary" aria-label="Listen to explanation">
+          🔊 Listen
+        </button>
+        <button id="btn-save" class="btn btn-secondary" aria-label="Save explanation as text file">
+          💾 Save
+        </button>
+      </div>
+    </section>
+
+    <!-- 🔹 Capabilities (Honest) -->
+    <section class="content-section" aria-labelledby="caps-title">
+      <h2 id="caps-title">🔹 What It Can Do (Honestly)</h2>
+      <div class="capabilities-grid">
+        <div class="capability-card can">
+          <span class="check">✅</span>
+          <p>Translate short texts (EN ↔ AR ↔ EU languages)</p>
+        </div>
+        <div class="capability-card can">
+          <span class="check">✅</span>
+          <p>Answer simple questions about this site's content</p>
+        </div>
+        <div class="capability-card can">
+          <span class="check">✅</span>
+          <p>Work offline after first load</p>
+        </div>
+        <div class="capability-card cant">
+          <span class="cross">❌</span>
+          <p>Search the internet or fetch live data</p>
+        </div>
+        <div class="capability-card cant">
+          <span class="cross">❌</span>
+          <p>Guarantee 100% accuracy (small local model)</p>
+        </div>
+        <div class="capability-card cant">
+          <span class="cross">❌</span>
+          <p>Remember conversations after page close</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔹 Privacy Guarantees -->
+    <section class="content-section" aria-labelledby="privacy-title">
+      <h2 id="privacy-title">🔹 Privacy & Security Guarantees</h2>
+      <ul class="privacy-list">
+        <li>🔒 Zero cookies · Zero tracking · Zero third-party domains</li>
+        <li>🔐 All data stays on your device after initial model download</li>
+        <li>🛡️ Model file signed with SHA-256 to prevent tampering</li>
+        <li>⚡ Main page &lt;50KB — fast even on slow connections</li>
+        <li>🌐 Works on any modern browser with WebGPU/WebAssembly</li>
+      </ul>
+    </section>
+
+    <!-- 🖼️ Image Gallery (10 small images) -->
+    <section class="gallery-section" aria-labelledby="gallery-title">
+      <h3 id="gallery-title">🖼️ Quiet Moments</h3>
+      <div class="gallery-grid">
+        <!-- Images from /Kingdom/1.jpg to /Kingdom/10.jpg -->
+        <img src="Kingdom/1.jpg" alt="Quiet Nordic forest morning" loading="lazy" decoding="async" width="150" height="100">
+        <img src="Kingdom/2.jpg" alt="Baltic lake at sunset" loading="lazy" decoding="async" width="150" height="100">
+        <img src="Kingdom/3.jpg" alt="Balkan mountain path" loading="lazy" decoding="async" width="150" height="100">
+        <img src="Kingdom/4.jpg" alt="Polish old town square" loading="lazy" decoding="async" width="150" height="100">
+        <img src="Kingdom/5.jpg" alt="Irish coastal cliff" loading="lazy" decoding="async" width="150" height="100">
+        <img src="Kingdom/6.jpg" alt="Dutch windmill at dawn" loading="lazy" decoding="async" width="150" height="100">
+        <img src="Kingdom/7.jpg" alt="German forest trail" loading="lazy" decoding="async" width="150" height="100">
+        <img src="Kingdom/8.jpg" alt="Icelandic glacier view" loading="lazy" decoding="async" width="150" height="100">
+        <img src="Kingdom/9.jpg" alt="Chinese ink landscape" loading="lazy" decoding="async" width="150" height="100">
+        <img src="Kingdom/10.jpg" alt="Portuguese azulejo detail" loading="lazy" decoding="async" width="150" height="100">
+      </div>
+    </section>
+
+    <!-- 🤖 Local AI Activation (Optional) -->
+    <section class="content-section" aria-labelledby="ai-title">
+      <h2 id="ai-title">🤖 Kingdom Assistant (Optional)</h2>
+      <p class="ai-description">This helper runs locally on your device. It does not send your questions anywhere.</p>
+      
+      <button id="btn-activate-ai" class="btn btn-ai" aria-label="Activate local AI assistant (~500MB download)">
+        🤖 Activate Local Assistant ~500MB
+      </button>
+      
+      <div id="ai-status" class="ai-status hidden" role="status" aria-live="polite"></div>
+      
+      <div id="ai-chat" class="ai-chat hidden">
+        <div id="ai-messages" class="ai-messages"></div>
+        <form id="ai-form" class="ai-form">
+          <input type="text" id="ai-input" placeholder="Ask for translation or simple help..." autocomplete="off" aria-label="Your question">
+          <button type="submit" class="btn btn-small">Send</button>
+        </form>
+      </div>
+      
+      <p class="ai-note tiny-text">⚠️ Local models are experimental. Answers may not be perfect. For privacy: everything stays on your device.</p>
+    </section>
+
+  </main>
+
+  <!-- 🌍 Multilingual footer note (small font) -->
+  <footer class="lang-footer" role="contentinfo">
+    <p lang="de">🇩🇪 DE: Kein Tracking, keine Cookies. Alles lokal. Deine Daten gehören dir.</p>
+    <p lang="nl">🇳🇱 NL: Geen tracking, geen cookies. Alles lokaal. Jouw gegevens blijven van jou.</p>
+    <p lang="no">🇳🇴 NO: Ingen sporing, ingen cookies. Alt lokalt. Dine data forblir hos deg.</p>
+    <p lang="is">🇮🇸 IS: Engin rakning, engar kökur. Allt staðbundið. Gögnin þín eru þín.</p>
+    <p lang="zh">🇨🇳 ZH: 无追踪，无 Cookie。全部本地运行。你的数据属于你。</p>
+    <p lang="ru">🇷🇺 RU: Никакого отслеживания, никаких cookies. Всё локально. Ваши данные принадлежат вам.</p>
+    <p lang="fr">🇫🇷 FR: Aucun suivi, aucun cookie. Tout en local. Vos données vous appartiennent.</p>
+    <p lang="pt">🇵🇹 PT: Sem rastreamento, sem cookies. Tudo local. Seus dados são seus.</p>
+  </footer>
+
+  <!-- 🃏 Mini Cards Row -->
+  <div class="card-row">
+    <a href="https://www.doors.mom/index-ja.html" class="mini-card" lang="ja">
+      <span class="card-icon">🇯🇵</span>
+      <span class="card-title">日本</span>
+      <span class="card-desc">Rice paper, soft light, one word</span>
+    </a>
+    <a href="https://www.doors.mom/sv.html" class="mini-card" lang="sv">
+      <span class="card-icon">🇸🇪</span>
+      <span class="card-title">Sverige</span>
+      <span class="card-desc">Pine forest, lake view, breathing space</span>
+    </a>
+    <a href="https://www.doors.mom/polska.html" class="mini-card" lang="pl">
+      <span class="card-icon">🇵🇱</span>
+      <span class="card-title">Polska</span>
+      <span class="card-desc">Narrow path, salt mine, memory</span>
+    </a>
+    <a href="https://www.doors.mom/foroyar.html" class="mini-card" lang="fo">
+      <span class="card-icon">🇫🇴</span>
+      <span class="card-title">Føroyar</span>
+      <span class="card-desc">Ocean islands, endless wind</span>
+    </a>
+    <a href="https://www.kingdom.lat/poem/poem.html" class="mini-card" lang="en">
+      <span class="card-icon">📜</span>
+      <span class="card-title">Poem</span>
+      <span class="card-desc">Digital Sovereignty: When Privacy Becomes Art</span>
+    </a>
+  </div>
+
+  <!-- 🦶 Page Footer -->
+  <footer class="page-footer">
+    <p class="tiny-text">
+      ⚙️ Code features: 
+      · 100% client-side 
+      · no tracking 
+      · no cookies 
+      · no deception 
+      · privacy-first design 
+      · lightweight &amp; fast 
+      · secure TLS 
+      · zero external trackers 
+      · respect for every visitor 🐾
+    </p>
+    <p class="tiny-text">
+      📅 Page created: <time id="page-created" datetime=""></time> 
+      · ⏱️ Live: <time id="live-clock" datetime=""></time>
+    </p>
+    <p class="tiny-text">
+      🔗 Mastodon: <a href="https://mastodon.social/@worldday" rel="me noopener">@worldday@mastodon.social</a>
+    </p>
+  </footer>
+
+</body>
+</html>
