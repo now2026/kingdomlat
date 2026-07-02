@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Pat's Peak ·🌳 A Sanctuary of Whispering Woods 🤍🌳🧊🌊</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a1628;
+            --bg-secondary: #1e3a5f;
+            --bg-tertiary: #0f1f38;
+            --bg-card: #152847;
+            --text-primary: #fffafa;
+            --text-secondary: #c8d4e6;
+            --text-muted: #8a9bb5;
+            --border: rgba(255, 250, 250, 0.08);
+            --radius: 14px;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            --font: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            padding: 20px;
+            font-size: 1.05rem;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 40px 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 12px 24px;
+            border-radius: 0 0 8px 8px;
+            font-weight: 600;
+            z-index: 1000;
+            transition: top 0.3s ease;
+            text-decoration: none;
+        }
+        .skip-link:focus { top: 0; }
+
+        .header {
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 28px;
+            margin-bottom: 30px;
+        }
+
+        .header .flag { font-size: 3.2rem; }
+        .header h1 {
+            font-size: 2.4rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-top: 4px;
+            color: var(--text-primary);
+        }
+        .header h1 small {
+            font-size: 1rem;
+            opacity: 0.6;
+            display: block;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .header .subtitle {
+            font-size: 1.15rem;
+            opacity: 0.8;
+            font-style: italic;
+            margin-top: 12px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-primary);
+        }
+        .header .clock {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            opacity: 0.7;
+            letter-spacing: 2px;
+        }
+        .header .date {
+            font-size: 0.85rem;
+            opacity: 0.5;
+            margin-top: 2px;
+        }
+
+        .contemplation-box {
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-card) 100%);
+            border-radius: var(--radius);
+            padding: 24px 30px;
+            margin: 25px 0 35px 0;
+            text-align: center;
+            border: 2px solid var(--text-primary);
+            font-style: italic;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        .contemplation-box::before {
+            content: "❝";
+            font-size: 3rem;
+            opacity: 0.3;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+        }
+        .contemplation-box::after {
+            content: "❞";
+            font-size: 3rem;
+            opacity: 0.3;
+            position: absolute;
+            bottom: -20px;
+            right: 20px;
+        }
+
+        .dedication {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--text-primary);
+        }
+        .dedication a {
+            color: var(--text-primary);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--text-primary);
+        }
+        .dedication a:hover {
+            border-bottom-style: solid;
+        }
+
+        .countdown-box {
+            background: var(--bg-tertiary);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            margin: 18px 0 28px 0;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        .countdown-box .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.6;
+        }
+        .countdown-box .timer {
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-top: 4px;
+            color: var(--text-primary);
+        }
+        .countdown-box .sub {
+            font-size: 0.75rem;
+            opacity: 0.4;
+            margin-top: 4px;
+        }
+
+        .map-box {
+            background: var(--bg-tertiary);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin: 20px 0 30px 0;
+            border: 1px solid var(--border);
+        }
+        .map-box h3 {
+            text-align: center;
+            font-weight: 300;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        .map-wrapper {
+            width: 100%;
+            height: 350px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--text-primary);
+        }
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+        .map-coords {
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.5;
+            margin-top: 10px;
+        }
+
+        .content h2 {
+            font-weight: 300;
+            font-size: 1.9rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 12px;
+            margin: 40px 0 20px 0;
+            color: var(--text-primary);
+        }
+        .content h3 {
+            font-weight: 300;
+            font-size: 1.4rem;
+            margin: 25px 0 15px 0;
+            color: var(--text-primary);
+            opacity: 0.9;
+        }
+        .content p {
+            margin-bottom: 18px;
+            opacity: 0.95;
+            font-weight: 300;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            text-align: justify;
+        }
+        .content .quote {
+            background: var(--bg-tertiary);
+            padding: 20px 28px;
+            border-radius: var(--radius);
+            border-left: 5px solid var(--text-primary);
+            margin: 25px 0;
+            font-style: italic;
+            opacity: 0.9;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+        .content .legend {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-tertiary) 100%);
+            padding: 22px 28px;
+            border-radius: var(--radius);
+            margin: 25px 0;
+            border: 1px solid var(--border);
+        }
+        .content .legend h4 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+        .content .legend .source {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            margin-top: 12px;
+            font-style: italic;
+        }
+
+        .seasons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 25px 0;
+        }
+        .season-card {
+            background: var(--bg-tertiary);
+            border-radius: var(--radius);
+            padding: 18px 20px;
+            border: 1px solid var(--border);
+        }
+        .season-card .season-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .season-card .season-name {
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .season-card .season-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .bio-listen-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 25px 0 35px 0;
+        }
+        .bio-listen-btn {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--text-primary);
+            color: var(--text-primary);
+            padding: 14px 36px;
+            border-radius: 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            font-family: var(--font);
+        }
+        .bio-listen-btn:hover,
+        .bio-listen-btn:focus {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+        }
+        .bio-listen-btn.speaking {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin: 25px 0;
+        }
+        .image-card {
+            background: var(--bg-tertiary);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .image-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            background: var(--bg-primary);
+        }
+        .image-card .caption {
+            padding: 12px 16px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-weight: 300;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .word-group {
+            background: var(--bg-tertiary);
+            border-radius: var(--radius);
+            padding: 22px;
+            margin: 22px 0;
+            border: 1px solid var(--border);
+        }
+        .word-group-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .word-group-title {
+            font-weight: 300;
+            font-size: 1.15rem;
+            color: var(--text-primary);
+        }
+        .word-group-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .group-btn {
+            background: var(--bg-primary);
+            border: 1px solid var(--text-primary);
+            color: var(--text-primary);
+            padding: 9px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: var(--font);
+            font-weight: 300;
+        }
+        .group-btn:hover,
+        .group-btn:focus {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+        }
+        .group-btn.speaking {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        .group-btn.copied {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+        }
+
+        .woord-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 14px;
+            margin: 18px 0;
+        }
+        .woord-item {
+            background: var(--bg-primary);
+            padding: 12px 14px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--border);
+            font-size: 0.85rem;
+        }
+        .woord-item .nl {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .woord-item .talen {
+            opacity: 0.6;
+            font-size: 0.65rem;
+            word-break: break-word;
+            color: var(--text-primary);
+        }
+
+        .action-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+            margin: 28px 0 14px 0;
+        }
+        .social-link {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            padding: 14px 30px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-align: center;
+        }
+        .social-link a {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        .social-link a:hover,
+        .social-link a:focus {
+            text-decoration: underline;
+        }
+
+        .memo-box {
+            background: var(--bg-tertiary);
+            border-radius: var(--radius);
+            padding: 24px 26px;
+            margin: 35px 0;
+            border: 1px solid var(--border);
+        }
+        .memo-box h3 {
+            font-weight: 300;
+            font-size: 1.2rem;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+        }
+        .memo-box textarea {
+            width: 100%;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 18px;
+            color: var(--text-primary);
+            font-family: var(--font);
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 100px;
+        }
+        .memo-box textarea:focus {
+            outline: 2px solid rgba(255, 250, 250, 0.2);
+        }
+        .memo-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+        .memo-actions .btn-klein {
+            background: var(--bg-primary);
+            border: 1px solid var(--text-primary);
+            color: var(--text-primary);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: var(--font);
+        }
+        .memo-actions .btn-klein:hover,
+        .memo-actions .btn-klein:focus {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+        }
+        .memo-display {
+            margin-top: 14px;
+            padding: 16px 20px;
+            background: var(--bg-primary);
+            border-radius: 10px;
+            min-height: 50px;
+            font-weight: 300;
+            opacity: 0.9;
+            border: 1px solid var(--border);
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.5;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+        }
+        .footer .sources {
+            margin-top: 10px;
+            opacity: 0.7;
+            font-size: 0.75rem;
+        }
+        .footer .sources span {
+            margin: 0 10px;
+        }
+        .footer .privacy {
+            margin-top: 12px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            opacity: 0.5;
+        }
+        .footer .creation-date {
+            margin-top: 14px;
+            font-size: 0.75rem;
+            opacity: 0.6;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 700px) {
+            .container { padding: 22px 18px; }
+            .image-grid { grid-template-columns: 1fr; }
+            .seasons-grid { grid-template-columns: 1fr; }
+            .woord-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 2rem; }
+            .countdown-box .timer { font-size: 1.8rem; }
+            body { font-size: 1rem; padding: 14px; }
+            .content p { font-size: 1rem; }
+            .contemplation-box { font-size: 1.05rem; padding: 20px 24px; }
+        }
+        @media (max-width: 450px) {
+            .header .subtitle { font-size: 1.05rem; }
+            .woord-grid { grid-template-columns: 1fr; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
+        }
+        @media (prefers-contrast: high) {
+            :root {
+                --bg-primary: #000000;
+                --bg-secondary: #0a1628;
+                --text-primary: #ffffff;
+                --border: rgba(255,255,255,0.3);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a class="skip-link" href="#main-content">⏭️ Skip to main content</a>
+
+    <div class="container">
+
+        <header class="header" role="banner">
+            <div class="flag" aria-hidden="true">🇺🇸</div>
+            <h1>Pat's Peak <small>🌳 A Sanctuary of Whispering Woods</small></h1>
+            <div class="subtitle">
+                A Contemplative Journey Through the Ancient Forests of New England
+            </div>
+            <div class="clock" id="liveClock" aria-live="polite">🕐 --:--:--</div>
+            <div class="date" id="liveDate" aria-live="polite">📅 --</div>
+        </header>
+
+        <div class="contemplation-box">
+            A contemplative look at the beauty of nature
+        </div>
+
+        <div class="dedication">
+            🌟 Dedication from: <a href="https://mastodon.social/@worldday" target="_blank" rel="noopener noreferrer">worldday@mastodon.social</a> 🌟
+        </div>
+
+        <section class="countdown-box" aria-label="Countdown to next lesson">
+            <div class="label">📅 Next lesson in 7 days</div>
+            <div class="timer" id="countdownTimer" aria-live="polite">--:--:--:--</div>
+            <div class="sub">🗓️ Starts in 7 days · 00:00</div>
+        </section>
+
+        <section class="map-box" aria-label="Map of Pat's Peak">
+            <h3>🗺️ Location of Pat's Peak — Henniker, New Hampshire</h3>
+            <div class="map-wrapper">
+                <iframe
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=-71.85,43.05,-71.75,43.15&layer=mapnik&marker=43.1,-71.8"
+                    loading="lazy"
+                    allowfullscreen
+                    title="Map of Pat's Peak">
+                </iframe>
+            </div>
+            <div class="map-coords">📍 43.1000° N · 71.8000° W · Henniker, New Hampshire, USA</div>
+        </section>
+
+        <main id="main-content" class="content">
+
+            <h2>🌳 Pat's Peak: Where Silence Speaks in Forest Tongues</h2>
+
+            <p>In the heart of New England's northern forests, where maple leaves dance upon the ruins of time, <strong>Pat's Peak</strong> stands as a silent witness to the ever-renewing beauty of nature. Rising to approximately <strong>549 meters (1,800 feet)</strong> in the town of Henniker, New Hampshire, this modest summit belongs to the ancient Appalachian Plateau — a geological formation that predates even the Himalayas.</p>
+
+            <p>Unlike the dramatic peaks of the American West, Pat's Peak does not boast towering cliffs or snow-capped summits. Instead, it offers something rarer: the profound intimacy of a landscape that has nurtured life for millennia, where every footstep echoes with the memory of indigenous peoples, colonial settlers, and the countless creatures who call these woods home.</p>
+
+            <div class="quote">
+                "In Pat's Peak, we do not find the grandeur of towering mountains... but we find the quiet of forests that restores the soul to its primal nature."
+            </div>
+
+            <h3>🏔️ The Ancient Geology: A Mountain Older Than Dinosaurs</h3>
+
+            <p>The rocks beneath Pat's Peak tell a story spanning nearly <strong>500 million years</strong>. According to the U.S. Geological Survey, these ancient formations were part of a mountain range that once rivaled today's Himalayas in height. Over countless eons, erosion wore them down to the gentle slopes we see today.</p>
+
+            <p>The last great <strong>Ice Age</strong>, ending roughly 12,000 years ago, sculpted the landscape further. Glaciers carved the Contoocook River valley, deposited rich glacial till, and left behind the vernal pools that still support rare amphibians today. Each spring, when spotted salamanders emerge from these ancient basins, they participate in a ritual as old as the ice itself.</p>
+
+            <div class="legend">
+                <h4>🏹 The Pennacook & Abenaki Heritage</h4>
+                <p>Long before European settlers arrived, the <strong>Pennacook</strong> and <strong>Abenaki</strong> peoples knew these forests intimately. For over 11,000 years, they hunted, gathered medicinal plants, and wove stories into the landscape. The name "Contoocook" itself comes from the Abenaki word meaning "place of the pines" — a reminder that every river and ridge carries an indigenous memory.</p>
+                <p>Traditional Abenaki wisdom teaches: <em>"The mountains are not barriers, but bridges between earth and sky."</em></p>
+                <div class="source">Source: Pennacook-Abenaki Tribal Records, NH Division of Historical Resources</div>
+            </div>
+
+            <h3>🌿 The Living Tapestry: Flora of the Northern Hardwoods</h3>
+
+            <p>According to the <strong>New Hampshire Department of Environmental Services</strong> and the <em>Field Guide to Common Aquatic and Riparian Plants of New Hampshire</em>, the forests surrounding Pat's Peak represent one of the most biodiverse ecosystems in eastern North America. The <strong>Northern Hardwood Forest</strong> covers approximately 50% of the state and includes:</p>
+
+            <p><strong>🍁 The Iconic Maples</strong> — particularly the brilliant Red Maple (Acer rubrum), whose autumn transformation paints the landscape in gold and crimson. <strong>🌰 American Beech</strong> (Fagus grandifolia) with its smooth silver bark. <strong>🌲 Paper Birch</strong> (Betula papyrifera), sacred to indigenous peoples who used its bark for canoes. <strong>🌲 Eastern White Pine</strong> and <strong>Cedar</strong> in mixed stands.</p>
+
+            <p>Along the <strong>Contoocook River Corridor</strong>, rare aquatic plants thrive: the brilliant <strong>Cardinal Flower</strong> (Lobelia cardinalis) in shaded forest banks, the <strong>Sweet Pepperbush</strong> (Clethra alnifolia) in wetland margins, and the extraordinarily rare <strong>Arethusa Orchid</strong> — a jewel of the bogs that requires expert botanical knowledge to locate.</p>
+
+            <h3>🦌 The Wildlife Symphony</h3>
+
+            <p>The <strong>NH Fish and Game Wildlife Action Plan</strong> documents a remarkable diversity of fauna around Pat's Peak. The forests shelter approximately <strong>61 species of mammals</strong>, including:</p>
+
+            <p><strong>🦌 White-tailed Deer</strong> (Odocoileus virginianus) — abundant throughout the woods. <strong>🐻 Black Bears</strong> (Ursus americanus) — shy but present. <strong>🐱 Bobcats</strong> (Lynx rufus) — elusive forest predators. <strong>🐺 Coyotes</strong> (Canis latrans) — adaptable survivors. <strong>🦊 Red Foxes</strong> (Vulpes vulpes) — common and beautiful. <strong>🐿️ Eastern Gray Squirrels</strong> and <strong>Chipmunks</strong> — the cheerful residents.</p>
+
+            <p>Over <strong>300 bird species</strong> have been recorded in the region, including the rare <strong>Cerulean Warbler</strong> nesting in mature forest canopy, the melodious <strong>Wood Thrush</strong>, the brilliant <strong>Scarlet Tanager</strong>, and the majestic <strong>Wild Turkey</strong> roaming forest clearings.</p>
+
+            <h3>🍂 The Four Seasons: A Natural Ballet</h3>
+
+            <div class="seasons-grid">
+                <div class="season-card">
+                    <div class="season-icon">🌱</div>
+                    <div class="season-name">Spring</div>
+                    <div class="season-desc">Buds awaken, the first aquatic flowers bloom, migratory birds return from distant lands. Vernal pools come alive with salamander eggs.</div>
+                </div>
+                <div class="season-card">
+                    <div class="season-icon">☀️</div>
+                    <div class="season-name">Summer</div>
+                    <div class="season-desc">Birdsong fills the canopy, forest shade offers cool refuge, moderate temperatures create perfect conditions for contemplation.</div>
+                </div>
+                <div class="season-card">
+                    <div class="season-icon">🍁</div>
+                    <div class="season-name">Autumn ⭐</div>
+                    <div class="season-desc">The legendary transformation — maples ignite in gold, orange, and crimson. A spectacular spectacle that draws thousands annually.</div>
+                </div>
+                <div class="season-card">
+                    <div class="season-icon">❄️</div>
+                    <div class="season-name">Winter</div>
+                    <div class="season-desc">A quiet snowy slumber, branches draped in frost, a profound meditative stillness blankets the landscape.</div>
+                </div>
+            </div>
+
+            <h3>📜 Wisdom from Folk Heritage</h3>
+
+            <div class="legend">
+                <h4>🏹 Abenaki Mountain Wisdom</h4>
+                <p><strong>"The mountain does not laugh at the river, nor does the river speak ill of the mountain. Each knows its own path."</strong> — Traditional Abenaki Proverb</p>
+                <p><strong>"When you sit quietly in the forest, the trees will tell you secrets that no human has ever spoken."</strong> — Abenaki Elder Teaching</p>
+                <div class="source">Source: Abenaki Oral Tradition Collections, Vermont Historical Society</div>
+            </div>
+
+            <div class="legend">
+                <h4>📖 Voices of New England Literature</h4>
+                <p><strong>"The woods are lovely, dark and deep, But I have promises to keep, And miles to go before I sleep."</strong> — Robert Frost, "Stopping by Woods on a Snowy Evening" (1923)</p>
+                <p><strong>"I went to the woods because I wished to live deliberately, to front only the essential facts of life."</strong> — Henry David Thoreau, "Walden" (1854)</p>
+                <p><strong>"In every walk with nature, one receives far more than he seeks."</strong> — John Muir, naturalist and philosopher</p>
+                <div class="source">Sources: Robert Frost Collections (1874-1963), Thoreau's Walden, John Muir Writings</div>
+            </div>
+
+            <h3>🌍 Conservation and Respect</h3>
+
+            <p>As recommended by <strong>NH Fish and Game</strong> and the <strong>Watman Conservation Area Management Plan</strong>, visitors are encouraged to:</p>
+
+            <p>✅ Stay on designated trails to protect fragile plants<br>
+            ✅ Maintain safe distances from wildlife, especially bears<br>
+            ✅ Practice Leave No Trace principles<br>
+            ✅ Tread carefully — some areas are ecologically sensitive (wetlands, nesting sites)</p>
+
+            <div class="quote">
+                "Visiting this place is not merely a visual adventure — it is respect for an ancient covenant between humanity and nature."
+            </div>
+
+            <div class="bio-listen-wrapper">
+                <button class="bio-listen-btn" onclick="spreekBio()" aria-label="Listen to article">
+                    🔊 Listen to Article
+                </button>
+            </div>
+
+            <h2>🖼️ Pat's Peak in Images</h2>
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="us2/us1.jpg" alt="🌳🌲🍁🌷🗻1" loading="lazy">
+                    <div class="caption">🌳🌲🍁🌷🗻1</div>
+                </div>
+                <div class="image-card">
+                    <img src="us2/us2.jpg" alt="🌳🌲🍁🌷🗻2" loading="lazy">
+                    <div class="caption">🌳🌲🍁🌷🗻2</div>
+                </div>
+            </div>
+
+            <h2>📝 50 Words from This Lesson</h2>
+            <div id="wordGroupsContainer"></div>
+
+            <div class="action-row">
+                <div class="social-link">🐘 <a href="https://mastodon.social/@worldday" target="_blank" rel="noopener noreferrer">worldday@mastodon.social</a></div>
+            </div>
+            <p style="text-align:center; font-size:0.75rem; opacity:0.4; margin-top:4px;">📬 Suggestions or questions? Send me a message!</p>
+
+        </main>
+
+        <section class="memo-box" aria-label="Notes about Pat's Peak">
+            <h3>📝 My Notes about Pat's Peak</h3>
+            <textarea id="memoInput" placeholder="Write your thoughts, impressions, or learning points here..." aria-label="Notes"></textarea>
+            <div class="memo-actions">
+                <button class="btn-klein" onclick="opslaanMemo()">💾 Save</button>
+                <button class="btn-klein" onclick="wisMemo()">🗑️ Clear</button>
+                <button class="btn-klein" onclick="exporteerMemo()">📤 Export</button>
+            </div>
+            <div class="memo-display" id="memoDisplay" aria-live="polite">📌 No notes saved.</div>
+        </section>
+
+        <footer class="footer" role="contentinfo">
+            <div>🇺🇸 Pat's Peak · Henniker · New Hampshire · New England</div>
+            <div class="sources">
+                <span>📚 NH Fish and Game</span>
+                <span>📚 NH DES</span>
+                <span>📚 UNH Extension</span>
+                <span>📚 US Geological Survey</span>
+                <span>📚 Forest Society of NH</span>
+            </div>
+            <div class="privacy">
+                🔒 zero tracking · no cookies · privacy-first · locally stored · TLS secured
+            </div>
+            <div class="creation-date">
+                📅 Page created: July 2, 2026
+            </div>
+            <div style="margin-top:8px; font-size:0.65rem; opacity:0.3;">
+                © 2026 goodnight.mom · Dedicated to the love of nature and culture 🌍
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        function updateKlok() {
+            const nu = new Date();
+            document.getElementById('liveClock').textContent = '🕐 ' + nu.toTimeString().slice(0, 8);
+            document.getElementById('liveDate').textContent = '📅 ' + nu.toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+        updateKlok();
+        setInterval(updateKlok, 1000);
+
+        function startCountdown() {
+            const eind = new Date();
+            eind.setDate(eind.getDate() + 7);
+            eind.setHours(0, 0, 0, 0);
+
+            function update() {
+                const nu = new Date();
+                const diff = eind - nu;
+                if (diff <= 0) {
+                    document.getElementById('countdownTimer').textContent = '🎉 Lesson has begun!';
+                    return;
+                }
+                const d = Math.floor(diff / 86400000);
+                const h = Math.floor((diff % 86400000) / 3600000);
+                const m = Math.floor((diff % 3600000) / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
+                document.getElementById('countdownTimer').textContent =
+                    String(d).padStart(2, '0') + ':' +
+                    String(h).padStart(2, '0') + ':' +
+                    String(m).padStart(2, '0') + ':' +
+                    String(s).padStart(2, '0');
+            }
+            update();
+            setInterval(update, 1000);
+        }
+        startCountdown();
+
+        const woorden = [
+            { nl: 'Forest', en: 'Forest', fr: 'Forêt', de: 'Wald', no: 'Skog', pt: 'Floresta', sk: 'Les', zh: '森林', hu: 'Erdő', ga: 'Foraois', gd: 'Coille', fi: 'Metsä', ja: '森' },
+            { nl: 'Mountain', en: 'Mountain', fr: 'Montagne', de: 'Berg', no: 'Fjell', pt: 'Montanha', sk: 'Hora', zh: '山', hu: 'Hegy', ga: 'Sliabh', gd: 'Beinn', fi: 'Vuori', ja: '山' },
+            { nl: 'River', en: 'River', fr: 'Rivière', de: 'Fluss', no: 'Elv', pt: 'Rio', sk: 'Rieka', zh: '河流', hu: 'Folyó', ga: 'Abhainn', gd: 'Abhainn', fi: 'Joki', ja: '川' },
+            { nl: 'Maple', en: 'Maple', fr: 'Érable', de: 'Ahorn', no: 'Lønn', pt: 'Bordo', sk: 'Javor', zh: '枫树', hu: 'Juhar', ga: 'Maiple', gd: 'Craobh-ghorm', fi: 'Vaahtera', ja: 'カエデ' },
+            { nl: 'Oak', en: 'Oak', fr: 'Chêne', de: 'Eiche', no: 'Eik', pt: 'Carvalho', sk: 'Dub', zh: '橡树', hu: 'Tölgy', ga: 'Dair', gd: 'Darach', fi: 'Tammi', ja: 'オーク' },
+            { nl: 'Birch', en: 'Birch', fr: 'Bouleau', de: 'Birke', no: 'Bjørk', pt: 'Bétula', sk: 'Breza', zh: '桦树', hu: 'Nyír', ga: 'Beith', gd: 'Beithe', fi: 'Koivu', ja: 'カバ' },
+            { nl: 'Pine', en: 'Pine', fr: 'Pin', de: 'Kiefer', no: 'Furu', pt: 'Pinheiro', sk: 'Borovica', zh: '松树', hu: 'Fenyő', ga: 'Giús', gd: 'Giuthas', fi: 'Mänty', ja: '松' },
+            { nl: 'Wildlife', en: 'Wildlife', fr: 'Faune', de: 'Wildtiere', no: 'Dyreliv', pt: 'Vida selvagem', sk: 'Voľne žijúce', zh: '野生动物', hu: 'Vadvilág', ga: 'Fiadhúlra', gd: 'Fiadh-bheathaichean', fi: 'Luonnoneläimet', ja: '野生生物' },
+            { nl: 'Deer', en: 'Deer', fr: 'Cerf', de: 'Hirsch', no: 'Hjort', pt: 'Veado', sk: 'Jeľeň', zh: '鹿', hu: 'Szarvas', ga: 'Fiadh', gd: 'Fiadh', fi: 'Peura', ja: '鹿' },
+            { nl: 'Bear', en: 'Bear', fr: 'Ours', de: 'Bär', no: 'Bjørn', pt: 'Urso', sk: 'Medveď', zh: '熊', hu: 'Medve', ga: 'Béar', gd: 'Mathan', fi: 'Karhu', ja: '熊' },
+            { nl: 'Bird', en: 'Bird', fr: 'Oiseau', de: 'Vogel', no: 'Fugl', pt: 'Pássaro', sk: 'Vták', zh: '鸟', hu: 'Madár', ga: 'Éan', gd: 'Eun', fi: 'Lintu', ja: '鳥' },
+            { nl: 'Eagle', en: 'Eagle', fr: 'Aigle', de: 'Adler', no: 'Ørn', pt: 'Águia', sk: 'Orol', zh: '鹰', hu: 'Sas', ga: 'Iolar', gd: 'Iolaire', fi: 'Kotka', ja: '鷲' },
+            { nl: 'Season', en: 'Season', fr: 'Saison', de: 'Jahreszeit', no: 'Sesong', pt: 'Estação', sk: 'Sezóna', zh: '季节', hu: 'Évszak', ga: 'Séasúr', gd: 'Ràith', fi: 'Vuodenaika', ja: '季節' },
+            { nl: 'Spring', en: 'Spring', fr: 'Printemps', de: 'Frühling', no: 'Vår', pt: 'Primavera', sk: 'Jar', zh: '春天', hu: 'Tavasz', ga: 'Earrach', gd: 'Earrach', fi: 'Kevät', ja: '春' },
+            { nl: 'Summer', en: 'Summer', fr: 'Été', de: 'Sommer', no: 'Sommer', pt: 'Verão', sk: 'Leto', zh: '夏天', hu: 'Nyár', ga: 'Samhradh', gd: 'Samhradh', fi: 'Kesä', ja: '夏' },
+            { nl: 'Autumn', en: 'Autumn', fr: 'Automne', de: 'Herbst', no: 'Høst', pt: 'Outono', sk: 'Jeseň', zh: '秋天', hu: 'Ősz', ga: 'Fómhar', gd: 'Foghar', fi: 'Syksy', ja: '秋' },
+            { nl: 'Winter', en: 'Winter', fr: 'Hiver', de: 'Winter', no: 'Vinter', pt: 'Inverno', sk: 'Zima', zh: '冬天', hu: 'Tél', ga: 'Geimhreadh', gd: 'Geamhradh', fi: 'Talvi', ja: '冬' },
+            { nl: 'Trail', en: 'Trail', fr: 'Sentier', de: 'Weg', no: 'Sti', pt: 'Trilha', sk: 'Chodník', zh: '小径', hu: 'Ösvény', ga: 'Cosán', gd: 'Slighe', fi: 'Polku', ja: '道' },
+            { nl: 'Lake', en: 'Lake', fr: 'Lac', de: 'See', no: 'Innsjø', pt: 'Lago', sk: 'Jazero', zh: '湖', hu: 'Tó', ga: 'Loch', gd: 'Loch', fi: 'Järvi', ja: '湖' },
+            { nl: 'Wetland', en: 'Wetland', fr: 'Zone humide', de: 'Feuchtgebiet', no: 'Våtmark', pt: 'Pântano', sk: 'Mokrade', zh: '湿地', hu: 'Vizes élőhely', ga: 'Talamh fliuch', gd: 'Fliuch-thalamh', fi: 'Kosteikko', ja: '湿原' },
+            { nl: 'Meadow', en: 'Meadow', fr: 'Prairie', de: 'Wiese', no: 'Eng', pt: 'Prado', sk: 'Lúka', zh: '草地', hu: 'Rét', ga: 'Móin', gd: 'Innean', fi: 'Niitty', ja: '草原' },
+            { nl: 'Valley', en: 'Valley', fr: 'Vallée', de: 'Tal', no: 'Dal', pt: 'Vale', sk: 'Dolina', zh: '山谷', hu: 'Völgy', ga: 'Gleann', gd: 'Gleann', fi: 'Laakso', ja: '谷' },
+            { nl: 'Summit', en: 'Summit', fr: 'Sommet', de: 'Gipfel', no: 'Topp', pt: 'Cume', sk: 'Vrchol', zh: '顶峰', hu: 'Csúcs', ga: 'Binn', gd: 'Mullach', fi: 'Huippu', ja: '山頂' },
+            { nl: 'Glacier', en: 'Glacier', fr: 'Glacier', de: 'Gletscher', no: 'Bre', pt: 'Geleira', sk: 'Ľadovec', zh: '冰川', hu: 'Gleccser', ga: 'Oighearshruth', gd: 'Reothadair', fi: 'Jäätikkö', ja: '氷河' },
+            { nl: 'Indigenous', en: 'Indigenous', fr: 'Indigène', de: 'Einheimisch', no: 'Urfolk', pt: 'Indígena', sk: 'Pôvodný', zh: '土著', hu: 'Őshonos', ga: 'Dúchasach', gd: 'Tùsanach', fi: 'Alkuperäinen', ja: '先住' },
+            { nl: 'Heritage', en: 'Heritage', fr: 'Patrimoine', de: 'Erbe', no: 'Arv', pt: 'Patrimônio', sk: 'Dedičstvo', zh: '遗产', hu: 'Örökség', ga: 'Oidhreacht', gd: 'Dualchas', fi: 'Perintö', ja: '遺産' },
+            { nl: 'Tradition', en: 'Tradition', fr: 'Tradition', de: 'Tradition', no: 'Tradisjon', pt: 'Tradição', sk: 'Tradícia', zh: '传统', hu: 'Hagyomány', ga: 'Traidisiún', gd: 'Dualchas', fi: 'Perinne', ja: '伝統' },
+            { nl: 'Wisdom', en: 'Wisdom', fr: 'Sagesse', de: 'Weisheit', no: 'Visdom', pt: 'Sabedoria', sk: 'Múdrost', zh: '智慧', hu: 'Bölcsesség', ga: 'Eagna', gd: 'Glicead', fi: 'Viisaus', ja: '知恵' },
+            { nl: 'Contemplation', en: 'Contemplation', fr: 'Contemplation', de: 'Kontemplation', no: 'Kontemplasjon', pt: 'Contemplação', sk: 'Kontemplácia', zh: '沉思', hu: 'Kontempláció', ga: 'Machnamh', gd: 'Coimhead', fi: 'Kontemplaatio', ja: '瞑想' },
+            { nl: 'Sanctuary', en: 'Sanctuary', fr: 'Sanctuaire', de: 'Heiligtum', no: 'Helligdom', pt: 'Santuário', sk: 'Svätýňa', zh: '保护区', hu: 'Szentély', ga: 'Teampall', gd: 'Naomhachd', fi: 'Pyhäkkö', ja: '聖域' },
+            { nl: 'Silence', en: 'Silence', fr: 'Silence', de: 'Stille', no: 'Stillhet', pt: 'Silêncio', sk: 'Ticho', zh: '安静', hu: 'Csend', ga: 'Ciúnas', gd: 'Sàmhchair', fi: 'Hiljaisuus', ja: '静けさ' },
+            { nl: 'Peace', en: 'Peace', fr: 'Paix', de: 'Frieden', no: 'Fred', pt: 'Paz', sk: 'Mier', zh: '和平', hu: 'Béke', ga: 'Síocháin', gd: 'Sìth', fi: 'Rauha', ja: '平和' },
+            { nl: 'Nature', en: 'Nature', fr: 'Nature', de: 'Natur', no: 'Natur', pt: 'Natureza', sk: 'Príroda', zh: '自然', hu: 'Természet', ga: 'Dúlra', gd: 'Nàdar', fi: 'Luonto', ja: '自然' },
+            { nl: 'Wilderness', en: 'Wilderness', fr: 'Désert', de: 'Wildnis', no: 'Villmark', pt: 'Selvagem', sk: 'Divočina', zh: '荒野', hu: 'Vadon', ga: 'Fásach', gd: 'Fàsach', fi: 'Erämaa', ja: '荒野' },
+            { nl: 'Conservation', en: 'Conservation', fr: 'Conservation', de: 'Naturschutz', no: 'Bevaring', pt: 'Conservação', sk: 'Ochrana', zh: '保护', hu: 'Megőrzés', ga: 'Caomhnú', gd: 'Gleidheadh', fi: 'Suojelu', ja: '保全' },
+            { nl: 'Ecosystem', en: 'Ecosystem', fr: 'Écosystème', de: 'Ökosystem', no: 'Økosystem', pt: 'Ecossistema', sk: 'Ekosystém', zh: '生态系统', hu: 'Ökoszisztéma', ga: 'Éiceachóras', gd: 'Eco-shiostam', fi: 'Ekosysteemi', ja: '生態系' },
+            { nl: 'Biodiversity', en: 'Biodiversity', fr: 'Biodiversité', de: 'Biodiversität', no: 'Biodiversitet', pt: 'Biodiversidade', sk: 'Biodiverzita', zh: '生物多样性', hu: 'Biodiverzitás', ga: 'Bithéagsúlacht', gd: 'Bith-iomadachd', fi: 'Biodiversiteetti', ja: '生物多様性' },
+            { nl: 'Habitat', en: 'Habitat', fr: 'Habitat', de: 'Lebensraum', no: 'Levested', pt: 'Habitat', sk: 'Biotop', zh: '栖息地', hu: 'Élőhely', ga: 'Gnáthóg', gd: 'Àite-fuirich', fi: 'Elinympäristö', ja: '生息地' },
+            { nl: 'Migration', en: 'Migration', fr: 'Migration', de: 'Migration', no: 'Migrasjon', pt: 'Migração', sk: 'Migrácia', zh: '迁徙', hu: 'Vándorlás', ga: 'Imirce', gd: 'Imrich', fi: 'Muutto', ja: '移動' },
+            { nl: 'Flower', en: 'Flower', fr: 'Fleur', de: 'Blume', no: 'Blomst', pt: 'Flor', sk: 'Kvet', zh: '花', hu: 'Virág', ga: 'Bláth', gd: 'Flùr', fi: 'Kukka', ja: '花' },
+            { nl: 'Orchid', en: 'Orchid', fr: 'Orchidée', de: 'Orchidee', no: 'Orkidé', pt: 'Orquídea', sk: 'Orchidea', zh: '兰花', hu: 'Orchidea', ga: 'Magairlín', gd: 'Magairl', fi: 'Kämmekkä', ja: '蘭' },
+            { nl: 'Salamander', en: 'Salamander', fr: 'Salamandre', de: 'Salamander', no: 'Salamander', pt: 'Salamandra', sk: 'Mlok', zh: '蝾螈', hu: 'Szalamandra', ga: 'Salamandar', gd: 'Salamar', fi: 'Salamanderi', ja: 'サンショウウオ' },
+            { nl: 'Leaf', en: 'Leaf', fr: 'Feuille', de: 'Blatt', no: 'Blad', pt: 'Folha', sk: 'List', zh: '叶子', hu: 'Levél', ga: 'Duilleog', gd: 'Duilleag', fi: 'Lehti', ja: '葉' },
+            { nl: 'Root', en: 'Root', fr: 'Racine', de: 'Wurzel', no: 'Rot', pt: 'Raiz', sk: 'Koreň', zh: '根', hu: 'Gyökér', ga: 'Fréamh', gd: 'Freumh', fi: 'Juuri', ja: '根' },
+            { nl: 'Soil', en: 'Soil', fr: 'Sol', de: 'Boden', no: 'Jord', pt: 'Solo', sk: 'Pôda', zh: '土壤', hu: 'Talaj', ga: 'Iar', gd: 'Ùir', fi: 'Maa', ja: '土' },
+            { nl: 'Stone', en: 'Stone', fr: 'Pierre', de: 'Stein', no: 'Stein', pt: 'Pedra', sk: 'Kameň', zh: '石头', hu: 'Kő', ga: 'Cloch', gd: 'Clach', fi: 'Kivi', ja: '石' },
+            { nl: 'Water', en: 'Water', fr: 'Eau', de: 'Wasser', no: 'Vann', pt: 'Água', sk: 'Voda', zh: '水', hu: 'Víz', ga: 'Uisce', gd: 'Uisge', fi: 'Vesi', ja: '水' },
+            { nl: 'Sky', en: 'Sky', fr: 'Ciel', de: 'Himmel', no: 'Himmel', pt: 'Céu', sk: 'Obloha', zh: '天空', hu: 'Ég', ga: 'Spéir', gd: 'Adhar', fi: 'Taivas', ja: '空' },
+            { nl: 'Sunrise', en: 'Sunrise', fr: 'Lever du soleil', de: 'Sonnenaufgang', no: 'Soloppgang', pt: 'Nascer do sol', sk: 'Východ slnka', zh: '日出', hu: 'Napfelkelte', ga: 'Éirí na gréine', gd: 'Èirigh na grèine', fi: 'Auringonnousu', ja: '日の出' },
+            { nl: 'Reflection', en: 'Reflection', fr: 'Reflet', de: 'Spiegelung', no: 'Speiling', pt: 'Reflexão', sk: 'Odrazenie', zh: '倒影', hu: 'Tükröződés', ga: 'Frithchaitheamh', gd: 'Ath-thilleadh', fi: 'Heijastus', ja: '反射' }
+        ];
+
+        const container = document.getElementById('wordGroupsContainer');
+        const groupSize = 10;
+        const totalGroups = Math.ceil(woorden.length / groupSize);
+
+        for (let g = 0; g < totalGroups; g++) {
+            const startIdx = g * groupSize;
+            const endIdx = Math.min(startIdx + groupSize, woorden.length);
+            const groupWords = woorden.slice(startIdx, endIdx);
+
+            const groupDiv = document.createElement('div');
+            groupDiv.className = 'word-group';
+
+            const headerDiv = document.createElement('div');
+            headerDiv.className = 'word-group-header';
+            headerDiv.innerHTML = `
+                <div class="word-group-title">📖 Words ${startIdx + 1}–${endIdx}</div>
+                <div class="word-group-actions">
+                    <button class="group-btn" onclick="spreekGroep(${g})" aria-label="Listen to words ${startIdx + 1} to ${endIdx}">🔊 Listen</button>
+                    <button class="group-btn" onclick="kopieerGroep(${g}, this)" aria-label="Copy words ${startIdx + 1} to ${endIdx}">📋 Copy</button>
+                </div>
+            `;
+            groupDiv.appendChild(headerDiv);
+
+            const gridDiv = document.createElement('div');
+            gridDiv.className = 'woord-grid';
+            groupWords.forEach(w => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'woord-item';
+                itemDiv.setAttribute('role', 'listitem');
+                const talen = [
+                    w.en, w.fr, w.de, w.no, w.pt, w.sk,
+                    w.zh, w.hu, w.ga, w.gd, w.fi, w.ja
+                ].join(' · ');
+                itemDiv.innerHTML = `
+                    <div class="nl">${w.nl}</div>
+                    <div class="talen">${talen}</div>
+                `;
+                gridDiv.appendChild(itemDiv);
+            });
+            groupDiv.appendChild(gridDiv);
+
+            container.appendChild(groupDiv);
+        }
+
+        function spreekBio() {
+            if (!window.speechSynthesis) {
+                alert('🔊 Text-to-speech is not supported in this browser.');
+                return;
+            }
+            const btn = document.querySelector('.bio-listen-btn');
+            
+            if (window.speechSynthesis.speaking) {
+                window.speechSynthesis.cancel();
+                btn.classList.remove('speaking');
+                btn.innerHTML = '🔊 Listen to Article';
+                return;
+            }
+
+            const bioText = document.querySelector('#main-content').innerText;
+            const u = new SpeechSynthesisUtterance(bioText);
+            u.lang = 'en-US';
+            u.rate = 0.85;
+            u.pitch = 1.0;
+            
+            btn.classList.add('speaking');
+            btn.innerHTML = '⏹️ Stop';
+            
+            u.onend = () => {
+                btn.classList.remove('speaking');
+                btn.innerHTML = '🔊 Listen to Article';
+            };
+            u.onerror = () => {
+                btn.classList.remove('speaking');
+                btn.innerHTML = '🔊 Listen to Article';
+            };
+            
+            window.speechSynthesis.speak(u);
+        }
+
+        function spreekGroep(g) {
+            if (!window.speechSynthesis) {
+                alert('🔊 Text-to-speech is not supported in this browser.');
+                return;
+            }
+            
+            window.speechSynthesis.cancel();
+            
+            const startIdx = g * groupSize;
+            const endIdx = Math.min(startIdx + groupSize, woorden.length);
+            const groupWords = woorden.slice(startIdx, endIdx);
+            const tekst = groupWords.map(w => w.nl).join('. ');
+            
+            const u = new SpeechSynthesisUtterance(tekst);
+            u.lang = 'en-US';
+            u.rate = 0.75;
+            u.pitch = 1.0;
+            
+            const buttons = document.querySelectorAll('.group-btn');
+            const listenBtn = buttons[g * 2];
+            const originalText = listenBtn.innerHTML;
+            listenBtn.classList.add('speaking');
+            listenBtn.innerHTML = '⏹️ Stop';
+            
+            u.onend = () => {
+                listenBtn.classList.remove('speaking');
+                listenBtn.innerHTML = originalText;
+            };
+            u.onerror = () => {
+                listenBtn.classList.remove('speaking');
+                listenBtn.innerHTML = originalText;
+            };
+            
+            window.speechSynthesis.speak(u);
+        }
+
+        function kopieerGroep(g, btn) {
+            const startIdx = g * groupSize;
+            const endIdx = Math.min(startIdx + groupSize, woorden.length);
+            const groupWords = woorden.slice(startIdx, endIdx);
+            
+            const tekst = groupWords.map(w => {
+                const talen = [
+                    w.en, w.fr, w.de, w.no, w.pt, w.sk,
+                    w.zh, w.hu, w.ga, w.gd, w.fi, w.ja
+                ].join(' · ');
+                return `${w.nl}: ${talen}`;
+            }).join('\n');
+            
+            navigator.clipboard.writeText(tekst).then(() => {
+                const originalText = btn.innerHTML;
+                btn.classList.add('copied');
+                btn.innerHTML = '✅ Copied!';
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btn.innerHTML = originalText;
+                }, 2000);
+            }).catch(() => {
+                alert('📋 Copy failed. Please copy manually.');
+            });
+        }
+
+        const MEMO_KEY = 'patspeak_memo';
+
+        function opslaanMemo() {
+            const text = document.getElementById('memoInput').value.trim();
+            if (text) {
+                localStorage.setItem(MEMO_KEY, text);
+                document.getElementById('memoDisplay').textContent = '📌 ' + text;
+            }
+        }
+
+        function laadMemo() {
+            const saved = localStorage.getItem(MEMO_KEY);
+            if (saved) {
+                document.getElementById('memoInput').value = saved;
+                document.getElementById('memoDisplay').textContent = '📌 ' + saved;
+            }
+        }
+
+        function wisMemo() {
+            localStorage.removeItem(MEMO_KEY);
+            document.getElementById('memoInput').value = '';
+            document.getElementById('memoDisplay').textContent = '📌 No notes saved.';
+        }
+
+        function exporteerMemo() {
+            const text = localStorage.getItem(MEMO_KEY);
+            if (text) {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('📤 Notes copied to clipboard!');
+                }).catch(() => {
+                    alert('📤 Copy failed. Please copy manually.');
+                });
+            } else {
+                alert('📤 No notes to export.');
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', laadMemo);
+    </script>
+
+</body>
+</html>
