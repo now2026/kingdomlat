@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Up Shopping |🤍🗻😁🧊🌊 Kingdom.lat</title>
+  <meta name="description" content="Trusted European Digital Markets – 2026 Edition. A privacy-first, lightweight guide to secure online shopping.">
+  <meta name="theme-color" content="#0A192F">
+  <style>
+    :root {
+      --bg-primary: #0A192F;
+      --bg-secondary: #112240;
+      --text-primary: #E6F1FF;
+      --text-secondary: #8892B0;
+      --accent: #64FFDA;
+      --snow: #F8F9FA;
+      --border: rgba(248, 249, 250, 0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header { text-align: center; margin-bottom: 40px; padding-top: 20px; }
+    .small { font-size: 0.85rem; color: var(--text-secondary); }
+    h1 { font-size: 2.2rem; margin: 15px 0; letter-spacing: -0.5px; color: var(--snow); }
+    
+    .access-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      opacity: 0.85; border: 1px solid var(--border);
+      padding: 6px 16px; border-radius: 20px;
+      text-decoration: none; color: var(--text-primary);
+      font-size: 0.85rem; transition: all 0.2s ease;
+      margin: 12px 0;
+    }
+    .access-link:hover { background: rgba(248, 249, 250, 0.05); opacity: 1; }
+
+    .dedication {
+      font-style: italic; margin-bottom: 15px; opacity: 0.9;
+      color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .greetings {
+      font-size: 0.9rem; color: var(--accent); letter-spacing: 1px; margin-top: 10px;
+    }
+
+    .hero-section {
+      text-align: center; margin: 40px 0; padding: 30px 20px;
+      background: var(--bg-secondary); border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .hero-title { font-size: 1.5rem; margin-bottom: 15px; color: var(--snow); }
+    .hero-badges { 
+      display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; 
+      margin: 20px 0; font-size: 0.9rem; color: var(--accent);
+    }
+    .privacy-note { font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px; }
+
+    .market-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; margin: 40px 0;
+    }
+    .market-card {
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px; transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .market-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .market-card h3 { color: var(--snow); margin-bottom: 10px; font-size: 1.1rem; }
+    .market-card p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px; }
+    .market-link {
+      display: inline-block; font-size: 0.85rem; color: var(--accent);
+      text-decoration: none; border-bottom: 1px dotted var(--accent);
+    }
+    .market-link:hover { border-bottom-style: solid; }
+
+    .safety-section {
+      background: rgba(100, 255, 218, 0.05); border: 1px solid rgba(100, 255, 218, 0.2);
+      border-radius: 10px; padding: 25px; margin: 40px 0;
+    }
+    .safety-section h3 { color: var(--accent); margin-bottom: 15px; }
+    .safety-section ul { list-style: none; padding-left: 0; }
+    .safety-section li { margin-bottom: 10px; font-size: 0.95rem; color: var(--text-primary); padding-left: 20px; position: relative; }
+    .safety-section li::before { content: "🛡️"; position: absolute; left: 0; }
+
+    .gallery-section { margin: 50px 0; text-align: center; }
+    .gallery-section h3 { color: var(--snow); margin-bottom: 25px; font-size: 1.3rem; }
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item { text-align: center; }
+    .gallery-item img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 8px; border: 1px solid var(--border);
+      transition: opacity 0.3s ease;
+    }
+    .gallery-item img:hover { opacity: 0.85; }
+    .photo-credit {
+      font-size: 0.65rem; color: var(--text-secondary);
+      letter-spacing: 1.5px; text-transform: lowercase;
+      margin-top: 8px; opacity: 0.6;
+    }
+
+    footer {
+      margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border);
+      text-align: center; color: var(--text-secondary);
+    }
+    .card-row {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 25px;
+    }
+    .mini-card {
+      display: flex; flex-direction: column; align-items: center;
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 16px; text-decoration: none;
+      color: var(--text-primary); width: 110px; transition: 0.2s ease;
+    }
+    .mini-card:hover { border-color: var(--accent); background: rgba(100, 255, 218, 0.05); }
+    .card-icon { font-size: 1.4rem; margin-bottom: 6px; }
+    .card-title { font-size: 0.85rem; font-weight: 600; }
+    .card-desc { font-size: 0.65rem; color: var(--text-secondary); margin-top: 4px; text-align: center; }
+
+    .footer-features {
+      font-size: 0.75rem; line-height: 1.8; color: var(--text-secondary);
+      margin: 25px 0; padding: 15px; background: rgba(248, 249, 250, 0.03);
+      border-radius: 8px; border: 1px solid var(--border);
+    }
+    .gratitude {
+      font-size: 0.8rem; font-style: italic; color: var(--text-secondary);
+      margin: 20px 0; opacity: 0.85;
+    }
+    #live-clock { font-size: 0.9rem; color: var(--accent); font-variant-numeric: tabular-nums; margin-top: 15px; }
+    .creation-date { font-size: 0.75rem; margin-top: 10px; opacity: 0.6; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+      .market-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div id="live-date" class="small"></div>
+    <h1>Up Shopping</h1>
+    
+    <a href="up1.html" class="access-link" aria-label="Visit the accessible version of this page">
+      <span aria-hidden="true">♿</span>
+      <span>Accessible</span>
+      <span aria-hidden="true" style="opacity:0.5">·</span>
+      <span lang="sv">Tillgänglig</span>
+      <span aria-hidden="true" style="opacity:0.5">·</span>
+      <span lang="pl">Dostępna</span>
+    </a>
+    
+    <p class="dedication">
+      Dedicated with gratitude to the Nordic, Balkan, Baltic, Dutch, Irish, Polish, and Belgian cultures. 
+      Your heritage inspires quiet strength, economic resilience, and timeless beauty.
+    </p>
+    <div class="greetings">Välkommen · Laipni lūgti · Dobrodošli · Witamy · Fáilte · Welkom · Willkommen</div>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-title">🌍 Trusted European Digital Markets – 2026 Edition</div>
+    <p style="color: var(--text-secondary); max-width: 650px; margin: 0 auto 20px;">
+      A meticulously curated, privacy-first guide to the most reliable e-commerce platforms across Europe. 
+      Verified through independent audits, user trust, and sustainable business practices.
+    </p>
+    <div class="hero-badges">
+      <span>🎀 100% Client-Side</span>
+      <span>🍷 No Tracking</span>
+      <span>🍃 Lightweight & Fast</span>
+    </div>
+    <p class="privacy-note">This page makes zero external requests. Your browsing data remains entirely on your device.</p>
+  </section>
+
+  <main>
+    <div class="market-grid">
+      <div class="market-card">
+        <h3>🇵🇱 Poland – Allegro</h3>
+        <p>The undisputed leader in Central and Eastern Europe, serving 18M+ monthly users. Features innovative shipping programs and flexible 30-day return policies.</p>
+        <a href="https://allegro.pl" target="_blank" rel="noopener" class="market-link">allegro.pl</a>
+      </div>
+
+      <div class="market-card">
+        <h3>🇳🇱 Netherlands & Belgium – bol.com</h3>
+        <p>A two-decade favorite, combining millions of products with a strong focus on sustainability, carbon footprint transparency, and eco-friendly shipping options.</p>
+        <a href="https://bol.com" target="_blank" rel="noopener" class="market-link">bol.com</a>
+      </div>
+
+      <div class="market-card">
+        <h3>🇫🇷 France – Cdiscount</h3>
+        <p>A French e-commerce giant since 1998, offering unmatched variety and highly competitive seasonal discounts, especially in electronics and home goods.</p>
+        <a href="https://cdiscount.com" target="_blank" rel="noopener" class="market-link">cdiscount.com</a>
+      </div>
+
+      <div class="market-card">
+        <h3>🇷🇴 Romania – eMAG</h3>
+        <p>The most prominent platform in Southeast Europe, expanding into Moldova and Bulgaria. Features the "MagCard" loyalty program with unlimited free shipping.</p>
+        <a href="https://emag.ro" target="_blank" rel="noopener" class="market-link">emag.ro</a>
+      </div>
+
+      <div class="market-card">
+        <h3>🇩🇪 Germany – Otto</h3>
+        <p>A 60-year-old heritage brand representing German quality. Offers a vast selection of global and local brands, with 24/7 multilingual customer support.</p>
+        <a href="https://otto.de" target="_blank" rel="noopener" class="market-link">otto.de</a>
+      </div>
+
+      <div class="market-card">
+        <h3>🇩🇪 Germany – Saaza</h3>
+        <p>A modern, specialized German boutique focusing on cosmetics, health, and personal care. Trusted for transparent policies and hard-to-find specialized products.</p>
+        <a href="https://saaza.de" target="_blank" rel="noopener" class="market-link">saaza.de</a>
+      </div>
+
+      <div class="market-card">
+        <h3>🇱🇹 Baltic Region – Pigu.lt</h3>
+        <p>The trusted leader in Lithuania, Latvia, Estonia, and Finland. Renowned for fair pricing, quality commitment, and dense delivery networks in rural and urban areas.</p>
+        <a href="https://pigu.lt" target="_blank" rel="noopener" class="market-link">pigu.lt</a>
+      </div>
+
+      <div class="market-card">
+        <h3>🇨🇭 Switzerland – Galaxus</h3>
+        <p>The Swiss gold standard. Part of the Digitec group, it enforces a "verified buyer only" review policy, ensuring unparalleled review authenticity and flexible returns.</p>
+        <a href="https://galaxus.ch" target="_blank" rel="noopener" class="market-link">galaxus.ch</a>
+      </div>
+
+      <div class="market-card">
+        <h3>🇨🇭 Switzerland – Coop @home</h3>
+        <p>Comprehensive nationwide grocery delivery. Features same-day delivery in major cities and seamless integration with the Supercard rewards program.</p>
+        <a href="https://coop.ch" target="_blank" rel="noopener" class="market-link">coop.ch</a>
+      </div>
+
+      <div class="market-card">
+        <h3>🇨🇭 Switzerland – Migros Online</h3>
+        <p>Offers a secure shopping experience with enhanced data protection certified by the Swiss Federal Data Protection authority. Ideal for local, organic produce.</p>
+        <a href="https://migros.ch" target="_blank" rel="noopener" class="market-link">migros.ch</a>
+      </div>
+
+      <div class="market-card">
+        <h3>🇨🇭 Switzerland – Manor</h3>
+        <p>The premium Swiss department store. Offers high-quality fashion, home, and food brands with Click-and-Collect available at 300+ locations.</p>
+        <a href="https://manor.ch" target="_blank" rel="noopener" class="market-link">manor.ch</a>
+      </div>
+
+      <div class="market-card">
+        <h3>🇪🇺 Pan-European – Zalando</h3>
+        <p>A European success story in fashion and lifestyle. Operating in 29 markets, connecting 62M+ active customers with thousands of brands, featuring sustainable shipping.</p>
+        <a href="https://zalando.com" target="_blank" rel="noopener" class="market-link">zalando.com</a>
+      </div>
+    </div>
+
+    <section class="safety-section">
+      <h3>🛡️ Golden Rules of Safe Shopping</h3>
+      <ul>
+        <li><strong>Encryption First:</strong> Always verify the padlock icon (HTTPS) before entering any personal data.</li>
+        <li><strong>Smart Payments:</strong> Use secure methods like PayPal or credit cards that offer built-in fraud protection.</li>
+        <li><strong>Privacy Browsing:</strong> Prefer privacy-respecting browsers (e.g., Brave, Firefox) with tracker-blocking enabled.</li>
+        <li><strong>Documentation:</strong> Read return policies carefully and keep digital invoices as proof of transaction.</li>
+      </ul>
+    </section>
+
+    <section class="gallery-section">
+      <h3>Visual Archive</h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="shping-eu/shop1.jpg" alt="European market aesthetic 1" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+        <div class="gallery-item">
+          <img src="shping-eu/shop2.jpg" alt="European market aesthetic 2" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+        <div class="gallery-item">
+          <img src="shping-eu/shop3.jpg" alt="European market aesthetic 3" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+        <div class="gallery-item">
+          <img src="shping-eu/shop4.jpg" alt="European market aesthetic 4" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<footer>
+  <div class="card-row">
+    <!-- البوابة الرئيسية -->
+    <a href="https://www.doors.mom/" class="mini-card">
+      <span class="card-icon">🚪</span>
+      <span class="card-title">Doors</span>
+      <span class="card-desc">Main gateway</span>
+    </a>
+    
+    <!-- مواقع المرافق (الأقدم) -->
+    <a href="https://www.kingdom.lat" class="mini-card">
+      <span class="card-icon">👑</span>
+      <span class="card-title">Kingdom</span>
+      <span class="card-desc">Lat domain</span>
+    </a>
+    <a href="https://nordic.mom" class="mini-card">
+      <span class="card-icon">🌲</span>
+      <span class="card-title">Nordic</span>
+      <span class="card-desc">Northern winds</span>
+    </a>
+    <a href="https://baltic.lol" class="mini-card">
+      <span class="card-icon">🌊</span>
+      <span class="card-title">Baltic</span>
+      <span class="card-desc">Sea & shore</span>
+    </a>
+    
+    <!-- المواقع الجديدة (هذا الشهر) -->
+    <a href="https://www.helo.mom/" class="mini-card">
+      <span class="card-icon">👋</span>
+      <span class="card-title">Helo</span>
+      <span class="card-desc">Warm welcome</span>
+    </a>
+    <a href="https://www.merci.pics/" class="mini-card">
+      <span class="card-icon">🐎</span>
+      <span class="card-title">Merci</span>
+      <span class="card-desc">Equestrian archive</span>
+    </a>
+    <a href="https://www.goodnight.mom/" class="mini-card">
+      <span class="card-icon">🗻</span>
+      <span class="card-title">Goodnight</span>
+      <span class="card-desc">Peaceful nights</span>
+    </a>
+    <a href="https://www.takk.pics/" class="mini-card">
+      <span class="card-icon">🧊</span>
+      <span class="card-title">Takk</span>
+      <span class="card-desc">Nordic gratitude</span>
+    </a>
+    
+    <!-- الأدوات -->
+    <a href="up.html" class="mini-card">
+      <span class="card-icon">📄</span>
+      <span class="card-title">Up</span>
+      <span class="card-desc">Text Extractor</span>
+    </a>
+    <a href="https://www.meow.hair" class="mini-card">
+      <span class="card-icon">🐾</span>
+      <span class="card-title">Meow</span>
+      <span class="card-desc">Creative space</span>
+    </a>
+  </div>
+</footer>
+
+    <div class="footer-features">
+      page features · live clock · updated date · listen-to-paragraph 🔊 · one-click copy 📋 · fully accessible · lightweight & fast · no tracking, no cookies, no deception · privacy-first design · independent audit links included · zero external trackers · secure TLS · respect for every visitor 🐾
+    </div>
+    
+    <div class="gratitude">
+      <span aria-hidden="true">🤍</span>
+      With gratitude to those who inspired this page — your quiet belief turned code into culture.
+      <span aria-hidden="true">🤍</span>
+    </div>
+    
+    <div id="live-clock"></div>
+    <p class="creation-date">Last Updated: July 14, 2026</p>
+  </footer>
+
+  <script>
+    // Live Date and Clock (100% Client-Side, No External APIs)
+    function updateDateTime() {
+      const now = new Date();
+      const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('live-date').textContent = now.toLocaleDateString('en-US', dateOptions);
+      document.getElementById('live-clock').textContent = now.toLocaleTimeString('en-US', { hour12: false });
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    // Simple Copy Functionality for accessibility
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Text copied to clipboard securely.');
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+    }
+  </script>
+</body>
+</html>
