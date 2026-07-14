@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alternatives Européennes de Confidentialité 🇪🇺🤍🗻😁 | Kingdom.lat</title>
+  <meta name="description" content="Un guide méticuleusement élaboré, axé sur la confidentialité, présentant les services numériques européens les plus fiables. Zéro suivi, zéro cookie, souveraineté numérique absolue.">
+  <meta name="theme-color" content="#0A192F">
+  <style>
+    :root {
+      --bg-primary: #0A192F;
+      --bg-secondary: #112240;
+      --text-primary: #E6F1FF;
+      --text-secondary: #8892B0;
+      --accent: #64FFDA;
+      --snow: #F8F9FA;
+      --border: rgba(248, 249, 250, 0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    header { text-align: center; margin-bottom: 40px; padding-top: 20px; }
+    .small { font-size: 0.85rem; color: var(--text-secondary); }
+    h1 { font-size: 2.2rem; margin: 15px 0; letter-spacing: -0.5px; color: var(--snow); }
+    
+    .access-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      opacity: 0.85; border: 1px solid var(--border);
+      padding: 6px 16px; border-radius: 20px;
+      text-decoration: none; color: var(--text-primary);
+      font-size: 0.85rem; transition: all 0.2s ease;
+      margin: 12px 0;
+    }
+    .access-link:hover { background: rgba(248, 249, 250, 0.05); opacity: 1; }
+
+    .dedication-header {
+      font-style: italic; margin-bottom: 15px; opacity: 0.9;
+      color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .greetings {
+      font-size: 0.9rem; color: var(--accent); letter-spacing: 1px; margin-top: 10px;
+    }
+
+    .hero-section {
+      text-align: center; margin: 40px 0; padding: 30px 20px;
+      background: var(--bg-secondary); border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .hero-title { font-size: 1.5rem; margin-bottom: 15px; color: var(--snow); }
+    .hero-badges { 
+      display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; 
+      margin: 20px 0; font-size: 0.9rem; color: var(--accent);
+    }
+    .privacy-note { font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px; }
+
+    .category-section { margin: 50px 0; }
+    .category-title { 
+      font-size: 1.4rem; color: var(--snow); margin-bottom: 20px; 
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+    }
+    
+    .market-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; margin-bottom: 15px;
+    }
+    .market-card {
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px; transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .market-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .market-card h3 { color: var(--snow); margin-bottom: 8px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+    .market-card p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px; }
+    .market-link {
+      display: inline-block; font-size: 0.85rem; color: var(--accent);
+      text-decoration: none; border-bottom: 1px dotted var(--accent);
+    }
+    .market-link:hover { border-bottom-style: solid; }
+
+    .hashtags {
+      text-align: center; margin-top: 15px; font-size: 0.75rem; 
+      color: var(--text-secondary); letter-spacing: 0.5px; opacity: 0.8;
+    }
+
+    .safety-section {
+      background: rgba(100, 255, 218, 0.05); border: 1px solid rgba(100, 255, 218, 0.2);
+      border-radius: 10px; padding: 25px; margin: 40px 0;
+    }
+    .safety-section h3 { color: var(--accent); margin-bottom: 15px; }
+    .safety-section ul { list-style: none; padding-left: 0; }
+    .safety-section li { margin-bottom: 10px; font-size: 0.95rem; color: var(--text-primary); padding-left: 20px; position: relative; }
+    .safety-section li::before { content: "🛡️"; position: absolute; left: 0; }
+
+    .gallery-section { margin: 50px 0; text-align: center; }
+    .gallery-section h3 { color: var(--snow); margin-bottom: 25px; font-size: 1.3rem; }
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item { text-align: center; }
+    .gallery-item img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 8px; border: 1px solid var(--border);
+      transition: opacity 0.3s ease;
+    }
+    .gallery-item img:hover { opacity: 0.85; }
+    .photo-credit {
+      font-size: 0.65rem; color: var(--text-secondary);
+      letter-spacing: 1.5px; text-transform: lowercase;
+      margin-top: 8px; opacity: 0.6;
+    }
+
+    .owner-dedication {
+      text-align: center; margin: 50px auto; max-width: 650px; 
+      padding: 25px; background: rgba(100, 255, 218, 0.03); 
+      border: 1px solid rgba(100, 255, 218, 0.15); border-radius: 12px;
+    }
+    .owner-dedication h4 { color: var(--accent); font-size: 1rem; margin-bottom: 12px; letter-spacing: 1px; }
+    .owner-dedication p { font-style: italic; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+    .owner-dedication .signature { color: var(--snow); font-size: 0.9rem; margin-top: 15px; font-weight: 500; font-style: normal; }
+
+    footer {
+      margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border);
+      text-align: center; color: var(--text-secondary);
+    }
+    .card-row {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 25px;
+    }
+    .mini-card {
+      display: flex; flex-direction: column; align-items: center;
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 16px; text-decoration: none;
+      color: var(--text-primary); width: 110px; transition: 0.2s ease;
+    }
+    .mini-card:hover { border-color: var(--accent); background: rgba(100, 255, 218, 0.05); }
+    .card-icon { font-size: 1.4rem; margin-bottom: 6px; }
+    .card-title { font-size: 0.85rem; font-weight: 600; }
+    .card-desc { font-size: 0.65rem; color: var(--text-secondary); margin-top: 4px; text-align: center; }
+
+    .footer-features {
+      font-size: 0.75rem; line-height: 1.8; color: var(--text-secondary);
+      margin: 25px 0; padding: 15px; background: rgba(248, 249, 250, 0.03);
+      border-radius: 8px; border: 1px solid var(--border);
+    }
+    .gratitude {
+      font-size: 0.8rem; font-style: italic; color: var(--text-secondary);
+      margin: 20px 0; opacity: 0.85;
+    }
+    #live-clock { font-size: 0.9rem; color: var(--accent); font-variant-numeric: tabular-nums; margin-top: 15px; }
+    .creation-date { font-size: 0.75rem; margin-top: 10px; opacity: 0.6; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+      .market-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div id="live-date" class="small"></div>
+    <h1>Alternatives Européennes de Confidentialité</h1>
+    
+    <a href="up1.html" class="access-link" aria-label="Visiter la version accessible de cette page">
+      <span aria-hidden="true">♿</span>
+      <span>Accessible</span>
+      <span aria-hidden="true" style="opacity:0.5">·</span>
+      <span lang="sv">Tillgänglig</span>
+      <span aria-hidden="true" style="opacity:0.5">·</span>
+      <span lang="pl">Dostępna</span>
+    </a>
+    
+    <p class="dedication-header">
+      Dédié avec gratitude aux cultures nordique, balkanique, balte, néerlandaise, irlandaise, polonaise et belge. 
+      Votre héritage inspire une force tranquille, une résilience numérique et une beauté intemporelle.
+    </p>
+    <div class="greetings">Välkommen · Laipni lūgti · Dobrodošli · Witamy · Fáilte · Welkom · Willkommen</div>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-title">🌍 Services Numériques Européens de Confiance – Édition 2026</div>
+    <p style="color: var(--text-secondary); max-width: 650px; margin: 0 auto 20px;">
+      Un guide méticuleusement élaboré, axé sur la confidentialité, présentant les services numériques les plus fiables et sécurisés à travers l'Europe. 
+      Vérifié par des audits indépendants, la transparence open-source et des lois strictes sur la protection des données.
+    </p>
+    <div class="hero-badges">
+      <span>🎀 100% Côté Client</span>
+      <span>🍷 Aucun Suivi</span>
+      <span>🍃 Léger et Rapide</span>
+    </div>
+    <p class="privacy-note">Cette page n'effectue aucune requête externe. Vos données de navigation restent entièrement sur votre appareil.</p>
+  </section>
+
+  <main>
+    <!-- Courriels Chiffrés -->
+    <section class="category-section">
+      <h2 class="category-title">📧 Courriels Chiffrés</h2>
+      <div class="market-grid">
+        <div class="market-card">
+          <h3>🇨🇭 Proton Mail</h3>
+          <p>Chiffrement de bout en bout, lois strictes sur la confidentialité en Suisse et transparence open-source.</p>
+          <a href="https://proton.me/mail" target="_blank" rel="noopener" class="market-link">proton.me/mail</a>
+        </div>
+        <div class="market-card">
+          <h3>🇩🇪 Tuta</h3>
+          <p>Open-source, chiffre non seulement le corps du message, mais aussi les objets et les noms des contacts.</p>
+          <a href="https://tuta.com" target="_blank" rel="noopener" class="market-link">tuta.com</a>
+        </div>
+        <div class="market-card">
+          <h3>🇩🇪 Mailbox.org</h3>
+          <p>Alimenté à 100 % par des énergies vertes, sans publicité et avec un respect total des données des utilisateurs.</p>
+          <a href="https://mailbox.org" target="_blank" rel="noopener" class="market-link">mailbox.org</a>
+        </div>
+      </div>
+      <div class="hashtags">#CourrielChiffré #ConfidentialitéDAbord #ProtonMail #Tuta #SouverainetéNumérique</div>
+    </section>
+
+    <!-- Moteurs de Recherche -->
+    <section class="category-section">
+      <h2 class="category-title">🔍 Moteurs de Recherche Respectueux de la Vie Privée</h2>
+      <div class="market-grid">
+        <div class="market-card">
+          <h3>🇳🇱 Startpage</h3>
+          <p>Résultats de recherche Google avec un suivi et une journalisation des adresses IP absolument nuls.</p>
+          <a href="https://www.startpage.com" target="_blank" rel="noopener" class="market-link">startpage.com</a>
+        </div>
+        <div class="market-card">
+          <h3>🇫🇷 Qwant</h3>
+          <p>Moteur de recherche européen qui ne trace pas et ne crée pas de profils d'utilisateurs.</p>
+          <a href="https://www.qwant.com" target="_blank" rel="noopener" class="market-link">qwant.com</a>
+        </div>
+        <div class="market-card">
+          <h3>🇩🇪 Ecosia</h3>
+          <p>Recherche sur le web et plante des arbres. Publie des rapports mensuels de transparence financière.</p>
+          <a href="https://www.ecosia.org" target="_blank" rel="noopener" class="market-link">ecosia.org</a>
+        </div>
+        <div class="market-card">
+          <h3>🇬🇧 Mojeek</h3>
+          <p>Un index de recherche véritablement indépendant, exempt de suivi et d'algorithmes biaisés.</p>
+          <a href="https://www.mojeek.com" target="_blank" rel="noopener" class="market-link">mojeek.com</a>
+        </div>
+      </div>
+      <div class="hashtags">#RecherchePrivée #AucunSuivi #Startpage #Qwant #SouverainetéNumérique</div>
+    </section>
+
+    <!-- Réseaux VPN -->
+    <section class="category-section">
+      <h2 class="category-title">🔐 Réseaux VPN Sécurisés</h2>
+      <div class="market-grid">
+        <div class="market-card">
+          <h3>🇨🇭 Proton VPN</h3>
+          <p>Politique stricte de non-conservation des journaux, applications open-source et audits de sécurité indépendants réguliers.</p>
+          <a href="https://protonvpn.com" target="_blank" rel="noopener" class="market-link">protonvpn.com</a>
+        </div>
+        <div class="market-card">
+          <h3>🇸🇪 Mullvad</h3>
+          <p>Aucun e-mail requis pour l'inscription, prend en charge les paiements anonymes en espèces, transparence absolue.</p>
+          <a href="https://mullvad.net" target="_blank" rel="noopener" class="market-link">mullvad.net</a>
+        </div>
+        <div class="market-card">
+          <h3>🇬🇮 IVPN</h3>
+          <p>Audits de sécurité réguliers, zéro journal de connexion et un fort engagement envers la confidentialité.</p>
+          <a href="https://www.ivpn.net" target="_blank" rel="noopener" class="market-link">ivpn.net</a>
+        </div>
+        <div class="market-card">
+          <h3>🇮🇹 AirVPN</h3>
+          <p>Géré par des activistes de la confidentialité, disposant d'un réseau de nœuds européen robuste.</p>
+          <a href="https://airvpn.org" target="_blank" rel="noopener" class="market-link">airvpn.org</a>
+        </div>
+      </div>
+      <div class="hashtags">#VPNSécurisé #NoLogs #Mullvad #NavigationAnonyme #LaConfidentialitéCompte</div>
+    </section>
+
+    <!-- Stockage Cloud -->
+    <section class="category-section">
+      <h2 class="category-title">☁️ Stockage Cloud Sécurisé</h2>
+      <div class="market-grid">
+        <div class="market-card">
+          <h3>🇨🇭 Proton Drive</h3>
+          <p>Intégration transparente avec l'écosystème Proton, avec un chiffrement complet des fichiers.</p>
+          <a href="https://proton.me/drive" target="_blank" rel="noopener" class="market-link">proton.me/drive</a>
+        </div>
+        <div class="market-card">
+          <h3>🇩🇪 Filen</h3>
+          <p>Open-source, chiffré de bout en bout, fonctionnant sous la stricte protection du RGPD allemand.</p>
+          <a href="https://filen.io" target="_blank" rel="noopener" class="market-link">filen.io</a>
+        </div>
+        <div class="market-card">
+          <h3>🇪🇸 Internxt</h3>
+          <p>Stockage cloud décentralisé (Web3), open-source et entièrement chiffré par conception.</p>
+          <a href="https://internxt.com" target="_blank" rel="noopener" class="market-link">internxt.com</a>
+        </div>
+        <div class="market-card">
+          <h3>🇨🇭 pCloud</h3>
+          <p>Serveurs européens avec une option de chiffrement côté client (pCloud Crypto).</p>
+          <a href="https://www.pcloud.com" target="_blank" rel="noopener" class="market-link">pcloud.com</a>
+        </div>
+      </div>
+      <div class="hashtags">#CloudSécurisé #ChiffrementDeBoutEnBout #Filen #Internxt #ProtectionDesDonnées</div>
+    </section>
+
+    <!-- Gestionnaires de Mots de Passe -->
+    <section class="category-section">
+      <h2 class="category-title">🔑 Gestionnaires de Mots de Passe</h2>
+      <div class="market-grid">
+        <div class="market-card">
+          <h3>🇨🇭 Proton Pass</h3>
+          <p>Protection intégrée des alias e-mail et intégration transparente avec les services Proton.</p>
+          <a href="https://proton.me/pass" target="_blank" rel="noopener" class="market-link">proton.me/pass</a>
+        </div>
+        <div class="market-card">
+          <h3>🇧🇪 Passbolt</h3>
+          <p>Open-source, conçu pour les équipes et les organisations préférant l'auto-hébergement.</p>
+          <a href="https://www.passbolt.com" target="_blank" rel="noopener" class="market-link">passbolt.com</a>
+        </div>
+        <div class="market-card">
+          <h3>🇩🇪 Padloc</h3>
+          <p>Simple, sécurisé, open-source, respectant la vie privée avec un design élégant.</p>
+          <a href="https://padloc.app" target="_blank" rel="noopener" class="market-link">padloc.app</a>
+        </div>
+        <div class="market-card">
+          <h3>💻 KeePassXC</h3>
+          <p>100 % local, aucune dépendance au cloud, vous donnant un contrôle absolu sur votre base de données chiffrée.</p>
+          <a href="https://keepassxc.org" target="_blank" rel="noopener" class="market-link">keepassxc.org</a>
+        </div>
+      </div>
+      <div class="hashtags">#GestionnaireDeMotsDePasse #OpenSource #KeePassXC #Passbolt #SécuritéDesComptes</div>
+    </section>
+
+    <!-- Messagerie Sécurisée -->
+    <section class="category-section">
+      <h2 class="category-title">💬 Messagerie Sécurisée</h2>
+      <div class="market-grid">
+        <div class="market-card">
+          <h3>🇨🇭 Threema</h3>
+          <p>Aucun numéro de téléphone ou e-mail requis, audits de sécurité indépendants réguliers.</p>
+          <a href="https://threema.ch" target="_blank" rel="noopener" class="market-link">threema.ch</a>
+        </div>
+        <div class="market-card">
+          <h3>🇫🇷 Olvid</h3>
+          <p>Certifié par l'Agence nationale de la sécurité des systèmes d'information (ANSSI), avec un protocole de chiffrement unique.</p>
+          <a href="https://olvid.com" target="_blank" rel="noopener" class="market-link">olvid.com</a>
+        </div>
+        <div class="market-card">
+          <h3>🇨🇭 Wire</h3>
+          <p>Open-source, prenant en charge la collaboration sécurisée pour les particuliers et les entreprises.</p>
+          <a href="https://wire.com" target="_blank" rel="noopener" class="market-link">wire.com</a>
+        </div>
+      </div>
+      <div class="hashtags">#MessagerieSécurisée #ChiffrementDeBoutEnBout #Threema #Olvid #ConversationsPrivées</div>
+    </section>
+
+    <!-- Navigateurs Respectueux de la Vie Privée -->
+    <section class="category-section">
+      <h2 class="category-title">🌐 Navigateurs Respectueux de la Vie Privée</h2>
+      <div class="market-grid">
+        <div class="market-card">
+          <h3>🇸🇪 Mullvad Browser</h3>
+          <p>Développé en partenariat avec le projet Tor, visant à prévenir l'empreinte numérique (fingerprinting).</p>
+          <a href="https://mullvad.net/fr/browser" target="_blank" rel="noopener" class="market-link">mullvad.net/browser</a>
+        </div>
+        <div class="market-card">
+          <h3>🇳🇴 Vivaldi</h3>
+          <p>Contrôle total de la confidentialité, aucun suivi, bâti sur une fondation de respect de l'utilisateur.</p>
+          <a href="https://vivaldi.com" target="_blank" rel="noopener" class="market-link">vivaldi.com</a>
+        </div>
+        <div class="market-card">
+          <h3>🌍 LibreWolf</h3>
+          <p>Navigateur communautaire indépendant axé sur la confidentialité, la sécurité et la suppression de toute télémétrie.</p>
+          <a href="https://librewolf.net" target="_blank" rel="noopener" class="market-link">librewolf.net</a>
+        </div>
+      </div>
+      <div class="hashtags">#NavigateurPrivé #AntiEmpreinte #MullvadBrowser #Vivaldi #LibertéSurInternet</div>
+    </section>
+
+    <!-- Outils de Collaboration -->
+    <section class="category-section">
+      <h2 class="category-title">🗂️ Outils de Collaboration</h2>
+      <div class="market-grid">
+        <div class="market-card">
+          <h3>🇫🇷 CryptPad</h3>
+          <p>Suite bureautique chiffrée de bout en bout, aucune inscription requise pour l'essayer.</p>
+          <a href="https://cryptpad.fr" target="_blank" rel="noopener" class="market-link">cryptpad.fr</a>
+        </div>
+        <div class="market-card">
+          <h3>🇱🇻 OnlyOffice</h3>
+          <p>Alternative open-source à Microsoft Office, prend entièrement en charge l'auto-hébergement.</p>
+          <a href="https://www.onlyoffice.com" target="_blank" rel="noopener" class="market-link">onlyoffice.com</a>
+        </div>
+        <div class="market-card">
+          <h3>🇩🇪 Seafile</h3>
+          <p>Synchronisation de fichiers et collaboration haute performance, avec des options d'hébergement européen sécurisé.</p>
+          <a href="https://www.seafile.com" target="_blank" rel="noopener" class="market-link">seafile.com</a>
+        </div>
+        <div class="market-card">
+          <h3>🇨🇭 Proton Docs</h3>
+          <p>Collaboration documentaire sécurisée et chiffrée au sein de l'environnement de confiance Proton.</p>
+          <a href="https://docs.proton.me" target="_blank" rel="noopener" class="market-link">docs.proton.me</a>
+        </div>
+      </div>
+      <div class="hashtags">#CollaborationSécurisée #OpenSource #CryptPad #OnlyOffice #AutoHébergement</div>
+    </section>
+
+    <section class="safety-section">
+      <h3>🛡️ Règles d'Or de la Sécurité Numérique</h3>
+      <ul>
+        <li><strong>Chiffrement d'abord :</strong> Vérifiez toujours l'icône du cadenas (HTTPS) avant de saisir des données personnelles.</li>
+        <li><strong>Authentification intelligente :</strong> Utilisez un gestionnaire de mots de passe dédié et activez l'authentification à deux facteurs (2FA) partout.</li>
+        <li><strong>Navigation privée :</strong> Préférez les navigateurs respectueux de la vie privée avec le blocage des traqueurs activé.</li>
+        <li><strong>Documentation :</strong> Lisez attentivement les politiques de confidentialité et gardez le contrôle sur votre empreinte numérique.</li>
+      </ul>
+    </section>
+
+    <section class="gallery-section">
+      <h3>Archive Visuelle</h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="top/top1.jpg" alt="Esthétique de la confidentialité numérique européenne 1" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+        <div class="gallery-item">
+          <img src="top/top2.jpg" alt="Esthétique de la confidentialité numérique européenne 2" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+        <div class="gallery-item">
+          <img src="top/top3.jpg" alt="Esthétique de la confidentialité numérique européenne 3" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+        <div class="gallery-item">
+          <img src="top/top4.jpg" alt="Esthétique de la confidentialité numérique européenne 4" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Dédiace du Propriétaire -->
+  <section class="owner-dedication">
+    <h4>Une Dédiace Discrète</h4>
+    <p>
+      À chaque visiteur qui valorise sa souveraineté numérique :<br>
+      Cet espace a été conçu avec une intention calme — <strong>zéro traqueur, zéro cookie, et un respect absolu</strong> pour votre vie privée et votre temps. Puisse votre expérience de navigation être aussi paisible, sécurisée et légère que les vents nordiques.
+    </p>
+    <p class="signature">
+      Avec une profonde gratitude, <br> Le Créateur de Kingdom.lat 🏔️
+    </p>
+  </section>
+
+  <footer>
+    <div class="card-row">
+      <a href="https://www.doors.mom/" class="mini-card">
+        <span class="card-icon">🚪</span>
+        <span class="card-title">Doors</span>
+        <span class="card-desc">Portail principal</span>
+      </a>
+      <a href="https://www.kingdom.lat" class="mini-card">
+        <span class="card-icon">👑</span>
+        <span class="card-title">Kingdom</span>
+        <span class="card-desc">Domaine .lat</span>
+      </a>
+      <a href="https://nordic.mom" class="mini-card">
+        <span class="card-icon">🌲</span>
+        <span class="card-title">Nordic</span>
+        <span class="card-desc">Vents du nord</span>
+      </a>
+      <a href="https://baltic.lol" class="mini-card">
+        <span class="card-icon">🌊</span>
+        <span class="card-title">Baltic</span>
+        <span class="card-desc">Mer et rivage</span>
+      </a>
+      <a href="https://www.kingdom.lat/up-shopping.html" class="mini-card" aria-label="Visiter Up Shopping pour des marchés européens de confiance">
+        <span class="card-icon">🛡️</span>
+        <span class="card-title">Up Shopping</span>
+        <span class="card-desc">Marchés UE de confiance</span>
+      </a>
+      <a href="https://www.helo.mom/" class="mini-card">
+        <span class="card-icon">👋</span>
+        <span class="card-title">Helo</span>
+        <span class="card-desc">Chaleureuse bienvenue</span>
+      </a>
+      <a href="https://www.merci.pics/" class="mini-card">
+        <span class="card-icon">🐎</span>
+        <span class="card-title">Merci</span>
+        <span class="card-desc">Archive équestre</span>
+      </a>
+      <a href="https://www.goodnight.mom/" class="mini-card">
+        <span class="card-icon">🗻</span>
+        <span class="card-title">Goodnight</span>
+        <span class="card-desc">Nuits paisibles</span>
+      </a>
+      <a href="https://www.takk.pics/" class="mini-card">
+        <span class="card-icon">🧊</span>
+        <span class="card-title">Takk</span>
+        <span class="card-desc">Gratitude nordique</span>
+      </a>
+      <a href="up/up.html" class="mini-card">
+        <span class="card-icon">📄</span>
+        <span class="card-title">Up</span>
+        <span class="card-desc">Extracteur de texte</span>
+      </a>
+      <a href="https://www.meow.hair" class="mini-card">
+        <span class="card-icon">🐾</span>
+        <span class="card-title">Meow</span>
+        <span class="card-desc">Espace créatif</span>
+      </a>
+    </div>
+
+    <div class="footer-features">
+      fonctionnalités de la page · horloge en direct · date de mise à jour · écouter le paragraphe 🔊 · copie en un clic 📋 · entièrement accessible · léger et rapide · aucun suivi, aucun cookie, aucune tromperie · conception axée sur la confidentialité · liens d'audit indépendants inclus · zéro traqueur externe · TLS sécurisé · respect de chaque visiteur 🐾
+    </div>
+    
+    <div class="gratitude">
+      <span aria-hidden="true">🤍</span>
+      Avec gratitude envers ceux qui ont inspiré cette page — votre croyance tranquille a transformé le code en culture.
+      <span aria-hidden="true">🤍</span>
+    </div>
+    
+    <div id="live-clock"></div>
+    <p class="creation-date">Dernière mise à jour : 15 juillet 2026</p>
+  </footer>
+
+  <script>
+    // Date et Heure en direct (100% Côté Client, Aucune API Externe)
+    function updateDateTime() {
+      const now = new Date();
+      const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('live-date').textContent = now.toLocaleDateString('fr-FR', dateOptions);
+      document.getElementById('live-clock').textContent = now.toLocaleTimeString('fr-FR', { hour12: false });
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    // Fonctionnalité de copie simple pour l'accessibilité
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Texte copié dans le presse-papiers en toute sécurité.');
+      }).catch(err => {
+        console.error('Échec de la copie : ', err);
+      });
+    }
+  </script>
+</body>
+</html>
