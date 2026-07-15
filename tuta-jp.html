@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tuta: 新機能とプライバシー重視のメール 📨🇪🇺🤍🪷 | Kingdom.lat</title>
+  <meta name="description" content="Tuta MailとTuta Calendarの最新プライバシー重視機能をご覧ください。ワンクリック移行、向上したUX、そして絶対的なデジタル主権。">
+  <meta name="theme-color" content="#0A192F">
+  <style>
+    :root {
+      --bg-primary: #0A192F;
+      --bg-secondary: #112240;
+      --text-primary: #E6F1FF;
+      --text-secondary: #8892B0;
+      --accent: #64FFDA;
+      --snow: #F8F9FA;
+      --border: rgba(248, 249, 250, 0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Meiryo", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    header { text-align: center; margin-bottom: 40px; padding-top: 20px; }
+    .small { font-size: 0.85rem; color: var(--text-secondary); }
+    h1 { font-size: 2.2rem; margin: 15px 0; letter-spacing: -0.5px; color: var(--snow); }
+    
+    .access-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      opacity: 0.85; border: 1px solid var(--border);
+      padding: 8px 18px; border-radius: 20px;
+      text-decoration: none; color: var(--text-primary);
+      font-size: 0.9rem; transition: all 0.2s ease;
+      margin: 12px 0; background: rgba(100, 255, 218, 0.05);
+    }
+    .access-link:hover { background: rgba(100, 255, 218, 0.15); opacity: 1; border-color: var(--accent); }
+
+    .dedication-header {
+      font-style: italic; margin-bottom: 15px; opacity: 0.9;
+      color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .greetings {
+      font-size: 0.9rem; color: var(--accent); letter-spacing: 1px; margin-top: 10px;
+    }
+
+    .hero-section {
+      text-align: center; margin: 40px 0; padding: 30px 20px;
+      background: var(--bg-secondary); border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .hero-title { font-size: 1.5rem; margin-bottom: 15px; color: var(--snow); }
+    .hero-badges { 
+      display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; 
+      margin: 20px 0; font-size: 0.9rem; color: var(--accent);
+    }
+    .privacy-note { font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px; }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex; justify-content: center; gap: 15px; margin: 25px 0;
+    }
+    .action-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-secondary); border: 1px solid var(--accent);
+      color: var(--accent); padding: 10px 20px; border-radius: 8px;
+      cursor: pointer; font-size: 0.9rem; font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .action-btn:hover { background: rgba(100, 255, 218, 0.1); transform: translateY(-2px); }
+
+    .category-section { margin: 50px 0; }
+    .category-title { 
+      font-size: 1.4rem; color: var(--snow); margin-bottom: 20px; 
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+    }
+    
+    .market-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; margin-bottom: 15px;
+    }
+    .market-card {
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px; transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .market-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .market-card h3 { color: var(--snow); margin-bottom: 8px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+    .market-card p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px; }
+    .market-link {
+      display: inline-block; font-size: 0.85rem; color: var(--accent);
+      text-decoration: none; border-bottom: 1px dotted var(--accent);
+    }
+    .market-link:hover { border-bottom-style: solid; }
+
+    .hashtags {
+      text-align: center; margin-top: 15px; font-size: 0.75rem; 
+      color: var(--text-secondary); letter-spacing: 0.5px; opacity: 0.8;
+    }
+
+    .gallery-section { margin: 50px 0; text-align: center; }
+    .gallery-section h3 { color: var(--snow); margin-bottom: 25px; font-size: 1.3rem; }
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item { text-align: center; }
+    .gallery-item img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 8px; border: 1px solid var(--border);
+      transition: opacity 0.3s ease;
+      background-color: var(--bg-secondary);
+    }
+    .gallery-item img:hover { opacity: 0.85; }
+    .photo-credit {
+      font-size: 0.65rem; color: var(--text-secondary);
+      letter-spacing: 1.5px; text-transform: lowercase;
+      margin-top: 8px; opacity: 0.6;
+    }
+
+    .owner-dedication {
+      text-align: center; margin: 50px auto; max-width: 650px; 
+      padding: 25px; background: rgba(100, 255, 218, 0.03); 
+      border: 1px solid rgba(100, 255, 218, 0.15); border-radius: 12px;
+    }
+    .owner-dedication h4 { color: var(--accent); font-size: 1rem; margin-bottom: 12px; letter-spacing: 1px; }
+    .owner-dedication p { font-style: italic; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+    .owner-dedication .signature { color: var(--snow); font-size: 0.9rem; margin-top: 15px; font-weight: 500; font-style: normal; }
+
+    footer {
+      margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border);
+      text-align: center; color: var(--text-secondary);
+    }
+    
+    /* Independent Frame for Mini Cards */
+    .mini-cards-frame {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 25px;
+      background: rgba(17, 34, 64, 0.5);
+      margin-bottom: 30px;
+    }
+    .mini-cards-frame h4 {
+      color: var(--snow);
+      margin-bottom: 20px;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+    .card-row {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+    }
+    .mini-card {
+      display: flex; flex-direction: column; align-items: center;
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 16px; text-decoration: none;
+      color: var(--text-primary); width: 120px; transition: 0.2s ease;
+    }
+    .mini-card:hover { border-color: var(--accent); background: rgba(100, 255, 218, 0.05); }
+    .card-icon { font-size: 1.4rem; margin-bottom: 6px; }
+    .card-title { font-size: 0.8rem; font-weight: 600; text-align: center; }
+    .card-desc { font-size: 0.65rem; color: var(--text-secondary); margin-top: 4px; text-align: center; }
+
+    /* Highlighted Mini Card for Text Extractor */
+    .mini-card.highlighted {
+      width: 100%;
+      max-width: 320px;
+      border: 1px solid var(--accent);
+      background: rgba(100, 255, 218, 0.08);
+      box-shadow: 0 0 15px rgba(100, 255, 218, 0.15);
+      padding: 16px;
+      margin-bottom: 10px;
+    }
+    .mini-card.highlighted:hover {
+      background: rgba(100, 255, 218, 0.15);
+      transform: translateY(-3px);
+    }
+    .highlighted-benefit {
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-top: 10px;
+      text-align: center;
+      line-height: 1.5;
+      font-weight: 500;
+      border-top: 1px dashed rgba(100, 255, 218, 0.3);
+      padding-top: 10px;
+    }
+
+    .footer-features {
+      font-size: 0.75rem; line-height: 1.8; color: var(--text-secondary);
+      margin: 25px 0; padding: 15px; background: rgba(248, 249, 250, 0.03);
+      border-radius: 8px; border: 1px solid var(--border);
+    }
+    .gratitude {
+      font-size: 0.8rem; font-style: italic; color: var(--text-secondary);
+      margin: 20px 0; opacity: 0.85;
+    }
+    #live-clock { font-size: 0.9rem; color: var(--accent); font-variant-numeric: tabular-nums; margin-top: 15px; }
+    .creation-date { font-size: 0.75rem; margin-top: 10px; opacity: 0.6; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+      .market-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .card-row { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div id="live-date" class="small"></div>
+    <h1>Tuta：新機能とプライバシー重視のメール</h1>
+    
+    <a href="index.html" class="access-link" aria-label="メインホームページに戻る">
+      <span aria-hidden="true">⬅</span>
+      <span>ホームに戻る</span>
+    </a>
+    
+    <p class="dedication-header">
+      デジタル主権を重視されるすべての方々に捧げます。<br>
+      プライバシーへのあなたの献身は、静かなる強さと時代を超えた回復力を私たちに与えてくれます。
+    </p>
+    <div class="greetings">ようこそ · Välkommen · Laipni lūgti · Dobrodošli · Witamy · Fáilte · Welkom</div>
+  </header>
+
+  <main id="tuta-article">
+    <section class="hero-section">
+      <div class="hero-title">🎉 Tutaの新機能と改善 🎉</div>
+      <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 20px;">
+        Tuta MailとTuta Calendarの新機能と改善点をご覧ください。<br>
+        ドイツを拠点とするオープンソースサービスとして、Tutaはエンドツーエンド暗号化通信、厳格なGDPR準拠、そして絶対的なデジタル主権におけるゴールドスタンダード（最高基準）を設定し続けています。
+      </p>
+      <div class="hero-badges">
+        <span>🎀 100% クライアントサイド</span>
+        <span>🍷 トラッキングなし</span>
+        <span>🍃 軽量で高速</span>
+        <span>🇩🇪 ドイツのプライバシー法準拠</span>
+      </div>
+      <p class="privacy-note">このページは外部リクエストを一切行いません。あなたの閲覧データは完全にあなたのデバイス上に留まります。</p>
+    </section>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="action-btn" onclick="speakText()" aria-label="記事を読み上げる">
+        <span>🔊</span> 読み上げ
+      </button>
+      <button class="action-btn" onclick="copyContent()" aria-label="記事のテキストをコピー">
+        <span>📋</span> コピー
+      </button>
+    </div>
+
+    <section class="category-section">
+      <h2 class="category-title">🚀 新機能と改善点</h2>
+      <div class="market-grid">
+        <div class="market-card">
+          <h3>🔄 ワンクリック移行</h3>
+          <p>他のプロバイダーからのメールをシームレスに移行します。新しい移行ツールはフォルダー構造を保持し、バックグラウンドで同期するため、プライバシーへの移行が effortless（容易）になります。</p>
+        </div>
+        <div class="market-card">
+          <h3>📂 スマートフォルダー展開</h3>
+          <p>洗練されたユーザーエクスペリエンス：メールをドラッグ＆ドロップするとフォルダーが自動的に展開されるようになり、日々のメール整理がよりスムーズで直感的になりました。</p>
+        </div>
+        <div class="market-card">
+          <h3>📅 カレンダー専用設定</h3>
+          <p>Tuta Calendar専用の新しい設定ページが追加されました。デフォルトのカレンダー表示の選択、週の開始日の設定、通知のカスタマイズが簡単に行えます。</p>
+        </div>
+        <div class="market-card">
+          <h3>💾 Tuta Driveのアップデート</h3>
+          <p>Tuta Driveの継続的な改善により、安全でエンドツーエンド暗号化されたクラウドストレージが完全な公開リリースに近づき、Tutaのプライバシーエコシステムが完成しつつあります。</p>
+        </div>
+      </div>
+      <div class="hashtags">#Tuta #プライバシーファースト #エンドツーエンド暗号化 #デジタル主権 #オープンソース</div>
+    </section>
+
+    <section class="category-section">
+      <h2 class="category-title">🛡️ デジタル主権にとってTutaが重要な理由</h2>
+      <div class="market-card" style="max-width: 800px; margin: 0 auto;">
+        <p>
+          データ収集が蔓延する時代において、Tutaは信頼の象徴として立っています。主流のプロバイダーとは異なり、Tutaはメールの本文だけでなく、件名、送信者名、連絡先リストも暗号化します。
+          <br><br>
+          Tutaを選択することは、厳格なGDPR規制の下で運営され、ユーザーデータの販売を拒否し、オープンソースコードと独立したセキュリティ監査を通じて完全な透明性を維持する欧州企業を直接支援することになります。これは、すべての訪問者を尊重するウェブを構築するという哲学と完全に一致しています 🐾。
+        </p>
+        <a href="https://tuta.com" target="_blank" rel="noopener" class="market-link" style="margin-top: 15px;">Tuta.com を訪問 →</a>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <h3>ビジュアルアーカイブ：Tutaの機能</h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="tuta/tuta1.jpg" alt="Tutaプライバシー機能のビジュアライゼーション 1" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+        <div class="gallery-item">
+          <img src="tuta/tuta2.jpg" alt="Tutaプライバシー機能のビジュアライゼーション 2" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+        <div class="gallery-item">
+          <img src="tuta/tuta3.jpg" alt="Tutaプライバシー機能のビジュアライゼーション 3" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+        <div class="gallery-item">
+          <img src="tuta/tuta4.jpg" alt="Tutaプライバシー機能のビジュアライゼーション 4" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Owner's Dedication -->
+  <section class="owner-dedication">
+    <h4>静かなる献身</h4>
+    <p>
+      デジタル主権を重視されるすべての訪問者へ：<br>
+      このスペースは静かなる意図を持って作成されました — <strong>トラッカーゼロ、クッキーゼロ、そしてあなたのプライバシーと時間を絶対的に尊重します</strong>。あなたの閲覧体験が、北欧の風のように平和で、安全で、負担のないものであることを願っています。
+    </p>
+    <p class="signature">
+      心からの感謝を込めて、<br> Kingdom.lat のクリエーター 🏔️
+    </p>
+  </section>
+
+  <footer>
+    <!-- Independent Frame for Mini Cards -->
+    <div class="mini-cards-frame">
+      <h4>🔗 その他の信頼できるサービスを探索</h4>
+      <div class="card-row">
+        
+        <!-- Prominent Highlighted Card for Text Extractor -->
+        <a href="https://www.kingdom.lat/up/up.html" target="_blank" rel="noopener" class="mini-card highlighted">
+          <span class="card-icon">📄</span>
+          <span class="card-title">テキスト抽出ツール</span>
+          <span class="card-desc">画像からテキストを無料抽出</span>
+          <div class="highlighted-benefit">
+            ✨ <strong>訪問者のための無料サービス：</strong><br>
+            画像内の文字を瞬時に、安全に、<br>クライアントサイド（サーバー送信なし）で抽出します。
+          </div>
+        </a>
+
+        <a href="tuta-jp.html" target="_blank" rel="noopener" class="mini-card">
+          <span class="card-icon">🇯🇵</span>
+          <span class="card-title">Tuta JP</span>
+          <span class="card-desc">日本語版</span>
+        </a>
+        <a href="tuta-fr.html" target="_blank" rel="noopener" class="mini-card">
+          <span class="card-icon">🇫🇷</span>
+          <span class="card-title">Tuta FR</span>
+          <span class="card-desc">フランス語版</span>
+        </a>
+        <a href="tuta-nl.html" target="_blank" rel="noopener" class="mini-card">
+          <span class="card-icon">🇳🇱</span>
+          <span class="card-title">Tuta NL</span>
+          <span class="card-desc">オランダ語版</span>
+        </a>
+        <a href="https://m.youtube.com/watch?v=uqTAM-kqAJ8" target="_blank" rel="noopener" class="mini-card">
+          <span class="card-icon">🎬</span>
+          <span class="card-title">ビデオガイド</span>
+          <span class="card-desc">2026年新機能</span>
+        </a>
+        <a href="top-fr.html" class="mini-card">
+          <span class="card-icon">🇫🇷</span>
+          <span class="card-title">Top FR</span>
+          <span class="card-desc">フランス語版</span>
+        </a>
+        <a href="top-ja.html" class="mini-card">
+          <span class="card-icon">🇯🇵</span>
+          <span class="card-title">Top JA</span>
+          <span class="card-desc">日本語版</span>
+        </a>
+        <a href="top-nl.html" class="mini-card">
+          <span class="card-icon">🇳🇱</span>
+          <span class="card-title">Top NL</span>
+          <span class="card-desc">オランダ語版</span>
+        </a>
+        <a href="top.html" class="mini-card">
+          <span class="card-icon">🌍</span>
+          <span class="card-title">Top Global</span>
+          <span class="card-desc">メインディレクトリ</span>
+        </a>
+        <a href="up-shopping.html" class="mini-card">
+          <span class="card-icon">🛡️</span>
+          <span class="card-title">Up Shopping</span>
+          <span class="card-desc">信頼できるEU市場</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-features">
+      ページ機能 · ライブ時計 · 更新日 · 段落の読み上げ 🔊 · ワンクリックコピー 📋 · 完全なアクセシビリティ · 軽量で高速 · トラッキングなし、クッキーなし、欺瞞なし · プライバシーファースト設計 · 独立した監査リンクを含む · 外部トラッカーゼロ · 安全なTLS · すべての訪問者への敬意 🐾
+    </div>
+    
+    <div class="gratitude">
+      <span aria-hidden="true">🤍</span>
+      このページにインスピレーションを与えてくれた方々に感謝します。あなたの静かなる信念が、コードを文化へと変えました。
+      <span aria-hidden="true">🤍</span>
+    </div>
+    
+    <div id="live-clock"></div>
+    <p class="creation-date">最終更新日: 2026年7月16日</p>
+  </footer>
+
+  <script>
+    // Live Date and Clock (100% Client-Side, No External APIs)
+    function updateDateTime() {
+      const now = new Date();
+      const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('live-date').textContent = now.toLocaleDateString('ja-JP', dateOptions);
+      document.getElementById('live-clock').textContent = now.toLocaleTimeString('ja-JP', { hour12: false });
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    // Listen Functionality (Text-to-Speech)
+    function speakText() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const text = document.getElementById('tuta-article').innerText;
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'ja-JP'; // Changed to Japanese
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert('お使いのブラウザは音声合成をサポートしていません。');
+      }
+    }
+
+    // Copy Functionality (Clipboard API)
+    function copyContent() {
+      const text = document.getElementById('tuta-article').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector('button[onclick="copyContent()"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<span>✅</span> コピー完了！';
+        btn.style.borderColor = '#64FFDA';
+        btn.style.backgroundColor = 'rgba(100, 255, 218, 0.1)';
+        
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.borderColor = '';
+          btn.style.backgroundColor = '';
+        }, 2000);
+      }).catch(err => {
+        console.error('コピーに失敗しました: ', err);
+        alert('テキストのコピーに失敗しました。手動でお試しください。');
+      });
+    }
+  </script>
+</body>
+</html>
