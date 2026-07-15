@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tuta: Nieuwe Functies & Privacy-Eerste E-mail 📨🇪🇺🤍🌷🇳🇱 | Kingdom.lat</title>
+  <meta name="description" content="Ontdek de nieuwste privacy-first functies in Tuta Mail en Tuta Calendar. Migratie met één klik, verbeterde UX en absolute digitale soevereiniteit.">
+  <meta name="theme-color" content="#0A192F">
+  <style>
+    :root {
+      --bg-primary: #0A192F;
+      --bg-secondary: #112240;
+      --text-primary: #E6F1FF;
+      --text-secondary: #8892B0;
+      --accent: #64FFDA;
+      --snow: #F8F9FA;
+      --border: rgba(248, 249, 250, 0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    header { text-align: center; margin-bottom: 40px; padding-top: 20px; }
+    .small { font-size: 0.85rem; color: var(--text-secondary); }
+    h1 { font-size: 2.2rem; margin: 15px 0; letter-spacing: -0.5px; color: var(--snow); }
+    
+    .access-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      opacity: 0.85; border: 1px solid var(--border);
+      padding: 8px 18px; border-radius: 20px;
+      text-decoration: none; color: var(--text-primary);
+      font-size: 0.9rem; transition: all 0.2s ease;
+      margin: 12px 0; background: rgba(100, 255, 218, 0.05);
+    }
+    .access-link:hover { background: rgba(100, 255, 218, 0.15); opacity: 1; border-color: var(--accent); }
+
+    .dedication-header {
+      font-style: italic; margin-bottom: 15px; opacity: 0.9;
+      color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .greetings {
+      font-size: 0.9rem; color: var(--accent); letter-spacing: 1px; margin-top: 10px;
+    }
+
+    .hero-section {
+      text-align: center; margin: 40px 0; padding: 30px 20px;
+      background: var(--bg-secondary); border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .hero-title { font-size: 1.5rem; margin-bottom: 15px; color: var(--snow); }
+    .hero-badges { 
+      display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; 
+      margin: 20px 0; font-size: 0.9rem; color: var(--accent);
+    }
+    .privacy-note { font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px; }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex; justify-content: center; gap: 15px; margin: 25px 0;
+    }
+    .action-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-secondary); border: 1px solid var(--accent);
+      color: var(--accent); padding: 10px 20px; border-radius: 8px;
+      cursor: pointer; font-size: 0.9rem; font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .action-btn:hover { background: rgba(100, 255, 218, 0.1); transform: translateY(-2px); }
+
+    .category-section { margin: 50px 0; }
+    .category-title { 
+      font-size: 1.4rem; color: var(--snow); margin-bottom: 20px; 
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+    }
+    
+    .market-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; margin-bottom: 15px;
+    }
+    .market-card {
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px; transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .market-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .market-card h3 { color: var(--snow); margin-bottom: 8px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+    .market-card p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px; }
+    .market-link {
+      display: inline-block; font-size: 0.85rem; color: var(--accent);
+      text-decoration: none; border-bottom: 1px dotted var(--accent);
+    }
+    .market-link:hover { border-bottom-style: solid; }
+
+    .hashtags {
+      text-align: center; margin-top: 15px; font-size: 0.75rem; 
+      color: var(--text-secondary); letter-spacing: 0.5px; opacity: 0.8;
+    }
+
+    .gallery-section { margin: 50px 0; text-align: center; }
+    .gallery-section h3 { color: var(--snow); margin-bottom: 25px; font-size: 1.3rem; }
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item { text-align: center; }
+    .gallery-item img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 8px; border: 1px solid var(--border);
+      transition: opacity 0.3s ease;
+      background-color: var(--bg-secondary);
+    }
+    .gallery-item img:hover { opacity: 0.85; }
+    .photo-credit {
+      font-size: 0.65rem; color: var(--text-secondary);
+      letter-spacing: 1.5px; text-transform: lowercase;
+      margin-top: 8px; opacity: 0.6;
+    }
+
+    .owner-dedication {
+      text-align: center; margin: 50px auto; max-width: 650px; 
+      padding: 25px; background: rgba(100, 255, 218, 0.03); 
+      border: 1px solid rgba(100, 255, 218, 0.15); border-radius: 12px;
+    }
+    .owner-dedication h4 { color: var(--accent); font-size: 1rem; margin-bottom: 12px; letter-spacing: 1px; }
+    .owner-dedication p { font-style: italic; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+    .owner-dedication .signature { color: var(--snow); font-size: 0.9rem; margin-top: 15px; font-weight: 500; font-style: normal; }
+
+    footer {
+      margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border);
+      text-align: center; color: var(--text-secondary);
+    }
+    
+    /* Independent Frame for Mini Cards */
+    .mini-cards-frame {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 25px;
+      background: rgba(17, 34, 64, 0.5);
+      margin-bottom: 30px;
+    }
+    .mini-cards-frame h4 {
+      color: var(--snow);
+      margin-bottom: 20px;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+    .card-row {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+    }
+    .mini-card {
+      display: flex; flex-direction: column; align-items: center;
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 16px; text-decoration: none;
+      color: var(--text-primary); width: 120px; transition: 0.2s ease;
+    }
+    .mini-card:hover { border-color: var(--accent); background: rgba(100, 255, 218, 0.05); }
+    .card-icon { font-size: 1.4rem; margin-bottom: 6px; }
+    .card-title { font-size: 0.8rem; font-weight: 600; text-align: center; }
+    .card-desc { font-size: 0.65rem; color: var(--text-secondary); margin-top: 4px; text-align: center; }
+
+    .footer-features {
+      font-size: 0.75rem; line-height: 1.8; color: var(--text-secondary);
+      margin: 25px 0; padding: 15px; background: rgba(248, 249, 250, 0.03);
+      border-radius: 8px; border: 1px solid var(--border);
+    }
+    .gratitude {
+      font-size: 0.8rem; font-style: italic; color: var(--text-secondary);
+      margin: 20px 0; opacity: 0.85;
+    }
+    #live-clock { font-size: 0.9rem; color: var(--accent); font-variant-numeric: tabular-nums; margin-top: 15px; }
+    .creation-date { font-size: 0.75rem; margin-top: 10px; opacity: 0.6; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+      .market-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .card-row { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div id="live-date" class="small"></div>
+    <h1>Tuta: Nieuwe Functies & Privacy-Eerste E-mail</h1>
+    
+    <a href="index.html" class="access-link" aria-label="Terug naar de hoofdpagina">
+      <span aria-hidden="true">⬅</span>
+      <span>Terug naar Home</span>
+    </a>
+    
+    <p class="dedication-header">
+      Opdedragen met dankbaarheid aan degenen die digitale soevereiniteit waarderen. 
+      Uw toewijding aan privacy inspireert stille kracht en tijdloze veerkracht.
+    </p>
+    <div class="greetings">Welkom · Välkommen · Laipni lūgti · Dobrodošli · Witamy · Fáilte · Willkommen</div>
+  </header>
+
+  <main id="tuta-article">
+    <section class="hero-section">
+      <div class="hero-title">🎉 NIEUWE functies en verbeteringen in Tuta 🎉</div>
+      <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 20px;">
+        Ontdek wat er nieuw en verbeterd is in Tuta Mail en Tuta Calendar. 
+        Als een open-source dienst gevestigd in Duitsland, blijft Tuta de gouden standaard zetten voor end-to-end versleutelde communicatie, strikte AVG-naleving en absolute digitale soevereiniteit.
+      </p>
+      <div class="hero-badges">
+        <span>🎀 100% Client-side</span>
+        <span>🍷 Geen Tracking</span>
+        <span>🍃 Lichtgewicht & Snel</span>
+        <span>🇩🇪 Duitse Privacywetten</span>
+      </div>
+      <p class="privacy-note">Deze pagina maakt geen externe verzoeken. Uw browsegegevens blijven volledig op uw apparaat.</p>
+    </section>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="action-btn" onclick="speakText()" aria-label="Luister naar het artikel">
+        <span>🔊</span> Luisteren
+      </button>
+      <button class="action-btn" onclick="copyContent()" aria-label="Kopieer de tekst van het artikel">
+        <span>📋</span> Kopiëren
+      </button>
+    </div>
+
+    <section class="category-section">
+      <h2 class="category-title">🚀 Wat is er nieuw & verbeterd</h2>
+      <div class="market-grid">
+        <div class="market-card">
+          <h3>🔄 Migratie met één klik</h3>
+          <p>Breng uw e-mails naadloos over van andere providers. De nieuwe migratietool behoudt uw mapstructuur en synchroniseert op de achtergrond, waardoor de overstap naar privacy moeiteloos verloopt.</p>
+        </div>
+        <div class="market-card">
+          <h3>📂 Slimme mapuitbreiding</h3>
+          <p>Een verfijnde gebruikerservaring: mappen vouwen nu automatisch uit wanneer u e-mails erin sleept, waardoor de dagelijkse e-mailorganisatie soepeler en intuïtiever verloopt.</p>
+        </div>
+        <div class="market-card">
+          <h3>📅 Toegewijde agenda-instellingen</h3>
+          <p>Een gloednieuwe, speciale instellingenpagina voor Tuta Calendar. U kunt nu uw standaard agendaweergave kiezen, het begin van de week instellen en meldingen eenvoudig aanpassen.</p>
+        </div>
+        <div class="market-card">
+          <h3>💾 Tuta Drive-update</h3>
+          <p>Continue verbeteringen aan Tuta Drive, waardoor beveiligde, end-to-end versleutelde cloudopslag dichter bij een volledige openbare release komt, wat het Tuta privacy-ecosysteem voltooit.</p>
+        </div>
+      </div>
+      <div class="hashtags">#Tuta #PrivacyVoorop #EndToEndVersleuteling #DigitaleSoevereiniteit #OpenSource</div>
+    </section>
+
+    <section class="category-section">
+      <h2 class="category-title">🛡️ Waarom Tuta belangrijk is voor uw digitale soevereiniteit</h2>
+      <div class="market-card" style="max-width: 800px; margin: 0 auto;">
+        <p>
+          In een tijdperk van alomtegenwoordige gegevensverzameling, staat Tuta als een baken van vertrouwen. In tegenstelling tot mainstream providers, versleutelt Tuta niet alleen de inhoud van uw e-mails, maar ook de onderwerpregels, afzendernamen en contactlijsten. 
+          <br><br>
+          Door voor Tuta te kiezen, ondersteunt u direct een Europees bedrijf dat opereert onder strikte AVG-regelgeving (GDPR), weigert gebruikersgegevens te verkopen en volledige transparantie handhaaft door middel van open-source code en onafhankelijke beveiligingsaudits. Dit sluit perfect aan bij de filosofie van het bouwen van een web dat elke bezoeker respecteert 🐾.
+        </p>
+        <a href="https://tuta.com" target="_blank" rel="noopener" class="market-link" style="margin-top: 15px;">Bezoek Tuta.com →</a>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <h3>Visueel Archief: Tuta-functies</h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="tuta/tuta1.jpg" alt="Visualisatie van Tuta privacyfuncties 1" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+        <div class="gallery-item">
+          <img src="tuta/tuta2.jpg" alt="Visualisatie van Tuta privacyfuncties 2" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+        <div class="gallery-item">
+          <img src="tuta/tuta3.jpg" alt="Visualisatie van Tuta privacyfuncties 3" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+        <div class="gallery-item">
+          <img src="tuta/tuta4.jpg" alt="Visualisatie van Tuta privacyfuncties 4" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Owner's Dedication -->
+  <section class="owner-dedication">
+    <h4>Een Stille Toewijding</h4>
+    <p>
+      Aan elke bezoeker die zijn digitale soevereiniteit waardeert:<br>
+      Deze ruimte is met stille intentie gecreëerd — <strong>geen trackers, geen cookies, en absoluut respect</strong> voor uw privacy en tijd. Moge uw browse-ervaring net zo vredig, veilig en onbelast zijn als de Noordse winden.
+    </p>
+    <p class="signature">
+      Met diepe dankbaarheid, <br> De Maker van Kingdom.lat 🏔️
+    </p>
+  </section>
+
+  <footer>
+    <!-- Independent Frame for Mini Cards -->
+    <div class="mini-cards-frame">
+      <h4>🔗 Verken meer vertrouwde diensten</h4>
+      <div class="card-row">
+        <a href="tuta-jp.html" target="_blank" rel="noopener" class="mini-card">
+          <span class="card-icon">🇯🇵</span>
+          <span class="card-title">Tuta JP</span>
+          <span class="card-desc">Japanse versie</span>
+        </a>
+        <a href="tuta-fr.html" target="_blank" rel="noopener" class="mini-card">
+          <span class="card-icon">🇫🇷</span>
+          <span class="card-title">Tuta FR</span>
+          <span class="card-desc">Franse versie</span>
+        </a>
+        <a href="tuta-nl.html" target="_blank" rel="noopener" class="mini-card">
+          <span class="card-icon">🇳🇱</span>
+          <span class="card-title">Tuta NL</span>
+          <span class="card-desc">Nederlandse versie</span>
+        </a>
+        <a href="https://m.youtube.com/watch?v=uqTAM-kqAJ8" target="_blank" rel="noopener" class="mini-card">
+          <span class="card-icon">🎬</span>
+          <span class="card-title">Videogids</span>
+          <span class="card-desc">Nieuwe functies 2026</span>
+        </a>
+        <a href="top-fr.html" class="mini-card">
+          <span class="card-icon">🇫🇷</span>
+          <span class="card-title">Top FR</span>
+          <span class="card-desc">Franse editie</span>
+        </a>
+        <a href="top-ja.html" class="mini-card">
+          <span class="card-icon">🇯🇵</span>
+          <span class="card-title">Top JA</span>
+          <span class="card-desc">Japanse editie</span>
+        </a>
+        <a href="top-nl.html" class="mini-card">
+          <span class="card-icon">🇳🇱</span>
+          <span class="card-title">Top NL</span>
+          <span class="card-desc">Nederlandse editie</span>
+        </a>
+        <a href="top.html" class="mini-card">
+          <span class="card-icon">🌍</span>
+          <span class="card-title">Top Global</span>
+          <span class="card-desc">Hoofdmap</span>
+        </a>
+        <a href="up-shopping.html" class="mini-card">
+          <span class="card-icon">🛡️</span>
+          <span class="card-title">Up Shopping</span>
+          <span class="card-desc">Vertrouwde EU-markten</span>
+        </a>
+        <a href="up/up.html" class="mini-card">
+          <span class="card-icon">📄</span>
+          <span class="card-title">Tekst Extractor</span>
+          <span class="card-desc">Gratis afbeelding-naar-tekst</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-features">
+      pagina-functies · live klok · bijgewerkte datum · luisteren naar alinea 🔊 · kopiëren met één klik 📋 · volledig toegankelijk · lichtgewicht & snel · geen tracking, geen cookies, geen misleiding · privacy-first ontwerp · onafhankelijke auditlinks inbegrepen · nul externe trackers · beveiligde TLS · respect voor elke bezoeker 🐾
+    </div>
+    
+    <div class="gratitude">
+      <span aria-hidden="true">🤍</span>
+      Met dankbaarheid aan degenen die deze pagina hebben geïnspireerd — uw stille geloof veranderde code in cultuur.
+      <span aria-hidden="true">🤍</span>
+    </div>
+    
+    <div id="live-clock"></div>
+    <p class="creation-date">Laatst bijgewerkt: 16 juli 2026</p>
+  </footer>
+
+  <script>
+    // Live Date and Clock (100% Client-Side, No External APIs)
+    function updateDateTime() {
+      const now = new Date();
+      const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('live-date').textContent = now.toLocaleDateString('nl-NL', dateOptions);
+      document.getElementById('live-clock').textContent = now.toLocaleTimeString('nl-NL', { hour12: false });
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    // Listen Functionality (Text-to-Speech)
+    function speakText() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const text = document.getElementById('tuta-article').innerText;
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'nl-NL'; // Changed to Dutch
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert('Tekst-naar-spraak wordt niet ondersteund door uw browser.');
+      }
+    }
+
+    // Copy Functionality (Clipboard API)
+    function copyContent() {
+      const text = document.getElementById('tuta-article').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector('button[onclick="copyContent()"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<span>✅</span> Gekopieerd!';
+        btn.style.borderColor = '#64FFDA';
+        btn.style.backgroundColor = 'rgba(100, 255, 218, 0.1)';
+        
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.borderColor = '';
+          btn.style.backgroundColor = '';
+        }, 2000);
+      }).catch(err => {
+        console.error('Kopiëren mislukt: ', err);
+        alert('Kopiëren van tekst mislukt. Probeer het handmatig.');
+      });
+    }
+  </script>
+</body>
+</html>
