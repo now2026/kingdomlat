@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tuta: Nuevas Funciones y Correo con Prioridad a la Privacidad 📨🇪🇺🤍 | Kingdom.lat</title>
+  <meta name="description" content="Descubra las últimas funciones centradas en la privacidad de Tuta Mail y Tuta Calendar. Migración con un clic, experiencia de usuario mejorada y soberanía digital absoluta.">
+  <meta name="theme-color" content="#0A192F">
+  
+  <!-- Mastodon Verification Link -->
+  <link rel="me" href="https://mastodon.social/@worldday">
+  
+  <style>
+    :root {
+      --bg-primary: #0A192F;
+      --bg-secondary: #112240;
+      --text-primary: #E6F1FF;
+      --text-secondary: #8892B0;
+      --accent: #64FFDA;
+      --snow: #F8F9FA;
+      --border: rgba(248, 249, 250, 0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    header { text-align: center; margin-bottom: 40px; padding-top: 20px; }
+    .small { font-size: 0.85rem; color: var(--text-secondary); }
+    h1 { font-size: 2.2rem; margin: 15px 0; letter-spacing: -0.5px; color: var(--snow); }
+    
+    .access-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      opacity: 0.85; border: 1px solid var(--border);
+      padding: 8px 18px; border-radius: 20px;
+      text-decoration: none; color: var(--text-primary);
+      font-size: 0.9rem; transition: all 0.2s ease;
+      margin: 12px 0; background: rgba(100, 255, 218, 0.05);
+    }
+    .access-link:hover { background: rgba(100, 255, 218, 0.15); opacity: 1; border-color: var(--accent); }
+
+    .dedication-header {
+      font-style: italic; margin-bottom: 15px; opacity: 0.9;
+      color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .greetings {
+      font-size: 0.9rem; color: var(--accent); letter-spacing: 1px; margin-top: 10px;
+    }
+
+    .hero-section {
+      text-align: center; margin: 40px 0; padding: 30px 20px;
+      background: var(--bg-secondary); border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .hero-title { font-size: 1.5rem; margin-bottom: 15px; color: var(--snow); }
+    .hero-badges { 
+      display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; 
+      margin: 20px 0; font-size: 0.9rem; color: var(--accent);
+    }
+    .privacy-note { font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px; }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex; justify-content: center; gap: 15px; margin: 25px 0;
+    }
+    .action-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-secondary); border: 1px solid var(--accent);
+      color: var(--accent); padding: 10px 20px; border-radius: 8px;
+      cursor: pointer; font-size: 0.9rem; font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .action-btn:hover { background: rgba(100, 255, 218, 0.1); transform: translateY(-2px); }
+
+    .category-section { margin: 50px 0; }
+    .category-title { 
+      font-size: 1.4rem; color: var(--snow); margin-bottom: 20px; 
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+    }
+    
+    .market-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; margin-bottom: 15px;
+    }
+    .market-card {
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px; transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .market-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .market-card h3 { color: var(--snow); margin-bottom: 8px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+    .market-card p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px; }
+    .market-link {
+      display: inline-block; font-size: 0.85rem; color: var(--accent);
+      text-decoration: none; border-bottom: 1px dotted var(--accent);
+    }
+    .market-link:hover { border-bottom-style: solid; }
+
+    .hashtags {
+      text-align: center; margin-top: 15px; font-size: 0.75rem; 
+      color: var(--text-secondary); letter-spacing: 0.5px; opacity: 0.8;
+    }
+
+    .gallery-section { margin: 50px 0; text-align: center; }
+    .gallery-section h3 { color: var(--snow); margin-bottom: 25px; font-size: 1.3rem; }
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item { text-align: center; }
+    .gallery-item img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 8px; border: 1px solid var(--border);
+      transition: opacity 0.3s ease;
+      background-color: var(--bg-secondary);
+    }
+    .gallery-item img:hover { opacity: 0.85; }
+    .photo-credit {
+      font-size: 0.65rem; color: var(--text-secondary);
+      letter-spacing: 1.5px; text-transform: lowercase;
+      margin-top: 8px; opacity: 0.6;
+    }
+
+    .owner-dedication {
+      text-align: center; margin: 50px auto; max-width: 650px; 
+      padding: 25px; background: rgba(100, 255, 218, 0.03); 
+      border: 1px solid rgba(100, 255, 218, 0.15); border-radius: 12px;
+    }
+    .owner-dedication h4 { color: var(--accent); font-size: 1rem; margin-bottom: 12px; letter-spacing: 1px; }
+    .owner-dedication p { font-style: italic; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+    .owner-dedication .signature { color: var(--snow); font-size: 0.9rem; margin-top: 15px; font-weight: 500; font-style: normal; }
+
+    footer {
+      margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border);
+      text-align: center; color: var(--text-secondary);
+    }
+    
+    /* Independent Frame for Mini Cards */
+    .mini-cards-frame {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 25px;
+      background: rgba(17, 34, 64, 0.5);
+      margin-bottom: 30px;
+    }
+    .mini-cards-frame h4 {
+      color: var(--snow);
+      margin-bottom: 20px;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+    .card-row {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+    }
+    .mini-card {
+      display: flex; flex-direction: column; align-items: center;
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 16px; text-decoration: none;
+      color: var(--text-primary); width: 120px; transition: 0.2s ease;
+    }
+    .mini-card:hover { border-color: var(--accent); background: rgba(100, 255, 218, 0.05); }
+    .card-icon { font-size: 1.4rem; margin-bottom: 6px; }
+    .card-title { font-size: 0.8rem; font-weight: 600; text-align: center; }
+    .card-desc { font-size: 0.65rem; color: var(--text-secondary); margin-top: 4px; text-align: center; }
+
+    /* Highlighted Mini Card for Text Extractor */
+    .mini-card.highlighted {
+      width: 100%;
+      max-width: 320px;
+      border: 1px solid var(--accent);
+      background: rgba(100, 255, 218, 0.08);
+      box-shadow: 0 0 15px rgba(100, 255, 218, 0.15);
+      padding: 16px;
+      margin-bottom: 10px;
+    }
+    .mini-card.highlighted:hover {
+      background: rgba(100, 255, 218, 0.15);
+      transform: translateY(-3px);
+    }
+    .highlighted-benefit {
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-top: 10px;
+      text-align: center;
+      line-height: 1.5;
+      font-weight: 500;
+      border-top: 1px dashed rgba(100, 255, 218, 0.3);
+      padding-top: 10px;
+    }
+
+    .footer-features {
+      font-size: 0.75rem; line-height: 1.8; color: var(--text-secondary);
+      margin: 25px 0; padding: 15px; background: rgba(248, 249, 250, 0.03);
+      border-radius: 8px; border: 1px solid var(--border);
+    }
+    .gratitude {
+      font-size: 0.8rem; font-style: italic; color: var(--text-secondary);
+      margin: 20px 0; opacity: 0.85;
+    }
+    #live-clock { font-size: 0.9rem; color: var(--accent); font-variant-numeric: tabular-nums; margin-top: 15px; }
+    .creation-date { font-size: 0.75rem; margin-top: 10px; opacity: 0.6; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+      .market-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .card-row { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div id="live-date" class="small"></div>
+    <h1>Tuta: Nuevas Funciones y Correo con Prioridad a la Privacidad</h1>
+    
+    <a href="index.html" class="access-link" aria-label="Volver a la página principal">
+      <span aria-hidden="true">⬅</span>
+      <span>Volver al Inicio</span>
+    </a>
+    
+    <p class="dedication-header">
+      Dedicado con gratitud a todos aquellos que valoran la soberanía digital.<br>
+      Su compromiso con la privacidad inspira una fuerza silenciosa y una resiliencia atemporal.
+    </p>
+    <div class="greetings">Bienvenidos · Välkommen · Laipni lūgti · Dobrodošli · Witamy · Fáilte · Welkom</div>
+  </header>
+
+  <main id="tuta-article">
+    <section class="hero-section">
+      <div class="hero-title">🎉 NUEVAS funciones y mejoras en Tuta 🎉</div>
+      <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 20px;">
+        Descubra qué hay de nuevo y qué se ha mejorado en Tuta Mail y Tuta Calendar.<br>
+        Como servicio de código abierto con sede en Alemania, Tuta sigue estableciendo el estándar de oro para la comunicación cifrada de extremo a extremo, el estricto cumplimiento del RGPD y la soberanía digital absoluta.
+      </p>
+      <div class="hero-badges">
+        <span>🎀 100% del lado del cliente</span>
+        <span>🍷 Sin rastreo</span>
+        <span>🍃 Ligero y rápido</span>
+        <span>🇩🇪 Leyes de privacidad alemanas</span>
+      </div>
+      <p class="privacy-note">Esta página no realiza solicitudes externas. Sus datos de navegación permanecen completamente en su dispositivo.</p>
+    </section>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="action-btn" onclick="speakText()" aria-label="Escuchar el artículo">
+        <span>🔊</span> Escuchar
+      </button>
+      <button class="action-btn" onclick="copyContent()" aria-label="Copiar el texto del artículo">
+        <span>📋</span> Copiar
+      </button>
+    </div>
+
+    <section class="category-section">
+      <h2 class="category-title">🚀 Novedades y Mejoras</h2>
+      <div class="market-grid">
+        <div class="market-card">
+          <h3>🔄 Migración con un clic</h3>
+          <p>Transfiera sus correos electrónicos de otros proveedores sin problemas. La nueva herramienta de migración conserva la estructura de sus carpetas y se sincroniza en segundo plano, haciendo que el cambio hacia la privacidad sea effortless (sin esfuerzo).</p>
+        </div>
+        <div class="market-card">
+          <h3>📂 Expansión inteligente de carpetas</h3>
+          <p>Una experiencia de usuario refinada: las carpetas ahora se expanden automáticamente cuando arrastra y suelta correos en ellas, haciendo que la organización diaria del correo sea más fluida e intuitiva.</p>
+        </div>
+        <div class="market-card">
+          <h3>📅 Configuración dedicada del calendario</h3>
+          <p>Una página de configuración nueva y exclusiva para Tuta Calendar. Ahora puede elegir su vista de calendario predeterminada, establecer el inicio de la semana y personalizar las notificaciones con facilidad.</p>
+        </div>
+        <div class="market-card">
+          <h3>💾 Actualización de Tuta Drive</h3>
+          <p>Las mejoras continuas en Tuta Drive acercan el almacenamiento en la nube seguro y cifrado de extremo a extremo a un lanzamiento público completo, completando el ecosistema de privacidad de Tuta.</p>
+        </div>
+      </div>
+      <div class="hashtags">#Tuta #PrivacidadPrimero #CifradoDeExtremoAExtremo #SoberaníaDigital #CódigoAbierto</div>
+    </section>
+
+    <section class="category-section">
+      <h2 class="category-title">🛡️ Por qué Tuta es importante para su soberanía digital</h2>
+      <div class="market-card" style="max-width: 800px; margin: 0 auto;">
+        <p>
+          En una era de recolección de datos generalizada, Tuta se erige como un faro de confianza. A diferencia de los proveedores tradicionales, Tuta cifra no solo el cuerpo de sus correos, sino también las líneas de asunto, los nombres de los remitentes y las listas de contactos. 
+          <br><br>
+          Al elegir Tuta, apoya directamente a una empresa europea que opera bajo estrictas regulaciones del RGPD, se niega a vender los datos de los usuarios y mantiene una transparencia total a través de código de código abierto y auditorías de seguridad independientes. Esto se alinea perfectamente con la filosofía de construir una web que respete a cada visitante 🐾.
+        </p>
+        <a href="https://tuta.com" target="_blank" rel="noopener" class="market-link" style="margin-top: 15px;">Visitar Tuta.com →</a>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <h3>Archivo Visual: Funciones de Tuta</h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="tuta/tuta1.jpg" alt="Visualización de las funciones de privacidad de Tuta 1" loading="lazy">
+          <div class="photo-credit">https://unsplash.com/@julie_soul</div>
+        </div>
+        <div class="gallery-item">
+          <img src="tuta/tuta2.jpg" alt="Visualización de las funciones de privacidad de Tuta 2" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+        <div class="gallery-item">
+          <img src="tuta/tuta3.jpg" alt="Visualización de las funciones de privacidad de Tuta 3" loading="lazy">
+          <div class="photo-credit">photokingdomlat</div>
+        </div>
+        <div class="gallery-item">
+          <img src="tuta/tuta4.jpg" alt="Visualización de las funciones de privacidad de Tuta 4" loading="lazy">
+          <div class="photo-credit">https://unsplash.com/@julie_soul</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Owner's Dedication -->
+  <section class="owner-dedication">
+    <h4>Una Dedicatoria Silenciosa</h4>
+    <p>
+      A cada visitante que valora su soberanía digital:<br>
+      Este espacio fue creado con una intención silenciosa: <strong>cero rastreadores, cero cookies y absoluto respeto</strong> por su privacidad y su tiempo. Que su experiencia de navegación sea tan pacífica, segura y ligera como los vientos nórdicos.
+    </p>
+    <p class="signature">
+      Con profunda gratitud, <br> El Creador de Kingdom.lat 🏔️
+    </p>
+  </section>
+
+  <footer>
+    <!-- Independent Frame for Mini Cards -->
+    <div class="mini-cards-frame">
+      <h4>🔗 Explore más servicios de confianza</h4>
+      <div class="card-row">
+        
+        <!-- Prominent Highlighted Card for Text Extractor -->
+        <a href="https://www.kingdom.lat/up/up.html" target="_blank" rel="noopener" class="mini-card highlighted">
+          <span class="card-icon">📄</span>
+          <span class="card-title">Extractor de Texto</span>
+          <span class="card-desc">Conversión gratuita de imagen a texto</span>
+          <div class="highlighted-benefit">
+            ✨ <strong>Servicio gratuito para visitantes:</strong><br>
+            Extracción de texto instantánea, segura y del lado del cliente<br>(sin enviar datos al servidor) desde imágenes.
+          </div>
+        </a>
+
+        <a href="tuta-es.html" target="_blank" rel="noopener" class="mini-card">
+          <span class="card-icon">🇪🇸</span>
+          <span class="card-title">Tuta ES</span>
+          <span class="card-desc">Versión en español</span>
+        </a>
+        <a href="tuta-jp.html" target="_blank" rel="noopener" class="mini-card">
+          <span class="card-icon">🇯🇵</span>
+          <span class="card-title">Tuta JP</span>
+          <span class="card-desc">Versión en japonés</span>
+        </a>
+        <a href="tuta-fr.html" target="_blank" rel="noopener" class="mini-card">
+          <span class="card-icon">🇫🇷</span>
+          <span class="card-title">Tuta FR</span>
+          <span class="card-desc">Versión en francés</span>
+        </a>
+        <a href="tuta-nl.html" target="_blank" rel="noopener" class="mini-card">
+          <span class="card-icon">🇳🇱</span>
+          <span class="card-title">Tuta NL</span>
+          <span class="card-desc">Versión en neerlandés</span>
+        </a>
+        <a href="https://m.youtube.com/watch?v=uqTAM-kqAJ8" target="_blank" rel="noopener" class="mini-card">
+          <span class="card-icon">🎬</span>
+          <span class="card-title">Guía en Video</span>
+          <span class="card-desc">Nuevas funciones 2026</span>
+        </a>
+        <a href="top-fr.html" class="mini-card">
+          <span class="card-icon">🇫🇷</span>
+          <span class="card-title">Top FR</span>
+          <span class="card-desc">Edición en francés</span>
+        </a>
+        <a href="top-ja.html" class="mini-card">
+          <span class="card-icon">🇯🇵</span>
+          <span class="card-title">Top JA</span>
+          <span class="card-desc">Edición en japonés</span>
+        </a>
+        <a href="top-nl.html" class="mini-card">
+          <span class="card-icon">🇳🇱</span>
+          <span class="card-title">Top NL</span>
+          <span class="card-desc">Edición en neerlandés</span>
+        </a>
+        <a href="top.html" class="mini-card">
+          <span class="card-icon">🌍</span>
+          <span class="card-title">Top Global</span>
+          <span class="card-desc">Directorio principal</span>
+        </a>
+        <a href="up-shopping.html" class="mini-card">
+          <span class="card-icon">🛡️</span>
+          <span class="card-title">Up Shopping</span>
+          <span class="card-desc">Mercados confiables de la UE</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-features">
+      funciones de la página · reloj en vivo · fecha de actualización · escuchar párrafo 🔊 · copiar con un clic 📋 · totalmente accesible · ligero y rápido · sin rastreo, sin cookies, sin engaños · diseño con prioridad a la privacidad · enlaces de auditoría independiente incluidos · cero rastreadores externos · TLS seguro · respeto por cada visitante 🐾
+    </div>
+    
+    <div class="gratitude">
+      <span aria-hidden="true">🤍</span>
+      Con gratitud a quienes inspiraron esta página: su creencia silenciosa transformó el código en cultura.
+      <span aria-hidden="true">🤍</span>
+    </div>
+    
+    <div id="live-clock"></div>
+    <p class="creation-date">Última actualización: 16 de julio de 2026</p>
+  </footer>
+
+  <script>
+    // Live Date and Clock (100% Client-Side, No External APIs)
+    function updateDateTime() {
+      const now = new Date();
+      const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('live-date').textContent = now.toLocaleDateString('es-ES', dateOptions);
+      document.getElementById('live-clock').textContent = now.toLocaleTimeString('es-ES', { hour12: false });
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    // Listen Functionality (Text-to-Speech)
+    function speakText() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const text = document.getElementById('tuta-article').innerText;
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'es-ES'; // Changed to Spanish
+        utterance.rate = 0.9;
+        utterance.pitch = 1;
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert('Su navegador no admite la síntesis de voz.');
+      }
+    }
+
+    // Copy Functionality (Clipboard API)
+    function copyContent() {
+      const text = document.getElementById('tuta-article').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector('button[onclick="copyContent()"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<span>✅</span> ¡Copiado!';
+        btn.style.borderColor = '#64FFDA';
+        btn.style.backgroundColor = 'rgba(100, 255, 218, 0.1)';
+        
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.borderColor = '';
+          btn.style.backgroundColor = '';
+        }, 2000);
+      }).catch(err => {
+        console.error('Error al copiar: ', err);
+        alert('No se pudo copiar el texto. Por favor, inténtelo manualmente.');
+      });
+    }
+  </script>
+</body>
+</html>
