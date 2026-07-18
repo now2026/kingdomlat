@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threema: Dit digitale fristed i en verden af overvågning 🔐🇨🇭🤍</title>
+  <meta name="description" content="Threema - schweizisk privatlivsfokuseret beskedtjeneste. End-to-end-kryptering, anonymitet og digital suverænitet uden kompromiser.">
+  <meta name="theme-color" content="#0A192F">
+  
+  <!-- Pixelfed Verification Link -->
+  <link rel="me" href="https://pixelfed.dk/goodnight2026#">
+  
+  <style>
+    :root {
+      --bg-primary: #050d1a;
+      --bg-secondary: #0A192F;
+      --bg-tertiary: #112240;
+      --text-primary: #F8F9FA;
+      --text-secondary: #B8C5D6;
+      --swiss-red: #DA291C;
+      --swiss-red-dark: #B91C1C;
+      --snow-white: #FFFFFF;
+      --border: rgba(218, 41, 28, 0.3);
+      --accent-glow: rgba(218, 41, 28, 0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+      color: var(--text-primary);
+      line-height: 1.7;
+      padding: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    .swiss-cross {
+      position: fixed; top: 20px; right: 20px; width: 40px; height: 40px;
+      background: var(--swiss-red);
+      clip-path: polygon(30% 0%, 70% 0%, 70% 30%, 100% 30%, 100% 70%, 70% 70%, 70% 100%, 30% 100%, 30% 70%, 0% 70%, 0% 30%, 30% 30%);
+      opacity: 0.8; z-index: 1000; animation: pulse 3s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 0.6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.1); } }
+
+    header { text-align: center; margin-bottom: 50px; padding-top: 30px; border-bottom: 2px solid var(--swiss-red); padding-bottom: 30px; }
+    .small { font-size: 0.85rem; color: var(--text-secondary); letter-spacing: 1px; }
+    h1 { font-size: 2.4rem; margin: 20px 0; letter-spacing: -0.5px; color: var(--snow-white); text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    
+    .access-link {
+      display: inline-flex; align-items: center; gap: 8px; opacity: 0.9; border: 1px solid var(--swiss-red);
+      padding: 10px 22px; border-radius: 25px; text-decoration: none; color: var(--snow-white);
+      font-size: 0.9rem; transition: all 0.3s ease; margin: 15px 0; background: var(--accent-glow); font-weight: 500;
+    }
+    .access-link:hover { background: var(--swiss-red); opacity: 1; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(218, 41, 28, 0.4); }
+
+    .dedication-header { font-style: italic; margin-bottom: 20px; opacity: 0.95; color: var(--text-secondary); max-width: 700px; margin-left: auto; margin-right: auto; font-size: 1.05rem; line-height: 1.8; }
+    .greetings { font-size: 0.9rem; color: var(--swiss-red); letter-spacing: 2px; margin-top: 15px; font-weight: 600; }
+
+    /* Framed Quote Section */
+    .framed-quote {
+      background: var(--bg-tertiary);
+      border: 2px solid var(--swiss-red);
+      border-radius: 15px;
+      padding: 35px;
+      margin: 50px auto;
+      max-width: 800px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(218, 41, 28, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .framed-quote::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, transparent, var(--swiss-red), transparent);
+    }
+    .framed-quote p { font-size: 1.05rem; line-height: 1.8; color: var(--text-primary); margin-bottom: 15px; }
+    .framed-quote .highlight { color: var(--swiss-red); font-weight: 700; }
+    .framed-quote a { color: var(--swiss-red); text-decoration: none; border-bottom: 1px dashed var(--swiss-red); transition: 0.3s; }
+    .framed-quote a:hover { color: var(--snow-white); border-bottom-style: solid; }
+
+    /* Game Section */
+    .game-section {
+      background: var(--bg-secondary);
+      border: 2px solid var(--swiss-red);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 50px 0;
+      text-align: center;
+    }
+    .game-header { margin-bottom: 25px; }
+    .game-header h3 { color: var(--snow-white); font-size: 1.5rem; margin-bottom: 10px; }
+    .game-stats { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; font-size: 1.1rem; color: var(--swiss-red); font-weight: 600; }
+    
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      max-width: 600px;
+      margin: 0 auto 25px;
+      perspective: 1000px;
+    }
+    
+    .game-card {
+      aspect-ratio: 1;
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease;
+    }
+    .game-card.flipped { transform: rotateY(180deg); }
+    .game-card.matched { opacity: 0.6; cursor: default; }
+    
+    .card-face {
+      position: absolute; width: 100%; height: 100%;
+      backface-visibility: hidden; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.9rem; padding: 10px;
+      text-align: center; border: 2px solid var(--border);
+    }
+    .card-front {
+      background: var(--bg-tertiary);
+      color: var(--swiss-red);
+      font-size: 1.5rem;
+    }
+    .card-back {
+      background: var(--swiss-red);
+      color: var(--snow-white);
+      transform: rotateY(180deg);
+      border-color: var(--snow-white);
+    }
+
+    .game-btn {
+      background: var(--swiss-red); color: var(--snow-white); border: none;
+      padding: 12px 30px; border-radius: 25px; font-size: 1rem; font-weight: 600;
+      cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(218, 41, 28, 0.3);
+    }
+    .game-btn:hover { background: var(--swiss-red-dark); transform: translateY(-2px); }
+
+    .category-section { margin: 60px 0; }
+    .category-title { font-size: 1.6rem; color: var(--snow-white); margin-bottom: 25px; padding-bottom: 12px; border-bottom: 2px solid var(--swiss-red); display: flex; align-items: center; gap: 12px; font-weight: 700; }
+    
+    .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 20px; }
+    .market-card {
+      background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 12px; padding: 25px; transition: all 0.3s ease; position: relative; overflow: hidden;
+    }
+    .market-card:hover { transform: translateY(-5px); border-color: var(--swiss-red); box-shadow: 0 10px 30px rgba(218, 41, 28, 0.2); }
+    .market-card h3 { color: var(--snow-white); margin-bottom: 12px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+    .market-card p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 15px; line-height: 1.7; }
+    .market-link { display: inline-block; font-size: 0.9rem; color: var(--swiss-red); text-decoration: none; border-bottom: 2px dotted var(--swiss-red); font-weight: 600; transition: all 0.2s ease; }
+    .market-link:hover { border-bottom-style: solid; color: var(--snow-white); }
+
+    .gallery-section { margin: 50px 0; text-align: center; }
+    .gallery-section h3 { color: var(--snow-white); margin-bottom: 30px; font-size: 1.5rem; font-weight: 700; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+    .gallery-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; border: 2px solid var(--border); transition: all 0.3s ease; background-color: var(--bg-secondary); }
+    .gallery-item img:hover { opacity: 0.9; border-color: var(--swiss-red); transform: scale(1.02); }
+    .photo-credit { font-size: 0.7rem; color: var(--text-secondary); letter-spacing: 1.5px; text-transform: lowercase; margin-top: 10px; opacity: 0.7; }
+
+    .owner-dedication { text-align: center; margin: 60px auto; max-width: 700px; padding: 35px; background: rgba(218, 41, 28, 0.08); border: 2px solid var(--swiss-red); border-radius: 15px; box-shadow: 0 5px 20px rgba(218, 41, 28, 0.15); }
+    .owner-dedication h4 { color: var(--swiss-red); font-size: 1.1rem; margin-bottom: 15px; letter-spacing: 1.5px; font-weight: 700; }
+    .owner-dedication p { font-style: italic; color: var(--text-secondary); font-size: 1rem; line-height: 1.9; margin-bottom: 15px; }
+    .gift-phrase { color: var(--snow-white); font-size: 1.1rem; font-weight: 600; margin: 20px 0; padding: 15px; background: var(--accent-glow); border-radius: 10px; border: 1px dashed var(--swiss-red); }
+    .owner-dedication .signature { color: var(--snow-white); font-size: 1rem; margin-top: 20px; font-weight: 600; font-style: normal; }
+
+    footer { margin-top: 80px; padding-top: 40px; border-top: 2px solid var(--swiss-red); text-align: center; color: var(--text-secondary); padding-bottom: 30px; }
+    .footer-features { font-size: 0.8rem; line-height: 2; color: var(--text-secondary); margin: 30px 0; padding: 20px; background: rgba(248, 249, 250, 0.03); border-radius: 10px; border: 1px solid var(--border); }
+    .gratitude { font-size: 0.9rem; font-style: italic; color: var(--text-secondary); margin: 25px 0; opacity: 0.9; line-height: 1.8; }
+    #live-clock { font-size: 1rem; color: var(--swiss-red); font-variant-numeric: tabular-nums; margin-top: 20px; font-weight: 600; }
+    .creation-date { font-size: 0.8rem; margin-top: 15px; opacity: 0.7; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.9rem; }
+      .market-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .game-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .card-face { font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="swiss-cross" title="Swiss Privacy"></div>
+
+  <header>
+    <div id="live-date" class="small"></div>
+    <h1>Threema: Dit digitale fristed</h1>
+    <a href="index.html" class="access-link" aria-label="Tilbage til forsiden">
+      <span aria-hidden="true">⬅</span> <span>Tilbage til forsiden</span>
+    </a>
+    <p class="dedication-header">
+      Tilegnet med dyb respekt til alle, der værdsætter deres digitale frihed.<br>
+      Din ret til privatliv er ukrænkelig – dette er dit fristed i en verden af overvågning.
+    </p>
+    <div class="greetings">Willkommen · Bienvenue · Benvenuti · Bienvenidos · Velkommen · Üdvözöljük</div>
+  </header>
+
+  <main>
+    <!-- Framed Quote Section -->
+    <section class="framed-quote">
+      <p style="font-size: 1.5rem; margin-bottom: 20px;">🧊🧊🧊🧊🧊<br>🇩🇰🇩🇰</p>
+      <p><span class="highlight">🌱 Fra kilden til dit hjerte</span></p>
+      <p>Der er et afgørende øjeblik, før du starter din rejse med Threema – valgets øjeblik.</p>
+      <p>Når du henter appen fra F-Droid, vælger du den rene vej:</p>
+      <p style="text-align: left; max-width: 500px; margin: 0 auto 20px; color: var(--text-secondary);">
+        • Ingen sporing, ingen registrering, ingen konto påkrævet<br>
+        • Appen præcis som udviklerne skabte den, uden tilføjelser<br>
+        • En komplet kæde af tillid: fra koden direkte til din telefon
+      </p>
+      <p>Her starter privatlivet fra det allerførste skridt, ikke fra indstillingerne.</p>
+      <p style="font-style: italic; font-size: 1.2rem; margin: 25px 0; color: var(--snow-white);">"Kvalitet begynder dér, hvor den kommer fra"</p>
+      <a href="https://f-droid.org/packages/ch.threema.app.libre" target="_blank" rel="noopener">https://f-droid.org/packages/ch.threema.app.libre</a>
+      <p style="margin-top: 25px; font-weight: 600; color: var(--swiss-red);">
+        Efter du har downloadet appen, finder du betalingssiden her:<br>
+        🇩🇰🇩🇰
+      </p>
+    </section>
+
+    <!-- Interactive Memory Game Section -->
+    <section class="game-section">
+      <div class="game-header">
+        <h3>🧠 Threema Privatlivs-Hukommelse</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">Find parrene! Hver runde vælger tilfældigt 8 ord fra vores 50-ords pulje.</p>
+      </div>
+      <div class="game-stats">
+        <span>Træk: <span id="moves">0</span></span>
+        <span>Par fundet: <span id="matches">0</span>/8</span>
+      </div>
+      <div class="game-grid" id="gameGrid"></div>
+      <button class="game-btn" onclick="initGame()">🔄 Nyt Spil</button>
+    </section>
+
+    <section class="category-section">
+      <h2 class="category-title">💎 Threema-versioner</h2>
+      <div class="market-grid">
+        <div class="market-card">
+          <h3>👤 Threema Private</h3>
+          <p>Til privat brug. Engangsbetaling (~5-7 USD). Alle krypterede besked- og opkaldsfunktioner. Fuldstændig anonymitet.</p>
+          <a href="https://threema.ch" target="_blank" rel="noopener" class="market-link">Læs mere →</a>
+        </div>
+        <div class="market-card">
+          <h3>🏢 Threema Work</h3>
+          <p>Til virksomheder. Månedligt abonnement. Ekstra team-funktioner: skærmdeling, arbejdstidspolitik, administrativ kontrol.</p>
+          <a href="https://threema.ch/work" target="_blank" rel="noopener" class="market-link">Læs mere →</a>
+        </div>
+        <div class="market-card">
+          <h3>🌐 Threema Libre</h3>
+          <p>Fuld open-source version. Ingen Google-tjenester. Engangsbetaling via Threema butik. Perfekt til privacy-entusiaster.</p>
+          <a href="https://threema.ch/libre" target="_blank" rel="noopener" class="market-link">Læs mere →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <h3>🖼️ Threema i billeder</h3>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="threema/threema1.jpg" alt="Threema 1" loading="lazy"><div class="photo-credit">Schweizisk kvalitet</div></div>
+        <div class="gallery-item"><img src="threema/threema2.jpg" alt="Threema 2" loading="lazy"><div class="photo-credit">End-to-end kryptering</div></div>
+        <div class="gallery-item"><img src="threema/threema3.jpg" alt="Threema 3" loading="lazy"><div class="photo-credit">Anonym kommunikation</div></div>
+        <div class="gallery-item"><img src="threema/threema4.jpg" alt="Threema 4" loading="lazy"><div class="photo-credit">Brugervenlig design</div></div>
+      </div>
+    </section>
+  </main>
+
+  <section class="owner-dedication">
+    <h4>🎁 En gave til dig</h4>
+    <div class="gift-phrase">"Din privatliv er ikke en vare – det er en menneskeret"</div>
+    <p>Til hver besøgende, der værdsætter sin digitale frihed:<br>
+    Denne side er skabt med kærlighed til schweizisk præcision og respekt for dit privatliv.<br>
+    <strong>Nul trackere, nul cookies, nul overvågning</strong> – kun ren, sikker kommunikation.</p>
+    <p class="signature">Med dyb taknemmelighed og respekt,<br><strong>goodnight.mom</strong> 🏔️<br>
+    <span style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px; display: block;">Skabt af nogen der elsker jeres kultur</span></p>
+  </section>
+
+  <footer>
+    <div class="footer-features">
+      Sidefunktioner · Live ur 🕒 · Opdateringsdato 📅 · Kopiér 📋 · Interaktivt spil 🧠 · 
+      Flersproget læring 🌍 · Fuldt tilgængelig ♿ · Let og hurtig ⚡ · 
+      Ingen sporing 🚫 · Ingen cookies 🍪 · Privatlivsførste design 🔐 · 
+      Schweizisk kvalitet 🇨🇭 · Respekt for hver besøgende 🐾
+    </div>
+    <div class="gratitude">
+      <span aria-hidden="true">🤍</span><br>
+      Med taknemmelighed til dem, der inspirerede denne side –<br>
+      din stille tro forvandlede kode til kultur.<br>
+      <span aria-hidden="true">🤍</span>
+    </div>
+    <div id="live-clock"></div>
+    <p class="creation-date">Sidst opdateret: 18. juli 2026 | Skabt med schweizisk præcision 🇨🇭</p>
+  </footer>
+
+  <script>
+    // 50 Words Pool (Danish + French for elegant matching)
+    const vocabularyPool = [
+      { da: "Privatliv", fr: "Vie privée" }, { da: "Sikkerhed", fr: "Sécurité" },
+      { da: "Kryptering", fr: "Chiffrement" }, { da: "Anonymitet", fr: "Anonymat" },
+      { da: "Besked", fr: "Message" }, { da: "Opkald", fr: "Appel" },
+      { da: "Fil", fr: "Fichier" }, { da: "Kontakt", fr: "Contact" },
+      { da: "Gruppe", fr: "Groupe" }, { da: "Profil", fr: "Profil" },
+      { da: "Indstilling", fr: "Paramètre" }, { da: "Beskyttelse", fr: "Protection" },
+      { da: "Fortrolighed", fr: "Confidentialité" }, { da: "Data", fr: "Données" },
+      { da: "Server", fr: "Serveur" }, { da: "Kode", fr: "Code" },
+      { da: "Nøgle", fr: "Clé" }, { da: "Adgang", fr: "Accès" },
+      { da: "Bruger", fr: "Utilisateur" }, { da: "Identitet", fr: "Identité" },
+      { da: "Verifikation", fr: "Vérification" }, { da: "Sikker", fr: "Sûr" },
+      { da: "Privat", fr: "Privé" }, { da: "Digital", fr: "Numérique" },
+      { da: "Kommunikation", fr: "Communication" }, { da: "Netværk", fr: "Réseau" },
+      { da: "Internet", fr: "Internet" }, { da: "Applikation", fr: "Application" },
+      { da: "Tjeneste", fr: "Service" }, { da: "Platform", fr: "Plateforme" },
+      { da: "Schweiz", fr: "Suisse" }, { da: "Lovgivning", fr: "Législation" },
+      { da: "Overholdelse", fr: "Conformité" }, { da: "Transparens", fr: "Transparence" },
+      { da: "Åben kilde", fr: "Open Source" }, { da: "Revision", fr: "Audit" },
+      { da: "Sårbarhed", fr: "Vulnérabilité" }, { da: "Opdatering", fr: "Mise à jour" },
+      { da: "Backup", fr: "Sauvegarde" }, { da: "Gendannelse", fr: "Restauration" },
+      { da: "Synkronisering", fr: "Synchronisation" }, { da: "Deling", fr: "Partage" },
+      { da: "Lokalitet", fr: "Localisation" }, { da: "Kvalitet", fr: "Qualité" },
+      { da: "Pålidelighed", fr: "Fiabilité" }, { da: "Hastighed", fr: "Vitesse" },
+      { da: "Effektivitet", fr: "Efficacité" }, { da: "Frihed", fr: "Liberté" },
+      { da: "Rettighed", fr: "Droit" }, { da: "Respekt", fr: "Respect" }
+    ];
+
+    let moves = 0;
+    let matches = 0;
+    let flippedCards = [];
+    let lockBoard = false;
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function initGame() {
+      const grid = document.getElementById('gameGrid');
+      grid.innerHTML = '';
+      moves = 0; matches = 0; flippedCards = []; lockBoard = false;
+      document.getElementById('moves').textContent = moves;
+      document.getElementById('matches').textContent = matches;
+
+      // Pick 8 random pairs from the 50 words
+      const shuffledPool = shuffle([...vocabularyPool]);
+      const selectedWords = shuffledPool.slice(0, 8);
+      
+      let cards = [];
+      selectedWords.forEach((word, index) => {
+        cards.push({ id: index, text: word.da, type: 'da' });
+        cards.push({ id: index, text: word.fr, type: 'fr' });
+      });
+      
+      cards = shuffle(cards);
+
+      cards.forEach(cardData => {
+        const card = document.createElement('div');
+        card.className = 'game-card';
+        card.dataset.id = cardData.id;
+        card.innerHTML = `
+          <div class="card-face card-front">?</div>
+          <div class="card-face card-back">${cardData.text}</div>
+        `;
+        card.addEventListener('click', flipCard);
+        grid.appendChild(card);
+      });
+    }
+
+    function flipCard() {
+      if (lockBoard) return;
+      if (this === flippedCards[0]) return;
+
+      this.classList.add('flipped');
+      flippedCards.push(this);
+
+      if (flippedCards.length === 2) {
+        moves++;
+        document.getElementById('moves').textContent = moves;
+        checkForMatch();
+      }
+    }
+
+    function checkForMatch() {
+      let isMatch = flippedCards[0].dataset.id === flippedCards[1].dataset.id;
+      isMatch ? disableCards() : unflipCards();
+    }
+
+    function disableCards() {
+      flippedCards[0].classList.add('matched');
+      flippedCards[1].classList.add('matched');
+      matches++;
+      document.getElementById('matches').textContent = matches;
+      flippedCards = [];
+      
+      if (matches === 8) {
+        setTimeout(() => alert('🎉 Tillykke! Du fandt alle parrene. Din digitale hukommelse er skarp!'), 500);
+      }
+    }
+
+    function unflipCards() {
+      lockBoard = true;
+      setTimeout(() => {
+        flippedCards[0].classList.remove('flipped');
+        flippedCards[1].classList.remove('flipped');
+        flippedCards = [];
+        lockBoard = false;
+      }, 1000);
+    }
+
+    // Live Date and Clock
+    function updateDateTime() {
+      const now = new Date();
+      const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('live-date').textContent = now.toLocaleDateString('da-DK', dateOptions);
+      document.getElementById('live-clock').textContent = now.toLocaleTimeString('da-DK', { hour12: false });
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    // Initialize Game on Load
+    document.addEventListener('DOMContentLoaded', initGame);
+  </script>
+</body>
+</html>
