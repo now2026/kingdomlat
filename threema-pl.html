@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threema: Twoje cyfrowe schronienie w świecie pełnym inwigilacji 🔐🤍</title>
+    <meta name="description" content="Threema - szwajcarski komunikator nastawiony na prywatność. Szyfrowanie end-to-end, anonimowość i cyfrowa suwerenność bez kompromisów.">
+    <meta name="theme-color" content="#050d1a">
+    
+    <link rel="me" href="https://pixelfed.dk/goodnight2026#">
+    
+    <style>
+        :root {
+            --bg-primary: #050d1a;
+            --bg-secondary: #0A192F;
+            --bg-tertiary: #112240;
+            --text-primary: #F8F9FA;
+            --text-secondary: #8892B0;
+            --border-light: rgba(248, 249, 250, 0.15);
+            --border-hover: rgba(248, 249, 250, 0.4);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        .swiss-cross {
+            position: fixed; top: 20px; right: 20px; width: 40px; height: 40px;
+            background: var(--text-primary);
+            clip-path: polygon(30% 0%, 70% 0%, 70% 30%, 100% 30%, 100% 70%, 70% 70%, 70% 100%, 30% 100%, 30% 70%, 0% 70%, 0% 30%, 30% 30%);
+            opacity: 0.7; z-index: 1000; animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 0.9; transform: scale(1.05); } }
+
+        header { text-align: center; margin-bottom: 40px; padding-top: 30px; border-bottom: 1px solid var(--border-light); padding-bottom: 30px; }
+        .small { font-size: 0.8rem; color: var(--text-secondary); letter-spacing: 1px; }
+        h1 { font-size: 2rem; margin: 20px 0; letter-spacing: -0.5px; color: var(--text-primary); }
+        
+        .access-link {
+            display: inline-flex; align-items: center; gap: 8px; opacity: 0.9; border: 1px solid var(--border-light);
+            padding: 8px 20px; border-radius: 20px; text-decoration: none; color: var(--text-primary);
+            font-size: 0.85rem; transition: all 0.3s ease; margin: 15px 0; background: rgba(248, 249, 250, 0.05);
+        }
+        .access-link:hover { background: var(--text-primary); color: var(--bg-primary); opacity: 1; }
+
+        .dedication-header { font-style: italic; margin-bottom: 20px; opacity: 0.9; color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto; font-size: 1rem; line-height: 1.8; }
+        .greetings { font-size: 0.85rem; color: var(--text-primary); letter-spacing: 2px; margin-top: 15px; font-weight: 600; opacity: 0.8; }
+
+        .framed-quote {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 700px;
+            text-align: center;
+        }
+        .framed-quote .ice-cubes { font-size: 1.2rem; letter-spacing: 5px; margin-bottom: 10px; opacity: 0.7; }
+        .framed-quote .flags { font-size: 1.2rem; margin-bottom: 15px; }
+        .framed-quote h3 { color: var(--text-primary); font-size: 1.1rem; margin-bottom: 15px; font-weight: 700; }
+        .framed-quote p { font-size: 0.95rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 15px; }
+        .framed-quote .pure-path { text-align: left; max-width: 500px; margin: 0 auto 20px; color: var(--text-secondary); list-style: none; padding: 0 20px; font-size: 0.9rem; }
+        .framed-quote .pure-path li { margin-bottom: 8px; padding-left: 20px; position: relative; }
+        .framed-quote .pure-path li::before { content: '🔒'; position: absolute; left: 0; font-size: 0.8rem; }
+        .framed-quote blockquote { font-style: italic; font-size: 1.05rem; margin: 20px 0; color: var(--text-primary); border-left: 2px solid var(--text-primary); padding-left: 15px; display: inline-block; }
+        .framed-quote a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed var(--text-secondary); transition: 0.3s; font-weight: 600; font-size: 0.9rem; }
+        .framed-quote a:hover { border-bottom-style: solid; }
+        .framed-quote .payment-note { margin-top: 20px; font-weight: 600; color: var(--text-primary); font-size: 0.95rem; }
+
+        .game-container {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 25px;
+            max-width: 600px;
+            width: 100%;
+            margin: 60px auto;
+        }
+
+        .game-container h2 { color: var(--text-primary); text-align: center; margin-bottom: 8px; font-size: 1.3rem; }
+        .subtitle { color: var(--text-secondary); text-align: center; margin-bottom: 20px; font-style: italic; font-size: 0.85rem; }
+
+        .progress-bar { background: var(--bg-primary); height: 6px; border-radius: 3px; margin: 15px 0; overflow: hidden; border: 1px solid var(--border-light); }
+        .progress-fill { height: 100%; background: var(--text-primary); transition: width 0.5s ease; border-radius: 3px; }
+
+        .stats { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: bold; color: var(--text-primary); font-size: 0.85rem; }
+
+        .question-card {
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 1px solid var(--border-light);
+            animation: cardAppear 0.5s ease;
+        }
+        @keyframes cardAppear { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        .danish-word {
+            font-size: 1.5rem; color: var(--text-primary); text-align: center; font-weight: bold;
+            margin: 15px 0; padding: 12px; background: var(--bg-primary);
+            border-radius: 8px; border: 1px solid var(--border-light);
+        }
+
+        .options-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 10px; 
+            margin: 15px 0; 
+        }
+
+        .option-btn {
+            background: var(--bg-secondary); 
+            border: 1px solid var(--border-light); 
+            color: var(--text-primary);
+            padding: 10px 8px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 0.85rem;
+            transition: all 0.3s ease; 
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .option-btn:hover { background: var(--text-primary); color: var(--bg-primary); border-color: var(--text-primary); }
+        .option-btn.selected { background: var(--text-primary); color: var(--bg-primary); border-color: var(--text-primary); font-weight: 700; }
+        .option-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        .feedback {
+            display: none; padding: 15px; border-radius: 8px; margin-top: 15px;
+            animation: feedbackPop 0.5s ease; text-align: center;
+            background: rgba(248, 249, 250, 0.05); border: 1px solid var(--border-light);
+        }
+        @keyframes feedbackPop { 0% { opacity: 0; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1); } }
+
+        .feedback h3 { margin-bottom: 8px; font-size: 1.1rem; color: var(--text-primary); }
+        
+        .translation-showcase {
+            background: var(--bg-primary); padding: 12px; border-radius: 6px;
+            margin-top: 10px; font-size: 0.8rem; line-height: 1.6; color: var(--text-secondary);
+            border: 1px solid var(--border-light);
+        }
+
+        .navigation { display: flex; justify-content: center; margin-top: 20px; }
+        .nav-btn {
+            background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border-light);
+            padding: 10px 30px; border-radius: 8px; cursor: pointer; font-size: 0.9rem;
+            font-weight: bold; transition: all 0.3s ease;
+        }
+        .nav-btn:hover { background: var(--text-primary); color: var(--bg-primary); }
+        .nav-btn.hidden { display: none; }
+
+        .final-screen { text-align: center; padding: 30px; display: none; }
+        .final-screen.active { display: block; animation: cardAppear 0.8s ease; }
+        .final-score { font-size: 3rem; color: var(--text-primary); margin: 15px 0; font-weight: 800; }
+
+        /* Mini Cards Frames - TWO PER ROW */
+        .mini-cards-frame {
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 25px;
+            background: var(--bg-tertiary);
+            margin: 50px auto;
+            max-width: 600px;
+        }
+        .mini-cards-frame h4 {
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+        .card-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .mini-card {
+            display: flex; flex-direction: column; align-items: center;
+            background: var(--bg-secondary); border: 1px solid var(--border-light);
+            border-radius: 10px; padding: 15px 12px; text-decoration: none;
+            color: var(--text-primary); transition: 0.3s ease;
+            min-height: 120px; justify-content: center;
+        }
+        .mini-card:hover { border-color: var(--text-primary); background: rgba(248, 249, 250, 0.05); transform: translateY(-3px); }
+        .card-icon { font-size: 1.6rem; margin-bottom: 8px; }
+        .card-title { font-size: 0.85rem; font-weight: 700; text-align: center; margin-bottom: 4px; }
+        .card-desc { font-size: 0.7rem; color: var(--text-secondary); text-align: center; line-height: 1.3; }
+
+        .mini-card.highlighted {
+            grid-column: 1 / -1;
+            border: 1px solid var(--text-primary);
+            background: rgba(248, 249, 250, 0.08);
+            padding: 18px;
+            margin-top: 10px;
+        }
+        .mini-card.highlighted:hover {
+            background: rgba(248, 249, 250, 0.12);
+        }
+        .highlighted-benefit {
+            font-size: 0.75rem;
+            color: var(--text-primary);
+            margin-top: 10px;
+            text-align: center;
+            line-height: 1.5;
+            font-weight: 500;
+            border-top: 1px dashed var(--border-light);
+            padding-top: 10px;
+        }
+
+        .category-section { margin: 50px 0; }
+        .category-title { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border-light); display: flex; align-items: center; gap: 10px; font-weight: 700; }
+        
+        .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 20px; }
+        .market-card { background: var(--bg-tertiary); border: 1px solid var(--border-light); border-radius: 10px; padding: 20px; transition: all 0.3s ease; }
+        .market-card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+        .market-card h3 { color: var(--text-primary); margin-bottom: 10px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+        .market-card p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.6; }
+        .market-link { display: inline-block; font-size: 0.85rem; color: var(--text-primary); text-decoration: none; border-bottom: 1px dotted var(--text-secondary); font-weight: 600; transition: all 0.2s ease; }
+        .market-link:hover { border-bottom-style: solid; }
+
+        /* Gallery Sections */
+        .gallery-section { 
+            margin: 50px 0; 
+            text-align: center;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 30px;
+            background: var(--bg-tertiary);
+        }
+        .gallery-section h3 { 
+            color: var(--text-primary); 
+            margin-bottom: 25px; 
+            font-size: 1.3rem; 
+            font-weight: 700; 
+        }
+        .gallery-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; 
+        }
+        .gallery-item img { 
+            width: 100%; 
+            height: 250px; 
+            object-fit: cover; 
+            border-radius: 10px; 
+            border: 1px solid var(--border-light); 
+            transition: all 0.3s ease; 
+            background-color: var(--bg-secondary); 
+        }
+        .gallery-item img:hover { 
+            opacity: 0.85; 
+            border-color: var(--text-primary); 
+        }
+        .photo-credit { 
+            font-size: 0.7rem; 
+            color: var(--text-secondary); 
+            letter-spacing: 1.5px; 
+            margin-top: 10px; 
+            opacity: 0.7; 
+        }
+
+        .owner-dedication { text-align: center; margin: 60px auto; max-width: 650px; padding: 30px; background: rgba(248, 249, 250, 0.03); border: 1px solid var(--border-light); border-radius: 12px; }
+        .owner-dedication h4 { color: var(--text-primary); font-size: 1rem; margin-bottom: 12px; letter-spacing: 1px; font-weight: 700; }
+        .owner-dedication p { font-style: italic; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin-bottom: 12px; }
+        .gift-phrase { color: var(--text-primary); font-size: 1rem; font-weight: 600; margin: 15px 0; padding: 12px; background: rgba(248, 249, 250, 0.05); border-radius: 8px; border: 1px dashed var(--border-hover); }
+        .owner-dedication .signature { color: var(--text-primary); font-size: 0.95rem; margin-top: 15px; font-weight: 600; font-style: normal; }
+
+        footer { margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border-light); text-align: center; color: var(--text-secondary); padding-bottom: 30px; }
+        .footer-features { font-size: 0.75rem; line-height: 1.8; color: var(--text-secondary); margin: 25px 0; padding: 15px; background: rgba(248, 249, 250, 0.03); border-radius: 8px; border: 1px solid var(--border-light); }
+        .gratitude { font-size: 0.8rem; font-style: italic; color: var(--text-secondary); margin: 20px 0; opacity: 0.85; line-height: 1.6; }
+        #live-clock { font-size: 0.9rem; color: var(--text-primary); font-variant-numeric: tabular-nums; margin-top: 15px; font-weight: 600; }
+        .creation-date { font-size: 0.75rem; margin-top: 10px; opacity: 0.6; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.6rem; }
+            .market-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .card-row { grid-template-columns: 1fr; }
+            .mini-card.highlighted { grid-column: 1; }
+            .options-grid { grid-template-columns: 1fr 1fr; }
+            .option-btn { font-size: 0.75rem; padding: 8px 4px; }
+            .danish-word { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="swiss-cross" title="Cyfrowa Suwerenność"></div>
+
+    <header>
+        <div id="live-date" class="small"></div>
+        <h1>Threema: Twoje cyfrowe schronienie</h1>
+        <a href="index.html" class="access-link" aria-label="Powrót do strony głównej">
+            <span aria-hidden="true">⬅</span> <span>Powrót do strony głównej</span>
+        </a>
+        <p class="dedication-header">
+            Poświęcone z głębokim szacunkiem wszystkim, którzy cenią swoją cyfrową wolność.<br>
+            Twoje prawo do prywatności jest nienaruszalne – to jest Twoje schronienie.
+        </p>
+        <div class="greetings">Witamy · Willkommen · Bienvenue · Bienvenidos · Velkommen · Üdvözöljük</div>
+    </header>
+
+    <main>
+        <section class="framed-quote">
+            <div class="ice-cubes">🧊🧊🧊🧊</div>
+            <div class="flags">🇵🇱🇵🇱</div>
+            <h3>🌱 Od źródła do Twojego serca</h3>
+            <p>Jest kluczowy moment przed rozpoczęciem podróży z Threema – moment wyboru.</p>
+            <p>Pobierając aplikację z F-Droid, wybierasz czystą drogę:</p>
+            <ul class="pure-path">
+                <li>Brak śledzenia, brak rejestracji, brak wymaganego konta</li>
+                <li>Aplikacja dokładnie taka, jaką stworzyli deweloperzy, bez dodatków</li>
+                <li>Pełny łańcuch zaufania: od kodu bezpośrednio do Twojego telefonu</li>
+            </ul>
+            <p>Tutaj prywatność zaczyna się od pierwszego kroku, a nie od ustawień.</p>
+            <blockquote>"Uczciwość to pierwsza część odwagi, a zaufanie jest fundamentem każdej trwałej relacji. Jakość zaczyna się tam, skąd pochodzi."</blockquote>
+            <br>
+            <a href="https://f-droid.org/packages/ch.threema.app.libre" target="_blank" rel="noopener">🔗 F-Droid: ch.threema.app.libre</a>
+            <p class="payment-note">Po pobraniu aplikacji, stronę płatności znajdziesz tutaj:<br>🇵🇱🇵🇱</p>
+        </section>
+
+        <section class="category-section">
+            <h2 class="category-title">💎 Wersje Threema</h2>
+            <div class="market-grid">
+                <div class="market-card">
+                    <h3>👤 Threema Private</h3>
+                    <p>Do użytku osobistego. Jednorazowa płatność. Wszystkie zaszyfrowane funkcje wiadomości i połączeń. Pełna anonimowość.</p>
+                    <a href="https://threema.ch" target="_blank" rel="noopener" class="market-link">Dowiedz się więcej →</a>
+                </div>
+                <div class="market-card">
+                    <h3>🏢 Threema Work</h3>
+                    <p>Dla firm. Abonament miesięczny. Dodatkowe funkcje zespołowe: udostępnianie ekranu, polityka godzin pracy, kontrola administracyjna.</p>
+                    <a href="https://threema.ch/work" target="_blank" rel="noopener" class="market-link">Dowiedz się więcej →</a>
+                </div>
+                <div class="market-card">
+                    <h3>🌐 Threema Libre</h3>
+                    <p>W pełni otwartoźródłowa wersja. Brak usług Google. Jednorazowa płatność przez sklep Threema. Idealna dla entuzjastów prywatności.</p>
+                    <a href="https://threema.ch/libre" target="_blank" rel="noopener" class="market-link">Dowiedz się więcej →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FIRST GALLERY WITH TULIN YUCEL IMAGES -->
+        <section class="gallery-section">
+            <h3>🖼️ Threema w obrazach</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="threema/tulin-yucel-ZL8PktB7IIU-unsplash.jpg" alt="Funkcje prywatności Threema" loading="lazy">
+                    <div class="photo-credit">Ochrona prywatności</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="threema/tulin-yucel-dfZKg9pxT-w-unsplash.jpg" alt="Szyfrowanie Threema" loading="lazy">
+                    <div class="photo-credit">Szyfrowanie end-to-end</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="threema/tulin-yucel-wDMzvwJ4lLQ-unsplash.jpg" alt="Klienci Threema Work" loading="lazy">
+                    <div class="photo-credit">Threema Work w firmach</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="threema/tulin-yucel-ebYCxtoPPt4-unsplash.jpg" alt="Cyfrowa wolność" loading="lazy">
+                    <div class="photo-credit">Cyfrowa suwerenność</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="threema/tulin-yucel-jQfU_a76TYU-unsplash.jpg" alt="Bezpieczna komunikacja" loading="lazy">
+                    <div class="photo-credit">Bezpieczne komunikowanie się</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="threema/tulin-yucel-VKufDk79_HU-unsplash.jpg" alt="Anonimowe czatowanie" loading="lazy">
+                    <div class="photo-credit">Anonimowe wysyłanie wiadomości</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="game-container" id="game-container">
+            <h2>🏔️ Sprawdź swoją wiedzę 🏔️</h2>
+            <p class="subtitle">Odkryj 50 kluczowych słów Threema – Każdy wybór to krok naprzód!</p>
+
+            <div class="stats">
+                <span id="question-counter">Pytanie: 1 / 50</span>
+                <span id="score-display">Wynik: 0</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress" style="width: 2%"></div>
+            </div>
+
+            <div id="game-area">
+                <div class="question-card">
+                    <p style="text-align: center; color: var(--text-secondary); font-size: 0.85rem;">Co oznacza:</p>
+                    <div class="danish-word" id="word-question">...</div>
+                    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 10px; font-size: 0.85rem;">Wybierz wersję językową, aby się nauczyć:</p>
+                    
+                    <div class="options-grid" id="options-container"></div>
+                </div>
+
+                <div class="feedback" id="feedback">
+                    <h3 id="encouragement">🎉 Fantastycznie! 🎁</h3>
+                    <div class="translation-showcase" id="translations"></div>
+                </div>
+
+                <div class="navigation">
+                    <button class="nav-btn hidden" id="next-btn">Dalej ➡️</button>
+                </div>
+            </div>
+
+            <div id="final-screen" class="final-screen">
+                <h2>🏆 Gratulacje! 🏆</h2>
+                <p>Ukończyłeś słownictwo Threema!</p>
+                <div class="final-score" id="final-score">50/50</div>
+                <p style="font-size: 1rem; color: var(--text-secondary); margin: 15px 0;">
+                    Twoja wiedza o cyfrowej prywatności jest bezcenna!
+                </p>
+                <div style="margin: 20px 0; font-size: 2rem;">🏔️ 🔐  🌿 💎 🤍</div>
+                <button class="nav-btn" onclick="location.reload()">🔄 Zagraj ponownie</button>
+            </div>
+        </div>
+
+        <!-- FIRST MINI CARDS FRAME -->
+        <div class="mini-cards-frame">
+            <h4>🔗 Odkryj inne zaufane usługi</h4>
+            <div class="card-row">
+                <a href="top-fr.html" class="mini-card">
+                    <span class="card-icon">🇫🇷</span>
+                    <span class="card-title">Top FR</span>
+                    <span class="card-desc">Wersja francuska</span>
+                </a>
+                <a href="top-ja.html" class="mini-card">
+                    <span class="card-icon">🇯🇵</span>
+                    <span class="card-title">Top JA</span>
+                    <span class="card-desc">Wersja japońska</span>
+                </a>
+                <a href="top-nl.html" class="mini-card">
+                    <span class="card-icon">🇳🇱</span>
+                    <span class="card-title">Top NL</span>
+                    <span class="card-desc">Wersja holenderska</span>
+                </a>
+                <a href="top.html" class="mini-card">
+                    <span class="card-icon"></span>
+                    <span class="card-title">Top Global</span>
+                    <span class="card-desc">Główny katalog</span>
+                </a>
+                <a href="up-shopping.html" class="mini-card">
+                    <span class="card-icon">👠️</span>
+                    <span class="card-title">Up Shopping</span>
+                    <span class="card-desc">Zaufane rynki UE</span>
+                </a>
+                
+                <a href="https://www.kingdom.lat/up/up.html" target="_blank" rel="noopener" class="mini-card highlighted">
+                    <span class="card-icon">📜</span>
+                    <span class="card-title">Ekstraktor tekstu</span>
+                    <span class="card-desc">Darmowe narzędzie obraz-na-tekst</span>
+                    <div class="highlighted-benefit">
+                        ✨ <strong>Darmowa usługa dla odwiedzających:</strong><br>
+                        Natychmiastowe, bezpieczne, po stronie klienta<br>(bez przesyłania na serwer) wyodrębnianie tekstu z obrazów.
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- SECOND MINI CARDS FRAME - LANGUAGE CARDS -->
+        <div class="mini-cards-frame">
+            <h4>🌍 Wybierz swój język / Choose your language</h4>
+            <div class="card-row">
+                <a href="threema-fi.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇫</span>
+                    <span class="card-title">Suomi</span>
+                    <span class="card-desc">Wersja fińska</span>
+                </a>
+                <a href="threema-fr.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇫🇷</span>
+                    <span class="card-title">Français</span>
+                    <span class="card-desc">Wersja francuska</span>
+                </a>
+                <a href="threema-de.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇩🇪</span>
+                    <span class="card-title">Deutsch</span>
+                    <span class="card-desc">Wersja niemiecka</span>
+                </a>
+                <a href="threema-it.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇮</span>
+                    <span class="card-title">Italiano</span>
+                    <span class="card-desc">Wersja włoska</span>
+                </a>
+                <a href="threema-nl.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇳🇱</span>
+                    <span class="card-title">Nederlands</span>
+                    <span class="card-desc">Wersja holenderska</span>
+                </a>
+                <a href="threema-pl.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇵🇱</span>
+                    <span class="card-title">Polski</span>
+                    <span class="card-desc">Wersja polska</span>
+                </a>
+                <a href="threema-ga.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇪</span>
+                    <span class="card-title">Gaeilge</span>
+                    <span class="card-desc">Wersja irlandzka</span>
+                </a>
+                <a href="threema-gd.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">󠁧󠁢󠁣󠁴</span>
+                    <span class="card-title">Gàidhlig</span>
+                    <span class="card-desc">Wersja szkocko-gaelicka</span>
+                </a>
+                <a href="threema-pt.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇵🇹</span>
+                    <span class="card-title">Português</span>
+                    <span class="card-desc">Wersja portugalska</span>
+                </a>
+                <a href="threema-ja.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇯🇵</span>
+                    <span class="card-title">日本語</span>
+                    <span class="card-desc">Wersja japońska</span>
+                </a>
+                <a href="threema-en.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇧</span>
+                    <span class="card-title">English</span>
+                    <span class="card-desc">Wersja angielska</span>
+                </a>
+                <a href="threema-da.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇩🇰</span>
+                    <span class="card-title">Dansk</span>
+                    <span class="card-desc">Wersja duńska</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- SECOND GALLERY (NEW) - AT THE END -->
+        <section class="gallery-section">
+            <h3>🖼️ Galeria Threema</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="threema/morgan-thompson-I7q8s0KNhn0-unsplash.jpg" alt="Prywatność Threema" loading="lazy">
+                    <div class="photo-credit">📸 Morgan Thompson · Unsplash</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="threema/delia-giandeini-0HYV-0Moe4c-unsplash.jpg" alt="Bezpieczeństwo Threema" loading="lazy">
+                    <div class="photo-credit">📸 Delia Giandeini · Unsplash</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="threema/delia-giandeini-JN5-hRqk7eE-unsplash.jpg" alt="Threema Work" loading="lazy">
+                    <div class="photo-credit">📸 Delia Giandeini · Unsplash</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="owner-dedication">
+        <h4>🎁 Prezent dla Ciebie</h4>
+        <div class="gift-phrase">"Twoja prywatność nie jest towarem – to prawo człowieka"</div>
+        <p>Dla każdego odwiedzającego, który ceni swoją cyfrową wolność:<br>
+        Ta strona została stworzona z szacunkiem do Twojej prywatności.<br>
+        <strong>Zero trackerów, zero plików cookie, zero inwigilacji</strong> – tylko czysta, bezpieczna komunikacja.</p>
+        <p class="signature">Z głęboką wdzięcznością i szacunkiem,<br><strong>goodnight.mom</strong> 🏔️<br>
+        <span style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px; display: block;">Stworzone przez kogoś, kto kocha Waszą kulturę</span></p>
+    </section>
+
+    <footer>
+        <div class="footer-features">
+            Funkcje strony · Zegar na żywo 🕒 · Data aktualizacji 📅 · Kopiuj 📋 · Gra interaktywna 🧠 · 
+            Nauka wielojęzyczna 🌍 · W pełni dostępna ♿ · Lekka i szybka ⚡ · 
+            Brak śledzenia 🚫 · Brak plików cookie 🍪 · Projekt z naciskiem na prywatność 🔐 · 
+            Szacunek dla każdego odwiedzającego 🐾
+        </div>
+        <div class="gratitude">
+            <span aria-hidden="true">🤍</span><br>
+            Z wdzięcznością dla tych, którzy zainspirowali tę stronę –<br>
+            Wasza cicha wiara zamieniła kod w kulturę.<br>
+            <span aria-hidden="true">🤍</span>
+        </div>
+        <div id="live-clock"></div>
+        <p class="creation-date">Ostatnia aktualizacja: 19 lipca 2026 | Stworzone z precyzją i szacunkiem 🤍</p>
+    </footer>
+
+    <script>
+        const words = [
+            { pl: "Prywatność", fr: "Vie privée", es: "Privacidad", no: "Personvern", it: "Privacy", de: "Privatsphäre", en: "Privacy", hu: "Adatvédelem" },
+            { pl: "Bezpieczeństwo", fr: "Sécurité", es: "Seguridad", no: "Sikkerhet", it: "Sicurezza", de: "Sicherheit", en: "Security", hu: "Biztonság" },
+            { pl: "Szyfrowanie", fr: "Chiffrement", es: "Cifrado", no: "Kryptering", it: "Crittografia", de: "Verschlüsselung", en: "Encryption", hu: "Titkosítás" },
+            { pl: "Anonimowość", fr: "Anonymat", es: "Anonimato", no: "Anonymitet", it: "Anonimato", de: "Anonymität", en: "Anonymity", hu: "Anonimitás" },
+            { pl: "Wiadomość", fr: "Message", es: "Mensaje", no: "Melding", it: "Messaggio", de: "Nachricht", en: "Message", hu: "Üzenet" },
+            { pl: "Połączenie", fr: "Appel", es: "Llamada", no: "Anrop", it: "Chiamata", de: "Anruf", en: "Call", hu: "Hívás" },
+            { pl: "Plik", fr: "Fichier", es: "Archivo", no: "Fil", it: "File", de: "Datei", en: "File", hu: "Fájl" },
+            { pl: "Kontakt", fr: "Contact", es: "Contacto", no: "Kontakt", it: "Contatto", de: "Kontakt", en: "Contact", hu: "Kapcsolat" },
+            { pl: "Grupa", fr: "Groupe", es: "Grupo", no: "Gruppe", it: "Gruppo", de: "Gruppe", en: "Group", hu: "Csoport" },
+            { pl: "Profil", fr: "Profil", es: "Perfil", no: "Profil", it: "Profilo", de: "Profil", en: "Profile", hu: "Profil" },
+            { pl: "Ustawienie", fr: "Paramètre", es: "Configuración", no: "Innstilling", it: "Impostazione", de: "Einstellung", en: "Setting", hu: "Beállítás" },
+            { pl: "Ochrona", fr: "Protection", es: "Protección", no: "Beskyttelse", it: "Protezione", de: "Schutz", en: "Protection", hu: "Védelem" },
+            { pl: "Poufność", fr: "Confidentialité", es: "Confidencialidad", no: "Konfidensialitet", it: "Riservatezza", de: "Vertraulichkeit", en: "Confidentiality", hu: "Bizalmasság" },
+            { pl: "Dane", fr: "Données", es: "Datos", no: "Data", it: "Dati", de: "Daten", en: "Data", hu: "Adatok" },
+            { pl: "Serwer", fr: "Serveur", es: "Servidor", no: "Tjener", it: "Server", de: "Server", en: "Server", hu: "Szerver" },
+            { pl: "Kod", fr: "Code", es: "Código", no: "Kode", it: "Codice", de: "Code", en: "Code", hu: "Kód" },
+            { pl: "Klucz", fr: "Clé", es: "Clave", no: "Nøkkel", it: "Chiave", de: "Schlüssel", en: "Key", hu: "Kulcs" },
+            { pl: "Dostęp", fr: "Accès", es: "Acceso", no: "Tilgang", it: "Accesso", de: "Zugang", en: "Access", hu: "Hozzáférés" },
+            { pl: "Użytkownik", fr: "Utilisateur", es: "Usuario", no: "Bruker", it: "Utente", de: "Benutzer", en: "User", hu: "Felhasználó" },
+            { pl: "Tożsamość", fr: "Identité", es: "Identidad", no: "Identitet", it: "Identità", de: "Identität", en: "Identity", hu: "Identitás" },
+            { pl: "Weryfikacja", fr: "Vérification", es: "Verificación", no: "Verifisering", it: "Verifica", de: "Verifizierung", en: "Verification", hu: "Ellenőrzés" },
+            { pl: "Bezpieczny", fr: "Sûr", es: "Seguro", no: "Sikker", it: "Sicuro", de: "Sicher", en: "Safe", hu: "Biztonságos" },
+            { pl: "Prywatny", fr: "Privé", es: "Privado", no: "Privat", it: "Privato", de: "Privat", en: "Private", hu: "Privát" },
+            { pl: "Cyfrowy", fr: "Numérique", es: "Digital", no: "Digital", it: "Digitale", de: "Digital", en: "Digital", hu: "Digitális" },
+            { pl: "Komunikacja", fr: "Communication", es: "Comunicación", no: "Kommunikasjon", it: "Comunicazione", de: "Kommunikation", en: "Communication", hu: "Kommunikáció" },
+            { pl: "Sieć", fr: "Réseau", es: "Red", no: "Nettverk", it: "Rete", de: "Netzwerk", en: "Network", hu: "Hálózat" },
+            { pl: "Internet", fr: "Internet", es: "Internet", no: "Internett", it: "Internet", de: "Internet", en: "Internet", hu: "Internet" },
+            { pl: "Aplikacja", fr: "Application", es: "Aplicación", no: "Applikasjon", it: "Applicazione", de: "Anwendung", en: "Application", hu: "Alkalmazás" },
+            { pl: "Usługa", fr: "Service", es: "Servicio", no: "Tjeneste", it: "Servizio", de: "Dienst", en: "Service", hu: "Szolgáltatás" },
+            { pl: "Platforma", fr: "Plateforme", es: "Plataforma", no: "Plattform", it: "Piattaforma", de: "Plattform", en: "Platform", hu: "Platform" },
+            { pl: "Szwajcaria", fr: "Suisse", es: "Suiza", no: "Sveits", it: "Svizzera", de: "Schweiz", en: "Switzerland", hu: "Svájc" },
+            { pl: "Prawodawstwo", fr: "Législation", es: "Legislación", no: "Lovgivning", it: "Legislazione", de: "Gesetzgebung", en: "Legislation", hu: "Jogszabály" },
+            { pl: "Zgodność", fr: "Conformité", es: "Cumplimiento", no: "Overholdelse", it: "Conformità", de: "Einhaltung", en: "Compliance", hu: "Megfelelés" },
+            { pl: "Przejrzystość", fr: "Transparence", es: "Transparencia", no: "Transparens", it: "Trasparenza", de: "Transparenz", en: "Transparency", hu: "Átláthatóság" },
+            { pl: "Otwarte źródło", fr: "Open Source", es: "Código abierto", no: "Åpen kilde", it: "Open Source", de: "Open Source", en: "Open Source", hu: "Nyílt forráskód" },
+            { pl: "Audyt", fr: "Audit", es: "Auditoría", no: "Revisjon", it: "Revisione", de: "Prüfung", en: "Audit", hu: "Ellenőrzés" },
+            { pl: "Luka", fr: "Vulnérabilité", es: "Vulnerabilidad", no: "Sårbarhet", it: "Vulnerabilità", de: "Schwachstelle", en: "Vulnerability", hu: "Sebezhetőség" },
+            { pl: "Aktualizacja", fr: "Mise à jour", es: "Actualización", no: "Oppdatering", it: "Aggiornamento", de: "Update", en: "Update", hu: "Frissítés" },
+            { pl: "Kopia zapasowa", fr: "Sauvegarde", es: "Copia de seguridad", no: "Sikkerhetskopi", it: "Backup", de: "Backup", en: "Backup", hu: "Biztonsági mentés" },
+            { pl: "Przywracanie", fr: "Restauration", es: "Restauración", no: "Gjenoppretting", it: "Ripristino", de: "Wiederherstellung", en: "Restoration", hu: "Helyreállítás" },
+            { pl: "Synchronizacja", fr: "Synchronisation", es: "Sincronización", no: "Synkronisering", it: "Sincronizzazione", de: "Synchronisation", en: "Synchronization", hu: "Szinkronizálás" },
+            { pl: "Udostępnianie", fr: "Partage", es: "Compartir", no: "Deling", it: "Condivisione", de: "Teilen", en: "Sharing", hu: "Megosztás" },
+            { pl: "Lokalizacja", fr: "Localisation", es: "Ubicación", no: "Posisjon", it: "Posizione", de: "Standort", en: "Location", hu: "Hely" },
+            { pl: "Jakość", fr: "Qualité", es: "Calidad", no: "Kvalitet", it: "Qualità", de: "Qualität", en: "Quality", hu: "Minőség" },
+            { pl: "Niezawodność", fr: "Fiabilité", es: "Fiabilidad", no: "Pålitelighet", it: "Affidabilità", de: "Zuverlässigkeit", en: "Reliability", hu: "Megbízhatóság" },
+            { pl: "Szybkość", fr: "Vitesse", es: "Velocidad", no: "Hastighet", it: "Velocità", de: "Geschwindigkeit", en: "Speed", hu: "Sebesség" },
+            { pl: "Efektywność", fr: "Efficacité", es: "Eficiencia", no: "Effektivitet", it: "Efficienza", de: "Effizienz", en: "Efficiency", hu: "Hatékonyság" },
+            { pl: "Wolność", fr: "Liberté", es: "Libertad", no: "Frihet", it: "Libertà", de: "Freiheit", en: "Freedom", hu: "Szabadság" },
+            { pl: "Prawo", fr: "Droit", es: "Derecho", no: "Rettighet", it: "Diritto", de: "Recht", en: "Right", hu: "Jog" },
+            { pl: "Szacunek", fr: "Respect", es: "Respeto", no: "Respekt", it: "Rispetto", de: "Respekt", en: "Respect", hu: "Tisztelet" }
+        ];
+
+        const encouragementMessages = [
+            "🎉 Fantastycznie! 🎁",
+            "🏔️ Perfekcyjnie! Jesteś na dobrej drodze! 🏔️",
+            "🔐 Cudownie! Ekspert od prywatności! 🔐",
+            "💎 Wyśmienicie! Tak elegancko! 💎",
+            "🌿 Pięknie! Uczysz się szybko! 🌿",
+            "✨ Wyjątkowo! Tak trzymaj! ✨",
+            "🎊 Super! To jest imponujące! 🎊",
+            "🤍 Uroczo! Jesteś fantastyczny! 🤍",
+            "🏅 Potężnie! Tak mądrze! 🏅",
+            "🌟 Olśniewająco! Robisz to niesamowicie! 🌟"
+        ];
+
+        let currentIndex = 0;
+        let score = 0;
+        let shuffledWords = [];
+
+        function shuffle(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
+        function initGame() {
+            shuffledWords = shuffle(words);
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const word = shuffledWords[currentIndex];
+            document.getElementById('word-question').textContent = word.pl;
+            document.getElementById('question-counter').textContent = `Pytanie: ${currentIndex + 1} / ${words.length}`;
+            
+            const progress = ((currentIndex + 1) / words.length) * 100;
+            document.getElementById('progress').style.width = `${progress}%`;
+
+            const languages = [
+                { flag: '🇫🇷', code: 'fr', name: 'Francuski' }, { flag: '🇪🇸', code: 'es', name: 'Hiszpański' },
+                { flag: '🇩🇪', code: 'de', name: 'Niemiecki' }, { flag: '🇬🇧', code: 'en', name: 'Angielski' },
+                { flag: '🇮🇹', code: 'it', name: 'Włoski' }, { flag: '🇭🇺', code: 'hu', name: 'Węgierski' }
+            ];
+
+            const shuffledLanguages = shuffle(languages);
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            shuffledLanguages.forEach(lang => {
+                const button = document.createElement('button');
+                button.className = 'option-btn';
+                button.textContent = `${lang.flag} ${word[lang.code]}`;
+                button.onclick = (e) => selectAnswer(lang, e);
+                optionsContainer.appendChild(button);
+            });
+
+            document.getElementById('feedback').style.display = 'none';
+            document.getElementById('next-btn').classList.add('hidden');
+        }
+
+        function selectAnswer(language, event) {
+            const word = shuffledWords[currentIndex];
+
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            event.target.classList.add('selected');
+            buttons.forEach(btn => btn.disabled = true);
+
+            const feedback = document.getElementById('feedback');
+            feedback.style.display = 'block';
+
+            const randomEncouragement = encouragementMessages[Math.floor(Math.random() * encouragementMessages.length)];
+            document.getElementById('encouragement').textContent = randomEncouragement;
+
+            const translationsDiv = document.getElementById('translations');
+            translationsDiv.innerHTML = `
+                <strong>Polski:</strong> ${word.pl}<br>
+                <span style="font-size: 1.1rem;">${language.flag}</span> <strong>${language.name}:</strong> ${word[language.code]}<br><br>
+                <em>Wszystkie wersje:</em><br>
+                🇫🇷 ${word.fr} • 🇪🇸 ${word.es} • 🇩🇪 ${word.de} • 🇬🇧 ${word.en} • 🇮🇹 ${word.it} • 🇭🇺 ${word.hu}
+            `;
+
+            score++;
+            document.getElementById('score-display').textContent = `Wynik: ${score}`;
+
+            const nextBtn = document.getElementById('next-btn');
+            if (currentIndex < words.length - 1) {
+                nextBtn.textContent = 'Dalej ➡️';
+                nextBtn.classList.remove('hidden');
+                nextBtn.onclick = () => { currentIndex++; loadQuestion(); };
+            } else {
+                nextBtn.textContent = 'Zobacz wynik 🏁';
+                nextBtn.classList.remove('hidden');
+                nextBtn.onclick = showFinalScreen;
+            }
+        }
+
+        function showFinalScreen() {
+            document.getElementById('game-area').style.display = 'none';
+            const finalScreen = document.getElementById('final-screen');
+            finalScreen.classList.add('active');
+            document.getElementById('final-score').textContent = `${score}/${words.length}`;
+        }
+
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('live-date').textContent = now.toLocaleDateString('pl-PL', dateOptions);
+            document.getElementById('live-clock').textContent = now.toLocaleTimeString('pl-PL', { hour12: false });
+        }
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+
+        document.addEventListener('DOMContentLoaded', initGame);
+    </script>
+</body>
+</html>
