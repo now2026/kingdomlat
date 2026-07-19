@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threema: 監視だらけの世界でのあなたのデジタル避難所 🔐🤍</title>
+    <meta name="description" content="Threema - スイスのプライバシーに特化したメッセージサービス。エンドツーエンド暗号化、匿名性、デジタル主権を妥協せずに。">
+    <meta name="theme-color" content="#050d1a">
+    
+    <link rel="me" href="https://pixelfed.dk/goodnight2026#">
+    
+    <style>
+        :root {
+            --bg-primary: #050d1a;
+            --bg-secondary: #0A192F;
+            --bg-tertiary: #112240;
+            --text-primary: #F8F9FA;
+            --text-secondary: #8892B0;
+            --border-light: rgba(248, 249, 250, 0.15);
+            --border-hover: rgba(248, 249, 250, 0.4);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        .swiss-cross {
+            position: fixed; top: 20px; right: 20px; width: 40px; height: 40px;
+            background: var(--text-primary);
+            clip-path: polygon(30% 0%, 70% 0%, 70% 30%, 100% 30%, 100% 70%, 70% 70%, 70% 100%, 30% 100%, 30% 70%, 0% 70%, 0% 30%, 30% 30%);
+            opacity: 0.7; z-index: 1000; animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 0.9; transform: scale(1.05); } }
+
+        header { text-align: center; margin-bottom: 40px; padding-top: 30px; border-bottom: 1px solid var(--border-light); padding-bottom: 30px; }
+        .small { font-size: 0.8rem; color: var(--text-secondary); letter-spacing: 1px; }
+        h1 { font-size: 2rem; margin: 20px 0; letter-spacing: -0.5px; color: var(--text-primary); }
+        
+        .access-link {
+            display: inline-flex; align-items: center; gap: 8px; opacity: 0.9; border: 1px solid var(--border-light);
+            padding: 8px 20px; border-radius: 20px; text-decoration: none; color: var(--text-primary);
+            font-size: 0.85rem; transition: all 0.3s ease; margin: 15px 0; background: rgba(248, 249, 250, 0.05);
+        }
+        .access-link:hover { background: var(--text-primary); color: var(--bg-primary); opacity: 1; }
+
+        .dedication-header { font-style: italic; margin-bottom: 20px; opacity: 0.9; color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto; font-size: 1rem; line-height: 1.8; }
+        .greetings { font-size: 0.85rem; color: var(--text-primary); letter-spacing: 2px; margin-top: 15px; font-weight: 600; opacity: 0.8; }
+
+        .framed-quote {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 700px;
+            text-align: center;
+        }
+        .framed-quote .ice-cubes { font-size: 1.2rem; letter-spacing: 5px; margin-bottom: 10px; opacity: 0.7; }
+        .framed-quote .flags { font-size: 1.2rem; margin-bottom: 15px; }
+        .framed-quote h3 { color: var(--text-primary); font-size: 1.1rem; margin-bottom: 15px; font-weight: 700; }
+        .framed-quote p { font-size: 0.95rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 15px; }
+        .framed-quote .pure-path { text-align: left; max-width: 500px; margin: 0 auto 20px; color: var(--text-secondary); list-style: none; padding: 0 20px; font-size: 0.9rem; }
+        .framed-quote .pure-path li { margin-bottom: 8px; padding-left: 20px; position: relative; }
+        .framed-quote .pure-path li::before { content: '🔒'; position: absolute; left: 0; font-size: 0.8rem; }
+        .framed-quote blockquote { font-style: italic; font-size: 1.05rem; margin: 20px 0; color: var(--text-primary); border-left: 2px solid var(--text-primary); padding-left: 15px; display: inline-block; }
+        .framed-quote a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed var(--text-secondary); transition: 0.3s; font-weight: 600; font-size: 0.9rem; }
+        .framed-quote a:hover { border-bottom-style: solid; }
+        .framed-quote .payment-note { margin-top: 20px; font-weight: 600; color: var(--text-primary); font-size: 0.95rem; }
+
+        .game-container {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 25px;
+            max-width: 600px;
+            width: 100%;
+            margin: 60px auto;
+        }
+
+        .game-container h2 { color: var(--text-primary); text-align: center; margin-bottom: 8px; font-size: 1.3rem; }
+        .subtitle { color: var(--text-secondary); text-align: center; margin-bottom: 20px; font-style: italic; font-size: 0.85rem; }
+
+        .progress-bar { background: var(--bg-primary); height: 6px; border-radius: 3px; margin: 15px 0; overflow: hidden; border: 1px solid var(--border-light); }
+        .progress-fill { height: 100%; background: var(--text-primary); transition: width 0.5s ease; border-radius: 3px; }
+
+        .stats { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: bold; color: var(--text-primary); font-size: 0.85rem; }
+
+        .question-card {
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 1px solid var(--border-light);
+            animation: cardAppear 0.5s ease;
+        }
+        @keyframes cardAppear { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        .danish-word {
+            font-size: 1.5rem; color: var(--text-primary); text-align: center; font-weight: bold;
+            margin: 15px 0; padding: 12px; background: var(--bg-primary);
+            border-radius: 8px; border: 1px solid var(--border-light);
+        }
+
+        .options-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 10px; 
+            margin: 15px 0; 
+        }
+
+        .option-btn {
+            background: var(--bg-secondary); 
+            border: 1px solid var(--border-light); 
+            color: var(--text-primary);
+            padding: 10px 8px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 0.85rem;
+            transition: all 0.3s ease; 
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .option-btn:hover { background: var(--text-primary); color: var(--bg-primary); border-color: var(--text-primary); }
+        .option-btn.selected { background: var(--text-primary); color: var(--bg-primary); border-color: var(--text-primary); font-weight: 700; }
+        .option-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        .feedback {
+            display: none; padding: 15px; border-radius: 8px; margin-top: 15px;
+            animation: feedbackPop 0.5s ease; text-align: center;
+            background: rgba(248, 249, 250, 0.05); border: 1px solid var(--border-light);
+        }
+        @keyframes feedbackPop { 0% { opacity: 0; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1); } }
+
+        .feedback h3 { margin-bottom: 8px; font-size: 1.1rem; color: var(--text-primary); }
+        
+        .translation-showcase {
+            background: var(--bg-primary); padding: 12px; border-radius: 6px;
+            margin-top: 10px; font-size: 0.8rem; line-height: 1.6; color: var(--text-secondary);
+            border: 1px solid var(--border-light);
+        }
+
+        .navigation { display: flex; justify-content: center; margin-top: 20px; }
+        .nav-btn {
+            background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border-light);
+            padding: 10px 30px; border-radius: 8px; cursor: pointer; font-size: 0.9rem;
+            font-weight: bold; transition: all 0.3s ease;
+        }
+        .nav-btn:hover { background: var(--text-primary); color: var(--bg-primary); }
+        .nav-btn.hidden { display: none; }
+
+        .final-screen { text-align: center; padding: 30px; display: none; }
+        .final-screen.active { display: block; animation: cardAppear 0.8s ease; }
+        .final-score { font-size: 3rem; color: var(--text-primary); margin: 15px 0; font-weight: 800; }
+
+        /* Mini Cards Frames - TWO PER ROW */
+        .mini-cards-frame {
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 25px;
+            background: var(--bg-tertiary);
+            margin: 50px auto;
+            max-width: 600px;
+        }
+        .mini-cards-frame h4 {
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+        .card-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .mini-card {
+            display: flex; flex-direction: column; align-items: center;
+            background: var(--bg-secondary); border: 1px solid var(--border-light);
+            border-radius: 10px; padding: 15px 12px; text-decoration: none;
+            color: var(--text-primary); transition: 0.3s ease;
+            min-height: 120px; justify-content: center;
+        }
+        .mini-card:hover { border-color: var(--text-primary); background: rgba(248, 249, 250, 0.05); transform: translateY(-3px); }
+        .card-icon { font-size: 1.6rem; margin-bottom: 8px; }
+        .card-title { font-size: 0.85rem; font-weight: 700; text-align: center; margin-bottom: 4px; }
+        .card-desc { font-size: 0.7rem; color: var(--text-secondary); text-align: center; line-height: 1.3; }
+
+        .mini-card.highlighted {
+            grid-column: 1 / -1;
+            border: 1px solid var(--text-primary);
+            background: rgba(248, 249, 250, 0.08);
+            padding: 18px;
+            margin-top: 10px;
+        }
+        .mini-card.highlighted:hover {
+            background: rgba(248, 249, 250, 0.12);
+        }
+        .highlighted-benefit {
+            font-size: 0.75rem;
+            color: var(--text-primary);
+            margin-top: 10px;
+            text-align: center;
+            line-height: 1.5;
+            font-weight: 500;
+            border-top: 1px dashed var(--border-light);
+            padding-top: 10px;
+        }
+
+        .category-section { margin: 50px 0; }
+        .category-title { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border-light); display: flex; align-items: center; gap: 10px; font-weight: 700; }
+        
+        .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 20px; }
+        .market-card { background: var(--bg-tertiary); border: 1px solid var(--border-light); border-radius: 10px; padding: 20px; transition: all 0.3s ease; }
+        .market-card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+        .market-card h3 { color: var(--text-primary); margin-bottom: 10px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+        .market-card p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.6; }
+        .market-link { display: inline-block; font-size: 0.85rem; color: var(--text-primary); text-decoration: none; border-bottom: 1px dotted var(--text-secondary); font-weight: 600; transition: all 0.2s ease; }
+        .market-link:hover { border-bottom-style: solid; }
+
+        /* Gallery Sections */
+        .gallery-section { 
+            margin: 50px 0; 
+            text-align: center;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 30px;
+            background: var(--bg-tertiary);
+        }
+        .gallery-section h3 { 
+            color: var(--text-primary); 
+            margin-bottom: 25px; 
+            font-size: 1.3rem; 
+            font-weight: 700; 
+        }
+        .gallery-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; 
+        }
+        .gallery-item img { 
+            width: 100%; 
+            height: 250px; 
+            object-fit: cover; 
+            border-radius: 10px; 
+            border: 1px solid var(--border-light); 
+            transition: all 0.3s ease; 
+            background-color: var(--bg-secondary); 
+        }
+        .gallery-item img:hover { 
+            opacity: 0.85; 
+            border-color: var(--text-primary); 
+        }
+        .photo-credit { 
+            font-size: 0.7rem; 
+            color: var(--text-secondary); 
+            letter-spacing: 1.5px; 
+            margin-top: 10px; 
+            opacity: 0.7; 
+        }
+
+        .owner-dedication { text-align: center; margin: 60px auto; max-width: 650px; padding: 30px; background: rgba(248, 249, 250, 0.03); border: 1px solid var(--border-light); border-radius: 12px; }
+        .owner-dedication h4 { color: var(--text-primary); font-size: 1rem; margin-bottom: 12px; letter-spacing: 1px; font-weight: 700; }
+        .owner-dedication p { font-style: italic; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin-bottom: 12px; }
+        .gift-phrase { color: var(--text-primary); font-size: 1rem; font-weight: 600; margin: 15px 0; padding: 12px; background: rgba(248, 249, 250, 0.05); border-radius: 8px; border: 1px dashed var(--border-hover); }
+        .owner-dedication .signature { color: var(--text-primary); font-size: 0.95rem; margin-top: 15px; font-weight: 600; font-style: normal; }
+
+        footer { margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border-light); text-align: center; color: var(--text-secondary); padding-bottom: 30px; }
+        .footer-features { font-size: 0.75rem; line-height: 1.8; color: var(--text-secondary); margin: 25px 0; padding: 15px; background: rgba(248, 249, 250, 0.03); border-radius: 8px; border: 1px solid var(--border-light); }
+        .gratitude { font-size: 0.8rem; font-style: italic; color: var(--text-secondary); margin: 20px 0; opacity: 0.85; line-height: 1.6; }
+        #live-clock { font-size: 0.9rem; color: var(--text-primary); font-variant-numeric: tabular-nums; margin-top: 15px; font-weight: 600; }
+        .creation-date { font-size: 0.75rem; margin-top: 10px; opacity: 0.6; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.6rem; }
+            .market-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .card-row { grid-template-columns: 1fr; }
+            .mini-card.highlighted { grid-column: 1; }
+            .options-grid { grid-template-columns: 1fr 1fr; }
+            .option-btn { font-size: 0.75rem; padding: 8px 4px; }
+            .danish-word { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="swiss-cross" title="デジタル主権"></div>
+
+    <header>
+        <div id="live-date" class="small"></div>
+        <h1>Threema: あなたのデジタル避難所</h1>
+        <a href="index.html" class="access-link" aria-label="ホームページに戻る">
+            <span aria-hidden="true">⬅</span> <span>ホームページに戻る</span>
+        </a>
+        <p class="dedication-header">
+            デジタルの自由を尊重するすべての人々への深い敬意を込めて。<br>
+            あなたのプライバシーの権利は不可侵です – これはあなたの避難所です。
+        </p>
+        <div class="greetings">Willkommen · Bienvenue · Benvenuti · Bienvenidos · Velkommen · Üdvözöljük · ようこそ</div>
+    </header>
+
+    <main>
+        <section class="framed-quote">
+            <div class="ice-cubes">🧊🧊🧊🧊</div>
+            <div class="flags">🇯🇵🇯🇵</div>
+            <h3>🌱 源からあなたの心へ</h3>
+            <p>Threemaとの旅を始める前に重要な瞬間があります – 選択の瞬間。</p>
+            <p>F-Droidからアプリをダウンロードするとき、あなたは純粋な道を選択します:</p>
+            <ul class="pure-path">
+                <li>トラッキングなし、登録なし、アカウント不要</li>
+                <li>開発者が作成したままのアプリ、追加機能なし</li>
+                <li>コードからあなたの携帯電話へとつながる完全な信頼の連鎖</li>
+            </ul>
+            <p>ここではプライバシーは設定から始まるのではなく、最初の一歩から始まります。</p>
+            <blockquote>「誠実は信頼の基盤。質はその源から始まる。」</blockquote>
+            <br>
+            <a href="https://f-droid.org/packages/ch.threema.app.libre" target="_blank" rel="noopener">🔗 F-Droid: ch.threema.app.libre</a>
+            <p class="payment-note">アプリをダウンロードした後、支払いページはこちらにあります:<br>🇯🇵🇯🇵</p>
+        </section>
+
+        <section class="category-section">
+            <h2 class="category-title">💎 Threemaのバージョン</h2>
+            <div class="market-grid">
+                <div class="market-card">
+                    <h3>👤 Threema Private</h3>
+                    <p>個人用。一括支払い。すべての暗号化されたメッセージおよび通話機能。完全な匿名性。</p>
+                    <a href="https://threema.ch" target="_blank" rel="noopener" class="market-link">詳細を見る →</a>
+                </div>
+                <div class="market-card">
+                    <h3>🏢 Threema Work</h3>
+                    <p>企業向け。月額サブスクリプション。チーム向けの追加機能: スクリーン共有、勤務時間ポリシー、管理コントロール。</p>
+                    <a href="https://threema.ch/work" target="_blank" rel="noopener" class="market-link">詳細を見る →</a>
+                </div>
+                <div class="market-card">
+                    <h3>🌐 Threema Libre</h3>
+                    <p>完全なオープンソースバージョン。Googleサービスなし。Threemaストア経由の一括支払い。プライバシー愛好家に最適。</p>
+                    <a href="https://threema.ch/libre" target="_blank" rel="noopener" class="market-link">詳細を見る →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FIRST GALLERY WITH DARIO BRONNIMANN IMAGES -->
+        <section class="gallery-section">
+            <h3>🖼️ Threemaの画像</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="threema/dario-bronnimann-RhoevX9xgbA-unsplash.jpg" alt="Threemaプライバシーフィーチャー" loading="lazy">
+                    <div class="photo-credit">プライバシー保護</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="threema/dario-bronnimann--Pe1B4uL9eU-unsplash.jpg" alt="Threema暗号化" loading="lazy">
+                    <div class="photo-credit">エンドツーエンド暗号化</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="threema/dario-bronnimann-7d6Dv5TqJDI-unsplash.jpg" alt="Threema Workクライアント" loading="lazy">
+                    <div class="photo-credit">企業でのThreema Work</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="threema/dario-bronnimann-xYLB3medl2c-unsplash.jpg" alt="デジタル自由" loading="lazy">
+                    <div class="photo-credit">デジタル主権</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="threema/dario-bronnimann-Ttq2jgAmytw-unsplash.jpg" alt="安全な通信" loading="lazy">
+                    <div class="photo-credit">安全なコミュニケーション</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="threema/dario-bronnimann-Yjhq5v3qxq0-unsplash.jpg" alt="匿名チャット" loading="lazy">
+                    <div class="photo-credit">匿名メッセージ送信</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="game-container" id="game-container">
+            <h2>🏔️ あなたの知識をテスト 🏔️</h2>
+            <p class="subtitle">Threemaの50の基本単語を探索 – すべての選択は前進への一歩です!</p>
+
+            <div class="stats">
+                <span id="question-counter">質問: 1 / 50</span>
+                <span id="score-display">スコア: 0</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress" style="width: 2%"></div>
+            </div>
+
+            <div id="game-area">
+                <div class="question-card">
+                    <p style="text-align: center; color: var(--text-secondary); font-size: 0.85rem;">何を意味しますか:</p>
+                    <div class="danish-word" id="word-question">...</div>
+                    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 10px; font-size: 0.85rem;">学ぶために言語バージョンを選択:</p>
+                    
+                    <div class="options-grid" id="options-container"></div>
+                </div>
+
+                <div class="feedback" id="feedback">
+                    <h3 id="encouragement">🎉 素晴らしい! 🎁</h3>
+                    <div class="translation-showcase" id="translations"></div>
+                </div>
+
+                <div class="navigation">
+                    <button class="nav-btn hidden" id="next-btn">次へ ➡️</button>
+                </div>
+            </div>
+
+            <div id="final-screen" class="final-screen">
+                <h2>🏆 おめでとうございます! 🏆</h2>
+                <p>Threema語彙を完成しました!</p>
+                <div class="final-score" id="final-score">50/50</div>
+                <p style="font-size: 1rem; color: var(--text-secondary); margin: 15px 0;">
+                    あなたのデジタルプライバシーに関する知識はかけがえのないものです!
+                </p>
+                <div style="margin: 20px 0; font-size: 2rem;">🏔️ 🔐  🌿 💎 🤍</div>
+                <button class="nav-btn" onclick="location.reload()">🔄 またプレイ</button>
+            </div>
+        </div>
+
+        <!-- FIRST MINI CARDS FRAME -->
+        <div class="mini-cards-frame">
+            <h4>🔗 信頼できる他のサービスを探索</h4>
+            <div class="card-row">
+                <a href="top-fr.html" class="mini-card">
+                    <span class="card-icon">🇫🇷</span>
+                    <span class="card-title">Top FR</span>
+                    <span class="card-desc">フランス語版</span>
+                </a>
+                <a href="top-ja.html" class="mini-card">
+                    <span class="card-icon">🇯🇵</span>
+                    <span class="card-title">Top JA</span>
+                    <span class="card-desc">日本語版</span>
+                </a>
+                <a href="top-nl.html" class="mini-card">
+                    <span class="card-icon">🇳🇱</span>
+                    <span class="card-title">Top NL</span>
+                    <span class="card-desc">オランダ語版</span>
+                </a>
+                <a href="top.html" class="mini-card">
+                    <span class="card-icon">🌍</span>
+                    <span class="card-title">Top Global</span>
+                    <span class="card-desc">メインカタログ</span>
+                </a>
+                <a href="up-shopping.html" class="mini-card">
+                    <span class="card-icon">👠🛍️</span>
+                    <span class="card-title">Up Shopping</span>
+                    <span class="card-desc">信頼できるEU市場</span>
+                </a>
+                
+                <a href="https://www.kingdom.lat/up/up.html" target="_blank" rel="noopener" class="mini-card highlighted">
+                    <span class="card-icon">📜</span>
+                    <span class="card-title">テキスト抽出器</span>
+                    <span class="card-desc">無料画像-テキストツール</span>
+                    <div class="highlighted-benefit">
+                        ✨ <strong>訪問者向け無料サービス:</strong><br>
+                        インスタント、安全、クライアントサイド<br>(サーバー転送なし)の画像からのテキスト抽出。
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- SECOND MINI CARDS FRAME - LANGUAGE CARDS -->
+        <div class="mini-cards-frame">
+            <h4>🌍 あなたの言語を選択 / Choose your language</h4>
+            <div class="card-row">
+                <a href="threema-fi.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇫🇮</span>
+                    <span class="card-title">Suomi</span>
+                    <span class="card-desc">フィンランド語版</span>
+                </a>
+                <a href="threema-fr.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇫🇷</span>
+                    <span class="card-title">Français</span>
+                    <span class="card-desc">フランス語版</span>
+                </a>
+                <a href="threema-de.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇩🇪</span>
+                    <span class="card-title">Deutsch</span>
+                    <span class="card-desc">ドイツ語版</span>
+                </a>
+                <a href="threema-it.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇮🇹</span>
+                    <span class="card-title">Italiano</span>
+                    <span class="card-desc">イタリア語版</span>
+                </a>
+                <a href="threema-nl.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇳🇱</span>
+                    <span class="card-title">Nederlands</span>
+                    <span class="card-desc">オランダ語版</span>
+                </a>
+                <a href="threema-pl.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇵🇱</span>
+                    <span class="card-title">Polski</span>
+                    <span class="card-desc">ポーランド語版</span>
+                </a>
+                <a href="threema-ga.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇮🇪</span>
+                    <span class="card-title">Gaeilge</span>
+                    <span class="card-desc">アイルランド語版</span>
+                </a>
+                <a href="threema-gd.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
+                    <span class="card-title">Gàidhlig</span>
+                    <span class="card-desc">スコットランドゲール語版</span>
+                </a>
+                <a href="threema-pt.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇵🇹</span>
+                    <span class="card-title">Português</span>
+                    <span class="card-desc">ポルトガル語版</span>
+                </a>
+                <a href="threema-ja.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇯🇵</span>
+                    <span class="card-title">日本語</span>
+                    <span class="card-desc">日本語版</span>
+                </a>
+                <a href="threema-en.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇬🇧</span>
+                    <span class="card-title">English</span>
+                    <span class="card-desc">英語版</span>
+                </a>
+                <a href="threema-da.html" target="_blank" rel="noopener" class="mini-card">
+                    <span class="card-icon">🇩🇰</span>
+                    <span class="card-title">Dansk</span>
+                    <span class="card-desc">デンマーク語版</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- SECOND GALLERY (NEW) - AT THE END -->
+        <section class="gallery-section">
+            <h3>🖼️ Threemaギャラリー</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="threema/dario-bronnimann-uUbHxYo7y7A-unsplash.jpg" alt="Threemaプライバシー" loading="lazy">
+                    <div class="photo-credit">📸 Dario Bronnimann · Unsplash</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="threema/dario-bronnimann-W5Ax5N_PT3Y-unsplash.jpg" alt="Threemaセキュリティ" loading="lazy">
+                    <div class="photo-credit">📸 Dario Bronnimann · Unsplash</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="threema/dario-bronnimann-SqviFtjj0eE-unsplash.jpg" alt="Threema Work" loading="lazy">
+                    <div class="photo-credit">📸 Dario Bronnimann · Unsplash</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="owner-dedication">
+        <h4>🎁 あなたへの贈り物</h4>
+        <div class="gift-phrase">"あなたのプライバシーは商品ではありません – それは人権です"</div>
+        <p>デジタルの自由を尊重するすべての訪問者へ:<br>
+        このページはあなたのプライバシーを尊重して作成されました。<br>
+        <strong>トラッカーなし、Cookieなし、監視なし</strong> – 純粋で安全なコミュニケーションのみ。</p>
+        <p class="signature">深い感謝と敬意を込めて,<br><strong>goodnight.mom</strong> 🏔️<br>
+        <span style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 10px; display: block;">あなたたちの文化を愛する誰かによって作成されました</span></p>
+    </section>
+
+    <footer>
+        <div class="footer-features">
+            ページ機能 · ライブ時計 🕒 · 更新日 📅 · コピー 📋 · インタラクティブゲーム 🧠 · 
+            多言語学習 🌍 · 完全アクセス可能 ♿ · 軽量で高速 ⚡ · 
+            トラッキングなし 🚫 · Cookieなし 🍪 · プライバシー優先デザイン 🔐 · 
+            すべての訪問者への敬意 🐾
+        </div>
+        <div class="gratitude">
+            <span aria-hidden="true">🤍</span><br>
+            このページをインスピレーションした方々へ –<br>
+            あなたの静かな信仰がコードを文化に変えました。<br>
+            <span aria-hidden="true">🤍</span>
+        </div>
+        <div id="live-clock"></div>
+        <p class="creation-date">最終更新: 2026年7月20日 | 精密さと敬意をもって作成されました 🤍</p>
+    </footer>
+
+    <script>
+        const words = [
+            { ja: "プライバシー", fr: "Vie privée", es: "Privacidad", no: "Personvern", it: "Privacy", de: "Privatsphäre", en: "Privacy", hu: "Adatvédelem" },
+            { ja: "セキュリティ", fr: "Sécurité", es: "Seguridad", no: "Sikkerhet", it: "Sicurezza", de: "Sicherheit", en: "Security", hu: "Biztonság" },
+            { ja: "暗号化", fr: "Chiffrement", es: "Cifrado", no: "Kryptering", it: "Crittografia", de: "Verschlüsselung", en: "Encryption", hu: "Titkosítás" },
+            { ja: "匿名性", fr: "Anonymat", es: "Anonimato", no: "Anonymitet", it: "Anonimato", de: "Anonymität", en: "Anonymity", hu: "Anonimitás" },
+            { ja: "メッセージ", fr: "Message", es: "Mensaje", no: "Melding", it: "Messaggio", de: "Nachricht", en: "Message", hu: "Üzenet" },
+            { ja: "通話", fr: "Appel", es: "Llamada", no: "Anrop", it: "Chiamata", de: "Anruf", en: "Call", hu: "Hívás" },
+            { ja: "ファイル", fr: "Fichier", es: "Archivo", no: "Fil", it: "File", de: "Datei", en: "File", hu: "Fájl" },
+            { ja: "連絡先", fr: "Contact", es: "Contacto", no: "Kontakt", it: "Contatto", de: "Kontakt", en: "Contact", hu: "Kapcsolat" },
+            { ja: "グループ", fr: "Groupe", es: "Grupo", no: "Gruppe", it: "Gruppo", de: "Gruppe", en: "Group", hu: "Csoport" },
+            { ja: "プロフィール", fr: "Profil", es: "Perfil", no: "Profil", it: "Profilo", de: "Profil", en: "Profile", hu: "Profil" },
+            { ja: "設定", fr: "Paramètre", es: "Configuración", no: "Innstilling", it: "Impostazione", de: "Einstellung", en: "Setting", hu: "Beállítás" },
+            { ja: "保護", fr: "Protection", es: "Protección", no: "Beskyttelse", it: "Protezione", de: "Schutz", en: "Protection", hu: "Védelem" },
+            { ja: "機密性", fr: "Confidentialité", es: "Confidencialidad", no: "Konfidensialitet", it: "Riservatezza", de: "Vertraulichkeit", en: "Confidentiality", hu: "Bizalmasság" },
+            { ja: "データ", fr: "Données", es: "Datos", no: "Data", it: "Dati", de: "Daten", en: "Data", hu: "Adatok" },
+            { ja: "サーバー", fr: "Serveur", es: "Servidor", no: "Tjener", it: "Server", de: "Server", en: "Server", hu: "Szerver" },
+            { ja: "コード", fr: "Code", es: "Código", no: "Kode", it: "Codice", de: "Code", en: "Code", hu: "Kód" },
+            { ja: "キー", fr: "Clé", es: "Clave", no: "Nøkkel", it: "Chiave", de: "Schlüssel", en: "Key", hu: "Kulcs" },
+            { ja: "アクセス", fr: "Accès", es: "Acceso", no: "Tilgang", it: "Accesso", de: "Zugang", en: "Access", hu: "Hozzáférés" },
+            { ja: "ユーザー", fr: "Utilisateur", es: "Usuario", no: "Bruker", it: "Utente", de: "Benutzer", en: "User", hu: "Felhasználó" },
+            { ja: "アイデンティティ", fr: "Identité", es: "Identidad", no: "Identitet", it: "Identità", de: "Identität", en: "Identity", hu: "Identitás" },
+            { ja: "検証", fr: "Vérification", es: "Verificación", no: "Verifisering", it: "Verifica", de: "Verifizierung", en: "Verification", hu: "Ellenőrzés" },
+            { ja: "安全", fr: "Sûr", es: "Seguro", no: "Sikker", it: "Sicuro", de: "Sicher", en: "Safe", hu: "Biztonságos" },
+            { ja: "プライベート", fr: "Privé", es: "Privado", no: "Privat", it: "Privato", de: "Privat", en: "Private", hu: "Privát" },
+            { ja: "デジタル", fr: "Numérique", es: "Digital", no: "Digital", it: "Digitale", de: "Digital", en: "Digital", hu: "Digitális" },
+            { ja: "コミュニケーション", fr: "Communication", es: "Comunicación", no: "Kommunikasjon", it: "Comunicazione", de: "Kommunikation", en: "Communication", hu: "Kommunikáció" },
+            { ja: "ネットワーク", fr: "Réseau", es: "Red", no: "Nettverk", it: "Rete", de: "Netzwerk", en: "Network", hu: "Hálózat" },
+            { ja: "インターネット", fr: "Internet", es: "Internet", no: "Internett", it: "Internet", de: "Internet", en: "Internet", hu: "Internet" },
+            { ja: "アプリケーション", fr: "Application", es: "Aplicación", no: "Applikasjon", it: "Applicazione", de: "Anwendung", en: "Application", hu: "Alkalmazás" },
+            { ja: "サービス", fr: "Service", es: "Servicio", no: "Tjeneste", it: "Servizio", de: "Dienst", en: "Service", hu: "Szolgáltatás" },
+            { ja: "プラットフォーム", fr: "Plateforme", es: "Plataforma", no: "Plattform", it: "Piattaforma", de: "Plattform", en: "Platform", hu: "Platform" },
+            { ja: "スイス", fr: "Suisse", es: "Suiza", no: "Sveits", it: "Svizzera", de: "Schweiz", en: "Switzerland", hu: "Svájc" },
+            { ja: "法規制", fr: "Législation", es: "Legislación", no: "Lovgivning", it: "Legislazione", de: "Gesetzgebung", en: "Legislation", hu: "Jogszabály" },
+            { ja: "準拠", fr: "Conformité", es: "Cumplimiento", no: "Overholdelse", it: "Conformità", de: "Einhaltung", en: "Compliance", hu: "Megfelelés" },
+            { ja: "透明性", fr: "Transparence", es: "Transparencia", no: "Transparens", it: "Trasparenza", de: "Transparenz", en: "Transparency", hu: "Átláthatóság" },
+            { ja: "オープンソース", fr: "Open Source", es: "Código abierto", no: "Åpen kilde", it: "Open Source", de: "Open Source", en: "Open Source", hu: "Nyílt forráskód" },
+            { ja: "監査", fr: "Audit", es: "Auditoría", no: "Revisjon", it: "Revisione", de: "Prüfung", en: "Audit", hu: "Ellenőrzés" },
+            { ja: "脆弱性", fr: "Vulnérabilité", es: "Vulnerabilidad", no: "Sårbarhet", it: "Vulnerabilità", de: "Schwachstelle", en: "Vulnerability", hu: "Sebezhetőség" },
+            { ja: "アップデート", fr: "Mise à jour", es: "Actualización", no: "Oppdatering", it: "Aggiornamento", de: "Update", en: "Update", hu: "Frissítés" },
+            { ja: "バックアップ", fr: "Sauvegarde", es: "Copia de seguridad", no: "Sikkerhetskopi", it: "Backup", de: "Backup", en: "Backup", hu: "Biztonsági mentés" },
+            { ja: "復元", fr: "Restauration", es: "Restauración", no: "Gjenoppretting", it: "Ripristino", de: "Wiederherstellung", en: "Restoration", hu: "Helyreállítás" },
+            { ja: "同期", fr: "Synchronisation", es: "Sincronización", no: "Synkronisering", it: "Sincronizzazione", de: "Synchronisation", en: "Synchronization", hu: "Szinkronizálás" },
+            { ja: "共有", fr: "Partage", es: "Compartir", no: "Deling", it: "Condivisione", de: "Teilen", en: "Sharing", hu: "Megosztás" },
+            { ja: "位置", fr: "Localisation", es: "Ubicación", no: "Posisjon", it: "Posizione", de: "Standort", en: "Location", hu: "Hely" },
+            { ja: "品質", fr: "Qualité", es: "Calidad", no: "Kvalitet", it: "Qualità", de: "Qualität", en: "Quality", hu: "Minőség" },
+            { ja: "信頼性", fr: "Fiabilité", es: "Fiabilidad", no: "Pålitelighet", it: "Affidabilità", de: "Zuverlässigkeit", en: "Reliability", hu: "Megbízhatóság" },
+            { ja: "速度", fr: "Vitesse", es: "Velocidad", no: "Hastighet", it: "Velocità", de: "Geschwindigkeit", en: "Speed", hu: "Sebesség" },
+            { ja: "効率", fr: "Efficacité", es: "Eficiencia", no: "Effektivitet", it: "Efficienza", de: "Effizienz", en: "Efficiency", hu: "Hatékonyság" },
+            { ja: "自由", fr: "Liberté", es: "Libertad", no: "Frihet", it: "Libertà", de: "Freiheit", en: "Freedom", hu: "Szabadság" },
+            { ja: "権利", fr: "Droit", es: "Derecho", no: "Rettighet", it: "Diritto", de: "Recht", en: "Right", hu: "Jog" },
+            { ja: "敬意", fr: "Respect", es: "Respeto", no: "Respekt", it: "Rispetto", de: "Respekt", en: "Respect", hu: "Tisztelet" }
+        ];
+
+        const encouragementMessages = [
+            "🎉 すばらしい! 🎁",
+            "🏔️ 完璧! あなたは正しい道を進んでいます! 🏔️",
+            "🔐 素晴らしい! プライバシーのエキスパート! 🔐",
+            "💎 優秀! とてもエレガント! 💎",
+            "🌿 美しい! あなたは速く学びます! 🌿",
+            "✨ すばらしい! そのまま続けてください! ✨",
+            "🎊 スーパー! これは素晴らしいです! 🎊",
+            "🤍 とても素敵! あなたは素晴らしいです! 🤍",
+            "🏅 強力! とても賢い! 🏅",
+            "🌟 輝かしい! あなたはとても素晴らしいです! 🌟"
+        ];
+
+        let currentIndex = 0;
+        let score = 0;
+        let shuffledWords = [];
+
+        function shuffle(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
+        function initGame() {
+            shuffledWords = shuffle(words);
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const word = shuffledWords[currentIndex];
+            document.getElementById('word-question').textContent = word.ja;
+            document.getElementById('question-counter').textContent = `質問: ${currentIndex + 1} / ${words.length}`;
+            
+            const progress = ((currentIndex + 1) / words.length) * 100;
+            document.getElementById('progress').style.width = `${progress}%`;
+
+            const languages = [
+                { flag: '🇫🇷', code: 'fr', name: 'フランス語' }, { flag: '🇪🇸', code: 'es', name: 'スペイン語' },
+                { flag: '🇩🇪', code: 'de', name: 'ドイツ語' }, { flag: '🇬🇧', code: 'en', name: '英語' },
+                { flag: '🇮🇹', code: 'it', name: 'イタリア語' }, { flag: '🇭🇺', code: 'hu', name: 'ハンガリー語' }
+            ];
+
+            const shuffledLanguages = shuffle(languages);
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            shuffledLanguages.forEach(lang => {
+                const button = document.createElement('button');
+                button.className = 'option-btn';
+                button.textContent = `${lang.flag} ${word[lang.code]}`;
+                button.onclick = (e) => selectAnswer(lang, e);
+                optionsContainer.appendChild(button);
+            });
+
+            document.getElementById('feedback').style.display = 'none';
+            document.getElementById('next-btn').classList.add('hidden');
+        }
+
+        function selectAnswer(language, event) {
+            const word = shuffledWords[currentIndex];
+
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            event.target.classList.add('selected');
+            buttons.forEach(btn => btn.disabled = true);
+
+            const feedback = document.getElementById('feedback');
+            feedback.style.display = 'block';
+
+            const randomEncouragement = encouragementMessages[Math.floor(Math.random() * encouragementMessages.length)];
+            document.getElementById('encouragement').textContent = randomEncouragement;
+
+            const translationsDiv = document.getElementById('translations');
+            translationsDiv.innerHTML = `
+                <strong>日本語:</strong> ${word.ja}<br>
+                <span style="font-size: 1.1rem;">${language.flag}</span> <strong>${language.name}:</strong> ${word[language.code]}<br><br>
+                <em>すべてのバージョン:</em><br>
+                🇫🇷 ${word.fr} • 🇪🇸 ${word.es} • 🇩🇪 ${word.de} • 🇬🇧 ${word.en} • 🇮🇹 ${word.it} • 🇭🇺 ${word.hu}
+            `;
+
+            score++;
+            document.getElementById('score-display').textContent = `スコア: ${score}`;
+
+            const nextBtn = document.getElementById('next-btn');
+            if (currentIndex < words.length - 1) {
+                nextBtn.textContent = '次へ ➡️';
+                nextBtn.classList.remove('hidden');
+                nextBtn.onclick = () => { currentIndex++; loadQuestion(); };
+            } else {
+                nextBtn.textContent = '結果を見る 🏁';
+                nextBtn.classList.remove('hidden');
+                nextBtn.onclick = showFinalScreen;
+            }
+        }
+
+        function showFinalScreen() {
+            document.getElementById('game-area').style.display = 'none';
+            const finalScreen = document.getElementById('final-screen');
+            finalScreen.classList.add('active');
+            document.getElementById('final-score').textContent = `${score}/${words.length}`;
+        }
+
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('live-date').textContent = now.toLocaleDateString('ja-JP', dateOptions);
+            document.getElementById('live-clock').textContent = now.toLocaleTimeString('ja-JP', { hour12: false });
+        }
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+
+        document.addEventListener('DOMContentLoaded', initGame);
+    </script>
+</body>
+</html>
