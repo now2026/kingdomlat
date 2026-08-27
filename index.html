@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Realms without borders. Nature, myth, and silence. A privacy-first, accessible, and zero-tracking digital sanctuary.">
+  <title>kingdom.lat · realms of stone & spirit</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌳</text></svg>">
+  <style>
+    /* === CORE VARIABLES & RESET === */
+    :root { 
+      --bg: #0A192F; 
+      --text: #FFFAFA; 
+      --text-muted: #B0C4DE;
+      --border: #1E3A5F; 
+      --accent: #7AB3CC;
+      --focus-ring: #FFFAFA;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    /* === ACCESSIBILITY: SKIP LINK === */
+    .skip-link {
+      position: absolute; top: -50px; left: 0; background: var(--accent); color: var(--bg);
+      padding: 12px 24px; text-decoration: none; font-weight: 700; z-index: 1000;
+      transition: top 0.3s ease; border-radius: 0 0 8px 0;
+    }
+    .skip-link:focus { top: 0; outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+
+    /* === BASE STYLES === */
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7; padding: 2rem 1.5rem; text-align: center;
+    }
+
+    /* === WELCOME BOX (Genius & Elegant) === */
+    .welcome-box {
+      max-width: 700px; margin: 0 auto 2.5rem; padding: 1.5rem;
+      background: rgba(30, 58, 95, 0.3); backdrop-filter: blur(4px);
+      border: 1px solid var(--border); border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .welcome-title {
+      font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px;
+      color: var(--accent); margin-bottom: 1rem; font-weight: 600;
+    }
+    .welcome-langs {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem 1.5rem;
+      font-size: 1.1rem; font-weight: 500; color: var(--text);
+    }
+    .welcome-langs span { opacity: 0.9; transition: opacity 0.2s; }
+    .welcome-langs span:hover { opacity: 1; text-shadow: 0 0 8px rgba(255,250,250,0.3); }
+
+    .subtitle { 
+      font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2.5rem; 
+      max-width: 600px; margin-inline: auto;
+    }
+
+    /* === PORTAL GRID === */
+    .portal-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem; max-width: 900px; margin: 0 auto 3rem;
+    }
+    .portal-wrapper {
+      display: flex; flex-direction: column; gap: 0.8rem;
+    }
+    .portal-card {
+      border: 1px solid var(--border); padding: 1.2rem; border-radius: 10px;
+      text-decoration: none; color: var(--text); display: block;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      text-align: left; position: relative;
+    }
+    .portal-card:hover, .portal-card:focus-visible {
+      transform: translateY(-3px); background: rgba(255,255,255,0.04); 
+      border-color: var(--accent); outline: none;
+    }
+    /* High visibility focus for keyboard users */
+    .portal-card:focus-visible {
+      outline: 3px solid var(--focus-ring); outline-offset: 3px;
+    }
+
+    .lang-badge {
+      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px;
+      padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block;
+      margin-bottom: 0.6rem; font-weight: 700;
+    }
+    .lang-badge.en { background: rgba(122, 179, 204, 0.2); color: #B0E0E6; border: 1px solid rgba(122, 179, 204, 0.4); }
+    .lang-badge.fi { background: rgba(255, 250, 250, 0.1); color: #FFFAFA; border: 1px solid rgba(255, 250, 250, 0.3); }
+
+    .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.5rem; }
+    .card-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem; }
+
+    /* === ACTION BUTTONS === */
+    .action-row { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+    .listen-btn {
+      background: transparent; color: var(--accent); border: 1px solid var(--accent);
+      border-radius: 20px; padding: 0.4rem 1rem; font-size: 0.8rem; font-weight: 600;
+      cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 0.4rem;
+    }
+    .listen-btn:hover, .listen-btn:focus-visible {
+      background: var(--accent); color: var(--bg); outline: 2px solid var(--focus-ring); outline-offset: 2px;
+    }
+    .listen-btn[aria-pressed="true"] {
+      background: var(--text); color: var(--bg); border-color: var(--text);
+    }
+
+    /* === DYNAMIC SECTION & MANIFESTO === */
+    #dynamic-section {
+      max-width: 800px; margin: 0 auto 2rem; padding: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .json-title {
+      font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px;
+      margin-bottom: 1rem; color: var(--accent); font-weight: 600;
+    }
+    .json-item { margin: 0.75rem 0; text-align: left; max-width: 400px; margin-inline: auto; }
+    .json-link {
+      color: var(--text); text-decoration: none; font-weight: 500;
+      border-bottom: 1px dotted var(--accent); padding-bottom: 2px; transition: all 0.2s;
+    }
+    .json-link:hover, .json-link:focus-visible {
+      color: var(--accent); border-bottom-style: solid; outline: 2px solid var(--focus-ring); outline-offset: 4px;
+    }
+
+    .manifesto {
+      max-width: 700px; margin: 3rem auto 1rem; padding: 1.5rem;
+      font-size: 0.85rem; line-height: 1.8; color: var(--text-muted);
+      text-align: left; border-top: 1px dashed var(--border);
+    }
+    .manifesto h3 {
+      font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;
+      margin-bottom: 1rem; color: var(--text); text-align: center; font-weight: 600;
+    }
+    .manifesto p { margin: 0.8rem 0; padding-left: 1rem; border-left: 2px solid var(--border); }
+    .manifesto strong { color: var(--text); font-weight: 600; }
+    .manifesto .divider {
+      text-align: center; margin: 1.5rem 0; opacity: 0.6; letter-spacing: 4px; font-size: 1.2rem; border: none; padding: 0;
+    }
+
+    /* === FOOTER === */
+    .footer {
+      margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+      font-size: 0.8rem; color: var(--text-muted);
+    }
+    .footer a { color: var(--text); text-decoration: none; margin: 0 0.6rem; font-weight: 500; transition: color 0.2s; }
+    .footer a:hover, .footer a:focus-visible { color: var(--accent); text-decoration: underline; outline: none; }
+    .privacy-badge {
+      display: inline-block; margin-top: 1rem; padding: 0.4rem 1rem;
+      background: rgba(122, 179, 204, 0.1); border: 1px solid rgba(122, 179, 204, 0.3);
+      border-radius: 20px; font-size: 0.75rem; letter-spacing: 0.5px;
+    }
+
+    /* === RESPONSIVE & ACCESSIBILITY === */
+    @media (prefers-reduced-motion: reduce) { 
+      * { transition: none !important; animation: none !important; } 
+    }
+    @media (max-width: 600px) {
+      body { padding: 1.5rem 1rem; }
+      .portal-grid { grid-template-columns: 1fr; }
+      .welcome-langs { gap: 0.6rem 1rem; font-size: 1rem; }
+      .manifesto { font-size: 0.8rem; padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Accessibility: Skip to main content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <main id="main-content">
+    
+    <!-- Genius Welcome Box -->
+    <div class="welcome-box" role="region" aria-label="Multilingual welcome message">
+      <div class="welcome-title">🌳 A Sanctuary of Silence & Spirit 🌳</div>
+      <div class="welcome-langs">
+        <span lang="fi">Tervetuloa</span>
+        <span lang="da">Velkommen</span>
+        <span lang="nl">Welkom</span>
+        <span lang="pl">Witamy</span>
+        <span lang="ga">Fáilte</span>
+        <span lang="gd">Fàilte</span>
+      </div>
+    </div>
+
+    <p class="subtitle">realms without borders · nature, myth & pure digital sovereignty</p>
+    
+    <!-- Bilingual Portal Grid -->
+    <div class="portal-grid" role="list">
+      
+      <!-- 1. Kingdom of Gems -->
+      <div class="portal-wrapper" role="listitem">
+        <article class="portal-card">
+          <span class="lang-badge en">English</span>
+          <div class="card-title">🫐 Kingdom of Gems</div>
+          <p class="card-desc">A curated digital archive of earth's oldest memories, preserved with zero tracking and absolute respect for your privacy.</p>
+          <div class="action-row">
+            <a href="kingdom-of-gems.html" class="json-link">Enter Realm ↗</a>
+            <button class="listen-btn" aria-label="Listen to English description" onclick="toggleSpeech(this, 'en-US', 'Kingdom of Gems. A curated digital archive of earth\'s oldest memories, preserved with zero tracking and absolute respect for your privacy.')">
+              🔊 Listen
+            </button>
+          </div>
+        </article>
+        <article class="portal-card">
+          <span class="lang-badge fi">Suomi</span>
+          <div class="card-title">🫐 Jalokivien Valtakunta</div>
+          <p class="card-desc">Maapallon vanhimpia muistoja kuratoitu digitaalinen arkisto, säilytetty ilman seurantaa ja ehdottomalla kunnioituksella yksityisyyttäsi kohtaan.</p>
+          <div class="action-row">
+            <a href="kingdom-of-gems.html" class="json-link">Astua valtakuntaan ↗</a>
+            <button class="listen-btn" aria-label="Kuuntele suomenkielinen kuvaus" onclick="toggleSpeech(this, 'fi-FI', 'Jalokivien valtakunta. Maapallon vanhimpia muistoja kuratoitu digitaalinen arkisto, säilytetty ilman seurantaa ja ehdottomalla kunnioituksella yksityisyyttäsi kohtaan.')">
+              🔊 Kuuntele
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <!-- 2. Kingdom of Anime -->
+      <div class="portal-wrapper" role="listitem">
+        <article class="portal-card">
+          <span class="lang-badge en">English</span>
+          <div class="card-title">🪭 Kingdom of Anime</div>
+          <p class="card-desc">Where art meets soul. A respectful, ad-free sanctuary celebrating the profound storytelling of Japanese animation.</p>
+          <div class="action-row">
+            <a href="anime.html" class="json-link">Enter Realm ↗</a>
+            <button class="listen-btn" aria-label="Listen to English description" onclick="toggleSpeech(this, 'en-US', 'Kingdom of Anime. Where art meets soul. A respectful, ad-free sanctuary celebrating the profound storytelling of Japanese animation.')">
+              🔊 Listen
+            </button>
+          </div>
+        </article>
+        <article class="portal-card">
+          <span class="lang-badge fi">Suomi</span>
+          <div class="card-title">🪭 Animén Valtakunta</div>
+          <p class="card-desc">Missä taide kohtaa sielun. Kunnioittava, mainokseton pyhäkkö, joka juhlii japanilaisen animaation syvällistä tarinankerrontaa.</p>
+          <div class="action-row">
+            <a href="anime.html" class="json-link">Astua valtakuntaan ↗</a>
+            <button class="listen-btn" aria-label="Kuuntele suomenkielinen kuvaus" onclick="toggleSpeech(this, 'fi-FI', 'Animén valtakunta. Missä taide kohtaa sielun. Kunnioittava, mainokseton pyhäkkö, joka juhlii japanilaisen animaation syvällistä tarinankerrontaa.')">
+              🔊 Kuuntele
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <!-- 3. Kingdom of Southeast Asia -->
+      <div class="portal-wrapper" role="listitem">
+        <article class="portal-card">
+          <span class="lang-badge en">English</span>
+          <div class="card-title">🌏 Kingdom of Southeast Asia</div>
+          <p class="card-desc">Six nations breathing as one lung. A tribute to the lifeblood of civilization, ancient traditions, and harmonious coexistence.</p>
+          <div class="action-row">
+            <a href="southeast-asia-kingdom.html" class="json-link">Enter Realm ↗</a>
+            <button class="listen-btn" aria-label="Listen to English description" onclick="toggleSpeech(this, 'en-US', 'Kingdom of Southeast Asia. Six nations breathing as one lung. A tribute to the lifeblood of civilization, ancient traditions, and harmonious coexistence.')">
+              🔊 Listen
+            </button>
+          </div>
+        </article>
+        <article class="portal-card">
+          <span class="lang-badge fi">Suomi</span>
+          <div class="card-title">🌏 Kaakkois-Aasian Valtakunta</div>
+          <p class="card-desc">Kuusi kansakuntaa hengittää yhtenä keuhkona. Kunnianosoitus sivilisaation elinvoimalle, muinaisille perinteille ja harmoniselle rinnakkaiselolle.</p>
+          <div class="action-row">
+            <a href="southeast-asia-kingdom.html" class="json-link">Astua valtakuntaan ↗</a>
+            <button class="listen-btn" aria-label="Kuuntele suomenkielinen kuvaus" onclick="toggleSpeech(this, 'fi-FI', 'Kaakkois-Aasian valtakunta. Kuusi kansakuntaa hengittää yhtenä keuhkona. Kunnianosoitus sivilisaation elinvoimalle, muinaisille perinteille ja harmoniselle rinnakkaiselolle.')">
+              🔊 Kuuntele
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <!-- 4. Kingdom of Lakes -->
+      <div class="portal-wrapper" role="listitem">
+        <article class="portal-card">
+          <span class="lang-badge en">English</span>
+          <div class="card-title">🌊 Kingdom of Lakes</div>
+          <p class="card-desc">Where water breathes like the eyes of the earth. A silent tribute to Peipus, Ohrid, Titicaca, and the sacred waters of the world.</p>
+          <div class="action-row">
+            <a href="lakes.html" class="json-link">Enter Realm ↗</a>
+            <button class="listen-btn" aria-label="Listen to English description" onclick="toggleSpeech(this, 'en-US', 'Kingdom of Lakes. Where water breathes like the eyes of the earth. A silent tribute to Peipus, Ohrid, Titicaca, and the sacred waters of the world.')">
+              🔊 Listen
+            </button>
+          </div>
+        </article>
+        <article class="portal-card">
+          <span class="lang-badge fi">Suomi</span>
+          <div class="card-title">🌊 Järvien Valtakunta</div>
+          <p class="card-desc">Missä vesi hengittää kuin maan silmät. Hiljainen kunnianosoitus Peipukselle, Ohridille, Titicacalle ja maailman pyhille vesille.</p>
+          <div class="action-row">
+            <a href="lakes.html" class="json-link">Astua valtakuntaan ↗</a>
+            <button class="listen-btn" aria-label="Kuuntele suomenkielinen kuvaus" onclick="toggleSpeech(this, 'fi-FI', 'Järvien valtakunta. Missä vesi hengittää kuin maan silmät. Hiljainen kunnianosoitus Peipukselle, Ohridille, Titicacalle ja maailman pyhille vesille.')">
+              🔊 Kuuntele
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <!-- 5. UP Tool -->
+      <div class="portal-wrapper" role="listitem">
+        <article class="portal-card">
+          <span class="lang-badge en">English</span>
+          <div class="card-title">🦌 UP Tool</div>
+          <p class="card-desc">Extract text locally in your browser. No tracking, 100+ languages, with copy, translate, read aloud, and save features.</p>
+          <div class="action-row">
+            <a href="/up/up.html" class="json-link" target="_blank" rel="noopener noreferrer">Launch Tool ↗</a>
+            <button class="listen-btn" aria-label="Listen to English description" onclick="toggleSpeech(this, 'en-US', 'UP Tool. Extract text locally in your browser. No tracking, over one hundred languages, with copy, translate, read aloud, and save features.')">
+              🔊 Listen
+            </button>
+          </div>
+        </article>
+        <article class="portal-card">
+          <span class="lang-badge fi">Suomi</span>
+          <div class="card-title">🦌 UP-työkalu</div>
+          <p class="card-desc">Pura teksti paikallisesti selaimessasi. Ei seurantaa, yli 100 kieltä, sekä kopioi, käännä, lue ääneen ja tallenna -ominaisuudet.</p>
+          <div class="action-row">
+            <a href="/up/up.html" class="json-link" target="_blank" rel="noopener noreferrer">Käynnistä työkalu ↗</a>
+            <button class="listen-btn" aria-label="Kuuntele suomenkielinen kuvaus" onclick="toggleSpeech(this, 'fi-FI', 'UP-työkalu. Pura teksti paikallisesti selaimessasi. Ei seurantaa, yli sata kieltä, sekä kopioi, käännä, lue ääneen ja tallenna -ominaisuudet.')">
+              🔊 Kuuntele
+            </button>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <!-- JSON-powered resources section -->
+    <section id="dynamic-section" aria-live="polite">
+      <h2 class="json-title">🧶 Trusted Resources</h2>
+      <div id="json-content"></div>
+    </section>
+
+    <!-- Poetic Manifesto (Translated to English, maintaining the profound tone) -->
+    <section class="manifesto" aria-label="The Kingdom Manifesto">
+      <h3>🌳 Your Realm 🌳</h3>
+      <p><strong>"These are not mere websites. This is a realm where myths are whispered, lakes breathe like the eyes of the earth, and gems age like thousand-year-old bonsai trunks."</strong></p>
+      
+      <p>❄️ <strong>Nordic:</strong> The silence of glaciers, whispering wisdom. Strength is not a shout, but the howl of a lone wolf under the aurora.</p>
+      
+      <p>🦢 <strong>Baltic:</strong> Lake Peipus… a living geographical scar. "We are small, yet our roots drink the blood of time."</p>
+      
+      <p>🪭 <strong>Balkans:</strong> Lake Ohrid… a mosaic where every stone weeps in its own language.</p>
+      
+      <p>🌏 <strong>Latin America:</strong> Lake Titicaca… the water is not H2O, but the first milk of the gods.</p>
+      
+      <p>🌳 <strong>Japan:</strong> A monk bows to a thousand-year-old tree. Patience is not a virtue here, but the pulse itself.</p>
+      
+      <p>🌧️ <strong>China:</strong> West Lake (Xi Hu)… a brush whispering to silk: "Be a painting, if only for a moment."</p>
+      
+      <p>🫐 <strong>Southeast Asia:</strong> Six nations breathe as one lung. Rice is not food, but the lifeblood of civilization.</p>
+      
+      <p>🐟 <strong>Thailand:</strong> Lake Songkhla… where fresh and salt water meet, and Buddhists and Muslims share a single boat.</p>
+      
+      <div class="divider">🎀 🌊 🗻 🦌 ❄️ 🪭 🐟 🌧️ 🫐</div>
+      
+      <p><strong>🦢 The Eye of the Kingdom:</strong> Extract text from images · locally in the browser · zero tracking · 100+ languages · copy, translate, read aloud, save.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div>
+        <a href="https://nordic.mom" target="_blank" rel="noopener noreferrer">nordic.mom</a> · 
+        <a href="https://mom.lat" target="_blank" rel="noopener noreferrer">mom.lat</a> · 
+        <a href="https://noty.lol" target="_blank" rel="noopener noreferrer">noty.lol</a> · 
+        <a href="https://goodnight.mom" target="_blank" rel="noopener noreferrer">goodnight.mom</a>
+      </div>
+      <div class="privacy-badge">
+        🔒 No tracking · No cookies · No ads · Pure HTML/CSS/JS · WCAG Accessible
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // === 1. FALLBACK & JSON RESOURCE LOADER ===
+    const fallbackLinks = [
+      { text: "Nordic Archive", url: "https://nordic.mom" },
+      { text: "Baltic Heritage", url: "https://baltic.lol" },
+      { text: "Privacy Tools", url: "https://proton.me" }
+    ];
+
+    function renderLinks(items) {
+      const container = document.getElementById('json-content');
+      let html = '';
+      items.forEach(item => {
+        html += `<div class="json-item">
+          <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="json-link">${item.text} ↗</a>
+        </div>`;
+      });
+      container.innerHTML = html;
+    }
+
+    // Show fallback immediately for maximum speed and reliability
+    renderLinks(fallbackLinks);
+
+    // Attempt to load JSON asynchronously without blocking
+    async function tryLoadJSON() {
+      try {
+        const res = await fetch('/data.json');
+        if (!res.ok) return; 
+        const data = await res.json();
+        if (data.items && data.items.length > 0) {
+          renderLinks(data.items); 
+        }
+      } catch (e) {
+        // Silent fail: fallback remains visible (Zero console spam, high reliability)
+      }
+    }
+    document.addEventListener('DOMContentLoaded', tryLoadJSON);
+
+    // === 2. GENIUS, PRIVACY-FIRST SPEECH SYNTHESIS ===
+    // Uses native browser API. Zero data leaves the device. Zero third-party scripts.
+    function toggleSpeech(btn, lang, text) {
+      const synth = window.speechSynthesis;
+      
+      // If already speaking this button, stop it
+      if (btn.getAttribute('aria-pressed') === 'true') {
+        synth.cancel();
+        btn.setAttribute('aria-pressed', 'false');
+        btn.innerHTML = lang === 'en-US' ? '🔊 Listen' : '🔊 Kuuntele';
+        return;
+      }
+
+      // Stop any ongoing speech to prevent overlapping audio (critical for accessibility)
+      synth.cancel();
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang;
+      utterance.rate = 0.9; // Slightly slower for better comprehension (WCAG best practice)
+      utterance.pitch = 1;
+
+      utterance.onend = () => {
+        btn.setAttribute('aria-pressed', 'false');
+        btn.innerHTML = lang === 'en-US' ? '🔊 Listen' : '🔊 Kuuntele';
+      };
+
+      utterance.onerror = () => {
+        btn.setAttribute('aria-pressed', 'false');
+        btn.innerHTML = lang === 'en-US' ? '🔊 Listen' : '🔊 Kuuntele';
+      };
+
+      synth.speak(utterance);
+      btn.setAttribute('aria-pressed', 'true');
+      btn.innerHTML = '⏹️ Stop';
+    }
+
+    // Cleanup speech if user navigates away or closes tab
+    window.addEventListener('beforeunload', () => {
+      window.speechSynthesis.cancel();
+    });
+  </script>
+</body>
+</html>
