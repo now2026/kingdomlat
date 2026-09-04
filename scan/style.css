@@ -1,0 +1,565 @@
+/* ============================================================
+   Design Variables
+   ============================================================ */
+:root {
+    /* Deep navy blue shades */
+    --bg-primary: #030812;      /* Main background - very deep navy */
+    --bg-secondary: #0A1628;    /* Secondary background - slightly lighter navy */
+    --bg-tertiary: #111F3A;     /* Frames background */
+    
+    /* Pure white */
+    --text-primary: #FFFFFF;    /* Main text - pure white */
+    --text-secondary: #E0E6ED;  /* Secondary text - white with slight gray */
+    
+    /* Borders and details */
+    --border-color: rgba(255, 255, 255, 0.15);
+    --border-focus: #FFFFFF;
+    
+    /* Functional colors */
+    --accent-color: #64C8FF;    /* Accent color (light blue) */
+    --success-color: #4ADE80;   /* Success color */
+    --error-color: #FF6B6B;     /* Error color */
+    
+    /* Spacing and sizes */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    
+    /* Fonts (system fonts only - no external resources) */
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ============================================================
+   Global Reset
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.8;
+    min-height: 100vh;
+    direction: ltr;
+    text-align: left;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   Skip Link (Accessibility)
+   ============================================================ */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-weight: 700;
+    z-index: 9999;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 10px;
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* ============================================================
+   Visually Hidden Elements (Screen readers only)
+   ============================================================ */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ============================================================
+   Top Bar: Date and Time
+   ============================================================ */
+.top-bar {
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing-xs) var(--spacing-md);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.live-info {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.separator {
+    opacity: 0.5;
+}
+
+/* ============================================================
+   Main Container
+   ============================================================ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+/* ============================================================
+   Frames
+   ============================================================ */
+.frame {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    transition: border-color 0.3s ease;
+}
+
+.frame:focus-within {
+    border-color: var(--text-primary);
+}
+
+.frame-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.frame-header h1,
+.frame-header h2 {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.3;
+}
+
+.frame-header h1 {
+    font-size: 1.75rem;
+}
+
+.frame-body {
+    color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.frame-body p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.frame-body strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+/* ============================================================
+   Listen Button
+   ============================================================ */
+.listen-btn {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 2px solid var(--text-primary);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-family);
+}
+
+.listen-btn:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.listen-btn:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.listen-btn:active {
+    transform: scale(0.98);
+}
+
+/* ============================================================
+   Input Area (Textarea)
+   ============================================================ */
+textarea {
+    width: 100%;
+    min-height: 250px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    font-family: 'Courier New', 'Consolas', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    resize: vertical;
+    direction: ltr;
+    text-align: left;
+    transition: border-color 0.2s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--text-primary);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.6;
+}
+
+.help-text {
+    margin-top: var(--spacing-sm);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+button {
+    font-family: var(--font-family);
+    cursor: pointer;
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.primary-btn {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.primary-btn:hover {
+    background-color: var(--text-secondary);
+    transform: translateY(-2px);
+}
+
+.primary-btn:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
+.secondary-btn:hover {
+    border-color: var(--text-primary);
+    background-color: var(--bg-secondary);
+}
+
+.secondary-btn:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* ============================================================
+   Results Frame
+   ============================================================ */
+.results-frame {
+    border: 2px solid var(--border-color);
+}
+
+.results-frame[hidden] {
+    display: none;
+}
+
+.placeholder-text {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: var(--spacing-lg);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.bottom-frame {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+    position: relative;
+}
+
+.footer-listen {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.feature-item {
+    background-color: var(--bg-tertiary);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+
+.feature-item strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.footer-meta {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 2;
+}
+
+.footer-meta p {
+    margin-bottom: 0.5rem;
+}
+
+.social-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-color);
+    transition: border-color 0.2s ease;
+    font-weight: 600;
+}
+
+.social-link:hover {
+    border-color: var(--text-primary);
+}
+
+.social-link:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* ============================================================
+   Responsive Design
+   ============================================================ */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .frame {
+        padding: var(--spacing-md);
+    }
+
+    .frame-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .frame-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .frame-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .listen-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer-listen {
+        position: static;
+        width: 100%;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    textarea {
+        min-height: 200px;
+        font-size: 0.875rem;
+    }
+
+    .live-info {
+        font-size: 0.7rem;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .separator {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.95rem;
+    }
+
+    .frame-header h1 {
+        font-size: 1.25rem;
+    }
+
+    .frame-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .feature-item {
+        font-size: 0.875rem;
+    }
+
+    .footer-meta {
+        font-size: 0.7rem;
+    }
+}
+
+/* ============================================================
+   User Preferences
+   ============================================================ */
+
+/* Reduced motion for those who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .frame,
+    .feature-item,
+    textarea {
+        border-width: 2px;
+    }
+
+    button,
+    .listen-btn {
+        border-width: 3px;
+    }
+}
+
+/* ============================================================
+   Focus States
+   ============================================================ */
+*:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* ============================================================
+   Print Styles
+   ============================================================ */
+@media print {
+    body {
+        background-color: #FFFFFF;
+        color: #000000;
+    }
+
+    .top-bar,
+    .listen-btn,
+    .actions {
+        display: none;
+    }
+
+    .frame {
+        border: 1px solid #000000;
+        page-break-inside: avoid;
+    }
+}
