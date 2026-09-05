@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fi" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paikallinen saavutettavuuden tarkistin. Tarkista HTML-koodi heti ja turvallisesti selaimessasi. Ei seurantaa, ei evästeitä, ei kolmansia osapuolia.">
+    <meta name="theme-color" content="#030812">
+    <title>Saavutettavuuden tarkistin 😁 | kingdom.lat</title>
+    
+    <!-- Link to stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation landmark for accessibility (Solves the missing <nav> warning) -->
+    <nav aria-label="Ohita navigointi">
+        <a href="#main-content" class="skip-link">Siirry pääsisältöön</a>
+    </nav>
+
+    <!-- Top bar: live date and time -->
+    <header class="top-bar" role="banner">
+        <div class="live-info" aria-live="polite" aria-atomic="true">
+            <span id="liveDate">Ladataan päivämäärää...</span>
+            <span class="separator">|</span>
+            <span id="liveClock">Ladataan aikaa...</span>
+        </div>
+    </header>
+
+    <main id="main-content" class="container" role="main">
+        
+        <!-- Frame 1: Welcome and purpose -->
+        <section class="frame" aria-labelledby="welcome-heading">
+            <div class="frame-header">
+                <h1 id="welcome-heading">🛡️ Paikallinen saavutettavuuden tarkistin</h1>
+                <button class="listen-btn" onclick="speakSection('welcome-content', 'fi-FI')" aria-label="Kuuntele tervetuloa-osio">
+                    🔊 Kuuntele
+                </button>
+            </div>
+            <div id="welcome-content" class="frame-body">
+                <p>Tervetuloa työkaluun, joka on rakennettu kunnioittaen täysin yksityisyyttäsi. Tämä työkalu toimii <strong>100 % selaimessasi</strong>. Koodia ei lähetetä ulkoiselle palvelimelle, ei evästeitä, ei seurantaohjelmia.</p>
+                <p>Suunniteltu erityisesti tukemaan vammaisia, näkövammaisia ja kuulovammaisia henkilöitä varmistaen korkeimmat selkeyden ja käytettävyyden standardit.</p>
+            </div>
+        </section>
+
+        <!-- Frame 2: Input and scan area -->
+        <section class="frame" aria-labelledby="input-heading">
+            <div class="frame-header">
+                <h2 id="input-heading">📝 Tarkistusalue</h2>
+                <button class="listen-btn" onclick="speakSection('input-content', 'fi-FI')" aria-label="Kuuntele tarkistusosio">
+                    🔊 Kuuntele
+                </button>
+            </div>
+            <div id="input-content" class="frame-body">
+                <label for="htmlInput" class="visually-hidden">Liitä HTML-koodi tähän tarkistusta varten</label>
+                <textarea id="htmlInput" placeholder="Liitä HTML-koodi tähän tarkistusta varten..." aria-describedby="input-help"></textarea>
+                <p id="input-help" class="help-text">💡 Vinkki: Voit kopioida sivun lähdekoodin (Näytä lähdekoodi) ja liittää sen tähän. Tietosi eivät koskaan poistu laitteestasi.</p>
+                
+                <div class="actions">
+                    <button type="button" id="checkBtn" class="primary-btn" aria-label="Aloita syötetyn koodin tarkistus">
+                        🔍 Aloita paikallinen tarkistus
+                    </button>
+                    <button type="button" id="clearBtn" class="secondary-btn" aria-label="Tyhjennä syötetty koodi">
+                        🗑️ Tyhjennä
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frame 3: Scan results (shown dynamically) -->
+        <section class="frame results-frame" id="resultsFrame" aria-labelledby="results-heading" hidden>
+            <div class="frame-header">
+                <h2 id="results-heading">📊 Tarkistustulokset</h2>
+                <button class="listen-btn" onclick="speakSection('resultsContent', 'fi-FI')" aria-label="Kuuntele tarkistustulokset">
+                    🔊 Kuuntele
+                </button>
+            </div>
+            <div id="resultsContent" class="frame-body">
+                <div id="resultsList" role="list" aria-label="Löydetyt virheet ja varoitukset">
+                    <p class="placeholder-text">Odotetaan tarkistuksen aloittamista...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frame 4: Explore Other Pages -->
+        <section class="frame explore-frame" aria-labelledby="explore-heading">
+            <div class="frame-header">
+                <h2 id="explore-heading">🌍 Tutustu muihin sivuihin</h2>
+                <button class="listen-btn" onclick="speakSection('explore-content', 'fi-FI')" aria-label="Kuuntele tutustu-osio">
+                    🔊 Kuuntele
+                </button>
+            </div>
+            <div id="explore-content" class="frame-body">
+                <p class="explore-intro">Tutustu kuratoituun kokoelmaamme kulttuurisivuista. Jokainen linkki avautuu uudessa ikkunassa.</p>
+                
+                <div class="explore-grid">
+                    <a href="finland.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Avaa Suomi-sivu uudessa ikkunassa">
+                        <span class="explore-icon">🗻</span>
+                        <span class="explore-text">Suomi</span>
+                    </a>
+                    <a href="denmark.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Avaa Tanska-sivu uudessa ikkunassa">
+                        <span class="explore-icon">🦢</span>
+                        <span class="explore-text">Tanska</span>
+                    </a>
+                    <a href="japan.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Avaa Japani-sivu uudessa ikkunassa">
+                        <span class="explore-icon">🫐</span>
+                        <span class="explore-text">Japani</span>
+                    </a>
+                    <a href="chine.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Avaa Kiina-sivu uudessa ikkunassa">
+                        <span class="explore-icon">🎉</span>
+                        <span class="explore-text">Kiina</span>
+                    </a>
+                    <a href="netherlands.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Avaa Alankomaat-sivu uudessa ikkunassa">
+                        <span class="explore-icon">🌷</span>
+                        <span class="explore-text">Alankomaat</span>
+                    </a>
+                    <a href="swiss.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Avaa Sveitsi-sivu uudessa ikkunassa">
+                        <span class="explore-icon">🤍</span>
+                        <span class="explore-text">Sveitsi</span>
+                    </a>
+                    <a href="iceland.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Avaa Islanti-sivu uudessa ikkunassa">
+                        <span class="explore-icon">🎀</span>
+                        <span class="explore-text">Islanti</span>
+                    </a>
+                </div>
+
+                <div class="explore-home">
+                    <a href="https://kingdom.lat" target="_blank" rel="noopener noreferrer" class="home-btn" aria-label="Palaa kingdom.lat-etusivulle uudessa ikkunassa">
+                        🏠 Palaa Kingdom.lat-sivustolle
+                    </a>
+                </div>
+
+                <p class="explore-note">🗻 Lisää kieliä tulossa pian...</p>
+            </div>
+        </section>
+
+        <!-- Frame 5: UP Tool (Finnish) -->
+        <section class="frame up-tool-frame fi-frame" aria-labelledby="up-tool-fi-heading">
+            <div class="frame-header">
+                <h2 id="up-tool-fi-heading">🌳 UP-työkalu <span class="lang-badge">🇫🇮 FI</span></h2>
+                <button class="listen-btn" onclick="speakSection('up-tool-fi-content', 'fi-FI')" aria-label="Kuuntele UP-työkalu-osio">
+                    🔊 Kuuntele
+                </button>
+            </div>
+            <div id="up-tool-fi-content" class="frame-body">
+                <p class="up-tool-desc">Pura teksti paikallisesti selaimessasi. Ei seurantaa, yli 100 kieltä, sekä kopioi, käännä, lue ääneen ja tallenna -ominaisuudet.</p>
+                <a href="https://www.kingdom.lat/up/up.html" target="_blank" rel="noopener noreferrer" class="up-tool-btn" aria-label="Käynnistä UP-työkalu uudessa ikkunassa">
+                    Käynnistä työkalu ↗
+                </a>
+            </div>
+        </section>
+
+        <!-- Frame 6: UP Tool (Swedish - kept for multi-language utility) -->
+        <section class="frame up-tool-frame se-frame" aria-labelledby="up-tool-se-heading">
+            <div class="frame-header">
+                <h2 id="up-tool-se-heading">🦌 UP-verktyg <span class="lang-badge">🇸🇪 SE</span></h2>
+                <button class="listen-btn" onclick="speakSection('up-tool-se-content', 'sv-SE')" aria-label="Kuuntele ruotsinkielinen UP-verktyg-osio">
+                    🔊 Kuuntele
+                </button>
+            </div>
+            <div id="up-tool-se-content" class="frame-body">
+                <p class="up-tool-desc">Extrahera text lokalt i din webbläsare. Ingen spårning, över 100 språk, med funktioner för att kopiera, översätta, läsa högt och spara.</p>
+                <a href="https://www.kingdom.lat/up/up.html" target="_blank" rel="noopener noreferrer" class="up-tool-btn" aria-label="Starta UP-verktyg i ett nytt fönster">
+                    Starta verktyg ↗
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Siirry ylös" title="Siirry ylös">
+        ⬆️
+    </button>
+
+    <!-- Bottom frame: features, rights, and contact -->
+    <footer class="bottom-frame" role="contentinfo">
+        <button class="listen-btn footer-listen" onclick="speakSection('footer-content', 'fi-FI')" aria-label="Kuuntele alatunnisteen sisältö">
+            🔊 Kuuntele ominaisuudet ja oikeudet
+        </button>
+        
+        <div id="footer-content" class="footer-grid">
+            <div class="feature-item">
+                <strong>🔒 Korkea yksityisyys:</strong> Ei seurantaa, ei evästeitä, ei kolmansia osapuolia.
+            </div>
+            <div class="feature-item">
+                <strong>⚡ Erittäin nopea:</strong> Välitön paikallinen käsittely ilman palvelimen odotusta.
+            </div>
+            <div class="feature-item">
+                <strong>♿ Saavutettavuus:</strong> Yhteensopiva ruudunlukuohjelmien ja näppäimistön kanssa.
+            </div>
+            <div class="feature-item">
+                <strong>🤍 Luotettava palvelu:</strong> Suunnittelu, joka kunnioittaa vierailijoita ja suojaa heidän tietojaan.
+            </div>
+        </div>
+
+        <div class="footer-meta">
+            <p>© Kaikki oikeudet pidätetään <strong>kingdom.lat</strong></p>
+            <p>Sivun luontipäivä: 5. syyskuuta 2026</p>
+            <p>Yhteydenotot ja päivitykset: 
+                <a href="https://bsky.app/profile/now2026new.bsky.social" target="_blank" rel="noopener noreferrer" class="social-link">
+                    @now2026new.bsky.social
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Embedded script for clock, date, and listen feature (no third parties) -->
+    <script>
+        // 1. Live clock and date
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('liveDate').textContent = now.toLocaleDateString('fi-FI', dateOptions);
+            document.getElementById('liveClock').textContent = now.toLocaleTimeString('fi-FI');
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // 2. Listen feature for each frame (Web Speech API - 100% local)
+        // Updated to accept a language parameter for accurate pronunciation
+        function speakSection(elementId, lang = 'fi-FI') {
+            window.speechSynthesis.cancel();
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            
+            const textToSpeak = element.innerText;
+            const utterance = new SpeechSynthesisUtterance(textToSpeak);
+            utterance.lang = lang; // Dynamically set language (fi-FI or sv-SE)
+            utterance.rate = 0.9;
+            utterance.pitch = 1;
+            
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Stop speech when pressing ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                window.speechSynthesis.cancel();
+            }
+        });
+    </script>
+
+    <!-- Main logic file -->
+    <script src="app.js"></script>
+
+</body>
+</html>
