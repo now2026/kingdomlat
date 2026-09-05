@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ローカルアクセシビリティチェッカー。ブラウザ内で即座に安全にHTMLコードをスキャン。追跡なし、Cookieなし、第三者なし。">
+    <meta name="theme-color" content="#030812">
+    <title>アクセシビリティチェッカー 😁 | kingdom.lat</title>
+    
+    <!-- Link to stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation landmark for accessibility (Solves the missing <nav> warning) -->
+    <nav aria-label="ナビゲーションをスキップ">
+        <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+    </nav>
+
+    <!-- Top bar: live date and time -->
+    <header class="top-bar" role="banner">
+        <div class="live-info" aria-live="polite" aria-atomic="true">
+            <span id="liveDate">日付を読み込み中...</span>
+            <span class="separator">|</span>
+            <span id="liveClock">時刻を読み込み中...</span>
+        </div>
+    </header>
+
+    <main id="main-content" class="container" role="main">
+        
+        <!-- Frame 1: Welcome and purpose -->
+        <section class="frame" aria-labelledby="welcome-heading">
+            <div class="frame-header">
+                <h1 id="welcome-heading">🛡️ ローカルアクセシビリティチェッカー</h1>
+                <button class="listen-btn" onclick="speakSection('welcome-content', 'ja-JP')" aria-label="ようこそセクションを聴く">
+                    🔊 聴く
+                </button>
+            </div>
+            <div id="welcome-content" class="frame-body">
+                <p>あなたのプライバシーを完全に尊重して作られたツールへようこそ。このツールは <strong>100% ブラウザ内で動作</strong>します。コードは外部サーバーに送信されず、Cookie も追跡ツールもありません。</p>
+                <p>障害を持つ方、視覚障害者、聴覚障害者をサポートするために特別に設計されており、明瞭さと使いやすさの最高基準を確保しています。</p>
+            </div>
+        </section>
+
+        <!-- Frame 2: Input and scan area -->
+        <section class="frame" aria-labelledby="input-heading">
+            <div class="frame-header">
+                <h2 id="input-heading">📝 スキャンエリア</h2>
+                <button class="listen-btn" onclick="speakSection('input-content', 'ja-JP')" aria-label="スキャンセクションを聴く">
+                    🔊 聴く
+                </button>
+            </div>
+            <div id="input-content" class="frame-body">
+                <label for="htmlInput" class="visually-hidden">スキャンするHTMLコードをここに貼り付けてください</label>
+                <textarea id="htmlInput" placeholder="スキャンするHTMLコードをここに貼り付けてください..." aria-describedby="input-help"></textarea>
+                <p id="input-help" class="help-text">💡 ヒント：ページのソースコード（ソースを表示）をコピーしてここに貼り付けることができます。あなたのデータがデバイスから離れることは決してありません。</p>
+                
+                <div class="actions">
+                    <button type="button" id="checkBtn" class="primary-btn" aria-label="入力されたコードのスキャンを開始">
+                        🔍 ローカルスキャンを開始
+                    </button>
+                    <button type="button" id="clearBtn" class="secondary-btn" aria-label="入力されたコードをクリア">
+                        🗑️ クリア
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frame 3: Scan results (shown dynamically) -->
+        <section class="frame results-frame" id="resultsFrame" aria-labelledby="results-heading" hidden>
+            <div class="frame-header">
+                <h2 id="results-heading">📊 スキャン結果</h2>
+                <button class="listen-btn" onclick="speakSection('resultsContent', 'ja-JP')" aria-label="スキャン結果を聴く">
+                    🔊 聴く
+                </button>
+            </div>
+            <div id="resultsContent" class="frame-body">
+                <div id="resultsList" role="list" aria-label="発見されたエラーと警告のリスト">
+                    <p class="placeholder-text">スキャン開始を待っています...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frame 4: Explore Other Pages -->
+        <section class="frame explore-frame" aria-labelledby="explore-heading">
+            <div class="frame-header">
+                <h2 id="explore-heading">🌍 他のページを探索</h2>
+                <button class="listen-btn" onclick="speakSection('explore-content', 'ja-JP')" aria-label="探索セクションを聴く">
+                    🔊 聴く
+                </button>
+            </div>
+            <div id="explore-content" class="frame-body">
+                <p class="explore-intro">厳選された文化ページのコレクションをご覧ください。各リンクは新しいウィンドウで開きます。</p>
+                
+                <div class="explore-grid">
+                    <a href="finland.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="新しいウィンドウでフィンランドページを開く">
+                        <span class="explore-icon">🗻</span>
+                        <span class="explore-text">フィンランド</span>
+                    </a>
+                    <a href="denmark.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="新しいウィンドウでデンマークページを開く">
+                        <span class="explore-icon">🦢</span>
+                        <span class="explore-text">デンマーク</span>
+                    </a>
+                    <a href="japan.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="新しいウィンドウで日本ページを開く">
+                        <span class="explore-icon">🫐</span>
+                        <span class="explore-text">日本</span>
+                    </a>
+                    <a href="chine.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="新しいウィンドウで中国ページを開く">
+                        <span class="explore-icon">🎉</span>
+                        <span class="explore-text">中国</span>
+                    </a>
+                    <a href="netherlands.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="新しいウィンドウでオランダページを開く">
+                        <span class="explore-icon">🌷</span>
+                        <span class="explore-text">オランダ</span>
+                    </a>
+                    <a href="swiss.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="新しいウィンドウでスイスページを開く">
+                        <span class="explore-icon">🤍</span>
+                        <span class="explore-text">スイス</span>
+                    </a>
+                    <a href="iceland.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="新しいウィンドウでアイスランドページを開く">
+                        <span class="explore-icon">🎀</span>
+                        <span class="explore-text">アイスランド</span>
+                    </a>
+                </div>
+
+                <div class="explore-home">
+                    <a href="https://kingdom.lat" target="_blank" rel="noopener noreferrer" class="home-btn" aria-label="新しいウィンドウで kingdom.lat ホームページに戻る">
+                        🏠 Kingdom.lat に戻る
+                    </a>
+                </div>
+
+                <p class="explore-note">🗻 近日中により多くの言語を追加予定...</p>
+            </div>
+        </section>
+
+        <!-- Frame 5: UP Tool (Japanese) -->
+        <section class="frame up-tool-frame ja-frame" aria-labelledby="up-tool-ja-heading">
+            <div class="frame-header">
+                <h2 id="up-tool-ja-heading">🌳 UPツール <span class="lang-badge">🇯🇵 JA</span></h2>
+                <button class="listen-btn" onclick="speakSection('up-tool-ja-content', 'ja-JP')" aria-label="UPツールセクションを聴く">
+                    🔊 聴く
+                </button>
+            </div>
+            <div id="up-tool-ja-content" class="frame-body">
+                <p class="up-tool-desc">ブラウザ内でローカルにテキストを抽出。追跡なし、100以上の言語に対応し、コピー、翻訳、読み上げ、保存機能を備えています。</p>
+                <a href="https://www.kingdom.lat/up/up.html" target="_blank" rel="noopener noreferrer" class="up-tool-btn" aria-label="新しいウィンドウでUPツールを起動">
+                    ツールを起動 ↗
+                </a>
+            </div>
+        </section>
+
+        <!-- Frame 6: UP Tool (English - kept for multi-language utility) -->
+        <section class="frame up-tool-frame en-frame" aria-labelledby="up-tool-en-heading">
+            <div class="frame-header">
+                <h2 id="up-tool-en-heading">🦌 UP Tool <span class="lang-badge">🇬🇧 EN</span></h2>
+                <button class="listen-btn" onclick="speakSection('up-tool-en-content', 'en-US')" aria-label="Listen to English UP Tool section">
+                    🔊 Listen
+                </button>
+            </div>
+            <div id="up-tool-en-content" class="frame-body">
+                <p class="up-tool-desc">Extract text locally in your browser. No tracking, 100+ languages, with copy, translate, read aloud, and save features.</p>
+                <a href="https://www.kingdom.lat/up/up.html" target="_blank" rel="noopener noreferrer" class="up-tool-btn" aria-label="Launch UP Tool in a new window">
+                    Launch Tool ↗
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="トップへ戻る" title="トップへ戻る">
+        ⬆️
+    </button>
+
+    <!-- Bottom frame: features, rights, and contact -->
+    <footer class="bottom-frame" role="contentinfo">
+        <button class="listen-btn footer-listen" onclick="speakSection('footer-content', 'ja-JP')" aria-label="フッターコンテンツを聴く">
+            🔊 機能と権利を聴く
+        </button>
+        
+        <div id="footer-content" class="footer-grid">
+            <div class="feature-item">
+                <strong>🔒 高いプライバシー：</strong>追跡なし、Cookieなし、第三者なし。
+            </div>
+            <div class="feature-item">
+                <strong>⚡ 超高速：</strong>サーバー待ちなしの即時ローカル処理。
+            </div>
+            <div class="feature-item">
+                <strong>♿ アクセシビリティ：</strong>スクリーンリーダーとキーボードに対応。
+            </div>
+            <div class="feature-item">
+                <strong>🤍 信頼できるサービス：</strong>訪問者を尊重し、データを保護するデザイン。
+            </div>
+        </div>
+
+        <div class="footer-meta">
+            <p>© <strong>kingdom.lat</strong> の全権利を留保します</p>
+            <p>ページ作成日：2026年9月5日</p>
+            <p>お問い合わせと更新情報： 
+                <a href="https://bsky.app/profile/now2026new.bsky.social" target="_blank" rel="noopener noreferrer" class="social-link">
+                    @now2026new.bsky.social
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Embedded script for clock, date, and listen feature (no third parties) -->
+    <script>
+        // 1. Live clock and date
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('liveDate').textContent = now.toLocaleDateString('ja-JP', dateOptions);
+            document.getElementById('liveClock').textContent = now.toLocaleTimeString('ja-JP');
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // 2. Listen feature for each frame (Web Speech API - 100% local)
+        // Updated to accept a language parameter for accurate pronunciation
+        function speakSection(elementId, lang = 'ja-JP') {
+            window.speechSynthesis.cancel();
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            
+            const textToSpeak = element.innerText;
+            const utterance = new SpeechSynthesisUtterance(textToSpeak);
+            utterance.lang = lang; // Dynamically set language (ja-JP or en-US)
+            utterance.rate = 0.9;
+            utterance.pitch = 1;
+            
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Stop speech when pressing ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                window.speechSynthesis.cancel();
+            }
+        });
+    </script>
+
+    <!-- Main logic file -->
+    <script src="app.js"></script>
+
+</body>
+</html>
