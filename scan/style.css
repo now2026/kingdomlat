@@ -721,3 +721,120 @@ button {
         font-size: 1rem;
     }
 }
+/* ============================================================
+   UP Tool Frames (Bilingual)
+   ============================================================ */
+.up-tool-frame {
+    border: 2px solid var(--bg-tertiary); /* Dark navy border */
+    background-color: var(--bg-secondary);
+    transition: all 0.3s ease;
+}
+
+.up-tool-frame:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(100, 200, 255, 0.1);
+}
+
+.lang-badge {
+    display: inline-block;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+.up-tool-desc {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    max-width: 800px;
+}
+
+.up-tool-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 2px solid var(--text-primary);
+    border-radius: var(--radius-md);
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.up-tool-btn:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    transform: scale(1.03);
+}
+
+.up-tool-btn:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* ============================================================
+   Scroll to Top Button
+   ============================================================ */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-top-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-primary);
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.scroll-top-btn:focus {
+    outline: 3px solid var(--text-primary);
+    outline-offset: 2px;
+}
+
+.scroll-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .scroll-top-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.25rem;
+    }
+    
+    .up-tool-desc {
+        font-size: 0.95rem;
+    }
+}
