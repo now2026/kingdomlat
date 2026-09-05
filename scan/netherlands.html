@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lokale toegankelijkheidschecker. Scan HTML-code direct en veilig in uw browser. Geen tracking, geen cookies, geen derden.">
+    <meta name="theme-color" content="#030812">
+    <title>Toegankelijkheidschecker 😁 | kingdom.lat</title>
+    
+    <!-- Link to stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation landmark for accessibility (Solves the missing <nav> warning) -->
+    <nav aria-label="Navigatie overslaan">
+        <a href="#main-content" class="skip-link">Ga naar hoofdinhoud</a>
+    </nav>
+
+    <!-- Top bar: live date and time -->
+    <header class="top-bar" role="banner">
+        <div class="live-info" aria-live="polite" aria-atomic="true">
+            <span id="liveDate">Datum wordt geladen...</span>
+            <span class="separator">|</span>
+            <span id="liveClock">Tijd wordt geladen...</span>
+        </div>
+    </header>
+
+    <main id="main-content" class="container" role="main">
+        
+        <!-- Frame 1: Welcome and purpose -->
+        <section class="frame" aria-labelledby="welcome-heading">
+            <div class="frame-header">
+                <h1 id="welcome-heading">🛡️ Lokale toegankelijkheidschecker</h1>
+                <button class="listen-btn" onclick="speakSection('welcome-content', 'nl-NL')" aria-label="Luister naar de welkomstsectie">
+                    🔊 Luisteren
+                </button>
+            </div>
+            <div id="welcome-content" class="frame-body">
+                <p>Welkom bij een tool die is gebouwd met volledig respect voor uw privacy. Deze tool draait <strong>100% in uw browser</strong>. Er wordt geen code naar een externe server verzonden, geen cookies, geen trackers.</p>
+                <p>Speciaal ontworpen om mensen met een handicap, visuele beperkingen en gehoorbeperkingen te ondersteunen, en zorgt voor de hoogste normen van duidelijkheid en gebruiksgemak.</p>
+            </div>
+        </section>
+
+        <!-- Frame 2: Input and scan area -->
+        <section class="frame" aria-labelledby="input-heading">
+            <div class="frame-header">
+                <h2 id="input-heading">📝 Scangebied</h2>
+                <button class="listen-btn" onclick="speakSection('input-content', 'nl-NL')" aria-label="Luister naar de scansectie">
+                    🔊 Luisteren
+                </button>
+            </div>
+            <div id="input-content" class="frame-body">
+                <label for="htmlInput" class="visually-hidden">Plak hier HTML-code om te scannen</label>
+                <textarea id="htmlInput" placeholder="Plak hier HTML-code om te scannen..." aria-describedby="input-help"></textarea>
+                <p id="input-help" class="help-text">💡 Tip: U kunt de paginabron kopiëren (Bron bekijken) en hier plakken. Uw gegevens verlaten nooit uw apparaat.</p>
+                
+                <div class="actions">
+                    <button type="button" id="checkBtn" class="primary-btn" aria-label="Start het scannen van de ingevoerde code">
+                        🔍 Start lokale scan
+                    </button>
+                    <button type="button" id="clearBtn" class="secondary-btn" aria-label="Wis de ingevoerde code">
+                        🗑️ Wissen
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frame 3: Scan results (shown dynamically) -->
+        <section class="frame results-frame" id="resultsFrame" aria-labelledby="results-heading" hidden>
+            <div class="frame-header">
+                <h2 id="results-heading">📊 Scanresultaten</h2>
+                <button class="listen-btn" onclick="speakSection('resultsContent', 'nl-NL')" aria-label="Luister naar de scanresultaten">
+                    🔊 Luisteren
+                </button>
+            </div>
+            <div id="resultsContent" class="frame-body">
+                <div id="resultsList" role="list" aria-label="Lijst met gevonden fouten en waarschuwingen">
+                    <p class="placeholder-text">Wachten op het starten van de scan...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frame 4: Explore Other Pages -->
+        <section class="frame explore-frame" aria-labelledby="explore-heading">
+            <div class="frame-header">
+                <h2 id="explore-heading">🌍 Ontdek andere pagina's</h2>
+                <button class="listen-btn" onclick="speakSection('explore-content', 'nl-NL')" aria-label="Luister naar de ontdekkingssectie">
+                    🔊 Luisteren
+                </button>
+            </div>
+            <div id="explore-content" class="frame-body">
+                <p class="explore-intro">Ontdek onze samengestelde collectie culturele pagina's. Elke link opent in een nieuw venster.</p>
+                
+                <div class="explore-grid">
+                    <a href="finland.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Open de Finland-pagina in een nieuw venster">
+                        <span class="explore-icon">🗻</span>
+                        <span class="explore-text">Finland</span>
+                    </a>
+                    <a href="denmark.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Open de Denemarken-pagina in een nieuw venster">
+                        <span class="explore-icon">🦢</span>
+                        <span class="explore-text">Denemarken</span>
+                    </a>
+                    <a href="japan.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Open de Japan-pagina in een nieuw venster">
+                        <span class="explore-icon">🫐</span>
+                        <span class="explore-text">Japan</span>
+                    </a>
+                    <a href="chine.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Open de China-pagina in een nieuw venster">
+                        <span class="explore-icon">🎉</span>
+                        <span class="explore-text">China</span>
+                    </a>
+                    <a href="netherlands.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Open de Nederland-pagina in een nieuw venster">
+                        <span class="explore-icon">🌷</span>
+                        <span class="explore-text">Nederland</span>
+                    </a>
+                    <a href="swiss.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Open de Zwitserland-pagina in een nieuw venster">
+                        <span class="explore-icon">🤍</span>
+                        <span class="explore-text">Zwitserland</span>
+                    </a>
+                    <a href="iceland.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Open de IJsland-pagina in een nieuw venster">
+                        <span class="explore-icon">🎀</span>
+                        <span class="explore-text">IJsland</span>
+                    </a>
+                </div>
+
+                <div class="explore-home">
+                    <a href="https://kingdom.lat" target="_blank" rel="noopener noreferrer" class="home-btn" aria-label="Keer terug naar de kingdom.lat-startpagina in een nieuw venster">
+                        🏠 Terug naar Kingdom.lat
+                    </a>
+                </div>
+
+                <p class="explore-note">🗻 Meer talen binnenkort beschikbaar...</p>
+            </div>
+        </section>
+
+        <!-- Frame 5: UP Tool (Dutch) -->
+        <section class="frame up-tool-frame nl-frame" aria-labelledby="up-tool-nl-heading">
+            <div class="frame-header">
+                <h2 id="up-tool-nl-heading">🌳 UP-tool <span class="lang-badge">🇳🇱 NL</span></h2>
+                <button class="listen-btn" onclick="speakSection('up-tool-nl-content', 'nl-NL')" aria-label="Luister naar de UP-toolsectie">
+                    🔊 Luisteren
+                </button>
+            </div>
+            <div id="up-tool-nl-content" class="frame-body">
+                <p class="up-tool-desc">Extraheer tekst lokaal in uw browser. Geen tracking, meer dan 100 talen, met functies voor kopiëren, vertalen, voorlezen en opslaan.</p>
+                <a href="https://www.kingdom.lat/up/up.html" target="_blank" rel="noopener noreferrer" class="up-tool-btn" aria-label="Start de UP-tool in een nieuw venster">
+                    Start tool ↗
+                </a>
+            </div>
+        </section>
+
+        <!-- Frame 6: UP Tool (English - kept for multi-language utility) -->
+        <section class="frame up-tool-frame en-frame" aria-labelledby="up-tool-en-heading">
+            <div class="frame-header">
+                <h2 id="up-tool-en-heading">🦌 UP Tool <span class="lang-badge">🇬🇧 EN</span></h2>
+                <button class="listen-btn" onclick="speakSection('up-tool-en-content', 'en-US')" aria-label="Listen to English UP Tool section">
+                    🔊 Listen
+                </button>
+            </div>
+            <div id="up-tool-en-content" class="frame-body">
+                <p class="up-tool-desc">Extract text locally in your browser. No tracking, 100+ languages, with copy, translate, read aloud, and save features.</p>
+                <a href="https://www.kingdom.lat/up/up.html" target="_blank" rel="noopener noreferrer" class="up-tool-btn" aria-label="Launch UP Tool in a new window">
+                    Launch Tool ↗
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Terug naar boven" title="Terug naar boven">
+        ⬆️
+    </button>
+
+    <!-- Bottom frame: features, rights, and contact -->
+    <footer class="bottom-frame" role="contentinfo">
+        <button class="listen-btn footer-listen" onclick="speakSection('footer-content', 'nl-NL')" aria-label="Luister naar de voettekst">
+            🔊 Luister naar functies en rechten
+        </button>
+        
+        <div id="footer-content" class="footer-grid">
+            <div class="feature-item">
+                <strong>🔒 Hoge privacy:</strong> Geen tracking, geen cookies, geen derden.
+            </div>
+            <div class="feature-item">
+                <strong>⚡ Ultrasnel:</strong> Directe lokale verwerking zonder wachttijd op de server.
+            </div>
+            <div class="feature-item">
+                <strong>♿ Toegankelijkheid:</strong> Compatibel met schermlezers en toetsenborden.
+            </div>
+            <div class="feature-item">
+                <strong>🤍 Betrouwbare service:</strong> Ontwerp dat bezoekers respecteert en hun gegevens beschermt.
+            </div>
+        </div>
+
+        <div class="footer-meta">
+            <p>© Alle rechten voorbehouden aan <strong>kingdom.lat</strong></p>
+            <p>Aanmaakdatum pagina: 5 september 2026</p>
+            <p>Voor contact en updates: 
+                <a href="https://bsky.app/profile/now2026new.bsky.social" target="_blank" rel="noopener noreferrer" class="social-link">
+                    @now2026new.bsky.social
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Embedded script for clock, date, and listen feature (no third parties) -->
+    <script>
+        // 1. Live clock and date
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('liveDate').textContent = now.toLocaleDateString('nl-NL', dateOptions);
+            document.getElementById('liveClock').textContent = now.toLocaleTimeString('nl-NL');
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // 2. Listen feature for each frame (Web Speech API - 100% local)
+        // Updated to accept a language parameter for accurate pronunciation
+        function speakSection(elementId, lang = 'nl-NL') {
+            window.speechSynthesis.cancel();
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            
+            const textToSpeak = element.innerText;
+            const utterance = new SpeechSynthesisUtterance(textToSpeak);
+            utterance.lang = lang; // Dynamically set language (nl-NL or en-US)
+            utterance.rate = 0.9;
+            utterance.pitch = 1;
+            
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Stop speech when pressing ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                window.speechSynthesis.cancel();
+            }
+        });
+    </script>
+
+    <!-- Main logic file -->
+    <script src="app.js"></script>
+
+</body>
+</html>
