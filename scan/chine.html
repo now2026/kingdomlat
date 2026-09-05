@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="本地无障碍检查器。在您的浏览器中即时、安全地扫描 HTML 代码。无跟踪、无 Cookie、无第三方。">
+    <meta name="theme-color" content="#030812">
+    <title>无障碍检查器 😁 | kingdom.lat</title>
+    
+    <!-- Link to stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation landmark for accessibility (Solves the missing <nav> warning) -->
+    <nav aria-label="跳过导航">
+        <a href="#main-content" class="skip-link">跳转到主要内容</a>
+    </nav>
+
+    <!-- Top bar: live date and time -->
+    <header class="top-bar" role="banner">
+        <div class="live-info" aria-live="polite" aria-atomic="true">
+            <span id="liveDate">正在加载日期...</span>
+            <span class="separator">|</span>
+            <span id="liveClock">正在加载时间...</span>
+        </div>
+    </header>
+
+    <main id="main-content" class="container" role="main">
+        
+        <!-- Frame 1: Welcome and purpose -->
+        <section class="frame" aria-labelledby="welcome-heading">
+            <div class="frame-header">
+                <h1 id="welcome-heading">🛡️ 本地无障碍检查器</h1>
+                <button class="listen-btn" onclick="speakSection('welcome-content', 'zh-CN')" aria-label="朗读欢迎部分">
+                    🔊 朗读
+                </button>
+            </div>
+            <div id="welcome-content" class="frame-body">
+                <p>欢迎使用完全尊重您隐私的工具。此工具 <strong>100% 在您的浏览器中运行</strong>。代码不会发送到任何外部服务器，无 Cookie，无跟踪器。</p>
+                <p>专为支持残疾人、视障和听障人士而设计，确保最高标准的清晰度和易用性。</p>
+            </div>
+        </section>
+
+        <!-- Frame 2: Input and scan area -->
+        <section class="frame" aria-labelledby="input-heading">
+            <div class="frame-header">
+                <h2 id="input-heading">📝 扫描区域</h2>
+                <button class="listen-btn" onclick="speakSection('input-content', 'zh-CN')" aria-label="朗读扫描部分">
+                    🔊 朗读
+                </button>
+            </div>
+            <div id="input-content" class="frame-body">
+                <label for="htmlInput" class="visually-hidden">在此处粘贴 HTML 代码以进行扫描</label>
+                <textarea id="htmlInput" placeholder="在此处粘贴 HTML 代码以进行扫描..." aria-describedby="input-help"></textarea>
+                <p id="input-help" class="help-text">💡 提示：您可以复制页面源代码（查看源代码）并粘贴到此处。您的数据永远不会离开您的设备。</p>
+                
+                <div class="actions">
+                    <button type="button" id="checkBtn" class="primary-btn" aria-label="开始扫描输入的代码">
+                        🔍 开始本地扫描
+                    </button>
+                    <button type="button" id="clearBtn" class="secondary-btn" aria-label="清除输入的代码">
+                        🗑️ 清除
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frame 3: Scan results (shown dynamically) -->
+        <section class="frame results-frame" id="resultsFrame" aria-labelledby="results-heading" hidden>
+            <div class="frame-header">
+                <h2 id="results-heading">📊 扫描结果</h2>
+                <button class="listen-btn" onclick="speakSection('resultsContent', 'zh-CN')" aria-label="朗读扫描结果">
+                    🔊 朗读
+                </button>
+            </div>
+            <div id="resultsContent" class="frame-body">
+                <div id="resultsList" role="list" aria-label="发现的错误和警告列表">
+                    <p class="placeholder-text">等待开始扫描...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frame 4: Explore Other Pages -->
+        <section class="frame explore-frame" aria-labelledby="explore-heading">
+            <div class="frame-header">
+                <h2 id="explore-heading">🌍 探索其他页面</h2>
+                <button class="listen-btn" onclick="speakSection('explore-content', 'zh-CN')" aria-label="朗读探索部分">
+                    🔊 朗读
+                </button>
+            </div>
+            <div id="explore-content" class="frame-body">
+                <p class="explore-intro">探索我们精心策划的文化页面集合。每个链接都会在新窗口中打开。</p>
+                
+                <div class="explore-grid">
+                    <a href="finland.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="在新窗口中打开芬兰页面">
+                        <span class="explore-icon">🗻</span>
+                        <span class="explore-text">芬兰</span>
+                    </a>
+                    <a href="denmark.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="在新窗口中打开丹麦页面">
+                        <span class="explore-icon">🦢</span>
+                        <span class="explore-text">丹麦</span>
+                    </a>
+                    <a href="japan.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="在新窗口中打开日本页面">
+                        <span class="explore-icon">🫐</span>
+                        <span class="explore-text">日本</span>
+                    </a>
+                    <a href="chine.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="在新窗口中打开中国页面">
+                        <span class="explore-icon">🎉</span>
+                        <span class="explore-text">中国</span>
+                    </a>
+                    <a href="netherlands.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="在新窗口中打开荷兰页面">
+                        <span class="explore-icon">🌷</span>
+                        <span class="explore-text">荷兰</span>
+                    </a>
+                    <a href="swiss.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="在新窗口中打开瑞士页面">
+                        <span class="explore-icon">🤍</span>
+                        <span class="explore-text">瑞士</span>
+                    </a>
+                    <a href="iceland.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="在新窗口中打开冰岛页面">
+                        <span class="explore-icon">🎀</span>
+                        <span class="explore-text">冰岛</span>
+                    </a>
+                </div>
+
+                <div class="explore-home">
+                    <a href="https://kingdom.lat" target="_blank" rel="noopener noreferrer" class="home-btn" aria-label="在新窗口中返回 kingdom.lat 首页">
+                        🏠 返回 Kingdom.lat
+                    </a>
+                </div>
+
+                <p class="explore-note">🗻 更多语言即将推出...</p>
+            </div>
+        </section>
+
+        <!-- Frame 5: UP Tool (Chinese) -->
+        <section class="frame up-tool-frame zh-frame" aria-labelledby="up-tool-zh-heading">
+            <div class="frame-header">
+                <h2 id="up-tool-zh-heading">🌳 UP 工具 <span class="lang-badge">🇨🇳 CN</span></h2>
+                <button class="listen-btn" onclick="speakSection('up-tool-zh-content', 'zh-CN')" aria-label="朗读 UP 工具部分">
+                    🔊 朗读
+                </button>
+            </div>
+            <div id="up-tool-zh-content" class="frame-body">
+                <p class="up-tool-desc">在您的浏览器中本地提取文本。无跟踪，支持 100 多种语言，具有复制、翻译、朗读和保存功能。</p>
+                <a href="https://www.kingdom.lat/up/up.html" target="_blank" rel="noopener noreferrer" class="up-tool-btn" aria-label="在新窗口中启动 UP 工具">
+                    启动工具 ↗
+                </a>
+            </div>
+        </section>
+
+        <!-- Frame 6: UP Tool (English - kept for multi-language utility) -->
+        <section class="frame up-tool-frame en-frame" aria-labelledby="up-tool-en-heading">
+            <div class="frame-header">
+                <h2 id="up-tool-en-heading">🦌 UP Tool <span class="lang-badge">🇬🇧 EN</span></h2>
+                <button class="listen-btn" onclick="speakSection('up-tool-en-content', 'en-US')" aria-label="Listen to English UP Tool section">
+                    🔊 Listen
+                </button>
+            </div>
+            <div id="up-tool-en-content" class="frame-body">
+                <p class="up-tool-desc">Extract text locally in your browser. No tracking, 100+ languages, with copy, translate, read aloud, and save features.</p>
+                <a href="https://www.kingdom.lat/up/up.html" target="_blank" rel="noopener noreferrer" class="up-tool-btn" aria-label="Launch UP Tool in a new window">
+                    Launch Tool ↗
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="回到顶部" title="回到顶部">
+        ⬆️
+    </button>
+
+    <!-- Bottom frame: features, rights, and contact -->
+    <footer class="bottom-frame" role="contentinfo">
+        <button class="listen-btn footer-listen" onclick="speakSection('footer-content', 'zh-CN')" aria-label="朗读页脚内容">
+            🔊 朗读功能与权利
+        </button>
+        
+        <div id="footer-content" class="footer-grid">
+            <div class="feature-item">
+                <strong>🔒 高度隐私：</strong>无跟踪、无 Cookie、无第三方。
+            </div>
+            <div class="feature-item">
+                <strong>⚡ 极速处理：</strong>即时本地处理，无需等待服务器。
+            </div>
+            <div class="feature-item">
+                <strong>♿ 无障碍设计：</strong>兼容屏幕阅读器和键盘操作。
+            </div>
+            <div class="feature-item">
+                <strong>🤍 可靠服务：</strong>尊重访客并保护其数据的设计。
+            </div>
+        </div>
+
+        <div class="footer-meta">
+            <p>© 保留所有权利 <strong>kingdom.lat</strong></p>
+            <p>页面创建日期：2026年9月5日</p>
+            <p>联系与更新： 
+                <a href="https://bsky.app/profile/now2026new.bsky.social" target="_blank" rel="noopener noreferrer" class="social-link">
+                    @now2026new.bsky.social
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Embedded script for clock, date, and listen feature (no third parties) -->
+    <script>
+        // 1. Live clock and date
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('liveDate').textContent = now.toLocaleDateString('zh-CN', dateOptions);
+            document.getElementById('liveClock').textContent = now.toLocaleTimeString('zh-CN');
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // 2. Listen feature for each frame (Web Speech API - 100% local)
+        // Updated to accept a language parameter for accurate pronunciation
+        function speakSection(elementId, lang = 'zh-CN') {
+            window.speechSynthesis.cancel();
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            
+            const textToSpeak = element.innerText;
+            const utterance = new SpeechSynthesisUtterance(textToSpeak);
+            utterance.lang = lang; // Dynamically set language (zh-CN or en-US)
+            utterance.rate = 0.9;
+            utterance.pitch = 1;
+            
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Stop speech when pressing ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                window.speechSynthesis.cancel();
+            }
+        });
+    </script>
+
+    <!-- Main logic file -->
+    <script src="app.js"></script>
+
+</body>
+</html>
