@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="is" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Staðvært aðgengisathugunartæki. Skannaðu HTML-kóða tafarlaust og örugglega í vafranum þínum. Engin vöktun, engar smákökur, engir þriðju aðilar.">
+    <meta name="theme-color" content="#030812">
+    <title>Aðgengisathugunartæki 😁 | kingdom.lat</title>
+    
+    <!-- Link to stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation landmark for accessibility (Solves the missing <nav> warning) -->
+    <nav aria-label="Sleppa leiðsögn">
+        <a href="#main-content" class="skip-link">Fara í aðalefni</a>
+    </nav>
+
+    <!-- Top bar: live date and time -->
+    <header class="top-bar" role="banner">
+        <div class="live-info" aria-live="polite" aria-atomic="true">
+            <span id="liveDate">Hleð dagsetningu...</span>
+            <span class="separator">|</span>
+            <span id="liveClock">Hleð tíma...</span>
+        </div>
+    </header>
+
+    <main id="main-content" class="container" role="main">
+        
+        <!-- Frame 1: Welcome and purpose -->
+        <section class="frame" aria-labelledby="welcome-heading">
+            <div class="frame-header">
+                <h1 id="welcome-heading">🛡️ Staðvært aðgengisathugunartæki</h1>
+                <button class="listen-btn" onclick="speakSection('welcome-content', 'is-IS')" aria-label="Hlusta á velkominskaflann">
+                    🔊 Hlusta
+                </button>
+            </div>
+            <div id="welcome-content" class="frame-body">
+                <p>Velkomin í tæki sem er hannað með fullri virðingu fyrir friðhelgi þinni. Þetta tæki keyrir <strong>100% í vafranum þínum</strong>. Enginn kóði er sendur á ytri þjón, engar smákökur, engar vöktunarvélar.</p>
+                <p>Hannað sérstaklega til að styðja fatlaða, sjónskerta og heyrnarskerta, og tryggir hæstu staðla fyrir skýrleika og notkunarauðveldni.</p>
+            </div>
+        </section>
+
+        <!-- Frame 2: Input and scan area -->
+        <section class="frame" aria-labelledby="input-heading">
+            <div class="frame-header">
+                <h2 id="input-heading">📝 Skönnunarsvæði</h2>
+                <button class="listen-btn" onclick="speakSection('input-content', 'is-IS')" aria-label="Hlusta á skönnunarkaflann">
+                    🔊 Hlusta
+                </button>
+            </div>
+            <div id="input-content" class="frame-body">
+                <label for="htmlInput" class="visually-hidden">Límið HTML-kóða hér til að skanna</label>
+                <textarea id="htmlInput" placeholder="Límið HTML-kóða hér til að skanna..." aria-describedby="input-help"></textarea>
+                <p id="input-help" class="help-text">💡 Ábending: Þú getur afritað frumkóða síðunnar (Skoða frumkóða) og límt hann hér. Gögnin þín yfirgefa aldrei tækið þitt.</p>
+                
+                <div class="actions">
+                    <button type="button" id="checkBtn" class="primary-btn" aria-label="Byrja skönnun á innslættum kóða">
+                        🔍 Byrja staðværa skönnun
+                    </button>
+                    <button type="button" id="clearBtn" class="secondary-btn" aria-label="Hreinsa innslættan kóða">
+                        🗑️ Hreinsa
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frame 3: Scan results (shown dynamically) -->
+        <section class="frame results-frame" id="resultsFrame" aria-labelledby="results-heading" hidden>
+            <div class="frame-header">
+                <h2 id="results-heading">📊 Skönnunarniðurstöður</h2>
+                <button class="listen-btn" onclick="speakSection('resultsContent', 'is-IS')" aria-label="Hlusta á skönnunarniðurstöður">
+                    🔊 Hlusta
+                </button>
+            </div>
+            <div id="resultsContent" class="frame-body">
+                <div id="resultsList" role="list" aria-label="Listi yfir fundnar villur og viðvaranir">
+                    <p class="placeholder-text">Bíð eftir að hefja skönnun...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frame 4: Explore Other Pages -->
+        <section class="frame explore-frame" aria-labelledby="explore-heading">
+            <div class="frame-header">
+                <h2 id="explore-heading">🌍 Kanna aðrar síður</h2>
+                <button class="listen-btn" onclick="speakSection('explore-content', 'is-IS')" aria-label="Hlusta á könnunarkaflann">
+                    🔊 Hlusta
+                </button>
+            </div>
+            <div id="explore-content" class="frame-body">
+                <p class="explore-intro">Uppgötvaðu vandlega valda safnið okkar af menningarsíðum. Hver tengill opnast í nýjum glugga.</p>
+                
+                <div class="explore-grid">
+                    <a href="finland.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Opna Finnlandssíðu í nýjum glugga">
+                        <span class="explore-icon">🗻</span>
+                        <span class="explore-text">Finnland</span>
+                    </a>
+                    <a href="denmark.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Opna Danmörk-síðu í nýjum glugga">
+                        <span class="explore-icon">🦢</span>
+                        <span class="explore-text">Danmörk</span>
+                    </a>
+                    <a href="japan.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Opna Japan-síðu í nýjum glugga">
+                        <span class="explore-icon">🫐</span>
+                        <span class="explore-text">Japan</span>
+                    </a>
+                    <a href="chine.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Opna Kína-síðu í nýjum glugga">
+                        <span class="explore-icon">🎉</span>
+                        <span class="explore-text">Kína</span>
+                    </a>
+                    <a href="netherlands.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Opna Holland-síðu í nýjum glugga">
+                        <span class="explore-icon">🌷</span>
+                        <span class="explore-text">Holland</span>
+                    </a>
+                    <a href="swiss.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Opna Sviss-síðu í nýjum glugga">
+                        <span class="explore-icon">🤍</span>
+                        <span class="explore-text">Sviss</span>
+                    </a>
+                    <a href="iceland.html" target="_blank" rel="noopener noreferrer" class="explore-btn" aria-label="Opna Ísland-síðu í nýjum glugga">
+                        <span class="explore-icon">🎀</span>
+                        <span class="explore-text">Ísland</span>
+                    </a>
+                </div>
+
+                <div class="explore-home">
+                    <a href="https://kingdom.lat" target="_blank" rel="noopener noreferrer" class="home-btn" aria-label="Fara til baka á kingdom.lat heimasíðuna í nýjum glugga">
+                        🏠 Fara til baka á Kingdom.lat
+                    </a>
+                </div>
+
+                <p class="explore-note">🗻 Fleiri tungumál koma fljótlega...</p>
+            </div>
+        </section>
+
+        <!-- Frame 5: UP Tool (Icelandic) -->
+        <section class="frame up-tool-frame is-frame" aria-labelledby="up-tool-is-heading">
+            <div class="frame-header">
+                <h2 id="up-tool-is-heading">🌳 UP-tæki <span class="lang-badge">🇮🇸 IS</span></h2>
+                <button class="listen-btn" onclick="speakSection('up-tool-is-content', 'is-IS')" aria-label="Hlusta á UP-tækiskaflann">
+                    🔊 Hlusta
+                </button>
+            </div>
+            <div id="up-tool-is-content" class="frame-body">
+                <p class="up-tool-desc">Dragðu út texta staðbundið í vafranum þínum. Engin vöktun, yfir 100 tungumál, með eiginleikum til að afrita, þýða, lesa upphátt og vista.</p>
+                <a href="https://www.kingdom.lat/up/up.html" target="_blank" rel="noopener noreferrer" class="up-tool-btn" aria-label="Ræsa UP-tæki í nýjum glugga">
+                        Ræsa tæki ↗
+                </a>
+            </div>
+        </section>
+
+        <!-- Frame 6: UP Tool (English - kept for multi-language utility) -->
+        <section class="frame up-tool-frame en-frame" aria-labelledby="up-tool-en-heading">
+            <div class="frame-header">
+                <h2 id="up-tool-en-heading">🦌 UP Tool <span class="lang-badge">🇬🇧 EN</span></h2>
+                <button class="listen-btn" onclick="speakSection('up-tool-en-content', 'en-US')" aria-label="Listen to English UP Tool section">
+                    🔊 Listen
+                </button>
+            </div>
+            <div id="up-tool-en-content" class="frame-body">
+                <p class="up-tool-desc">Extract text locally in your browser. No tracking, 100+ languages, with copy, translate, read aloud, and save features.</p>
+                <a href="https://www.kingdom.lat/up/up.html" target="_blank" rel="noopener noreferrer" class="up-tool-btn" aria-label="Launch UP Tool in a new window">
+                    Launch Tool ↗
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Skruna efst" title="Skruna efst">
+        ⬆️
+    </button>
+
+    <!-- Bottom frame: features, rights, and contact -->
+    <footer class="bottom-frame" role="contentinfo">
+        <button class="listen-btn footer-listen" onclick="speakSection('footer-content', 'is-IS')" aria-label="Hlusta á fótmeðalinnihald">
+            🔊 Hlusta á eiginleika og réttindi
+        </button>
+        
+        <div id="footer-content" class="footer-grid">
+            <div class="feature-item">
+                <strong>🔒 Mikil friðhelgi:</strong> Engin vöktun, engar smákökur, engir þriðju aðilar.
+            </div>
+            <div class="feature-item">
+                <strong>⚡ Ofurhratt:</strong> Tafarlaus staðvinnsla án þess að bíða eftir þjóni.
+            </div>
+            <div class="feature-item">
+                <strong>♿ Aðgengi:</strong> Samhæft við skjálestur og lyklaborð.
+            </div>
+            <div class="feature-item">
+                <strong>🤍 Áreiðanleg þjónusta:</strong> Hönnun sem virðir gesti og verndar gögn þeirra.
+            </div>
+        </div>
+
+        <div class="footer-meta">
+            <p>© Allur réttur áskilinn <strong>kingdom.lat</strong></p>
+            <p>Stofndagur síðu: 5. september 2026</p>
+            <p>Fyrir tengiliði og uppfærslur: 
+                <a href="https://bsky.app/profile/now2026new.bsky.social" target="_blank" rel="noopener noreferrer" class="social-link">
+                    @now2026new.bsky.social
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Embedded script for clock, date, and listen feature (no third parties) -->
+    <script>
+        // 1. Live clock and date
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('liveDate').textContent = now.toLocaleDateString('is-IS', dateOptions);
+            document.getElementById('liveClock').textContent = now.toLocaleTimeString('is-IS');
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // 2. Listen feature for each frame (Web Speech API - 100% local)
+        // Updated to accept a language parameter for accurate pronunciation
+        function speakSection(elementId, lang = 'is-IS') {
+            window.speechSynthesis.cancel();
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            
+            const textToSpeak = element.innerText;
+            const utterance = new SpeechSynthesisUtterance(textToSpeak);
+            utterance.lang = lang; // Dynamically set language (is-IS or en-US)
+            utterance.rate = 0.9;
+            utterance.pitch = 1;
+            
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Stop speech when pressing ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                window.speechSynthesis.cancel();
+            }
+        });
+    </script>
+
+    <!-- Main logic file -->
+    <script src="app.js"></script>
+
+</body>
+</html>
