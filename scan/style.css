@@ -563,3 +563,161 @@ button {
         page-break-inside: avoid;
     }
 }
+/* ============================================================
+   Explore Frame (New Section)
+   ============================================================ */
+.explore-frame {
+    border: 2px solid var(--accent-color);
+    background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+}
+
+.explore-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.explore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.explore-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md) var(--spacing-sm);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    min-height: 120px;
+    position: relative;
+    overflow: hidden;
+}
+
+.explore-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(100, 200, 255, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.explore-btn:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(100, 200, 255, 0.2);
+}
+
+.explore-btn:hover::before {
+    opacity: 1;
+}
+
+.explore-btn:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.explore-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.explore-text {
+    font-size: 1rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.explore-home {
+    text-align: center;
+    margin: var(--spacing-lg) 0;
+}
+
+.home-btn {
+    display: inline-block;
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    padding: 1rem 2rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+    border: 2px solid var(--text-primary);
+}
+
+.home-btn:hover {
+    background-color: transparent;
+    color: var(--text-primary);
+    transform: scale(1.05);
+}
+
+.home-btn:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.explore-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background-color: rgba(100, 200, 255, 0.05);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--border-color);
+}
+
+/* Responsive adjustments for explore frame */
+@media (max-width: 768px) {
+    .explore-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: var(--spacing-sm);
+    }
+
+    .explore-btn {
+        min-height: 100px;
+        padding: var(--spacing-sm);
+    }
+
+    .explore-icon {
+        font-size: 2rem;
+    }
+
+    .explore-text {
+        font-size: 0.9rem;
+    }
+
+    .home-btn {
+        width: 100%;
+        padding: 0.875rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .explore-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .explore-intro {
+        font-size: 1rem;
+    }
+}
